@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ title }}</title>
+
+  <link rel="stylesheet" href="/assets/css/remedy.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  {% if css == 'demo' %}
+    <link rel="stylesheet" href="../{{ page.fileSlug }}.css">
+  {% endif %}
+</head>
+<body>
+  {% set talkUrl = '/' + talk + '/' if talk else none %}
+  {% set talkIndex = collections.all | getPage(talkUrl) if talkUrl else none %}
+  {% set talkTitle = (talkIndex.banner or talkIndex.title or talk) if talk else none %}
+
+  <nav data-nav>
+    <a href="/" rel="home">home</a>
+    {% if talk %}
+      {% if not (talkUrl == page.url) %}
+        |
+        <a href="{{ talkUrl }}">
+          {{ talkTitle | mdInline | safe }}
+        </a>
+      {% endif %}
+    {% endif %}
+  </nav>
+
+  <h1 data-banner>{{ (banner or title or talkTitle) | mdInline | safe }}</h1>
+
+  <main data-main>
+    <div data-inner>
+      {{ content | safe }}
+    </div>
+  </main>
+
+  <footer data-footer>
+    <a class="page" href="{{ page.url }}">{{ page.url }}</a>
+    <a class="twitter" href="http://twitter.com/mirisuzanne">@mirisuzanne</a>
+  </footer>
+</body>
+</html>

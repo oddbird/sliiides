@@ -1,0 +1,20 @@
+
+p {
+  border: 2px solid;
+  font-size: 3em;
+  width: 3.5em;
+  padding: 0.25em 0.5em;
+  line-height: 1;
+  justify-self: center;
+}
+
+strong {
+  color: maroon;
+  display: block;
+  font-weight: normal;
+}
+
+strong:focus {
+  text-decoration: underline;
+  outline: 0;
+}
