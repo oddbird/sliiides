@@ -19,8 +19,9 @@ module.exports = eleventyConfig => {
   eleventyConfig.addFilter('md', (content) => md.render(content));
   eleventyConfig.addFilter('mdInline', (content) => md.renderInline(content));
   eleventyConfig.addFilter('getPage', (collection, page) => {
-    const pageURL = typeof page === 'string' ? page : page.url;
-    return collection.filter(page => page.url === pageURL);
+    const pageURL = (typeof page === 'string') ? page : page.url;
+    const list = collection.filter(page => page.url === pageURL);
+    return list ? list[0] : null;
   });
 
   // shortcodes
@@ -35,6 +36,7 @@ module.exports = eleventyConfig => {
     markdownTemplateEngine: 'njk',
     templateFormats: ['njk', 'md', 'css'],
     dir: {
+      data: '_data',
       includes: '_includes',
       layouts: '_layouts',
     },

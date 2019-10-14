@@ -1,13 +1,27 @@
 ---
+slug: css-is-rad
 title: CSS is Rad
 banner: CSS is **Rad**
+sections:
+ - slug: rad
+ - slug: vision
+ - slug: cascade
+ - title: Supporting Browsers
 tags:
   - index
 ---
 
-1. ## [Better Than Awesome](rad/)
-2. ## [A **Rad**ical Vision](vision/)
-3. ## "Supporting" Browsers
+{%- for section in sections %}
+{%- set get = (page.url + section.slug + '/') if section.slug else none %}
+{%- set sectionPage = collections[slug] | getPage(get) if get else none %}
+{%- set sectionTitle = sectionPage.data.banner or sectionPage.data.title if sectionPage else '@@@' %}
+{%- set sectionTitle = (section.title or sectionTitle) | mdInline %}
+{%- if sectionPage or section.url %}
+- ## [{{ sectionTitle | safe }} »]({{ section.url or sectionPage.url }})
+{%- else %}
+- ## {{ sectionTitle | safe }} ...
+{%- endif %}
+{%- endfor %}
 
 ------
 

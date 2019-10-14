@@ -86,6 +86,7 @@ h1 {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
+  margin-bottom: 0;
 }
 
 h1 { font-size: inherit; }
@@ -102,6 +103,10 @@ h4 strong {
   font-family: var(--strong);
 }
 
+main [href*='://']::after {
+  content: ' ↗ ';
+  font-size: 0.5em;
+}
 
 body {
   display: grid;
@@ -116,7 +121,7 @@ body {
 
 [data-nav],
 [data-banner],
-[data-main],
+main,
 [data-footer] {
   padding: 0.25em 0.5em;
 }
@@ -130,7 +135,7 @@ body {
 
 [data-nav] { grid-area: nav; }
 [data-banner] { grid-area: banner; }
-[data-main] { grid-area: main; }
+main { grid-area: main; }
 [data-footer] {
   display: grid;
   grid-template-columns: subgrid;
@@ -148,7 +153,7 @@ body {
   }
 }
 
-[data-main] {
+main {
   align-content: safe center;
   border: 1px solid maroon;
   border-width: 1px 0;

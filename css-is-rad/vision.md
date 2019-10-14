@@ -24,6 +24,3 @@ banner: A **Rad**ical Vision
    *(`->Robert Raisch`)*
 2. The Cascade
    *(`->Håkon Lie`)*
-
-
-## `Now->` [Origin & Importance](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#Cascading_order)

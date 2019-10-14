@@ -15,7 +15,7 @@
 <body>
   {% set talkUrl = '/' + talk + '/' if talk else none %}
   {% set talkIndex = collections.all | getPage(talkUrl) if talkUrl else none %}
-  {% set talkTitle = (talkIndex.banner or talkIndex.title or talk) if talk else none %}
+  {% set talkTitle = (talkIndex.data.title or talk) if talk else none %}
 
   <nav data-nav>
     <a href="/" rel="home">home</a>
@@ -31,15 +31,20 @@
 
   <h1 data-banner>{{ (banner or title or talkTitle) | mdInline | safe }}</h1>
 
-  <main data-main>
+  <main>
     <div data-inner>
       {{ content | safe }}
     </div>
   </main>
 
   <footer data-footer>
-    <a class="page" href="{{ page.url }}">{{ page.url }}</a>
-    <a class="twitter" href="http://twitter.com/mirisuzanne">@mirisuzanne</a>
+    <div class="page">
+      {% set url = (site.domain + page.url) | url %}
+      <a href="https://{{ url }}">{{ url }}</a>
+    </div>
+    <div class="twitter">
+      <a href="https://twitter.com/mirisuzanne">@mirisuzanne</a>
+    </div>
   </footer>
 </body>
 </html>
