@@ -1,0 +1,55 @@
+
+
+figure {
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+img {
+  float: left;
+  min-width: 200px;
+  width: 33%;
+  shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+a:link,
+a:visited {
+  text-decoration-color: rebeccapurple;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.1em;
+
+  /* text-decoration-skip-ink: none; */
+  transition: text-decoration 300ms ease-in-out, text-underline-offset 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration-thickness: 0.2em;
+
+  /* text-decoration-thickness: 1.1em; */
+  /* text-underline-offset: -1em; */
+  /* color: white; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* layout */
+figure {
+  align-content: start;
+  background: #a8a8a8;
+  border: 1px solid maroon;
+}
+
+p {
+  margin-top: 0;
+}

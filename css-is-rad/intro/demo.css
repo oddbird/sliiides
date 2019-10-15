@@ -1,0 +1,23 @@
+.logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+  grid-column-gap: var(--double-gap);
+  grid-row-gap: var(--gap);
+  list-style: none;
+}
+
+.brand {
+  display: grid;
+  font-size: var(--size-s);
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+}
+
+.logos svg {
+  align-self: center;
+}
+
+.logos a {
+  font-weight: bold;
+  text-align: center;
+}

@@ -70,13 +70,27 @@ html {
   --code: var(--dank-mono);
   --strong: var(--zilla-highlight);
 
+  --size-3: calc(1.5rem + 3vw);
+  --size-2: calc(1.17rem + 3vw);
+  --size-1: calc(1rem + 3vw);
+  --size-l: calc(1rem + 2vw);
+  --size-m: calc(1rem + 1.5vw);
+  --size-s: calc(1rem + 1vw);
+  --size-u: 1rem;
+  --size-code: 0.8em;
+
+  --gap: var(--size-s);
+  --double-gap: calc(var(--size-m) * 2);
+  --half-gap: calc(var(--gap) / 2);
+  --shim: calc(var(--gap) / 4);
+
   font-family: var(--zilla);
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 pre, code {
   font-family: var(--code);
-  font-size: 0.8em;
+  font-size: var(--size-code);
 }
 
 h1 {
@@ -86,15 +100,15 @@ h1 {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 h1 { font-size: inherit; }
-h2 { font-size: calc(1.5rem + 2vw); }
-h3 { font-size: calc(1.17rem + 2vw); }
-h4 { font-size: calc(1.00rem + 2vw); }
-h5 { font-size: calc(0.83rem + 2vw); }
-h6 { font-size: calc(0.67rem + 2vw); }
+h2 { font-size: var(--size-3) }
+h3 { font-size: var(--size-2); }
+h4 { font-size: var(--size-1); }
+h5 { font-size: var(--size-l); }
+h6 { font-size: var(--size-m); }
 
 h1 strong,
 h2 strong,
@@ -108,9 +122,15 @@ main [href*='://']::after {
   font-size: 0.5em;
 }
 
+ul,
+ol,
+p {
+  margin-block: var(--gap);
+}
+
 body {
   display: grid;
-  font-size: calc(1rem + 0.5vw);
+  font-size: var(--size-s);
   grid: 'nav' auto
         'banner' auto
         'main' 1fr
@@ -123,14 +143,13 @@ body {
 [data-banner],
 main,
 [data-footer] {
-  padding: 0.25em 0.5em;
+  padding: 0.25em 1em;
 }
 
 [data-nav],
 [data-banner],
 [data-footer] {
   background: bisque;
-  font-size: var(--user-size);
 }
 
 [data-nav] { grid-area: nav; }
@@ -158,10 +177,10 @@ main {
   border: 1px solid maroon;
   border-width: 1px 0;
   display: grid;
-  font-size: calc(1rem + 1vw);
+  font-size: var(--size-m);
   overflow: auto;
 }
 
 [data-inner] {
-  padding-block: 1em;
+  padding-block: var(--gap);
 }

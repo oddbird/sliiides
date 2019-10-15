@@ -3,10 +3,12 @@ slug: css-is-rad
 title: CSS is Rad
 banner: CSS is **Rad**
 sections:
+ - slug: intro
  - slug: rad
  - slug: vision
- - slug: cascade
- - title: Supporting Browsers
+ - slug: support
+ - slug: resources
+ - slug: mayiuse
 tags:
   - index
 ---
@@ -22,7 +24,3 @@ tags:
 - ## {{ sectionTitle | safe }} ...
 {%- endif %}
 {%- endfor %}
-
-------
-
-- [*Resilient Web Design*](https://resilientwebdesign.com/) by **Jeremy Keith**

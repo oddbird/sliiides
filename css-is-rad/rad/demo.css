@@ -1,20 +1,21 @@
 
-p {
-  border: 2px solid;
+.rad {
+  border: medium solid;
   font-size: calc(1.5em + 6vw);
   line-height: 1;
   margin: 0 auto;
+  max-width: 3.125em;
   padding: 0.25em 0.5em;
-  width: 3.125em;
+  width: min-content;
 }
 
-strong {
+.rad [contenteditable] {
   color: maroon;
   display: block;
   font-weight: normal;
 }
 
-strong:focus {
+.rad [contenteditable]:focus {
   text-decoration: underline;
   outline: 0;
 }

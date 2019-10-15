@@ -6,26 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ title }}</title>
 
-  <link rel="stylesheet" href="/assets/css/remedy.css">
-  <link rel="stylesheet" href="/assets/css/base.css">
-  {% if css == 'demo' %}
-    <link rel="stylesheet" href="../{{ page.fileSlug }}.css">
+  {% if (css != 'demo-only') %}
+    <link rel="stylesheet" href="/assets/css/remedy.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+  {% endif %}
+  {% if (css == 'demo') or (css == 'demo-only') %}
+    <link rel="stylesheet" href="./demo.css">
   {% endif %}
 </head>
 <body>
   {% set talkUrl = '/' + talk + '/' if talk else none %}
   {% set talkIndex = collections.all | getPage(talkUrl) if talkUrl else none %}
   {% set talkTitle = (talkIndex.data.title or talk) if talk else none %}
+  {% set backUrl = talkUrl + back + '/' if (talk and back) else back %}
+  {% set backPage = collections[talk or 'all'] | getPage(backUrl) if backUrl else none %}
+  {% set navPage = backPage or talkIndex %}
 
   <nav data-nav>
-    <a href="/" rel="home">home</a>
-    {% if talk %}
-      {% if not (talkUrl == page.url) %}
-        |
-        <a href="{{ talkUrl }}">
-          {{ talkTitle | mdInline | safe }}
-        </a>
-      {% endif %}
+    {% if (navPage.url == page.url) or not navPage %}
+      <a href="/" rel="home">« home</a>
+    {% else %}
+      <a href="{{ navPage.url }}">
+        « {{ navPage.data.title | mdInline | safe }}
+      </a>
     {% endif %}
   </nav>
 
