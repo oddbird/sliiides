@@ -1,3 +1,7 @@
+[data-inner] {
+  text-align: center;
+}
+
 .logos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
@@ -26,4 +30,8 @@
 
 .logos a::after {
   display: none;
+}
+
+code {
+  color: maroon;
 }
