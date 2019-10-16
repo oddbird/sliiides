@@ -14,40 +14,42 @@
     <link rel="stylesheet" href="./demo.css">
   {% endif %}
 </head>
-<body>
-  {% set talkUrl = '/' + talk + '/' if talk else none %}
-  {% set talkIndex = collections.all | getPage(talkUrl) if talkUrl else none %}
-  {% set talkTitle = (talkIndex.data.title or talk) if talk else none %}
-  {% set backUrl = talkUrl + back + '/' if (talk and back) else back %}
-  {% set backPage = collections[talk or 'all'] | getPage(backUrl) if backUrl else none %}
-  {% set navPage = backPage or talkIndex %}
+<body data-body-{{ layout or 'base' }}>
+  {% block body %}
+    {% set talkUrl = '/' + talk + '/' if talk else none %}
+    {% set talkIndex = collections.all | getPage(talkUrl) if talkUrl else none %}
+    {% set talkTitle = (talkIndex.data.title or talk) if talk else none %}
+    {% set backUrl = talkUrl + back + '/' if (talk and back) else back %}
+    {% set backPage = collections[talk or 'all'] | getPage(backUrl) if backUrl else none %}
+    {% set navPage = backPage or talkIndex %}
 
-  <nav data-nav>
-    {% if (navPage.url == page.url) or not navPage %}
-      <a href="/" rel="home">« home</a>
-    {% else %}
-      <a href="{{ navPage.url }}">
-        « {{ navPage.data.title | mdInline | safe }}
-      </a>
-    {% endif %}
-  </nav>
+    <nav data-nav>
+      {% if (navPage.url == page.url) or not navPage %}
+        <a href="/" rel="home">« home</a>
+      {% else %}
+        <a href="{{ navPage.url }}">
+          « {{ navPage.data.title | mdInline | safe }}
+        </a>
+      {% endif %}
+    </nav>
 
-  <h1 data-banner>{{ (banner or title or talkTitle) | mdInline | safe }}</h1>
+    <h1 data-banner>{{ (banner or title or talkTitle) | mdInline | safe }}</h1>
 
-  <main>
-    <div data-inner>
-      {{ content | safe }}
-    </div>
-  </main>
+    <main data-main>
+      <div data-inner>
+        {{ content | safe }}
+      </div>
+    </main>
 
-  <footer data-footer>
-    <div class="page">
-      {% set url = (site.domain + page.url) | url %}
-      <a href="https://{{ url }}">{{ url }}</a>
-    </div>
-    <div class="twitter">
-      <a href="https://twitter.com/mirisuzanne">@mirisuzanne</a>
-    </div>
-  </footer>
+    <footer data-footer>
+      <div class="page">
+        {% set url = (site.domain + page.url) | url %}
+        <a href="https://{{ url }}">{{ url }}</a>
+      </div>
+      <div class="twitter">
+        <a href="https://twitter.com/mirisuzanne">@mirisuzanne</a>
+      </div>
+    </footer>
+  {% endblock %}
 </body>
 </html>

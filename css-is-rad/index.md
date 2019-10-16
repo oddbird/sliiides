@@ -6,9 +6,8 @@ sections:
  - slug: intro
  - slug: rad
  - slug: vision
- - slug: support
- - slug: resources
  - slug: mayiuse
+ - slug: resources
 tags:
   - index
 ---

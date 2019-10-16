@@ -1,7 +1,28 @@
 ---
-title: Support The Web
-banner: Support **The Web**, Not Browsers
+title: Media & Support Queries
+layout: demo
+css: demo
 ---
 
-1. @@@ Grid with fallback
-2.
+<header>
+  <h2>header</h2>
+</header>
+
+<nav>
+  <h2>nav</h2>
+  <ul>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+  </ul>
+</nav>
+
+<main>
+  <h2>main</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempora totam temporibus sint. Consequatur, laborum nisi necessitatibus deserunt ad recusandae voluptas maiores molestiae eveniet tenetur, facere quisquam quidem quia rerum!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus suscipit nisi tempora reprehenderit eaque enim cupiditate explicabo deserunt aliquam officiis rerum sapiente aperiam voluptate laborum, a ex, voluptates debitis beatae.
+  </p>
+</main>
+
+<footer><h2>footer</h2></footer>

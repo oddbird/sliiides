@@ -13,11 +13,17 @@
   grid-template-rows: subgrid;
 }
 
-.logos svg {
+.logos a:link,
+.logos a:visited {
   align-self: center;
 }
 
-.logos a {
-  font-weight: bold;
-  text-align: center;
+.logos a:hover,
+.logos a:focus,
+.logos a:active {
+  fill: maroon;
+}
+
+.logos a::after {
+  display: none;
 }

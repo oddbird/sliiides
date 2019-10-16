@@ -11,6 +11,7 @@ module.exports = eleventyConfig => {
 
   // layouts
   eleventyConfig.addLayoutAlias('base', 'base.njk');
+  eleventyConfig.addLayoutAlias('demo', 'demo.njk');
 
   // pass-through
   eleventyConfig.addPassthroughCopy('assets');
