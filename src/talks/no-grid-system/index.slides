@@ -1,0 +1,33 @@
+---
+title: Don't Use My Grid System
+subtitle: The Past & Future of Web Layout
+author: miriam
+image: /images/dynamic-css/_cover.jpg
+tags: [css, layout, susy, grid, graphs]
+versions:
+  - slug: boulderpython19
+    title: Boulder Python
+    date: 2019-02-12
+  - slug: covalence19
+    title: Covalence Conference
+    date: 2019-01-16
+---
+
+Miriam (the creator of Susy)
+will show you the history of web layout,
+how grid systems work,
+and practical tips to avoid using them.
+
+<!-- more -->
+
+For those few cases where a grid really is required,
+we’ll talk about the best ways to roll your own,
+so you’re not relying on a bloated library to make decisions for you.
+We’ll also look at the new layout toys —
+from flexbox to CSS Grid —
+and how to get started with only a few lines of code.
+
+- When to use floats, CSS Grid, flexbox,
+  custom properties, and other techniques.
+- How to make grid-math simple, and lose the grid-system.
+- How to make grid-systems work for you when you need them.

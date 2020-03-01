@@ -1,0 +1,563 @@
+---
+title: Documentation
+subtitle: is Required
+event: Advanced CSS & Sass
+home: /advanced-css/
+author: miriam
+tags: [css, sass, design systems, components, variables, naming, grid, layout]
+---
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+### So You **Built** Some Beautiful Patterns...
+## I'm Sorry, **But**
+
+<!-- slide -->
+
+---
+caption: |
+  ---First Rule of **Design Systems**
+---
+
+## If They're Not **Documented**,
+## They **Don't Exist**
+
+<!-- slide -->
+
+---
+image: '/images/patterns/lightning.jpg'
+alt: Salesforce Lightning Design System
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/lonely-planet-colors.jpg'
+alt: Lonely Planet Design System
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/chimp-grids.jpg'
+alt: Mailchimp Grids
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: '/images/advanced-css/sizes-doc.jpg'
+alt: Size Previews
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/chimp-voice.jpg'
+alt: Mailchimp Voice
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/lightning-motion.jpg'
+alt: Salesforce LDS Motion System
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/NYC-m.jpg'
+alt: 'M'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/NYC.jpg'
+alt: 'New York City Transit Authority Graphic Standards Manual'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/NYC-date.jpg'
+alt: '1970'
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/NYC-n.jpg'
+alt: 'N'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/NYC-numbers.jpg'
+alt: 'Numbers 5-8'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/NYC-sign.jpg'
+alt: 'Diagram of sign construction'
+style:
+  --image-position: bottom
+---
+
+<!-- slide -->
+
+## `<-` Nerd
+
+<!-- slide -->
+
+## Nerd `->`
+
+<!-- slide -->
+
+## ¯\\\_**(ツ)**_/¯
+## Nerds
+
+<!-- slide -->
+
+## Design Systems `==` **Integration**
+Design **&** Code **&** Process **&** Tools **&** Docs **&** ???
+
+<!-- slide -->
+
+---
+image: '/images/agile-systems/lego-organizer.jpg'
+alt: 'Lego Organizer'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/lego-library.jpg'
+alt: 'Lego Component Library'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/lego.jpg'
+alt: 'Lego Airplane'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/lightning-code.jpg'
+alt: 'LDS icons with markup'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/lightning-codex.jpg'
+alt: 'Scribbled out: LDS icons with markup'
+---
+
+<!-- slide -->
+
+## You are not **MailForce** or **InstaFace**
+(unless you are)
+
+<!-- slide -->
+
+### Similar Problems
+## **Unique Constraints**
+
+<!-- slide -->
+
+## (Team **Size**)
+
+<!-- slide -->
+
+## (Team **Structure**)
+
+<!-- slide -->
+
+## (Internal **vs.** Consulting)
+
+<!-- slide -->
+
+## (Is it **1970**?)
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+### Small Company, Multiple Clients, Plan for Handoff
+
+<!-- slide -->
+
+### **Existing** Apps:
+## What Do We **Have**?
+Take **Screenshots** & **Organize**
+
+<!-- slide -->
+
+---
+image: '/images/agile-systems/pnc-buttons.jpg'
+caption: |
+  Image by
+  [Brad Frost](http://bradfrost.com/blog/post/interface-inventory/)
+---
+
+<!-- slide -->
+
+## cssstats.com
+
+<!-- slide -->
+
+---
+image: '/images/agile-systems/stats-colors.jpg'
+alt: Color stats from the Vue website
+---
+
+<!-- slide -->
+
+---
+image: '/images/agile-systems/stats-fonts.jpg'
+alt: Font and size stats from the Vue website
+---
+
+<!-- slide -->
+
+### **All** Apps:
+## What Do We **Need**?
+
+<!-- slide -->
+
+## Start with **Design Tokens**
+Board reach, low specificity
+
+<!-- slide -->
+
+---
+image: '/images/patterns/itcss-metrics.png'
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+# ~~Start with **Design Tokens**~~
+## Start **Anywhere Specific**
+
+<!-- slide -->
+
+### Continuous **Integration**
+## **Accurate** `>` Complete
+
+<!-- slide -->
+
+## **Automate** from **Structured Code**
+### To Make Patterns & Documentation
+## The **Lazy** Option
+
+<!-- slide -->
+
+## Why We Write **Meaningful** Code
+
+```scss
+// sass
+$colors: (
+  'brand-orange': hsl(24, 100%, 39%),
+  'brand-blue': hsl(195, 85%, 35%),
+  'brand-pink': hsl(330, 85%, 48%),
+);
+
+@include json-encode($colors);
+```
+
+<!-- slide -->
+
+```css
+/* css */
+/*! json-encode: '{
+  'brand-orange': 'hsl(24, 100%, 39%)',
+  'brand-blue': 'hsl(195, 85%, 35%)',
+  'brand-pink': 'hsl(330, 85%, 48%)'
+}' */
+```
+
+<!-- slide -->
+
+---
+caption: |
+  Salesforce-UX [**Theo**](https://github.com/salesforce-ux/theo)
+---
+
+## Salesforce **Theo**: `YAML`
+
+```yml
+props:
+  text_default:
+    value: "rgb(62, 62, 60)"
+  text_warning:
+    value: "rgb(255, 183, 93)"
+
+global:
+  type: "color"
+  category: "brand-colors"
+```
+
+<!-- slide -->
+
+## **String-Based** Relationships
+
+```yml
+aliases:
+  vermilion:
+    value: "7, 83%"
+props:
+  color_vermilion:
+    value: "hsla({!vermilion}, 53%, 1)"
+  color_vermilion_dark:
+    value: "hsla({!vermilion}, 43%, 1)"
+```
+
+<!-- slide -->
+
+## SLDS is **Not Just Web**
+Exports to various style languages
+
+<!-- slide -->
+
+---
+caption: |
+  Amazon [**Style Dictionary**](https://amzn.github.io/style-dictionary/#/)
+---
+
+## Amazon **Style Dictionary**: `JSON`
+**Alias-only** Relationships
+
+```json
+{
+  "color": {
+    "theme": {
+      "brand": { "value": "{color.brand.main.value}" },
+      "light": { "value": "#ebebeb" }
+    }
+  }
+}
+```
+
+<!-- slide -->
+
+## ¯\\\_**(ツ)**_/¯
+## I Mean, **Sure**
+
+<!-- slide -->
+
+## 👎
+## Not **Style Languages**
+
+<!-- slide -->
+
+## Know The **Trade-Offs**
+adjust to **your** needs…
+
+<!-- slide -->
+
+## Integrated **Tools**
+
+<!-- slide -->
+
+---
+image: '/images/patterns/sassdoc.jpg'
+style:
+  --image-position: top
+caption: |
+  [**SassDoc**](http://sassdoc.com)
+  by [Hugo Giraudel](https://hugogiraudel.com/)
+----
+
+<!-- slide -->
+
+```scss
+// Color
+// -----
+/// The primary function for
+/// accessing colors in your palette...
+///
+/// @example scss
+///   html {
+///     background: color('background');
+///   }
+///
+/// @param {string | list} $color -
+///   The name of a color in your palette...
+///
+/// @return {color} -
+///   A calculated css-ready color...
+@function color(...) {...}
+```
+
+<!-- slide -->
+
+---
+image: '/images/agile-systems/herman.jpg'
+style:
+  --image-size: contain
+caption: |
+  OddBird's [**Herman**](https://oddbird.net/herman)
+  is based on [**SassDoc**](http://sassdoc.com) syntax
+----
+
+<!-- slide -->
+
+```scss
+// SLDS Colors
+// -----------
+/// These are the colors we stole from SLDS system,
+/// in order to create a demo.
+/// @group color
+/// @colors
+$slds-colors: (
+  'text-default': rgb(62, 62, 60),
+  'text-warning': rgb(255, 183, 93),
+  'text-error': rgb(194, 57, 52),
+);
+```
+
+<!-- slide -->
+
+## `/// ` **`@colors`**
+![Herman Colors](/images/agile-systems/herman-colors.jpg)
+
+<!-- slide -->
+
+## `/// ` **`@sizes`**
+![Herman Scale](/images/agile-systems/herman-scale.jpg)
+
+<!-- slide -->
+
+## `/// ` **`@ratios`**
+![Herman Ratios](/images/agile-systems/herman-ratios.jpg)
+
+<!-- slide -->
+
+## `/// ` **`@fonts`**
+![Herman Ratios](/images/patterns/herman-fonts.jpg)
+
+<!-- slide -->
+
+## **Components** Also Provide Meaning
+### `<my-icon name="gear" />`
+
+<!-- slide -->
+
+## **Consistency** & **Accessibility**\*
+*If you bake that into the pattern...
+
+<!-- slide -->
+
+## Herman **Components**: `Nunjucks`
+
+```scss
+/// Navigation items, with inactive and active states.
+/// @group nav
+/// @example njk
+///   {% import 'nav.macros.njk' as nav %}
+///   {{ nav.bar(active="dashboard", items=[…]) }}
+.nav-bar {
+  /* … */
+}
+```
+
+<!-- slide -->
+
+![Herman Component](/images/agile-systems/herman-comp.jpg)
+
+<!-- slide -->
+
+## **¯\\\_(ツ)_/¯**
+## **Sass-First** Breaks Down at Components...
+
+<!-- slide -->
+
+## [VueDS](https://vueds.com/) (with Theo)
+![Vue Design Systems](/images/agile-systems/vueds.jpg)
+
+<!-- slide -->
+
+## **VueDS** Components
+
+````md
+<docs>
+  ```jsx
+  <nav-bar active="Dashboard" :navItems="[…]"/>
+  ```
+</docs>
+````
+
+<!-- slide -->
+
+![VueDS Component](/images/agile-systems/vueds-comp.jpg)
+
+<!-- slide -->
+
+---
+image: '/images/advanced-css/storybook.jpg'
+alt: Screenshot of storybook showing a button component
+caption: |
+  [Storybook][sb] shows UI components in isolation
+  from React, Vue, or Angular
+
+  [sb]: https://storybook.js.org/
+---
+
+<!-- slide -->
+
+## I Want **Both** :)
+please…
+
+<!-- slide -->
+
+## **Meaningful** & **Structured** Code
+Readable by **Humans** & **Machines**
+
+<!-- slide -->
+
+## **Inline** Documentation
+Helps the human factors…
+
+<!-- slide -->
+
+## **Agile** & **Integrated** Process
+Everyone shares a single-source…
+
+<!-- slide -->
+
+---
+layout: todo
+---
+
+1. Use SassDoc/Herman to document a Sass map function
+2. Generate Sass maps from Style Dictionary to create a new theme
+3. Use Storybook to document a component

@@ -1,0 +1,13 @@
+!.*
+.git/
+.nyc_output/
+.pnp.js
+.vscode/
+.yarn/
+_built/
+_site/
+coverage/
+htmlcov/
+jscache/
+node_modules/
+src/docs/

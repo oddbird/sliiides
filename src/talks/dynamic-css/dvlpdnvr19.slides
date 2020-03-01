@@ -1,0 +1,567 @@
+---
+title: Dynamic CSS
+subtitle: Layouts & Beyond
+event: Develop Denver
+author: miriam
+date: 2019-08-15
+image: /images/dynamic-css/_cover.jpg
+tags: [css, variables, custom properties, grid, graphs]
+---
+
+Don't be fooled by the declarative syntax,
+CSS is a powerful language for
+building dynamic design systems.
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+
+## [OddBird](https://oddbird.net) **Web Consulting**
+Custom Apps, Design Systems, Refactors -- since 2008
+
+<!-- slide -->
+
+---
+image: /images/patterns/oddbird-w-logo.jpg
+alt: Three children at a table – playing Magic, The Gathering
+caption: OddBird siblings (Jonny, Carl, and Miriam) in 1994
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/susy.jpg
+alt: Susy
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/susy-no.jpg
+alt: Susy, scribbled out
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## 1989: **HTML**
+Markup Language
+
+<!-- slide -->
+
+> It is required that HTML be a common language
+> between all platforms.
+> This implies no device-specific markup,
+> **or anything which requires control over fonts or colors**.
+>
+> ---Sir Tim
+
+<!-- slide -->
+
+---
+image: /images/process/www-cern.jpg
+alt: Screenshot of first world wide website
+caption: |
+  CERN
+  [first website](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
+  with line-mode browser simulation
+---
+
+<!-- slide -->
+
+## ~~1996~~ 2000: Cascading **Style Sheets**
+
+<!-- slide -->
+
+![CSS is Awesome](/images/dynamic-css/css-is-awesome.jpg)
+(The **End**)
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/devices.jpg
+alt: A zillion different devices of all sizes (original)
+---
+
+<!-- slide -->
+
+---
+image: /images/process/smartwatch.jpg
+alt: Lineup of smart watches
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/braille.jpg
+alt: Braille computer attachment and headphones
+---
+
+<!-- slide -->
+
+## **Declarative** Syntax
+## **`!=`**
+## **Static** Results
+
+<!-- slide -->
+
+## Design for an **Unknown Canvas**
+CSS is **Dynamic** & **Resilient** by Design
+
+<!-- slide -->
+
+## 2011: **`calc()`**
+Firefox 4 -- **`function`**
+
+<!-- slide -->
+
+## `calc(` **`16px`** `+` **`20%`** `)`
+Combine **Relative** & **Fixed** Widths!
+
+<!-- slide -->
+
+## 2014: CSS **Variables**
+Firefox 31 (unless you count **`currentColor`**)
+
+<!-- slide -->
+
+## `--aka`**`:`** `'custom properties'`**`;`**
+
+<!-- slide -->
+
+## `-<empty>-`**`browser-prefix`**
+
+<!-- slide -->
+
+## `var(` **`--property-name`** `, fallback)`
+
+<!-- slide -->
+
+---
+pen:
+  title: Custom Props (live code)
+  id: 4139af81286aa69d17850cea2ad4d6bc
+---
+
+<!-- slide -->
+
+---
+pen:
+  title: Variables » Functions » Mixins (live code)
+  id: 7356fcf8374ae1bd73906fd7afece1f9
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/smashing-vars.jpg
+alt: CSS Custom Properties in the Cascade by Miriam Suzanne
+caption: |
+  Article on
+  [Smashing Magazine](https://www.smashingmagazine.com/2019/07/css-custom-properties-cascade/)
+---
+
+<!-- slide -->
+
+---
+pen:
+  title: SusyCSS
+  id: ZBzRvX
+  tab: css
+---
+
+<!-- slide -->
+
+---
+pen:
+  title: SusyCSS Demo
+  id: PboVrw
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/susy-no.jpg
+alt: Susy, scribbled out
+style:
+  --image-size: contain
+caption: Please **Don't Use It**
+---
+
+<!-- slide -->
+
+## Manipulate **`hsl()`** Values
+
+```css
+* {
+  --h: 330;
+  --s: 100%;
+  --l: 34%;
+  background: hsl(var(--h), var(--s), var(--l));
+}
+```
+
+<!-- slide -->
+
+## Hue is **Radial**
+
+```css
+* {
+  --complement: calc(var(--h) - 180);
+  background: hsl(var(--complement), var(--s), var(--l));
+}
+```
+
+<!-- slide -->
+
+## Lightness is "**Clamped**"
+
+```css
+* {
+  --threshold: 55;
+  --contrast: calc((var(--l) - var(--threshold)) * -100%);
+  color: hsl(var(--h), var(--s), var(--contrast));
+}
+```
+
+<!-- slide -->
+
+---
+demo: hslTheme
+caption: |
+  Inspired by [Facundo Corradini](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
+---
+
+<!-- slide -->
+
+```css
+html {
+  --os-mode: 1;
+
+  @media (prefers-color-scheme: dark) {
+    --os-mode: -1;
+  }
+
+  @media (prefers-color-scheme: light) {
+    --os-mode: 1;
+  }
+}
+```
+
+<!-- slide -->
+
+```css
+[data-colors='light'] {
+  --html-mode: 1;
+}
+
+[data-colors='dark'] {
+  --html-mode: -1;
+}
+
+[data-colors] {
+  --given-mode: var(--user-mode, var(--html-mode, var(--os-mode, 1)));
+  --mode: var(--given-mode, 1);
+}
+```
+
+<!-- slide -->
+
+## 2017: CSS **Grid**
+Firefox 52 **&** Chrome 57 **&** Safari 10
+
+<!-- slide -->
+
+---
+demo: layoutGrid
+caption: Grid lines 1-indexed and -1 in reverse (see dev tools)
+resize: true
+---
+
+<!-- slide -->
+
+# Lines & **Spans**
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.example {
+  grid-column: 1 / 4;
+  grid-row: 2 / span 2;
+}
+```
+
+<!-- slide -->
+
+## Named **Areas**
+
+```css
+body {
+  grid-template-areas: 'header header'
+                       'nav main'
+                       'nav footer';
+}
+
+h1 { grid-area: header; }
+nav { grid-area: nav; }
+main { grid-area: main; }
+footer { grid-area: footer; }
+```
+
+<!-- slide -->
+
+## **Single** Source of Truth
+
+```scss
+@media (max-width: 50em) {
+  body {
+    grid-template: 'header'
+                   'nav'
+                   'main'
+                   'footer';
+  }
+}
+```
+
+<!-- slide -->
+
+---
+demo: layoutGrid
+caption: Resize window to see media-query in action...
+resize: true
+---
+
+<!-- slide -->
+
+## 2018: **Intrinsic** Web Design
+[Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
+
+<!-- slide -->
+
+1. **Fluid** & **Fixed**
+2. Stages of **Squishiness**
+3. Truly **Two-Dimensional** Layouts
+4. **Nested** Contexts
+5. **Expand** & **Contract** Content
+6. Media Queries, **As Needed**
+
+<!-- slide -->
+
+---
+style:
+  text-align: left
+---
+
+## **`px`**/**`em`**/**`%`** `=>` fixed
+## **`fr`** `=>` fluid
+## **`minmax()`** `=>` fluid until fixed
+## **`auto`** `=>` flow
+
+<!-- slide -->
+
+---
+style:
+  text-align: left
+---
+
+## **`%`** `=>` relative to **parent width**
+## **`vw`** `=>` relative to **the viewport**
+## **`fr`** `=>` relative to **available space**
+
+<!-- slide -->
+
+## **`1fr`** `==` **`minmax(auto, 1fr)`**
+### use **`minmax(0, 1fr)`** to allow shrinking
+
+<!-- slide -->
+
+## Client **Day Planner**
+![Screenshot of schedule grid](/images/layouts/schedule.jpg)
+
+<!-- slide -->
+
+## Define the **Day**
+
+```html
+<main style="
+  --day-start: 9,
+  --day-end: 18
+">
+```
+
+<!-- slide -->
+
+## Define the **Events**
+
+```html
+<section style="
+  --event-start: 13,
+  --event-end: 14
+">
+```
+
+<!-- slide -->
+
+---
+demo: cssChart
+resize: true
+caption: |
+  [Article on **CSS Tricks**](https://css-tricks.com/css-charts-grid-custom-properties/)
+---
+
+<!-- slide -->
+
+## **Dynamic** CSS
+Styles **Generated Dynamically** from Content
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/jsconfus18/learning.jpg
+alt: One does not simply "learn" JavaScript
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+demo: dayPlanner
+caption: putting it all together…
+---
+
+<!-- slide -->
+
+---
+image: /images/layouts/invade.jpg
+caption: |
+  [Levitated Toy Factory](http://levitated.guru/work/)
+  at **Beyond Tellerand**
+---
+
+<!-- slide -->
+
+---
+demo: vueInvaders
+resize: true
+---
+
+<!-- slide -->
+
+---
+demo: cssPlot
+resize: true
+---
+
+<!-- slide -->
+
+---
+demo: cssLinegraph
+resize: true
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/vueconf19/sprite.jpeg
+alt: Krystal Campioni sprite animation
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/vueconf19/animations-copy.png
+alt: Sprite from Monster Slayer animation
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+demo: cssSprites
+props:
+  sprite: monsters
+caption: |
+  Animated sprites from
+  [Monster Slayer](https://github.com/krystalcampioni/monster-slayer)
+  by [Krystal Campioni](https://twitter.com/krystalcampioni)
+---
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/leaverou.jpg
+  size: cover
+---
+
+# Lea Verou | [@LeaVerou](https://twitter.com/LeaVerou/)
+### [CSS Variables Talk](https://www.youtube.com/watch?v=2an6-WVPuJU)
+and [slides](http://leaverou.github.io/css-variables)
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/rachelandrew.jpg
+  size: cover
+---
+
+# Rachel Andrew | [@rachelandrew](https://twitter.com/rachelandrew)
+### gridbyexample.com
+examples, templates, and fallbacks
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/jensimmons.jpg
+  size: cover
+---
+
+# Jen Simmons | [@jensimmons](https://twitter.com/jensimmons)
+### youtube.com/layoutland
+and labs.jensimmons.com
+
+<!-- slide -->
+
+---
+demo: 'cssAwesome'
+resize: true
+caption: |
+  Inspired by [Stacy Kvernmo](https://codepen.io/stacy/pen/VxvpBj)
+---
+
+<!-- slide -->
+
+---
+layout: template
+---
+
+## Have **Fun**!
+
+<!-- slide -->
+
+---
+layout: contact
+form:
+  email: 'birds@oddbird.net'
+  next: 'https://oddbird.net/contact/thanks'
+  submit: 'send it!'
+---
+

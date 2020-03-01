@@ -1,0 +1,61 @@
+---
+title: Advanced CSS
+subtitle: '& Sass'
+event: advanced-css.com
+home: /advanced-css/
+author: miriam
+tags: [css, sass, design systems, components, variables, naming, grid, layout]
+---
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+---
+image: /images/_mia/sass.svg
+alt: Sass
+caption: Member of the **Sass Core Team**
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/susy.jpg
+alt: Susy
+style:
+  --image-size: contain
+caption: Creator of **Susy**
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/susy-no.jpg
+alt: Susy, scribbled out
+style:
+  --image-size: contain
+caption: Please **Don't Use It**
+---
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+
+### [**OddBird**](https://oddbird.net): Full-Stack Agency
+Custom Applications | **Design Systems** | Refactors
+
+<!-- slide -->
+
+## Introductions!
+
+- Your **name**?
+- Your **experience** with CSS & Sass?
+- Your **goals** to get out of this workshop?
+
+<!-- slide -->
+
+## [advanced-css.com](/advanced-css/)

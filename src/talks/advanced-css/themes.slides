@@ -1,0 +1,384 @@
+---
+title: Color Themes
+subtitle: '& Automation'
+event: Advanced CSS & Sass
+home: /advanced-css/
+author: miriam
+tags: [css, sass, design systems, components, variables, naming, grid, layout]
+---
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+### **White Label** Products
+## **Light**/**Dark**/**High-Contrast** Modes
+### **User** Customization
+
+<!-- slide -->
+
+---
+demo: cssTheme
+---
+
+<!-- slide -->
+
+## Rough **Concept**
+
+```css
+html {
+  --background-light: #eee;
+  --background-dark: #111;
+  --text-light: #ccc;
+  --text-dark: #333;
+}
+```
+
+<!-- slide -->
+
+```css
+html.light {
+  background: var(--background-light);
+  color: var(--text-dark);
+}
+
+html.dark {
+  background: var(--background-dark);
+  color: var(--text-light);
+}
+```
+
+<!-- slide -->
+
+### Themes `=>` **Systems**
+## `[data-theme="`**`light`**`|`**`dark`**`"]`
+
+<!-- slide -->
+
+## **Define** & **Apply**
+
+```css
+[data-theme='light'] {
+  --background: #ddf;
+  --text: #226;
+}
+
+[data-theme] {
+  background: var(--background);
+  color: var(--text);
+}
+```
+
+<!-- slide -->
+
+## Think in **Layers**
+Brand **`=>`** Theme **`=>`** Purpose **`=>`**
+
+<!-- slide -->
+
+## **Global** Brand Colors
+
+```css
+html {
+  --brand-dark: #226;
+  --brand-darker: #000;
+  --brand-light: #ddf;
+  --brand-lighter: #fff;
+}
+```
+
+<!-- slide -->
+
+## **Scoped** Theme Colors
+"Soft Patch" **Purpose** `=>` **Global**
+
+```css
+[data-theme='light'] {
+  --bg-color: var(--brand-light);
+  --text-color: var(--brand-dark);
+}
+
+[data-theme='dark'] {
+  --bg-color: var(--brand-dark);
+  --text-color: var(--brand-light);
+}
+```
+
+<!-- slide -->
+
+## **Scoped** Theme Colors
+"Hard Patch" **Property** `=>` **Purpose**
+
+```css
+[data-theme] {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+```
+
+<!-- slide -->
+
+## New Theme `=>` **Soft Patch**
+
+```css
+[data-theme='contrast'] {
+  --bg-color: var(--brand-lighter);
+  --text-color: var(--brand-darker);
+}
+```
+
+<!-- slide -->
+
+---
+demo: cssTheme
+---
+
+<!-- slide -->
+
+## Generated From **Sass Maps**
+
+```scss
+$brand-colors: (
+  'brand-dark': #226,
+  'brand-darker': #000,
+  'brand-light': #ddf,
+  'brand-lighter': #fff,
+);
+```
+
+<!-- slide -->
+
+## Themes **Map References**
+
+```scss
+$light-theme: (
+  'bg-color': 'brand-light',
+  'text-color': 'brand-dark',
+);
+```
+
+<!-- slide -->
+
+## Map of **Themes** `=>` **Names**
+
+```scss
+$themes: (
+  'light': $light-theme,
+  'dark': $dark-theme,
+  'contrast': $contrast-theme,
+);
+```
+
+<!-- slide -->
+
+---
+caption: |
+  CSS variables values
+  will not be compiled
+  unless **`#{explicity marked}`**
+---
+
+## **Loop** `=>` Global Variables
+
+```scss
+html {
+  @each $var, $color in $brand-colors {
+    --#{$var}: #{$color};
+  }
+}
+```
+
+<!-- slide -->
+
+## **Loop** `=>` Theme Variables
+
+```scss
+@each $name, $theme in $themes {
+  [data-theme='#{$name}'] {
+    @each $local, $global in $theme {
+      --#{$local}: var(--#{$global});
+    }
+  }
+}
+```
+
+<!-- slide -->
+
+---
+pen:
+  title: Sass Color Maps `=>` CSS Vaiables
+  id: ROZvrB
+---
+
+<!-- slide -->
+
+## **SVG** Icons...
+### `fill: var(`**`--icon-color`**`,` **`currentColor`**`);`
+
+<!-- slide -->
+
+---
+caption: |
+  See Accoutrement
+  [Maps **`=>`** CSS Variables][vars]
+  and [miriam.codes][mia]
+
+  [vars]: https://www.oddbird.net/accoutrement/docs/core-vars.html
+  [mia]: https://github.com/mirisuzanne/mia/blob/master/_src/scss/config/_themes.scss#L12
+---
+
+### Accoutrement
+## **Automated Theme** Colors
+
+```scss
+$auto-colors: (
+  'text': 'background' ('contrast': 'brand-light' 'brand-dark'),
+);
+```
+
+<!-- slide -->
+
+## **Set Themes** in HTML
+
+```html
+<html data-theme="light">...</html>
+```
+
+<!-- slide -->
+
+## And/Or **Toggle Themes** in JS
+
+```js
+document.documentElement.setAttribute('data-theme', 'dark')
+```
+
+<!-- slide -->
+
+## Check **OS Preference**
+
+```css
+@media (prefers-color-scheme: light) {...}
+```
+
+```js
+window.matchMedia('(prefers-color-scheme: light)')
+```
+
+<!-- slide -->
+
+## Add **Transitions**?
+
+```css
+.theme-change * {
+  transition: all 300ms 0 !important;
+}
+```
+
+<!-- slide -->
+
+## **Dim Images** in Dark Mode?
+
+```css
+[data-theme='dark'] {
+  --img-brightness: 75%;
+}
+
+img {
+  filter: brightness(var(--img-brightness, 100%);
+
+  &:hover {
+    --img-brightness: 100%;
+  }
+}
+```
+
+<!-- slide -->
+
+---
+caption: |
+  [Dark theme in a day][theme] by **Marcin Wichary**
+
+  [theme]: https://medium.com/@mwichary/dark-theme-in-a-day-3518dde2955a
+---
+
+## Variable **Hues**
+
+```css
+html {
+  /* Available Hues */
+  --h-base: 330;
+  --h-accent: 120;
+
+  /* Soft Patch */
+  --hue: var(--h-base);
+
+  /* Generate Colors for that hue */
+  --brand-dark: hsl(var(--hue), 50%, 15%);
+}
+```
+
+<!-- slide -->
+
+## Individual **HSL** Values
+
+```css
+.hsl {
+  --h: 330;
+  --s: 100%;
+  --l: 34%;
+  background: hsl(var(--h), var(--s), var(--l));
+}
+```
+
+<!-- slide -->
+
+## Hue is **Radial**
+
+```css
+.hsl {
+  --complement: calc(var(--h) - 180);
+  background: hsl(var(--complement), var(--s), var(--l));
+}
+```
+
+<!-- slide -->
+
+## Lightness is "**Clamped**"
+
+```css
+.hsl {
+  --threshold: 55;
+  --contrast: calc((var(--l) - var(--threshold)) * -100%);
+  color: hsl(var(--h), var(--s), var(--contrast));
+}
+```
+
+<!-- slide -->
+
+---
+demo: hslTheme
+caption: |
+  Inspired by [Facundo Corradini](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
+---
+
+<!-- slide -->
+
+---
+pen:
+  title: 1296 Avatars using Multiple Loops
+  id: BQmXyb
+---
+
+<!-- slide -->
+
+---
+layout: todo
+---
+
+1. Make multiple themes
+2. Generate your themes from Sass maps
+3. Use provided `contrast` function to auto-set text colors

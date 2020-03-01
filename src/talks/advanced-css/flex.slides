@@ -1,0 +1,539 @@
+---
+title: Distributing Space
+subtitle: Between Elements
+event: Advanced CSS & Sass
+home: /advanced-css/
+author: miriam
+tags: [css, sass, design systems, components, variables, naming, grid, layout]
+---
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+## How Will This **Change**…?
+
+<!-- slide -->
+
+---
+image: '/images/advanced-css/wire-wide.jpg'
+alt: A wide-screen wireframe
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: '/images/advanced-css/wire-narrow.jpg'
+alt: A small-screen wireframe
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: '/images/advanced-css/wire-content.jpg'
+alt: A wide-screen wireframe with different sizes
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+### ?? **Viewport**
+### ?? **Context**
+### ?? **Content**
+### ?? **Fonts**
+### ?? **Resolution**
+### ?? **Aspect Ratio**
+### ?? **...**
+
+<!-- slide -->
+
+---
+demo: layoutFlow
+resize: true
+caption: |
+  The browser already does this by default
+---
+
+<!-- slide -->
+
+### **Then:**
+## The **Float Hack**
+`float:` **`left`** | **`right`** `;`
+
+<!-- slide -->
+
+---
+image: '/images/layouts/float.jpg'
+caption: Great for elements that should... float...
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+demo: layoutFloat
+caption: Broken relationships…
+---
+
+<!-- slide -->
+
+## 2007-2010: Major **Grid Frameworks**
+Blueprint, OOCSS, 960gs, Susy, etc…
+
+<!-- slide -->
+
+---
+image: '/images/layouts/spread-narrow.jpg'
+alt: light blue columns, with a red box aligned to some of them
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## 2011: **Responsive** Web Design
+[Ethan Marcotte](https://alistapart.com/article/responsive-web-design)
+
+1. **`%`** Images
+2. **`%`** Columns
+3. **`@media`** Queries
+
+<!-- slide -->
+
+## Fluid Grid Math **Sux**
+Often forcing **`%`** to represent **`px`** or **`em`**
+
+```scss
+.grid-span {
+  width: percentage(((3*4em) + (2*1em)) / ((12*4em) + (11*1em))); // 23.7288136%
+  margin-right: percentage(1em / ((12*4em) + (11*1em))); // 01.6949153%
+  padding-left: percentage(((1*4em) + (1*1em)) / ((12*4em) + (11*1em))); // 08.4745763%
+}
+```
+
+<!-- slide -->
+
+## 2018: **Intrinsic** Web Design
+[Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
+
+<!-- slide -->
+
+1. **Fluid** & **Fixed**
+2. Stages of **Squishiness**
+3. Truly **Two-Dimensional** Layouts
+4. **Nested** Contexts
+5. **Expand** & **Contract** Content
+6. Media Queries, **As Needed**
+
+<!-- slide -->
+
+## Real **CSS Layout** Tools
+Not just **Grid** or **Flexbox**...
+
+<!-- slide -->
+
+## Control the **Box Model**
+
+<!-- slide -->
+
+---
+image: '/images/layouts/content-box.jpg'
+caption: |
+  **Content**-Box: `total = width/height` **`+`** `borders` **`+`** `padding`
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: '/images/layouts/border-box.jpg'
+caption: |
+  **Border**-Box: `total = width/height`
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## Global **Box-Sizing**
+
+```css
+* { box-sizing: border-box; }
+```
+
+<!-- slide -->
+
+## 👎
+### **Layout Properties** Rarely Inherit
+
+```css
+html { box-sizing: border-box; }
+* { box-sizing: inherit; }
+```
+
+<!-- slide -->
+
+## **Viewport** Relative Units
+**`vw`** | **`vh`** | **`vmin`** | **`vmax`**
+
+<!-- slide -->
+
+## Full-Height…
+## `height:` **`100vh`**
+
+<!-- slide -->
+
+## Sticky-Footer…
+## `min-height:` **`100vh`**
+
+<!-- slide -->
+
+---
+caption: |
+  [Box Alignment Cheatsheet](https://rachelandrew.co.uk/css/cheatsheets/box-alignment)
+  by **Rachel Andrew**
+---
+
+## 2D **Box Alignment**
+vertical & horizontal
+
+<!-- slide -->
+
+## Text Flow `=>` **Inline Axis**
+## Line Wrap `=>` **Block Axis**
+
+<!-- slide -->
+
+## Inline Axis `=>` **`justify-*`**
+`justify`**`-content`** | `justify-`**`items`** | `justify-`**`self`**
+
+<!-- slide -->
+
+## Block Axis `=>` **`align-*`**
+`align`**`-content`** | `align-`**`items`** | `align-`**`self`**
+
+<!-- slide -->
+
+## 2D Shorthand `=>` **`place-*`**
+`place`**`-content`** | `place-`**`items`** | `place-`**`self`**
+
+<!-- slide -->
+
+### **Positional** Values
+**`start`** | **`end`** | **`center`** ...
+
+### **Baseline** Values
+**`baseline`** | **`first`** `baseline` | **`last`** `baseline`
+
+### **Distributed** Values
+**`stretch`** | **`space-between`** | **`space-around`**  | **`space-evenly`**
+
+### **Overflow** Keywords
+**`safe`** | **`unsafe`**
+
+<!-- slide -->
+
+---
+caption: |
+  **\***[Best browser support][support] in grid layouts with `grid-*` prefix
+
+  [support]: https://developer.mozilla.org/en-US/docs/Web/CSS/gap#Browser_compatibility
+---
+
+## Real **Gutters**\*
+**`row-gap`** | **`column-gap`** | **`gap`**
+
+<!-- slide -->
+
+## Now in [`flex`][flex] & [`grid`][grid]
+###
+Spec supports [`block`][block], [`table`][block],
+[`absolute`][block], [`multi-column`][multi], etc...
+
+[flex]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment/Box_Alignment_in_Flexbox
+[grid]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment/Box_Alignment_In_Grid_Layout
+[block]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment/Box_Alignment_In_Block_Abspos_Tables
+[multi]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment/Box_Alignment_in_Multi-column_Layout
+
+<!-- slide -->
+
+---
+pen:
+  title: Alignment
+  id: KYBOaY
+---
+
+<!-- slide -->
+
+---
+caption: |
+  [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) |
+  [caniuse](https://caniuse.com/#feat=object-fit)
+---
+
+## Distribute **Replaced Elements**
+**`object-fit`** | **`object-position`**
+
+<!-- slide -->
+
+### **`object-position`** `~=` `background-position`
+Same values, but for placing an object
+
+<!-- slide -->
+
+## **`object-fit`**`: fill;`
+**`contain`** | **`cover`** | **`scale-down`**
+
+<!-- slide -->
+
+---
+pen:
+  title: Object Fit
+  id: NmwdWP
+  user: stacy
+---
+
+<!-- slide -->
+
+---
+caption: |
+  Supported by [IE6+][caniuse] using an old syntax
+
+  [caniuse]: https://caniuse.com/#feat=css-writing-mode
+---
+
+## Writing **Modes**
+**`horizontal-tb`** | **`vertical-`**`rl`/`lr` | **`sideways-`**`rl`/`lr`
+
+<!-- slide -->
+
+---
+caption: |
+  MDN [Compatability Table](https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation#Browser_compatibility)
+---
+
+## Text-**Orientation**
+### (when writing-mode is vertical)
+**`mixed`** | **`upright`** | **`sideways`**
+
+<!-- slide -->
+
+---
+pen:
+  title: Writing Modes & Orientation
+  id: YMOoYz
+---
+
+<!-- slide -->
+
+---
+caption: |
+  **\***[Mixed Support][can]
+  (best with [easily-mapped properties][mdn])
+
+  [can]: https://caniuse.com/#feat=css-logical-props
+  [mdn]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts#Browser_support
+---
+
+### Coming Soon:
+## **Logical** Properties **\***
+`width =>` **`inline-size`** | etc...
+
+<!-- slide -->
+
+---
+caption: |
+  [Mixed Support][can]
+
+  [can]: https://caniuse.com/#feat=intrinsic-width
+---
+
+## **Intrinsic** Sizes
+**`stretch`** | **`max-content`** | **`min-content`**
+
+<!-- slide -->
+
+---
+caption: |
+  More [details on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content)
+---
+
+## **`fit-content(`**`<max>`**`)`** `=>` Grid-Templates
+
+<!-- slide -->
+
+---
+pen:
+  title: Intrinsic Sizing
+  id: JVagQW
+---
+
+<!-- slide -->
+
+### Coming Soon:
+## `display:` **`<outside> <inside>`**`;`
+
+<!-- slide -->
+
+- **Display-Outside** `=>` Behavior with **siblings**
+- **Display-Inside** `=>` Context for **children**
+
+<!-- slide -->
+
+## Compared to **Current Values**
+
+- `block` `=>` **`block flow`**
+- `flex` `=>` **`block flex`**
+- `inline-flex` `=>` **`inline flex`**
+- `inline-block` `=>` **`inline flow-root`**
+
+<!-- slide -->
+
+---
+caption: |
+  [Understanding CSS Layout And The Block Formatting Context][bfc]
+
+  [bfc]: https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/
+---
+
+## `display:` **`flow-root`**`;`
+## **Block Formatting Context**
+Clears floats, prevents margin-collapse, etc…
+
+<!-- slide -->
+
+### 1D Layouts:
+## **Multi-Column** & **Flexbox**
+
+<!-- slide -->
+
+## **`columns`**`: 5 10em;`
+**`column-count`** | **`column-width`**
+
+<!-- slide -->
+
+---
+pen:
+  title: Multicolumn
+  id: vMWKRq
+  user: stacy
+---
+
+<!-- slide -->
+
+## `display:` **`flex`**;
+
+```css
+.default-values {
+  flex-direction: row; // column[-reverse]
+  flex-wrap: nowrap; // wrap | wrap-reverse
+}
+```
+
+<!-- slide -->
+
+---
+pen:
+  title: Flex-flow
+  id: dLZpqX
+  user: stacy
+---
+
+<!-- slide -->
+
+## **`flex-grow`**`: 0;`
+Relative Distribution of **Available** Space
+
+<!-- slide -->
+
+## **`flex-shrink`**`: 1;`
+Relative Distribution of **Unavailable** Space
+
+<!-- slide -->
+
+## **`flex-basis`**`: auto;`
+The ideal **starting width**, before flexing
+
+<!-- slide -->
+
+---
+caption: |
+  The spec is written so that
+  [four flex shorthand values](https://www.w3.org/TR/css-flexbox-1/#flex-common)
+  are meant to handle the majority of
+  common use-cases.
+---
+
+## Common Cases `=>` **`flex`**
+**`initial`** | **`auto`** | **`none`** | **`<grow>`**
+
+<!-- slide -->
+
+---
+pen:
+  title: Basic Values of Flex,
+  id: eoPORB
+---
+
+<!-- slide -->
+
+## **`order`**`: 3;`
+
+<!-- slide -->
+
+---
+caption: |
+  [Read the MDN article »](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility)
+---
+
+## **`!important`** -- accessibility issues
+**`*-reverse`** | **`order`**
+
+<!-- slide -->
+
+> Authors must use order and the grid-placement properties
+> **only for visual, not logical, reordering** of content.
+>
+> ---w3c [specification](https://drafts.csswg.org/css-grid/#order-accessibility)
+
+<!-- slide -->
+
+## Use Ordering to **Improve Readability**
+Always check your tab-order...
+
+<!-- slide -->
+
+1. Start with **structured** & **accessible** HTML
+2. Create a responsive & **responsible grid**
+3. If you re-order, **consider updating the DOM**
+
+<!-- slide -->
+
+---
+pen:
+  title: Flex-Order
+  id: YMJKbg
+---
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/jensimmons.jpg
+  size: cover
+---
+
+# Jen Simmons | [@jensimmons](https://twitter.com/jensimmons)
+### youtube.com/layoutland
+and labs.jensimmons.com

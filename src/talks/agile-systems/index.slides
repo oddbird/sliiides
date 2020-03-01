@@ -1,0 +1,27 @@
+---
+title: Agile Design Systems
+subtitle: with Meaningful Code
+author: miriam
+image: /images/agile-systems/_cover.jpg
+tags: [css, sass, design systems, components, performance]
+versions:
+  - slug: agile19
+    title: Agile Alliance
+    date: 2019-08-07
+  - slug: agiledenver18
+    title: Agile Denver
+    date: 2018-10-22
+---
+
+Style Guides & Pattern Libraries
+are great tools for documenting
+the relationships between code and design,
+but beautiful docs are only half the battle.
+
+<!-- more -->
+
+We don’t all have dedicated teams and budgets
+to build a centralized system.
+How can we incorporate patterns into our code,
+using templates and pre-processors to iterate and automate
+living design systems in an agile and integrated process?

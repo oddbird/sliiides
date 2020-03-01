@@ -1,0 +1,55 @@
+---
+title: Dynamic CSS
+subtitle: Layouts & Beyond
+author: miriam
+image: /images/dynamic-css/_cover.jpg
+tags: [css, variables, custom properties, grid, graphs]
+versions:
+  - slug: dvlpdnvr19
+    title: Develop Denver
+    date: 2019-08-15
+  - slug: design4drupal19
+    title: Design 4 Drupal
+    date: 2019-06-27
+  - slug: generate19
+    title: Generate NY
+    date: 2019-04-25
+  - slug: smashingsf19
+    title: Smashing SF
+    date: 2019-04-17
+  - slug: vueconf19
+    title: VueConf US
+    date: 2019-03-26
+  - slug: frontrange18
+    title: Front Range Front End
+    date: 2018-11-01
+  - slug: fullstack18
+    title: Full Stack Fest
+    date: 2018-09-07
+  - slug: jsconfus18
+    title: JS Conf US
+    date: 2018-08-21
+  - slug: cssconfar18
+    title: CSS Conf Argentina
+    date: 2018-08-18
+---
+
+Don't be fooled by the declarative syntax,
+CSS is a powerful language for
+building dynamic design systems.
+
+<!-- more -->
+
+CSS has come a long way
+since the browser wars of the late 90s.
+What used to be a struggle,
+is now often a breeze
+(see `box-shadow` or `border-radius`).
+But the last 2 years have pushed CSS into entirely new territory:
+with DOM-aware variables and calculations
+that can drive your design,
+without all the invasive Javascript.
+
+- Basics for understanding Custom Properties & Calc().
+- Practical examples and use-cases for data-infused design.
+- Integrating with CSS Grids to build layouts on-the-fly.

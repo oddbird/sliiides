@@ -1,0 +1,50 @@
+theme: herman
+dest: _site/style/
+
+package: ./package.json
+shortcutIcon: ./content/favicon.ico
+verbose: true
+
+groups:
+  Sass Tokens:
+    config-animation: Animations
+    config-color: Colors
+    config-fonts: Fonts
+    config-scale: Spacing & Sizes
+    config-layout: Layout Tokens
+  CSS Variables:
+    init-colors: Global Colors
+    init-themes: Preset Themes
+    init-scale: Spacing & Sizes
+  Global Defaults:
+    links: Links
+    headings: Headings
+    init-media: Media
+  Forms:
+    forms: Form Fields & Inputs
+    tools-range: Range Input Tools
+    input-range: Range Inputs
+    buttons: Buttons
+  Patterns:
+    a11y: Accessibility
+    type: Typography
+    icons: SVG Icons
+    dropdown: Dropdowns
+    media: Media Blocks & Ratios
+
+herman:
+  extraDocs:
+    - name: Getting Started
+      path: ./styleguide.md
+  extraLinks:
+    - name: Eleventy
+      url: http://www.11ty.io
+    - name: Accoutrement
+      url: https://oddbird.net/accoutrement/
+    - name: Cascading Color Systems
+      url: https://cascading-colors.netlify.com/
+    - name: Herman
+      url: https://oddbird.net/herman/
+  fontpath: src/fonts/
+  sass:
+    jsonfile: _built/css/json.css

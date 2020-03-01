@@ -1,0 +1,781 @@
+---
+title: User Unfriendly
+subtitle: Notes Towards a Queer Web
+event: Agile Denver
+author: miriam
+date: 2019-03-18
+image: /images/unfriendly/_cover.jpg
+tags: [css, html, accessibility, usability, art, process]
+---
+
+A project-manager’s reflections on human-centered problem-solving,
+client communication, and agile web development.
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+
+## 2008: [OddBird](https://oddbird.net)
+Application **Design** & **Development**
+
+<!-- slide -->
+
+---
+image: /images/patterns/oddbird-w-logo.jpg
+alt: OddBird siblings (Jonny, Carl, and Miriam) in 1994
+---
+
+<!-- slide -->
+
+---
+image: /images/process/clients.jpg
+alt: 'OddBird Clients: Mozilla, SRAM, ORCAS'
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy.jpg'
+alt: 'Susy'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy-no.jpg'
+alt: 'No Susy'
+---
+
+<!-- slide -->
+
+---
+style:
+  --background: hsl(330, 56%, 34%)
+  --color: white
+---
+
+## Dark Raspberry
+anywhere between maroon and magenta…
+
+<!-- slide -->
+
+## **User Experience** `>` Software Design
+
+<!-- slide -->
+
+---
+image: '/images/process/teacup.jpg'
+alt: 'Teacup Gorilla at Larimer Lounge'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/sidesaddle-cover.jpg'
+alt: 'Riding SideSaddle* | a novel'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/sidesaddle-shuffle.jpg'
+alt: 'Shuffling the sidesaddle cards'
+---
+
+<!-- slide -->
+
+---
+image: '/images/_mia/true-west.jpg'
+alt: '2016 True West Award in Theater'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## **Theater** `>` One Medium
+writing, acting, choreography, architecture, music, lights…
+
+<!-- slide -->
+
+## **Web** `>` One Medium
+writing, architecture, code, design, interaction…
+
+<!-- slide -->
+
+---
+image: '/images/process/www-cern.jpg'
+alt: 'Screenshot of first world wide website'
+caption: |
+  CERN
+  [first website](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
+  with line-mode browser simulation
+---
+
+<!-- slide -->
+
+> ### Web **for all**. Web **on everything**.
+>
+> ---[World Wide Web Consortium][W3C], **1989**
+
+[W3C]: http://www.w3.org/Consortium/mission.html#principles
+
+<!-- slide -->
+
+---
+image: '/images/process/ibm-pc.jpg'
+alt: 'Old IBM desktop'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/imac.png'
+alt: 'Desktops'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/iphone-3.jpg'
+alt: 'All iPhones'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/tablets.jpg'
+alt: 'Several tablets'
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/devices.jpg'
+alt: '100s of mobile Devices'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/smartwatch.jpg'
+alt: 'Lineup of smart watches'
+---
+
+<!-- slide -->
+
+## The Web is **User-Centered** by Design
+
+<!-- slide -->
+
+## **!** 👨
+
+<!-- slide -->
+
+---
+image: '/images/patterns/people-masc.jpg'
+alt: 'Masculine emojis'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/people-femme.jpg'
+alt: 'Feminine emojis'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/people-rando.jpg'
+alt: 'Various people emojis'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+> ### The fact we can control a paper page is really a **limitation of that medium**.
+>
+> ---John Allsopp,
+> [A Dao of Web Design](http://alistapart.com/article/dao) (April 07, 2000)
+
+<!-- slide -->
+
+## What's the **Print** Vision?
+
+<!-- slide -->
+
+## What are the **Tradeoffs**?
+
+<!-- slide -->
+
+---
+image: '/images/process/sidesaddle-shuffle.jpg'
+alt: 'Novel in a box'
+style:
+  --image-position: 'left'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/sidesaddle-web.jpg'
+alt: 'Novel online, with interactive controls'
+caption: read.ridingsidesaddle.com (in progress)
+style:
+  --image-position: 'top'
+---
+
+<!-- slide -->
+
+> The '**collectible**' is because sometimes
+> you want to treasure the book
+> and touch the book
+> and **know that you have a special one**.
+>
+> ---Seth Godin, [Transforming the Book Industry][seth]
+
+[seth]: https://www.socialmediaexaminer.com/transforming-the-book-industry-how-seth-godin-is-poking-the-box/
+
+<!-- slide -->
+
+## Performative **Turn**
+One text becomes a novel, a web app, an album, and a theater production…
+
+<!-- slide -->
+
+---
+image: '/images/process/slides-code.jpg'
+alt: 'screenshot of web page markdown, templates, and output html'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/mia-markup.jpg'
+alt: 'screenshot of web page markup'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/mia-content.jpg'
+alt: 'screenshot of web page without CSS'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/mia-style.jpg'
+alt: 'screenshot of web page with CSS'
+caption: miriamsuzanne.com (now with a whole new look)
+style:
+  --image-position: 'top'
+---
+
+<!-- slide -->
+
+> Looks pretty cool,
+> but having the menu and the text rotated like that
+> **just makes them super difficult to read**...
+>
+> ---Dude, Online
+
+<!-- slide -->
+
+### ¯\\\_**(ツ)**_/¯
+## What *is* **User Friendly**?
+
+<!-- slide -->
+
+> Users spend most of their time on other sites.
+> This means that users prefer your website to work
+> **the same way as all the other sites** they already know.
+>
+> ---[Jakob Nielsen](https://www.nngroup.com/people/jakob-nielsen/)
+
+<!-- slide -->
+
+---
+image: '/images/process/iphone-3.jpg'
+alt: 'All iPhones'
+---
+
+<!-- slide -->
+
+## "**Intuitive**" or "**Invisible**"?
+
+<!-- slide -->
+
+---
+image: '/images/process/touch-chart.jpg'
+alt: 'chart of common touch gestures'
+---
+
+<!-- slide -->
+
+## "**Open**" or "**Adaptable**"?
+
+<!-- slide -->
+
+---
+image: '/images/process/raspberrypi-kit.jpg'
+alt: 'Raspberry Pi Kit vs Tablet'
+---
+
+<!-- slide -->
+
+## It **Always Depends**
+
+<!-- slide -->
+
+## A **Queer Theory** Primer
+[the oversimplified version]
+
+<!-- slide -->
+
+## “**Strange**” or “**Peculiar**”
+**1800's**: becomes a (sexual) insult
+
+<!-- slide -->
+
+## **1980's/90's**: Reclaimed
+A **big tent** movement
+
+<!-- slide -->
+
+~~"We're all **the same**"~~
+## We're All **Different**
+
+...but our struggles & identities intersect...
+
+<!-- slide -->
+
+~~"We're **normal** too"~~
+## "Normal" is **Suspect**
+
+<!-- slide -->
+
+## Who **Defines** it? Who **Benefits**?
+"Normal" points to a power-imbalance…
+
+<!-- slide -->
+
+---
+image: '/images/process/iphone-3.jpg'
+alt: 'All iPhones'
+---
+
+<!-- slide -->
+
+## Do We **Enforce Sameness**?
+
+<!-- slide -->
+
+---
+image: '/images/process/same.jpg'
+alt: 'No!'
+caption: 'http://dowebsitesneedtolookexactlythesameineverybrowser.com/'
+---
+
+<!-- slide -->
+
+> Under an increasing pressure to monetize the data they store,
+> Facebook looks for ways to **limit difference** across the site.
+>
+> ---Ben Grosser, [How the Technological Design of Facebook Homogenizes Identity and Limits Personal Representation][limit]
+
+[limit]: https://bengrosser.com/blog/how-the-technological-design-of-facebook-homogenizes-identity-and-limits-personal-representation/
+
+<!-- slide -->
+
+> Do I want to create work
+> in which everyone feels the same,
+> or **everyone feels differently**?
+>
+> ---Anne Bogart, [A Director Prepares][prep]
+
+[prep]: https://www.amazon.com/Director-Prepares-Seven-Essays-Theatre/dp/0415238323
+
+<!-- slide -->
+
+---
+caption: |
+  Lori Emerson,
+  [From the Philosophy of the Open to the Ideology of the User-Friendly][uf]
+
+  [uf]: http://loriemerson.net/2013/02/02/from-the-philosophy-of-the-open-to-the-ideology-of-the-user-friendly-2/
+---
+
+## **Bootstrapping** vs **Plug-and-play**
+
+<!-- slide -->
+
+## Bootstrapping:
+### **Augmenting Human Intellect**
+
+<!-- slide -->
+
+> **Providing the means** for **users** to create **better tools.**
+
+<!-- slide -->
+
+## Layers of **Abstraction**
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy.jpg'
+alt: 'Susy'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy-no.jpg'
+alt: 'No Susy'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/demo.jpg'
+alt: 'Douglas Engelbart demos modern computing'
+caption: |
+  Douglas Engelbart,
+  [The Mother of All Demos](http://web.stanford.edu/dept/SUL/library/extra4/sloan/mousesite/1968Demo.html) (1968)
+  | *the mouse, hypertext, view switching, networked computers, early GUI*
+---
+
+<!-- slide -->
+
+> You cannot create results.
+> You can only **create conditions**
+> in which **something might happen.**”
+>
+> ---Ann Bogart, [A Director Prepares](https://www.amazon.com/Director-Prepares-Seven-Essays-Theatre/dp/0415238323)
+
+<!-- slide -->
+
+## Plug-and-play:
+### It **Just Works**
+
+<!-- slide -->
+
+---
+image: '/images/process/steve-jobs.png'
+alt: 'Iconic Seve Jobs photo'
+caption: 'Steve Jobs, Apple II (1993)'
+---
+
+<!-- slide -->
+
+## **Identical**, Easy-to-Use, **Low-Cost Appliance**
+
+<!-- slide -->
+
+## What Are the **Tradeoffs**?
+
+<!-- slide -->
+
+## Know Your **Innovation Budget**
+
+<!-- slide -->
+
+## Know **Your Goals**
+**click-through rates** are not universal success
+
+<!-- slide -->
+
+## Start with **Users**
+
+<!-- slide -->
+
+## Every User is an **Expert**
+They know more about their needs than you do.
+
+<!-- slide -->
+
+> "If I had asked people **what they wanted**,
+> they would have said **faster horses**."
+>
+> ---~~Henry Ford~~ **John McNeece** (kinda)
+
+<!-- slide -->
+
+## User **Expertise**:
+
+1. End **Goals**
+2. **Existing** Solutions
+3. Points of **Failure**
+
+<!-- slide -->
+
+## User **Blind Spots**:
+1. **Interface** Design
+
+<!-- slide -->
+
+## Ask about **Problems**, not **Solutions**
+works with art feedback as well…
+
+<!-- slide -->
+
+## When the **Problem** is in Act V, The **Solution** is Often in Act I
+
+<!-- slide -->
+
+## Always Ask **Why**
+look for the **root causes**…
+
+<!-- slide -->
+
+## Analyze **Patterns**
+common pain-points, related issues, etc…
+
+<!-- slide -->
+
+## Recognize **Personal Bias**
+
+<!-- slide -->
+
+---
+style:
+  --background: hsl(330, 56%, 34%)
+  --color: white
+---
+
+## Dark Raspberry
+
+<!-- slide -->
+
+## **Empathy** is Awesome
+but…
+
+<!-- slide -->
+
+## Also Need **Diversity** & **Inclusion**
+More perspectives, **with the power to make change**
+
+<!-- slide -->
+
+---
+image: '/images/patterns/people-rando.jpg'
+alt: 'Various people emojis'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## **Communicate** with Clients
+
+<!-- slide -->
+
+## Present **Context & Tradeoffs**
+establish yourself as a **teammate**…
+
+<!-- slide -->
+
+## Only Show **Good Options**
+Mind games **always backfire**
+
+<!-- slide -->
+
+## **Ugly** Helps
+Use sketches & wireframes to focus on what's important
+
+<!-- slide -->
+
+---
+image: '/images/process/activity.png'
+alt: 'UX sketch'
+---
+
+<!-- slide -->
+
+---
+image: '/images/process/fonts.jpg'
+alt: 'UX wireframes with colors/fonts removed'
+---
+
+<!-- slide -->
+
+## Less **Theory**, More **Practice**
+put options in front of users
+
+<!-- slide -->
+
+## Fewer **Mockups**, More **Prototypes**
+
+<!-- slide -->
+
+---
+image: '/images/process/interactive-wire.jpg'
+alt: 'Clickable wireframes'
+---
+
+<!-- slide -->
+
+## **Experiment** Often
+hypothesis » test » adjust
+
+<!-- slide -->
+
+## "Experimental" is a **Process**
+Not a reason to make your friends sit through shitty performance art
+
+<!-- slide -->
+
+---
+image: '/images/process/sidesaddle-shuffle.jpg'
+alt: 'Riding Sidesaddle*'
+---
+
+<!-- slide -->
+
+## Tight **Feedback Loop**
+Test, Test, Test
+
+<!-- slide -->
+
+## Look at **Different Angles**
+
+<!-- slide -->
+
+## **Elements of Design**
+
+1. Color
+2. Form
+3. Line
+4. Shape
+5. Space
+6. Texture
+7. Value
+
+<!-- slide -->
+
+## **Viewpoints** of Theater
+
+1. Spatial Relationship
+2. Kinesthetic Response
+3. Shape
+4. Gesture
+5. Repetition
+6. Architecture
+7. Tempo
+8. Duration
+9. Topography
+
+<!-- slide -->
+
+## **Aspects** of the Web?
+
+2. Size
+3. Browser
+4. Operating System
+5. Language
+6. Access Type (visual, audio, etc…)
+7. Interaction Type (mouse, touch, etc…)
+8. … ?
+
+<!-- slide -->
+
+## Question Your **Assumptions**
+
+<!-- slide -->
+
+## Use **All The Tools**
+Unison, Harmony, & *Dissonance*
+
+<!-- slide -->
+
+## Know **Where You Are**
+
+1. **Define the Seed**:
+   What’s the idea, question, or hypothesis?
+2. **Explore**:
+   Research, gather, and create the materials…
+3. **Organize**:
+   Outline the structure, or impose one…
+4. **Draft**:
+   Make something that flows…
+5. **Revise**:
+   Consider, critique, and edit as needed…
+
+<!-- slide -->
+
+## Encourage **Playfulness**
+"**Spark** & **Slip**"
+
+<!-- slide -->
+
+## **Remix** Everything
+
+![copy, transform, combine](/images/process/remix.jpg)
+
+<!-- slide -->
+
+> Creativity isn’t magic.
+> It happens by applying **ordinary tools of thought**
+> to existing materials.
+>
+> ---Kirby Ferguson, [Everything is a Remix](http://everythingisaremix.info/)
+
+<!-- slide -->
+
+## [Agile] **Cycles**
+
+<!-- slide -->
+
+> We need to be in the **open mode when we’re pondering a problem**,
+> but once we come up with a solution,
+> we must then switch to the **closed mode to implement it**.
+>
+> ---John Cleese
+
+<!-- slide -->
+
+## Iterate, Iterate, **Iterate**
+
+<!-- slide -->
+
+---
+layout: template
+---
+
+## Have **Fun**!
+
+<!-- slide -->
+
+---
+layout: contact
+form:
+  email: 'birds@oddbird.net'
+  next: 'https://oddbird.net/contact/thanks'
+  submit: 'send it!'
+---
+

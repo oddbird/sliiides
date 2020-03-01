@@ -1,0 +1,268 @@
+---
+title: Defining Layouts
+subtitle: with CSS Grid
+event: Advanced CSS & Sass
+home: /advanced-css/
+author: miriam
+tags: [css, sass, design systems, components, variables, naming, grid, layout]
+---
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+## 2017: CSS **Grid**
+**March 6-8**: Firefox 52 **&** Chrome 57 \
+**March 20-26**: Safari 10 **&** Opera 44
+
+<!-- slide -->
+
+## Full **2D Layouts**!
+
+<!-- slide -->
+
+## Defined by the **Container**
+With access to intrinsic sizing...
+
+<!-- slide -->
+
+## `display:` **`grid`**`;`
+creates **implicit** `auto`-sized grids
+
+<!-- slide -->
+
+## Grid **Lines** `=>` **1-Indexed**
+
+<!-- slide -->
+
+---
+pen:
+  title: Grid Terminology
+  id: ObmjeZ
+  user: stacy
+---
+
+<!-- slide -->
+
+## **`grid-auto-flow`**`: row;`
+**`column`** | [+ **`dense`**]
+
+<!-- slide -->
+
+## Item **Placement**
+
+```css
+.example {
+  grid-row: 2 / span 2;
+  grid-column: 1 / 4;
+  /* grid-area: 2 / 1 / span 2 / 4; */
+}
+```
+
+<!-- slide -->
+
+---
+pen:
+  title: Implicit Grids
+  id: rbqeRz
+---
+
+<!-- slide -->
+
+## **Sizing** Implicit Grids
+**`grid-auto-rows`** | **`grid-auto-columns`**
+
+<!-- slide -->
+
+## `grid-auto-columns:` **`1fr`**`;`
+
+<!-- slide -->
+
+## `1fr` **`~=`** `flex: 1`
+same concept, different algorythm
+
+<!-- slide -->
+
+- **`%`** `=>` relative to **parent width**
+- **`vw`** `=>` relative to **the viewport**
+- **`fr`** `=>` relative to **available space**
+
+<!-- slide -->
+
+## **`minmax(`** `20em, 1fr` **`)`**
+**fluid**-until-**fixed**
+
+<!-- slide -->
+
+## **`1fr`** `==` **`minmax(auto, 1fr)`**
+### use **`minmax(0, 1fr)`** to allow shrinking
+
+<!-- slide -->
+
+---
+pen:
+  title: Implicit Grids with Sizing
+  id: XQxNBg
+---
+
+<!-- slide -->
+
+## **Repeating** Grids
+**`repeat(`** `<count>, <size>` **`)`**
+
+<!-- slide -->
+
+## `repeat(` **`12, 1fr`** `)`
+it's boring, but it works...
+
+<!-- slide -->
+
+---
+caption: Great for **image galleries**
+---
+
+## **Fit** Available **Items**
+`repeat(` **`auto-fit`** `,` **`minmax(`** `15em, 1fr`  **`)`**`);`
+
+<!-- slide -->
+
+---
+caption: Great for... something? I'm sure...
+---
+
+## **Fill** Available **Space**
+`repeat(` **`auto-fill`** `, 200px);`
+
+<!-- slide -->
+
+---
+pen:
+  title: Auto-Fit Grid
+  id: xjRyda
+  user: stacy
+---
+
+<!-- slide -->
+
+## **`grid-template-columns`**`: auto` **`1fr`** `20%;`
+see also: **`grid-template-rows`**
+
+<!-- slide -->
+
+## **`repeat(`** `6, 1fr 2fr` **`)`**
+
+<!-- slide -->
+
+---
+pen:
+  title: Implicit Grids with Sizing
+  id: KYZRQQ
+---
+
+<!-- slide -->
+
+## **Named** Grid Lines
+**`[before]`** `1fr` **`[after]`**
+
+<!-- slide -->
+
+## **Align** to Names
+`grid-column:` **`before`** `/` **`after`** `;`
+
+<!-- slide -->
+
+## Names **`=>`** Areas
+with matching **`*-start`** & **`*-end`** names
+
+<!-- slide -->
+
+## **`[nav-start]`** `15em` **`[nav-end]`**
+## `grid-area: nav;`
+
+<!-- slide -->
+
+## **Overlapping** Areas
+**`[full-start nav-start]`** `20em` **`[nav-end]`** `1fr` **`[full-end]`**
+
+<!-- slide -->
+
+---
+pen:
+  title: Overlapping Named Lines
+  id: XQxpPx
+---
+
+<!-- slide -->
+
+### Coming Soon:
+###  `grid-template-columns:` **`subgrid`**`;`
+###  `grid-template-rows:` **`subgrid`**`;`
+
+<!-- slide -->
+
+## Demo in **Firefox Nightly**...
+Pens by Rachel Andrew
+
+1. [Columns & Rows](https://codepen.io/rachelandrew/pen/axLzYv)
+2. [Columns, Implicit Rows](https://codepen.io/rachelandrew/pen/YMYEVO)
+3. [Rows, Explicit Columns](https://codepen.io/rachelandrew/pen/mgpqBv)
+
+<!-- slide -->
+
+## 2018: **Intrinsic** Web Design
+[Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
+
+<!-- slide -->
+
+1. **Fluid** & **Fixed**
+2. Stages of **Squishiness**
+3. Truly **Two-Dimensional** Layouts
+4. **Nested** Contexts
+5. **Expand** & **Contract** Content
+6. Media Queries, **As Needed**
+
+<!-- slide -->
+
+- **`px`**/**`in`**/`...` `=>` **Fixed** (static)
+- **`%`**/**`em`**/**`vw`**/`...` `=>` **Fixed** (relative)
+- **`fr`** `=>` **Fluid** (relational)
+- **`minmax()`** `=>` **Fluid** until **Fixed**
+- **`auto`** `=>` **Flow**
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/stacy.jpeg
+  size: cover
+---
+
+# Stacy Kvernmo | [@stacykvernmo](https://twitter.com/stacykvernmo)
+### [CodePen Grid Demos](https://codepen.io/collection/XRRJGq/2/#)
+Designer & Engineer at [OddBird](https://oddbird.net)
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/rachelandrew.jpg
+  size: cover
+---
+
+# Rachel Andrew | [@rachelandrew](https://twitter.com/rachelandrew)
+### gridbyexample.com
+examples, templates, and fallbacks
+
+<!-- slide -->
+
+---
+layout: todo
+---
+
+- Responsive Layout using Grid Areas
+- Optionally use named-lines for complex areas?
+- Auto-Fit/Fill Image Gallery

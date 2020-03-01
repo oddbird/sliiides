@@ -1,0 +1,289 @@
+---
+title: Dynamic CSS
+subtitle: without Slides
+event: Smashing Conf
+author: miriam
+date: 2019-04-17
+image: /images/dynamic-css/_cover.jpg
+tags: [css, variables, custom properties, grid, graphs]
+---
+
+Don't be fooled by the declarative syntax,
+CSS is a powerful language for
+building dynamic design systems.
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/smashingsf19/bey.jpg
+alt: Homecoming, a film by Beyoncé
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/smashingsf19/notapipe.jpg
+alt: Ceci n'est pas une SLIDE DECK
+style:
+  --image-size: contain
+caption: |
+  Just a series of links and images and ideas...
+---
+
+<!-- slide -->
+
+## talks.oddbird.net/dynamic-css/
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+### [**OddBird**](https://oddbird.net) Full-Stack Agency
+**Custom Applications** | **Design Systems** | **Refactors**
+
+<!-- slide -->
+
+## Client **Day Planner**
+![Screenshot of schedule grid](/images/layouts/schedule.jpg)
+
+<!-- slide -->
+
+## **Stop** Using Slides
+
+<!-- slide -->
+
+## Hey **Vitaly**,
+### **Miriam** is Cheating
+
+## **`↙`**
+(she's over there)
+
+<!-- slide -->
+
+## [**Calc()** & **Variables** & **Grids**][intro]
+
+[intro]: https://codepen.io/mirisuzanne/pen/YMYepZ
+
+<!-- slide -->
+
+---
+demo: cssSusy
+resize: true
+caption: |
+  [AG Grid Nesting Test](http://oocss.org/grids_docs.html)
+  from OOCSS
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/susy-no.jpg
+alt: Susy, scribbled out
+style:
+  --image-size: contain
+caption: Please **Don't Use It**
+---
+
+<!-- slide -->
+
+---
+demo: cssChart
+resize: true
+caption: |
+  [Article on **CSS Tricks**](https://css-tricks.com/css-charts-grid-custom-properties/)
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/jsconfus18/learning.jpg
+alt: One does not simply "learn" JavaScript
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+demo: layoutGridVar
+caption: |
+  This one is for [Maria](https://twitter.com/marialamardo)
+resize: true
+---
+
+<!-- slide -->
+
+---
+demo: dayPlanner
+caption: putting it all together…
+---
+
+<!-- slide -->
+
+---
+demo: cssPlot
+resize: true
+---
+
+<!-- slide -->
+
+---
+demo: cssLinegraph
+resize: true
+---
+
+<!-- slide -->
+
+## Hue is **Radial**
+
+```css
+* {
+  --complement: calc(var(--h) - 180);
+  background: hsl(var(--complement), var(--s), var(--l));
+}
+```
+
+<!-- slide -->
+
+## Lightness is "**Clamped**"
+
+```css
+* {
+  --threshold: 55;
+  --contrast: calc((var(--l) - var(--threshold)) * -100%);
+  color: hsl(var(--h), var(--s), var(--contrast));
+}
+```
+
+<!-- slide -->
+
+---
+demo: hslTheme
+caption: |
+  Inspired by [Facundo Corradini](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
+---
+
+<!-- slide -->
+
+---
+image: /images/layouts/invade.jpg
+caption: |
+  [Levitated Toy Factory](http://levitated.guru/work/)
+  at **Beyond Tellerand**
+---
+
+<!-- slide -->
+
+---
+demo: vueInvaders
+resize: true
+---
+
+<!-- slide -->
+
+---
+demo: cssSprites
+props:
+  sprite: metroid
+caption: |
+  Animated sprites from
+  [Monster Slayer](https://github.com/krystalcampioni/monster-slayer)
+  by [Krystal Campioni](https://twitter.com/krystalcampioni)
+---
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/leaverou.jpg
+  size: cover
+---
+
+# Lea Verou | [@LeaVerou](https://twitter.com/LeaVerou/)
+### [CSS Variables Talk](https://www.youtube.com/watch?v=2an6-WVPuJU)
+and [slides](http://leaverou.github.io/css-variables)
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/rachelandrew.jpg
+  size: cover
+---
+
+# Rachel Andrew | [@rachelandrew](https://twitter.com/rachelandrew)
+### gridbyexample.com
+examples, templates, and fallbacks
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/jensimmons.jpg
+  size: cover
+---
+
+# Jen Simmons | [@jensimmons](https://twitter.com/jensimmons)
+### youtube.com/layoutland
+and labs.jensimmons.com
+
+<!-- slide -->
+
+![CSS is Awesome (overflow meme)](/images/dynamic-css/css-is-awesome.jpg)
+
+<!-- slide -->
+
+---
+image: /images/advanced-css/indesign-is.jpg
+alt: |
+  A box with text inside
+  that says 'InDesign is'
+  and then has a small + icon
+  to indicate overset text
+caption: ¯\\\_**(ツ)**_/¯ what were you hoping for?
+style:
+  --image-size: 60%
+---
+
+<!-- slide -->
+
+## **Declarative** Syntax
+## **`!=`**
+## **Static** Results
+
+<!-- slide -->
+
+---
+demo: cssAwesome
+resize: true
+caption: |
+  Inspired by [Stacy Kvernmo](https://codepen.io/stacy/pen/VxvpBj)
+---
+
+<!-- slide -->
+
+---
+layout: template
+---
+
+## Have **Fun**!
+
+### **Sign Up** for the [**OddBird Newsletter**][news]
+
+[news]: https://mailchi.mp/6a5ceb1ab43c/oddnews_signup
+
+<!-- slide -->
+
+---
+layout: contact
+form:
+  email: birds@oddbird.net
+  next: https://oddbird.net/contact/thanks
+  submit: send it!
+---
+

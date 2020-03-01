@@ -1,0 +1,33 @@
+---
+title: User Unfriendly
+subtitle: Towards a Queer Web
+author: miriam
+image: /images/unfriendly/_cover.jpg
+tags: [css, html, accessibility, usability, art, process]
+versions:
+  - slug: agnesscott19
+    title: Agnes Scott College
+    date: 2019-09-17
+  - slug: design4drupal19
+    title: Design 4 Drupal
+    date: 2019-06-27
+  - slug: opensource19
+    title: Open Source Conference
+    date: 2019-06-20
+  - slug: agiledenver19
+    title: Agile Denver
+    date: 2019-03-18
+---
+
+The web is more than a technology platform,
+it was created with a mission statement.
+Design and code trends also come with attached philosophies,
+and we need to consider the implications.
+
+<!-- more -->
+
+We’ll talk about our human-centered approach to product-design –-
+learning to understand user-feedback,
+designing for edge-cases,
+transparent client communication,
+and tightly integrated design and development teams.
