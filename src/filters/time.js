@@ -11,7 +11,7 @@ example: |
   Copyright &copy; {% getDate 'year' %}
 */
 
-const now = new Date();
+const now = () => new Date();
 
 const months = [
   'January',
@@ -72,7 +72,6 @@ const formatDate = (date, format) => {
     url: `${yyyy}/${mm}/${dd}`,
     short: `${M} ${d}, ${yyyy}`,
     long: `${MM} ${d}, ${yyyy}`,
-    rfc: `${iso}T12:00:00-06:00`,
   };
 
   return formats[format];
@@ -94,28 +93,8 @@ params:
     note: See js file for a list of available date formats
 */
 const getDate = (date, format) => {
-  date = typeof date === 'string' ? new Date(date) : date || now;
-  return format ? formatDate(date, format) : date;
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  return format ? formatDate(dateObj, format) : dateObj;
 };
 
-/* @docs
-label: rssDate
-category: RSS
-note: These are used in generating the site RSS output…
-*/
-const rssDate = (page) => {
-  const date = page.data ? page.data.start || page.date : page.date;
-  return getDate(date, 'rfc');
-};
-
-/* @docs
-label: rssLatest
-category: RSS
-note: These are used in generating the site RSS output…
-*/
-const rssLatest = (collection) => {
-  collection.sort((a, b) => rssDate(a) - rssDate(b));
-  return rssDate(collection[0]);
-};
-
-module.exports = { now, getDate, rssDate, rssLatest };
+module.exports = { now, getDate };

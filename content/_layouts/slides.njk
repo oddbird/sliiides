@@ -1,0 +1,28 @@
+---
+layout: base
+---
+
+{% import "show.macros.njk" as show %}
+{% import "slides.macros.njk" as slides %}
+
+{% set page = collections.all | getPage(page.url) %}
+
+<main data-show="slides">
+  {% call slides.base(
+    slide={ 'index': 0 },
+    name='event-title',
+    page=page,
+    is='header'
+  ) %}
+    <h1>{{ page.data.talk | mdInline | safe }}</h1>
+    <p class="event h-card">
+      {{ page.data.venue | mdInline | safe }} --
+      {{ page.data.date | getDate('long') }}
+    </p>
+    <p class="byline h-card">
+      {{ page.data.author or 'Miriam Suzanne' }}
+    </p>
+  {% endcall %}
+
+  {{ show.slides(page) }}
+</main>

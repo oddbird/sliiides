@@ -1,0 +1,41 @@
+{% macro base(
+  slide,
+  name,
+  page,
+  is='article'
+) %}
+  <{{ is or 'article'}}
+    id="slide-{{ slide.index }}"
+    data-slide="{{ slide.name or name }}"
+    >
+
+    <div class="slide-content">
+      {{ caller() }}
+    </div>
+
+    <footer class="slide-footer">
+      <p class="slide-caption">
+        {% if slide.caption %}
+          {{ slide.caption | mdInline | safe }}
+        {% endif %}
+      </p>
+      <nav class="slide-nav" aria-label="slide {{ slide.index }}">
+        {% if slide.index > 0 %}
+          <a href="#slide-{{ slide.index - 1 }}">«<span class="sr-only">
+            back to slide {{ slide.index - 1 }}
+          </span></a>
+        {% endif %}
+        <a href="#slide-{{ slide.index }}" class="current"><span class="sr-only">
+            this is slide
+          </span>
+          {{- slide.index -}}
+        </a>/{{ page.data.slides | length }}
+        {% if slide.index != page.data.slides | length %}
+          <a href="#slide-{{ slide.index + 1 }}">»<span class="sr-only">
+            on to slide {{ slide.index + 1 }}
+          </span></a>
+        {% endif %}
+      </nav>
+    </footer>
+  </{{ is or 'article'}}>
+{% endmacro %}

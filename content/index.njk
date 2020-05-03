@@ -1,20 +1,21 @@
 ---
 layout: base
-title: Hello World
+title: Sliiides…
 ---
 
-<h1>{{ title }}</h1>
+<main class="home">
+  <h1>{{ title }}</h1>
 
-{% for group, items in talks | groupby('talk') %}
-{% if items %}
-<h2>{{ group }}</h2>
-<ul>
-  {% for item in items %}
-  <li>
-    <h3>{{ item.data.event | mdInline | safe }} ({{ item.slides | length }})</h3>
-    {{ item.content | md | safe }}
-  </li>
+  <ul>
+  {% for event in collections.events %}
+    <li>
+      <a href="{{ event.url }}">
+        <strong>
+          {{ event.date | getDate('short') }} |
+        </strong>
+        {{ event.data.talk }}: {{ event.data.venue }}
+      </a>
+    </li>
   {% endfor %}
-</ul>
-{% endif %}
-{% endfor %}
+  </ul>
+</main>

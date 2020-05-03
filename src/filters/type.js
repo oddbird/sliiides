@@ -1,10 +1,25 @@
 'use strict';
 
-const removeMd = require('remove-markdown');
-const type = require('typogr');
+const _ = require('lodash');
 const markdown = require('markdown-it');
-const mdMark = require('markdown-it-mark');
 const mdFootnote = require('markdown-it-footnote');
+const mdMark = require('markdown-it-mark');
+const removeMd = require('remove-markdown');
+const striptags = require('striptags');
+const truncate = require('truncate-html');
+const type = require('typogr');
+const markdownItResponsive = require('@gerhobbelt/markdown-it-responsive');
+
+const { responsiveConfig } = require('#/images');
+
+const imgConf = {
+  responsive: {
+    srcset: {
+      '*': responsiveConfig,
+    },
+    sizes: {},
+  },
+};
 
 const mdown = markdown({
   html: true,
@@ -12,7 +27,8 @@ const mdown = markdown({
   typographer: true,
 })
   .use(mdMark)
-  .use(mdFootnote);
+  .use(mdFootnote)
+  .use(markdownItResponsive, imgConf);
 
 /* @docs
 label: Typography Filters
@@ -75,6 +91,37 @@ const mdInline = (content) =>
   content ? typogr(mdown.renderInline(content), true) : content;
 
 /* @docs
+label: elide
+category: typesetting
+note: |
+  Elide HTML at a given word count,
+  and append `…` if elided.
+params:
+  html:
+    type: string
+  count:
+    type: Number
+    default: 50
+*/
+const elide = (html, count = 50) => {
+  // Strip links, paragraph breaks, etc:
+  const stripped = striptags(html.trim(), ['code', 'strong', 'em']);
+  // Truncate stripped html:
+  let truncated = truncate(stripped, count, { byWords: true, ellipsis: '…' });
+  // This will catch both cases where no truncation was needed, but also
+  // (unintentionally) cases where the truncation is within a final tag
+  // (e.g. `<em>final words…</em>`) -- but that's probably good enough for now?
+  if (!truncated.endsWith('…')) {
+    return truncated;
+  }
+  // Strip non-alphanumeric trailing chars (e.g. commas, periods):
+  if (truncated.slice(-2, -1).match(/[^A-Z|a-z|0-9]/) !== null) {
+    truncated = `${truncated.slice(0, -2)}…`;
+  }
+  return truncated;
+};
+
+/* @docs
 label: h
 category: headings
 note: Generate a heading at any given level
@@ -87,21 +134,28 @@ params:
     type: object
 */
 const heading = (content, level, attrs = {}) => {
-  const attr_html = Object.keys(attrs)
-    .map((attr) => {
-      const val = attrs[attr];
-      if (val) {
-        return typeof val === 'boolean' || val === ''
-          ? `${attr}`
-          : `${attr}="${val}"`;
+  const attr_html = _(attrs)
+    .map((val, attr) => {
+      if (!val) {
+        return undefined;
       }
-
-      return undefined;
+      return typeof val === 'boolean' || val === ''
+        ? `${attr}`
+        : `${attr}="${val}"`;
     })
-    .filter((attr) => attr)
+    .compact()
+    .uniq()
     .join(' ');
 
   return `<h${level} ${attr_html}>${content}</h${level}>`;
 };
 
-module.exports = { mdown, typogr, md, mdInline, removeMd, heading };
+module.exports = {
+  mdown,
+  elide,
+  typogr,
+  md,
+  mdInline,
+  removeMd,
+  heading,
+};

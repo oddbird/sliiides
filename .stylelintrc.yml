@@ -18,6 +18,10 @@ rules:
   prettier/prettier: true
 
   at-rule-no-unknown: null
+  property-no-unknown:
+    - true
+    - ignoreProperties:
+        - '/^.*\.\$.*/'
   scss/at-rule-no-unknown:
     - true
     - ignoreAtRules:

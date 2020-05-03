@@ -1,0 +1,112 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use '~sassdoc-theme-herman/scss/utilities' as herman;
+@use '~accoutrement/sass/tools';
+
+/// # Font Configuration
+/// @group config-fonts
+
+$mono-stack: (
+  'Menlo',
+  'Monaco',
+  'Lucida Console',
+  'Liberation Mono',
+  'DejaVu Sans Mono',
+  'Bitstream Vera Sans Mono',
+  'Courier New',
+  'monospace'
+);
+
+$sans-stack: ('Geneva', 'sans-serif');
+
+// Static Font
+// --------------
+/// @group config-fonts
+$static-font: (
+  name: 'Verdana',
+  stack: $sans-stack,
+);
+
+@include tools.add-font('static', $static-font);
+
+// Mono Font
+// ---------
+/// @group config-fonts
+$mono-font: (
+  name: 'Consolas',
+  stack: $mono-stack,
+);
+
+@include tools.add-font('mono', $mono-font);
+
+// Recursive Font
+// --------------
+/// @group config-fonts
+$recursive-font: (
+  name: Recursive,
+  stack: list.join((Verdana), $sans-stack),
+);
+
+@include tools.add-font('recursive', $recursive-font);
+
+// Recursive Font
+// --------------
+/// @group config-fonts
+$recursive-font: (
+  name: Recursive Mono,
+  stack: list.join((Consolas), $mono-stack),
+);
+
+@include tools.add-font('recursive-mono', $recursive-font);
+
+$_variants: (
+  body: (
+    --mono: 0,
+    --casl: 0,
+    --wght: 400,
+    --slnt: 0,
+    --ital: 0.5,
+  ),
+  code: (
+    --mono: 1,
+  ),
+  italic: (
+    font-style: italic,
+    --slnt: -15,
+  ),
+  fun: (
+    --casl: 1,
+  ),
+  light: (
+    font-weight: 200,
+    --wght: 200,
+  ),
+  bold: (
+    font-weight: bold,
+    --wght: 600,
+  ),
+  extra: (
+    font-weight: bold,
+    --wght: 1000,
+  ),
+);
+
+@mixin var($name, $settings: true) {
+  @if ($settings) {
+    font-variation-settings: 'MONO' var(--mono), 'CASL' var(--casl),
+      'wght' var(--wght), 'slnt' var(--slnt), 'ital' var(--ital);
+  }
+
+  $name: if($name, $name, ('body'));
+  $map: ();
+
+  @each $var in $name {
+    $var: tools.get-token($_variants, $var);
+    $map: map.merge($map, $var);
+  }
+
+  @each $prop, $val in $map {
+    #{$prop}: #{$val};
+  }
+}

@@ -1,1 +1,11 @@
+url: https://sliiides.netlify.com/
 domain: sliiides.netlify.com
+themes:
+  - mia
+  - complement
+  - adjacent
+  - triad
+  - monochrome
+  - contrast
+styles:
+  - screen.css

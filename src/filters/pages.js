@@ -182,119 +182,6 @@ params:
 const findPage = (collection, keys, value) =>
   collection.find((page) => hasData(page, keys, value));
 
-/* @docs
-label: render
-category: Data
-note: Returns the value for a given key from either `renderData` or `data`
-params:
-  page:
-    type: 11ty page object
-  key:
-    type: string
-*/
-const render = (page, key) => {
-  if (!page.data) {
-    return undefined;
-  }
-
-  return page.data.renderData
-    ? page.data.renderData[key] || page.data[key]
-    : page.data[key];
-};
-
-/* @docs
-label: pageYears
-category: Sorting
-note: |
-  Add `sort` and `year` keys to the page object,
-  based on the latest date available (`date` or `end`),
-  optionally including dates from events
-params:
-  collection:
-    type: array
-    note: containing 11ty page objects
-  events:
-    type: boolean
-    default: 'true'
-    note: optionally include events in sort/year dates
-*/
-const pageYears = (collection, events = true) =>
-  collection.map((page) => {
-    const dates = [page.date];
-
-    if (page.data.end && page.data.end !== 'ongoing') {
-      dates.push(page.data.end);
-    }
-
-    if (events && page.data.events) {
-      page.data.events.forEach((event) => {
-        dates.push(event.date);
-      });
-    }
-
-    page.sort = dates.reduce((a, b) => (a > b ? a : b));
-    page.year = getDate(page.sort, 'year');
-
-    return page;
-  });
-
-/* @docs
-label: byYear
-category: Sorting
-note: |
-  Runs a collection through `pageYears`,
-  and then groups them by the resulting `year` value
-params:
-  collection:
-    type: array
-    note: containing 11ty page objects
-  events:
-    type: boolean
-    default: 'true'
-    note: optionally include events in sort/year dates
-*/
-const byYear = (collection, events = true) => {
-  if (!collection || collection.length === 0) {
-    return [];
-  }
-
-  const groups = _.groupBy(pageYears(collection, events), 'year');
-
-  return Object.keys(groups)
-    .reverse()
-    .map((year) => ({
-      year,
-      posts: groups[year],
-    }));
-};
-
-/* @docs
-label: pageType
-category: Data
-note: |
-  Return one of several resource "types"
-  which we can use to provide different list styling,
-  or filtering.
-params:
-  tags:
-    type: array
-*/
-const pageType = (tags) => {
-  const types = [
-    'Client Work',
-    'OddTools',
-    'Open Source',
-    'Talks',
-    'Workshops',
-    'Podcasts',
-    'Videos',
-    'Links',
-    'News',
-  ];
-
-  return tags ? tags.find((tag) => types.includes(tag)) : false;
-};
-
 module.exports = {
   isPublic,
   isCurrent,
@@ -304,9 +191,5 @@ module.exports = {
   hasData,
   getData,
   findData,
-  pageType,
   withData,
-  render,
-  pageYears,
-  byYear,
 };

@@ -1,0 +1,66 @@
+@use '../config/patterns';
+@use '../config/fonts';
+@use '~accoutrement/sass/tools';
+
+strong {
+  color: var(--highlight);
+}
+
+blockquote {
+  @include fonts.var('italic' 'fun');
+  position: relative;
+  max-width: 46ch;
+
+  @include tools.before('"') {
+    @include patterns.fancy-text;
+    @include fonts.var('extra');
+    margin-right: var(--shim);
+    position: absolute;
+    right: 100%;
+  }
+
+  em,
+  i {
+    font-style: normal;
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  .cite {
+    @include patterns.fancy-text;
+    font-size: var(--small);
+  }
+}
+
+pre,
+code,
+tt {
+  @include tools.font-family('mono');
+
+  @supports (font-variation-settings: normal) {
+    @include tools.font-family('recursive');
+    @include fonts.var('code');
+  }
+}
+
+mark {
+  background: var(--callout);
+  color: var(--text);
+}
+
+[data-bright] {
+  @include patterns.fancy-text;
+}
+
+s,
+strike,
+del {
+  text-decoration-color: var(--strikeout);
+  text-decoration-thickness: 0.125em;
+}

@@ -1,0 +1,10 @@
+layout: slides
+talk: Dynamic CSS
+hero:
+  img: dynamic-css/_cover.jpg
+tags:
+  - css
+  - variables
+  - custom properties
+  - grid
+  - graphs

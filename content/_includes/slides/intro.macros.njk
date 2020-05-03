@@ -1,0 +1,13 @@
+{% import "slides.macros.njk" as slides %}
+
+{% macro oddbird(slide, page) %}
+  {% call slides.base(slide, 'intro-oddbird', page) %}
+    ODDBIRD
+  {% endcall %}
+{% endmacro %}
+
+{% macro use(slide, page) %}
+  {% if slide.use == 'oddbird' %}
+    {{ oddbird(slide, page) }}
+  {% endif %}
+{% endmacro %}

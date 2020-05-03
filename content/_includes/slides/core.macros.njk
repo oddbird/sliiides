@@ -1,0 +1,61 @@
+{% import "slides.macros.njk" as slides %}
+
+{% macro title(slide, page) %}
+  {% call slides.base(slide, 'title', page) %}
+    <h2>{{ slide.title | mdInline | safe }}</h2>
+    {% if slide.sub %}
+      <p class="subtitle">{{ slide.sub | mdInline | safe }}</p>
+    {% endif %}
+  {% endcall %}
+{% endmacro %}
+
+{% macro img(slide, page) %}
+  {% call slides.base(slide, 'img', page) %}
+    {% set assets = 'assets' | meta %}
+    <img src="{{ assets.images }}{{ slide.img }}" alt="{{ slide.alt }}">
+  {% endcall %}
+{% endmacro %}
+
+{% macro quote(slide, page) %}
+  {% call slides.base(slide, 'quote', page) %}
+    <blockquote>
+      {{ slide.quote | md | safe }}
+      <div class="cite h-card">
+        {{- '--' | mdInline | safe -}}
+        {{- slide.cite | mdInline | safe -}}
+      </div>
+    </blockquote>
+  {% endcall %}
+{% endmacro %}
+
+{% macro md(slide, page) %}
+  {% call slides.base(slide, 'markdown', page) %}
+    {{ slide.md | md | safe }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro default(slide, page) %}
+  {% call slides.base(slide, 'default', page) %}
+<pre>
+{%- for key, val in slide -%}
+{%- if not (key in ['page', 'index']) %}
+{{ key }}: {{ val }}
+{%- endif -%}
+{%- endfor -%}
+</pre>
+  {% endcall %}
+{% endmacro %}
+
+{% macro find(slide, page) %}
+  {% if slide.img %}
+    {{ img(slide, page) }}
+  {% elif slide.quote %}
+    {{ quote(slide, page) }}
+  {% elif slide.title %}
+    {{ title(slide, page) }}
+  {% elif slide.md %}
+    {{ md(slide, page) }}
+  {% else %}
+    {{ default(slide, page) }}
+  {% endif %}
+{% endmacro %}

@@ -1,0 +1,61 @@
+@use '~accoutrement/sass/tools';
+@use '../config/patterns';
+@use '../config/fonts';
+
+/// # Heading Defaults
+/// Initial global defaults for heading elements…
+/// @group headings
+
+// All headings
+// ------------
+/// all headings have bottom-margin removed
+/// and heading-links inherit the heading color
+/// @group headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --link: currentColor;
+  margin-bottom: 0;
+}
+
+h1,
+h2 {
+  @include fonts.var('light');
+  color: var(--text-highlight);
+  font-size: var(--h1);
+  line-height: 1.2;
+  margin: var(--gutter-plus) 0 var(--newline);
+
+  &::first-line {
+    @include fonts.var('extra');
+  }
+}
+
+h3,
+h4 {
+  margin-top: var(--newline);
+}
+
+h1 {
+  @include patterns.fancy-text;
+}
+
+h2,
+h3 {
+  strong {
+    @include patterns.fancy-text;
+    font-weight: inherit;
+  }
+}
+
+h3 {
+  @include fonts.var('bold' 'fun');
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
