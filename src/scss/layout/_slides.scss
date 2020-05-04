@@ -1,6 +1,6 @@
 @use '../config/fonts';
 
-[data-show='slides'] {
+[data-slides] {
   display: grid;
   grid-area: banner / main / main;
   grid-template-columns: minmax(min-content, 1fr);

@@ -424,6 +424,7 @@ params:
 {% macro codepen(
   id,
   title,
+  edit=true,
   user='mirisuzanne',
   tab='result',
   height=500,
@@ -433,11 +434,12 @@ params:
 ) %}
 {%- set base_attrs = {
   'class': 'codepen',
-  'data-height': height or 500,
-  'data-theme-id': theme or '39098',
-  'data-user': user or 'mirisuzanne',
+  'data-editable': edit,
+  'data-height': height,
+  'data-theme-id': theme,
+  'data-user': user,
   'data-slug-hash': id,
-  'data-default-tab': tab or 'result',
+  'data-default-tab': tab,
   'data-embed-version': "2",
   "data-preview": preview
 } -%}

@@ -56,6 +56,16 @@ button {
     cursor: not-allowed;
     opacity: 0.5;
   }
+
+  &[aria-pressed='true'] {
+    --btn-border: var(--ccs-accent--fg2);
+    --btn-bg: var(--ccs-accent--fg4);
+
+    &::before {
+      content: '✔';
+      color: var(--ccs-accent--bg3);
+    }
+  }
 }
 
 [data-btn~='flush'] {

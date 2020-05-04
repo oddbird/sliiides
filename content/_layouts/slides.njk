@@ -8,9 +8,19 @@ layout: base
 
 {% set page = collections.all | getPage(page.url) %}
 
-<main data-show="slides">
+{% set caption %}
+<button data-toggle="presenting" aria-pressed="false">
+  presenter mode
+</button>
+(will capture left/right arrow-keys)
+{% endset %}
+
+<main data-slides="{{ page.data.slides | length }}">
   {% call slides.base(
-    slide={ 'index': 0 },
+    slide={
+      'index': 0,
+      'caption': caption
+     },
     name='event-title',
     page=page,
     is='header'

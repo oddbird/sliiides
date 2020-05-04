@@ -46,9 +46,10 @@
     {{ embed.codepen(
       id=slide.id,
       title=slide.pen,
-      height=slide.height,
-      theme=slide.theme,
-      tab=slide.tab,
+      edit=false if slide.noedit else true,
+      height=slide.height or 500,
+      theme=slide.theme or '39098',
+      tab=slide.tab or 'result',
       preview=slide.preview
     ) }}
   {% endcall %}
