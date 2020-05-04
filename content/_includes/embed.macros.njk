@@ -1,0 +1,455 @@
+{% import 'utility.macros.njk' as utility %}
+
+{# @docs
+label: Media Embed macros
+category: File
+note: |
+  Helper macros for consistent embedding of
+  images, svg, video (iframes), and audio media --
+  as well as creating particular patterns
+  like media/icon-blocks, logo arrays, figures, galleries, etc.
+#}
+
+
+{# @docs
+label: media_block
+category: Patterns
+note: |
+  Media blocks create a side-by-side layout,
+  with constrained-width media on one side,
+  and text-content flowing to the other side.
+params:
+  media:
+    type: string
+    note: The media to embed (this macro does not generate the media itself)
+  name:
+    type: string
+    default: "''"
+    note: This name will be applied to the `data-media` attribute
+  attrs:
+    type: object
+    default: '{}'
+  reverse:
+    type: boolean
+    default: 'false'
+  content:
+    type: string
+    default: none
+    note: Provide either the content parameter *or* a `caller()` block
+#}
+{% macro media_block(
+  media,
+  name='',
+  attrs={},
+  reverse=none,
+  content=none
+) %}
+{%- set content = content if (content != none) else caller() -%}
+{%- set core = {
+  'data-media': name,
+  'data-reverse': reverse
+} -%}
+<div {{ utility.show_attrs(core) }} {{ utility.show_attrs(attrs) }}>
+<div class="media-image">{{ media | safe }}</div>
+<div class="media-content">{{ content | safe }}</div>
+</div>
+{% endmacro %}
+
+
+{# @docs
+label: figure
+category: Patterns
+note: |
+  Generate a figure from data, or pass in a `caller()` block.
+params:
+  data:
+    type: array
+    default: none
+    note: Array of media-data dictionaries
+  caption:
+    type: string
+    default: none
+  class:
+    type: string
+    default: ''
+#}
+{% macro figure(
+  data=none,
+  caption=none,
+  class=''
+) -%}
+{%- set content = _fig_content(data) if (data != none) else caller() -%}
+{% if content %}
+<figure class="embed{{ ' ' + class if class else '' }}">
+<div class="gallery">
+{{- content | safe -}}
+</div>
+{%- if caption -%}
+<figcaption class="caption">
+{{- caption | mdInline | safe -}}
+</figcaption>
+{%- endif -%}
+</figure>
+{% endif %}
+{%- endmacro %}
+
+
+{# @docs
+label: video
+category: Patterns
+note: |
+  Generate a figure for a one-off video
+params:
+  src:
+    type: url
+  height:
+    type: number
+    default: none
+  width:
+    type: number
+    default: none
+  caption:
+    type: string
+    default: none
+#}
+{% macro video(
+  src,
+  height=none,
+  width=none,
+  caption=none
+) %}
+  {{ figure(
+    data=[{
+      'iframe': src,
+      'height': height,
+      'width': width
+    }],
+    caption=caption
+  ) }}
+{% endmacro %}
+
+
+{# Private macro used to generate figure content from data #}
+{% macro _fig_content(
+  data
+) -%}
+{%- for item in data -%}
+  {%- if item.img -%}
+    {%- set style = {
+      '--width': item.width,
+      '--span': item.span
+    } | styles -%}
+    {% set full_width = (loop.length == 1) or (item.span == 'full') or (item.span > 1) %}
+    {{- img(
+      src=item.img,
+      alt=item.alt,
+      width=item.width,
+      height=item.height,
+      sizes=none if full_width else 'gallery',
+      attrs={'style': style}
+    ) | safe -}}
+  {%- elif item.svg -%}
+    {{- svg(item.svg, item.alt) | safe -}}
+  {%- elif item.iframe -%}
+    {{- iframe(item.iframe, item.width, item.height, item.span) -}}
+  {%- elif item.audio -%}
+    {{- audio(item.audio, span) -}}
+  {%- endif -%}
+{%- endfor -%}
+{%- endmacro %}
+
+{# @docs
+label: logos
+category: Patterns
+note: Generate a block of project logos.
+todo: This is likely to move and expand to include page data.
+params:
+  projects:
+    type: array
+    note: |
+      Names of svg files to include from `content/_includes/logos/`,
+      without the path or `.svg` extension.
+#}
+{% macro logos(
+  projects,
+  collection
+) %}
+<div class="logo-grid">
+  {%- for project in projects -%}
+    {%- set page = collection | getPage(project) if collection else none -%}
+    {%- set logo = page.data.logo if page else project -%}
+    {%- set client = page.data.client -%}
+    {%- set title = page | render('banner') or page | render('title') -%}
+    {{ utility.link_if(
+      content=svg(
+        path='logos/' + logo,
+        alt=[client, title] | join(': ') if (client and title) else title
+      ),
+      url=page.url if page else none
+    ) }}
+  {%- endfor -%}
+</div>
+{% endmacro %}
+
+
+{# @docs
+label: srcset
+category: Embed
+note: Generate a `srcset` attribute for responsive images
+params:
+  src:
+    type: url
+  width:
+    type: number
+    default: none
+#}
+{% macro srcset(
+  src,
+  width=none
+) -%}
+  {%- set config = 'img' | fromTaxonomy -%}
+  {%- set width = width or config.srcset | max -%}
+  {%- for size in config.srcset -%}
+    {%- if size <= width -%}
+      {%- if not loop.first %}, {% endif -%}
+      {{- src | imgSuffix(size) }} {{ size + 'w' -}}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endmacro %}
+
+{# @docs
+label: img
+category: Embed
+note: Embed an image
+params:
+  src:
+    type: url
+  alt:
+    type: string
+    default: ''
+  width:
+    type: number
+    default: none
+  height:
+    type: number
+    default: none
+  sizes:
+    type: string | none
+    default: none
+    note: |
+      Only required for small images, since the default is 100vw.
+      See taxonomy data for named sizes
+      like "card", "media", and "gallery".
+  attrs:
+    type: object
+    default: '{}'
+#}
+{% macro img(
+  src,
+  alt='',
+  width=none,
+  height=none,
+  sizes=none,
+  attrs={}
+) -%}
+
+{%- if src -%}
+{% set assets = 'assets' | meta %}
+{%- set attrs = attrs | merge({
+  'src': assets.images + src,
+  'alt': alt,
+  'width': width,
+  'height': height
+}) -%}
+<img {{ utility.show_attrs(attrs) }}/>
+{%- endif -%}
+{%- endmacro %}
+
+
+{# @docs
+label: svg
+category: Embed
+note: Embed an svg file from the `content/_includes/` folder
+params:
+  path:
+    type: string
+#}
+{% macro svg(
+  path,
+  alt=none
+) -%}
+  {%- include path + '.svg' -%}
+  {% if alt %}<span class="sr-only">{{ alt }}</span>{% endif %}
+{%- endmacro %}
+
+
+{# @docs
+label: iframe
+category: Embed
+note: |
+  Embed an iframe (most often used for videos).
+  Width and height are provided both as defaults,
+  and to create intrinsic ratios when possible.
+params:
+  src:
+    type: url
+  width:
+    type: number
+    default: 'none'
+  height:
+    type: number
+    default: 'none'
+  span:
+    type: number | 'full'
+    default: 'none'
+    note: Span multiple columns of a gallery
+#}
+{% macro iframe(
+  src,
+  width=560,
+  height=315,
+  span=none
+) %}
+  {%- set attrs = {
+    'src': src,
+    'width': width,
+    'height': height,
+    'frameborder': '0',
+    'webkitallowfullscreen': true,
+    'mozallowfullscreen': true,
+    'allowfullscreen': true
+  } -%}
+  {%- set content %}<iframe {{ utility.show_attrs(attrs) }}></iframe>{% endset -%}
+  {{- ratio(width, height, span, content) | safe -}}
+{% endmacro %}
+
+{# @docs
+label: audio
+category: Embed
+note: Embed an audio file
+params:
+  src:
+    type: url
+  attrs:
+    type: object
+    default: '{}'
+#}
+{% macro audio(
+  src,
+  span
+) -%}
+{%- set style = {
+  '--width': '100%',
+  '--span': span
+} -%}
+{%- set src = src if ('://' in src) else ('/assets/media/' + src) -%}
+<audio src="{{ src }}" {{ utility.style_if(style) }} controls>{{ src | mdInline }}</audio>
+{%- endmacro %}
+
+
+{# @docs
+label: ratio
+category: Layout
+note: Maintain aspect ratio for embedded media
+params:
+  width:
+    type: number
+    default: 'none'
+  height:
+    type: number
+    default: 'none'
+  span:
+    type: number | 'full'
+    default: 'none'
+    note: Span multiple columns of a gallery
+  content:
+    type: html
+    default: 'none'
+    note: The content to embed (can also be a `caller()` block)
+#}
+{% macro ratio(
+  width=none,
+  height=none,
+  span=none,
+  content=none
+) %}
+{%- set content = content if (content != none) else caller() -%}
+{%- if width | typeCheck('number') and height | typeCheck('number') -%}
+  {%- set style = {
+    '--ratio': (width / height),
+    '--span': span
+  } -%}
+<div class="ratio" {{ utility.style_if(style) }}>{{ content | safe }}</div>
+  {%- else -%}
+    {{- content | safe -}}
+  {%- endif -%}
+{%- endmacro %}
+
+{# @docs
+label: codepen
+category: Patterns
+note: Embed a demo from codepen
+links:
+  - '[Codepen docs](https://blog.codepen.io/documentation/features/embedded-pens/)'
+params:
+  id:
+    type: string
+    note: The "slug hash" of the desired pen
+  title:
+    type: string
+    note: Used in the default fallback link
+  user:
+    type: string
+    note: The codepen username, eg 'mirisuzanne'
+  tab:
+    type: string
+    default: 'result'
+    note: The tabs to have open by default, eg 'html' or 'html,css,result'
+  height:
+    type: number | '100%'
+    default: 500
+    note: The pixel-height of the embed, or '100%' to fit a sized container
+  theme:
+    type: string | 'light' | 'dark'
+    default: none
+    note: The embed-frame theme (not the code theme)
+  preview:
+    type: boolean
+    default: none
+    note: Set `true` to keep the pen from auto-running
+  attrs:
+    type: array
+    default: '{}'
+#}
+{% macro codepen(
+  id,
+  title,
+  user='mirisuzanne',
+  tab='result',
+  height=500,
+  theme='39098',
+  preview=none,
+  attrs=none
+) %}
+{%- set base_attrs = {
+  'class': 'codepen',
+  'data-height': height or 500,
+  'data-theme-id': theme or '39098',
+  'data-user': user or 'mirisuzanne',
+  'data-slug-hash': id,
+  'data-default-tab': tab or 'result',
+  'data-embed-version': "2",
+  "data-preview": preview
+} -%}
+{%- set attrs = base_attrs | merge(attrs) if attrs else base_attrs -%}
+<p {{ utility.show_attrs(attrs) }}>See the Pen {{ utility.link_if(
+  content=title,
+  url=('http://codepen.io/' + user + '/pen/' + id)
+) }} by {{ utility.link_if(
+  content='@' + user,
+  url='http://codepen.io/' + user
+) }} on {{ utility.link_if(
+  content='CodePen',
+  url='http://codepen.io'
+) }}.</p><script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+{% endmacro %}

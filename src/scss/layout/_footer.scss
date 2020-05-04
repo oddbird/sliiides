@@ -1,0 +1,9 @@
+[role='contentinfo'] {
+  background: var(--callout);
+  border-top: thick solid var(--border);
+  display: grid;
+  grid-gap: var(--gutter);
+  grid-template-columns: repeat(auto-fit, minmax(var(--fit-min, 10rem), 1fr));
+  font-size: var(--xsmall);
+  padding: var(--gutter);
+}

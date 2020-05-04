@@ -75,3 +75,10 @@ a {
     text-decoration: none;
   }
 }
+
+[href*='://']
+{
+  @include tools.after('↗') {
+    @include tools.font-family('mono');
+  }
+}

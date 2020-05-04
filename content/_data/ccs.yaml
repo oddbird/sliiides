@@ -1,0 +1,10 @@
+hue: 195
+saturation: 75
+lightness: 50
+contrast: 54
+themes:
+  - oddbird
+  - complement
+  - adjacent
+  - triad
+  - monochrome

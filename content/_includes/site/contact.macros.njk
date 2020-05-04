@@ -1,0 +1,146 @@
+{% import 'utility.macros.njk' as utility %}
+{% import 'forms.macros.njk' as forms %}
+
+{# @docs
+label: Contact Macros
+category: File
+note: Forms related to OddBird communication.
+#}
+
+
+{# @docs
+label: form
+note: Generate a contact form
+params:
+  next:
+    type: url
+    default: '/contact/thanks/'
+    note: The landing page after form-submit
+  submit:
+    type: string
+    default: Send
+    note: text for the submit button
+  name:
+    type: string
+    default: contact
+    note: |
+      Name the form for special cases
+      where a CSS hook is required
+#}
+{% macro form(
+  next='/contact/thanks/',
+  submit='Send',
+  name='contact',
+  attrs={}
+) %}
+<form
+  name="{{ name or 'contact' }}"
+  data-form="{{ name or 'contact' }}"
+  method="POST"
+  action="{{ next }}"
+  netlify-honeypot="subject"
+  data-netlify="true"
+  {{ utility.show_attrs(attrs) }}>
+  <div data-fieldgroup="contact-info">
+
+    {{ forms.field(
+      label='Name',
+      required=true
+    ) }}
+
+    {{ forms.field(
+      label='Email',
+      type='email',
+      required=true
+    ) }}
+
+  </div>
+
+  {{ forms.field(
+    label='Message',
+    type='textarea',
+    required=true
+  ) }}
+
+  <label data-honey aria-hidden="true">
+    <span>Don't fill out this field:</span>
+    <input name="subject" />
+  </label>
+
+  <div class="form-actions">
+    <button
+      data-btn="submit"
+      type="submit">
+      {{ submit }}
+    </button>
+  </div>
+</form>
+{% endmacro %}
+
+{# @docs
+label: social
+note: Generate a list of social-media icon-links
+params:
+  data:
+    type: object
+    note: site-slug/user-id pairs
+  name:
+    type: string
+    note: The name of the user
+#}
+{% macro social(
+  data,
+  name,
+  details=false
+) %}
+  {%- set sites = {
+    'email': {
+      'user': '%s@oddbird.net',
+      'url': 'mailto:%s@oddbird.net',
+      'icon': 'mail',
+      'hide_details': true
+    },
+    'twitter': {
+      'user': '@%s',
+      'url': 'https://twitter.com/%s/'
+    },
+    'github': {
+      'url': 'https://github.com/%s/'
+    },
+    'codepen': {
+      'title': 'CodePen',
+      'url': 'https://codepen.io/%s/'
+    },
+    'dribbble': {
+      'url': 'https://dribbble.com/%s/'
+    },
+    'stackoverflow': {
+      'title': 'Stack Overflow',
+      'url': 'https://stackoverflow.com/users/%s/',
+      'text': name
+    }
+  } -%}
+
+  {%- if data -%}
+    <ul class="social-list">
+    {%- for site, id in data -%}
+      {%- set info = sites[site] -%}
+      {%- if info -%}
+        {%- set hide_details = info.hide_details or (not details) -%}
+        {%- set text = info.user | replace("%s", id) if info.user else info.text or id -%}
+        {%- set context %} <i>on</i> {{ info.title or site | capitalize }}{% endset -%}
+        {%- set context = '<span class="sr-only">' + context + '</span>' if hide_details else context %}
+        {%- set text = text + context if hide_details else text -%}
+        <li>
+          {{- utility.icon_link(
+            icon='social/' + (info.icon or site),
+            text=text | safe,
+            url=info.url | replace("%s", id)
+          ) -}}
+          {{- context if not hide_details -}}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+    </ul>
+  {%- endif -%}
+{% endmacro %}

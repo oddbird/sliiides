@@ -1,0 +1,152 @@
+{# @docs
+label: Utility Macros
+category: File
+note: |
+  Utilities can be used just about anywhere,
+  and that's why we love them.
+#}
+
+
+{# @docs
+label: attr_if
+category: Attributes
+note: |
+  Pass in an attribute name and value.
+  If the value is not falsey,
+  we'll display the attribute
+  with appropriate value when necessary.
+params:
+  attr:
+    type: string
+    note: The attribute name
+  value:
+    type: string | boolean
+    default: none
+    note: |
+      The value of the attribute.
+      "True" or "true" (string or boolean)
+      will output the attribute without any value,
+      while falsey values will not output any attribute.
+#}
+{% macro attr_if(
+  attr,
+  value=none
+) %}
+  {%- if (value and (value | string | lower == 'true')) or (value == '') -%}
+    {{ attr }}
+  {%- elif value -%}
+    {{ attr }}="{{ value }}"
+  {%- endif -%}
+{% endmacro %}
+
+
+{# @docs
+label: show_attrs
+category: Attributes
+note: |
+  Render a dictionary of attribute/value pairs
+  into HTML-ready attributes.
+params:
+  attrs:
+    type: object
+#}
+{% macro show_attrs(
+  attrs
+) %}
+  {%- for attr, value in attrs %} {{ attr_if(attr, value) }}{%- endfor -%}
+{% endmacro %}
+
+
+{# @docs
+label: style_if
+category: Attributes
+note: |
+  Render a dictionary of property/value pairs
+  into an HTML-ready style attribute.
+params:
+  style:
+    type: object
+#}
+{% macro style_if(
+  style
+) -%}
+  {{ attr_if('style', style | styles) }}
+{%- endmacro %}
+
+
+{# @docs
+label: icon_link
+category: Links
+note: |
+  Links with icons require special handling
+  in order to avoid awkward underline collisions.
+params:
+  icon:
+    type: include path
+  text:
+    type: string
+  url:
+    type: url
+    default: none
+  class:
+    type: string
+    default: none
+  attrs:
+    type: object
+    default: '{}'
+#}
+{% macro icon_link(
+  icon,
+  text,
+  url=none,
+  class=none,
+  attrs={}
+) -%}
+  {%- set content -%}
+    {%- include icon + '.svg' -%}
+    <span class="link-text">{{ text | safe }}</span>
+  {%- endset -%}
+
+  {{- link_if(
+    content=content,
+    url=url,
+    class=[class, 'icon-link'] | join(' ') if class else 'icon-link',
+    attrs=attrs
+  ) -}}
+{%- endmacro %}
+
+
+{# @docs
+label: link_if
+category: Links
+note: Return a link or span with given attributes
+params:
+  content:
+    type: string
+  url:
+    type: url
+    default: none
+  class:
+    type: string
+    default: none
+  attrs:
+    type: object
+    default: '{}'
+#}
+{% macro link_if(
+  content,
+  url=none,
+  class=none,
+  attrs={}
+) -%}
+  {%- set content = content if (content != none) else caller() -%}
+  {%- if url -%}
+  <a href="{{ url }}" {{ attr_if('class', class) }} {{ show_attrs(attrs) }}>{{
+    content | safe
+  }}</a>
+  {%- else -%}
+  <span {{ attr_if('class', class) }} {{ show_attrs(attrs) }}>{{
+    content | safe
+  }}</span>
+  {%- endif -%}
+{%- endmacro %}

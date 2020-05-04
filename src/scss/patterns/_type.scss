@@ -2,8 +2,17 @@
 @use '../config/fonts';
 @use '~accoutrement/sass/tools';
 
+strong,
+em {
+  @include patterns.fancy-text;
+}
+
 strong {
-  color: var(--highlight);
+  @include fonts.var('bold');
+}
+
+em {
+  @include fonts.var('italic');
 }
 
 blockquote {
@@ -19,9 +28,10 @@ blockquote {
     right: 100%;
   }
 
-  em,
-  i {
-    font-style: normal;
+  strong {
+    @include fonts.var('normal');
+    background: var(--feature-gradient);
+    color: var(--bg);
   }
 
   > :first-child {
@@ -34,6 +44,7 @@ blockquote {
 
   .cite {
     @include patterns.fancy-text;
+    @include fonts.var('body');
     font-size: var(--small);
   }
 }
@@ -63,4 +74,8 @@ strike,
 del {
   text-decoration-color: var(--strikeout);
   text-decoration-thickness: 0.125em;
+}
+
+time {
+  @include fonts.var('light' 'code');
 }

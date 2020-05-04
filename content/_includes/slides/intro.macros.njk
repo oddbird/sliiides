@@ -1,13 +1,10 @@
 {% import "slides.macros.njk" as slides %}
+{% import "embed.macros.njk" as embed %}
 
 {% macro oddbird(slide, page) %}
   {% call slides.base(slide, 'intro-oddbird', page) %}
-    ODDBIRD
+    {{ embed.svg('svg/oddbird') }}
+    <h2>OddBird <em>Consulting</em></h2>
+    <p>Custom Apps, Design Systems, Training, & Refactors</p>
   {% endcall %}
-{% endmacro %}
-
-{% macro use(slide, page) %}
-  {% if slide.use == 'oddbird' %}
-    {{ oddbird(slide, page) }}
-  {% endif %}
 {% endmacro %}

@@ -1,21 +1,22 @@
 ---
-layout: base
+layout: page
 title: Sliiides…
 ---
 
-<main class="home">
-  <h1>{{ title }}</h1>
-
-  <ul>
-  {% for event in collections.events %}
-    <li>
+<ul data-list='all'>
+{% for event in collections.events %}
+  <li>
+    <time>
+      {{ event.date | getDate('short') }}
+    </time>
+    <strong>
+      » {{ event.data.talk }}
+    </strong>
+    <h2>
       <a href="{{ event.url }}">
-        <strong>
-          {{ event.date | getDate('short') }} |
-        </strong>
-        {{ event.data.talk }}: {{ event.data.venue }}
+        {{ event.data.venue }}
       </a>
-    </li>
-  {% endfor %}
-  </ul>
-</main>
+    </h2>
+  </li>
+{% endfor %}
+</ul>

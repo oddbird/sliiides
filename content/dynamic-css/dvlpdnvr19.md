@@ -8,7 +8,8 @@ slides:
   use: susy
 - from: shared
   use: no-susy
-- title: 1989… **HTML**
+- title: |
+    *1989…* HTML
   sub: Markup Language
 - quote: |
     It is required that HTML be a common language
@@ -19,8 +20,8 @@ slides:
 - img: process/www-cern.jpg
   alt: Screenshot of first world wide website
 - title: |
-    ~~1996~~ 2000… \
-    Cascading **Style Sheets**
+    *~~1996~~ 2000…* \
+    **Cascading** Style Sheets
 - md: |
     ![CSS is Awesome](/images/dynamic-css/css-is-awesome.jpg)
     (The **End**)
@@ -32,22 +33,26 @@ slides:
   alt: Braille computer attachment and headphones
 - title: |
     **Declarative** Syntax \
-    **`!=` Static** Results
-- title: Design for an **Unknown Canvas**
+    `!=` **Static** Results
+- title: Design for an *Unknown Canvas*
   sub: CSS is **Dynamic** & **Resilient** by Design
-- title: 2011… **`calc()`**
+- title: |
+    *2011…* `calc()`
   sub: Firefox 4 -- **`function`**
 - title: |
-    `calc(` **`16px`** `+` **`20%`** `)`
+    `calc(` *`16px`* `+` *`20%`* `)`
   sub: Combine **Relative** & **Fixed** Widths!
-- title: 2014… CSS **Variables**
+- title: |
+    *2014…* CSS **Variables**
   sub: Firefox 31 (unless you count **`currentColor`**)
 - title: |
-    `--aka`**`:`** `'custom properties'`**`;`**
+    *`--aka`*`:` *`'custom properties'`*`;`
 - title: |
-    `-<empty>-`**`browser-prefix`**
+    `-<empty>-`*`browser-prefix`*
 - title: |
-    `var(` **`--property-name`** `, fallback)`
+    `var(`*`--name`*`, fallback)`
+  sub: |
+    `var(`*`--one`*`, var(`*`--two`*`, var(`*`--three`*`, fallback)))`
 - pen: Custom Props (live code)
   id: 4139af81286aa69d17850cea2ad4d6bc
 - pen: Variables » Functions » Mixins (live code)

@@ -22,9 +22,9 @@ $ratios: (
 /// @sizes {text}
 /// @group config-scale
 $font-sizes: (
-  'small': 0.75rem,
-  'xsmall': 0.5rem,
-  'rem': calc(2em + 0.75vw),
+  'small': max(16px, 0.75rem),
+  'xsmall': max(14px, 0.5rem),
+  'rem': calc(1.25em + 1.25vw),
   'medium': 1.25rem,
   'large': calc(1.25rem + 1vw),
   'xlarge': calc(1.5rem + 2vw),

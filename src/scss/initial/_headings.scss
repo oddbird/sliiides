@@ -22,32 +22,25 @@ h6 {
 }
 
 h1,
-h2 {
-  @include fonts.var('light');
-  color: var(--text-highlight);
-  font-size: var(--h1);
-  line-height: 1.2;
-  margin: var(--gutter-plus) 0 var(--newline);
-
-  &::first-line {
-    @include fonts.var('extra');
-  }
-}
-
+h2,
 h3,
 h4 {
   margin-top: var(--newline);
 }
 
-h1 {
-  @include patterns.fancy-text;
-}
+h1,
+h2 {
+  @include fonts.var('extra');
+  font-size: var(--h1);
+  line-height: 1.2;
 
-h2,
-h3 {
   strong {
-    @include patterns.fancy-text;
-    font-weight: inherit;
+    @include fonts.var('extra');
+  }
+
+  code,
+  em {
+    @include fonts.var('light');
   }
 }
 

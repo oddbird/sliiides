@@ -29,22 +29,6 @@ hr {
   color: var(--bg);
 }
 
-// Ampersands
-// ----------
-/// All ampersands default to the fancy baskerville italic.
-/// @group type
-.amp {
-  @include fonts.var('body' 'light');
-}
-
-// H-Cards
-// -------
-/// By default, non-link h-cards are bold.
-/// @group type
-.h-card:not([href]) {
-  font-weight: bold;
-}
-
 // Paragraphs & Lists
 // ------------------
 /// Apply spacing after paragraphs and lists.

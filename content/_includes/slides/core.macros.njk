@@ -1,4 +1,6 @@
 {% import "slides.macros.njk" as slides %}
+{% import "embed.macros.njk" as embed %}
+{% import "utility.macros.njk" as utility %}
 
 {% macro title(slide, page) %}
   {% call slides.base(slide, 'title', page) %}
@@ -11,8 +13,10 @@
 
 {% macro img(slide, page) %}
   {% call slides.base(slide, 'img', page) %}
-    {% set assets = 'assets' | meta %}
-    <img src="{{ assets.images }}{{ slide.img }}" alt="{{ slide.alt }}">
+    {{ embed.img(
+      src=slide.img,
+      alt=slide.alt
+    ) }}
   {% endcall %}
 {% endmacro %}
 
@@ -31,6 +35,22 @@
 {% macro md(slide, page) %}
   {% call slides.base(slide, 'markdown', page) %}
     {{ slide.md | md | safe }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro pen(slide, page) %}
+  {%- set pres %}[[present](https://codepen.io/{{ slide.user or 'mirisuzanne' }}/pres/{{ slide.id }}?editors=1100)]{% endset -%}
+  {%- set caption = [slide.caption, pres] | join(' ') if slide.caption else pres -%}
+  {%- set slide = slide | merge({'caption': caption}) -%}
+  {% call slides.base(slide, 'codepen', page) %}
+    {{ embed.codepen(
+      id=slide.id,
+      title=slide.pen,
+      height=slide.height,
+      theme=slide.theme,
+      tab=slide.tab,
+      preview=slide.preview
+    ) }}
   {% endcall %}
 {% endmacro %}
 
@@ -53,6 +73,8 @@
     {{ quote(slide, page) }}
   {% elif slide.title %}
     {{ title(slide, page) }}
+  {% elif slide.pen %}
+    {{ pen(slide, page) }}
   {% elif slide.md %}
     {{ md(slide, page) }}
   {% else %}

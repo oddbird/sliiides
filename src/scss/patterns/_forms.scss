@@ -1,4 +1,5 @@
 @use '../config/fonts';
+@use '~accoutrement/sass/tools';
 
 [data-label],
 [data-input] {
@@ -11,7 +12,6 @@
 }
 
 [data-label] {
-  font-size: var(--font-small);
   @include fonts.var('italic');
 }
 
@@ -20,15 +20,14 @@
   --input-border: var(--border);
   --input-color: var(--border);
   background-color: var(--input-bg);
-  border: var(--quarter-shim) solid var(--input-border);
+  border: thin solid var(--input-border);
   color: var(--input-color);
   font: inherit;
   letter-spacing: inherit;
 }
 
 [data-input~='text'] {
-  border-radius: var(--border-radius) 0;
-  font-size: var(--font-small);
+  border-radius: var(--radius) 0;
   padding: var(--field-padding, var(--half-shim));
   width: var(--field-width, 100%);
 
@@ -39,14 +38,26 @@
   }
 }
 
-[data-input~='area'] {
-  min-height: calc(var(--gutter) * 8);
+textarea {
+  min-height: calc(6em + 4vw);
+  resize: vertical;
+  width: 100%;
 }
 
 select {
   font: inherit;
+  font-size: var(--xsmall);
+  width: 100%;
 }
 
 ::placeholder {
   @include fonts.var('italic');
+}
+
+.form-actions {
+  margin-top: var(--newline);
+}
+
+[data-honey] {
+  @include tools.is-hidden;
 }

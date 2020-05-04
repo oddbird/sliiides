@@ -28,45 +28,45 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@11ty/eleventy@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "@11ty/eleventy@npm:0.10.0"
+"@11ty/eleventy@npm:^0.11.0-beta.4":
+  version: 0.11.0-beta.4
+  resolution: "@11ty/eleventy@npm:0.11.0-beta.4"
   dependencies:
     "@11ty/dependency-tree": ^1.0.0
     browser-sync: ^2.26.7
     chalk: ^3.0.0
-    chokidar: ^3.3.1
+    chokidar: ^3.4.0
     debug: ^4.1.1
-    dependency-graph: ^0.8.1
-    ejs: ^2.6.2
-    fast-glob: ^3.1.1
+    dependency-graph: ^0.9.0
+    ejs: ^2.7.4
+    fast-glob: ^3.2.2
     fs-extra: ^8.1.0
     gray-matter: ^4.0.2
     hamljs: ^0.6.2
-    handlebars: ^4.5.3
+    handlebars: ^4.7.6
     javascript-stringify: ^2.0.1
     liquidjs: ^6.4.3
     lodash: ^4.17.15
-    luxon: ^1.21.3
-    markdown-it: ^8.4.2
-    minimist: ^1.2.0
+    luxon: ^1.23.0
+    markdown-it: ^10.0.0
+    minimist: ^1.2.5
     moo: ^0.5.1
     multimatch: ^4.0.0
-    mustache: ^2.3.0
+    mustache: ^2.3.2
     normalize-path: ^3.0.0
-    nunjucks: ^3.2.0
+    nunjucks: ^3.2.1
     parse-filepath: ^1.0.2
     please-upgrade-node: ^3.2.0
     pretty: ^2.0.0
     pug: ^2.0.4
     recursive-copy: ^2.0.10
-    semver: ^7.1.0
-    slugify: ^1.3.6
+    semver: ^7.3.2
+    slugify: ^1.4.0
     time-require: ^0.1.2
     valid-url: ^1.0.9
   bin:
     eleventy: cmd.js
-  checksum: 2/3e2bf96eed4cb1ebfca927112055be06d0a38d5283d8fe899b2ac7735804f9d87e1b338634c6bebc8c05a31974b18ffff9af9d3e36e8219504b7af18a4a1cdf9
+  checksum: 2/30ebead8198aa65d2fbaa5bd0cec6a517d1b6ce09027b3ea79d271e2372a88cf5bd274420ded6d87d2d4bdeea6088667a00855ef8c816eb75e3159de51addd3d
   languageName: node
   linkType: hard
 
@@ -3009,7 +3009,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=2.0.0 <4.0.0, chokidar@npm:^3.2.3, chokidar@npm:^3.3.0, chokidar@npm:^3.3.1":
+"chokidar@npm:>=2.0.0 <4.0.0, chokidar@npm:^3.2.3, chokidar@npm:^3.3.0, chokidar@npm:^3.4.0":
   version: 3.4.0
   resolution: "chokidar@npm:3.4.0"
   dependencies:
@@ -4110,10 +4110,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dependency-graph@npm:^0.8.1":
-  version: 0.8.1
-  resolution: "dependency-graph@npm:0.8.1"
-  checksum: 2/8e826b644826f31b2446fd5d14ea4cffd3bfba73b0992c55caad52e76ede81e1941eec06e976a2325ad20e174a77cbc5daac2176306b12d74092ea8d29668986
+"dependency-graph@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "dependency-graph@npm:0.9.0"
+  checksum: 2/bd4be777ce16fd5412db9cf7df3c7a5e76bd2029a79b624db716e130ed7efaf606f3086234fc26fa9f317db4a2760006cb6397d165b14a314f1bb50a1c632e2c
   languageName: node
   linkType: hard
 
@@ -4383,7 +4383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ejs@npm:^2.6.2":
+"ejs@npm:^2.7.4":
   version: 2.7.4
   resolution: "ejs@npm:2.7.4"
   checksum: 2/f066d9a932fb921bdb6e87133d747d5e3408a1c1303f9a15e5a7a3973afdf444a672c98c2f6d97b9a1a76363bd8ae6d05286f26c6b6b7b9674dfc5802fc8546d
@@ -6245,7 +6245,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"handlebars@npm:^4.5.3":
+"handlebars@npm:^4.7.6":
   version: 4.7.6
   resolution: "handlebars@npm:4.7.6"
   dependencies:
@@ -8566,7 +8566,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"luxon@npm:^1.21.3":
+"luxon@npm:^1.23.0":
   version: 1.23.0
   resolution: "luxon@npm:1.23.0"
   checksum: 2/0d7238f2612cd9303f6670c31e2fcc75578bb4e4dc4d649989d4a79df428c9046e3525fccb58e040de3de8c21647521efa4aa25eff8fb5a9320d47bc5a1eee07
@@ -8663,21 +8663,6 @@ fsevents@~2.1.2:
   bin:
     markdown-it: bin/markdown-it.js
   checksum: 2/f0529067445a432fa5b32b6544e1aaa21d0ee54d43f28a3fb4d6afab271e17c749481da936529bb72a5544146cdd541757893c27f6b0ff8d45339b5cf3f98be5
-  languageName: node
-  linkType: hard
-
-"markdown-it@npm:^8.4.2":
-  version: 8.4.2
-  resolution: "markdown-it@npm:8.4.2"
-  dependencies:
-    argparse: ^1.0.7
-    entities: ~1.1.1
-    linkify-it: ^2.0.0
-    mdurl: ^1.0.1
-    uc.micro: ^1.0.5
-  bin:
-    markdown-it: bin/markdown-it.js
-  checksum: 2/b07c928536d55f49e80dbca8e6d0145f05e1156eee25018bccd81ecf3435afbd84bfef5a569d5cf63bf6e5fd8a38c08ea7bbc6afe4a95cba84788bbacd698cfd
   languageName: node
   linkType: hard
 
@@ -9067,7 +9052,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mustache@npm:^2.3.0":
+"mustache@npm:^2.3.2":
   version: 2.3.2
   resolution: "mustache@npm:2.3.2"
   bin:
@@ -9484,7 +9469,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"nunjucks@npm:^3.1.7, nunjucks@npm:^3.2.0":
+"nunjucks@npm:^3.1.7, nunjucks@npm:^3.2.1":
   version: 3.2.1
   resolution: "nunjucks@npm:3.2.1"
   dependencies:
@@ -11903,7 +11888,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.1.0, semver@npm:^7.1.2":
+"semver@npm:^7.1.2, semver@npm:^7.3.2":
   version: 7.3.2
   resolution: "semver@npm:7.3.2"
   bin:
@@ -12121,7 +12106,7 @@ fsevents@~2.1.2:
   resolution: "sliiides@workspace:."
   dependencies:
     "#": "link:./src/filters"
-    "@11ty/eleventy": ^0.10.0
+    "@11ty/eleventy": ^0.11.0-beta.4
     "@11ty/eleventy-plugin-syntaxhighlight": ^3.0.1
     "@babel/core": ^7.9.0
     "@babel/preset-env": ^7.9.5
@@ -12176,7 +12161,7 @@ fsevents@~2.1.2:
   languageName: unknown
   linkType: soft
 
-"slugify@npm:^1.3.6, slugify@npm:^1.4.0":
+"slugify@npm:^1.4.0":
   version: 1.4.0
   resolution: "slugify@npm:1.4.0"
   checksum: 2/3306ca174ce13d30db8807b5a274f213a6b424b65619e0b89b49ef09cff38b4f2e63d8f55727f467f0736adf4ecc4b7c9edbb1436f7c82baff4b6ebd1da2d3f9

@@ -20,4 +20,8 @@ html {
   @include tools.tokens--(scale.$spacing-sizes);
   @include tools.tokens--(scale.$theme-sizes);
   @include tools.tokens--(scale.$page-sizes);
+
+  @include tools.below('page') {
+    --fit-min: 100%;
+  }
 }

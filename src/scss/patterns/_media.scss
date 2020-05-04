@@ -1,10 +1,104 @@
-svg {
-  fill: currentColor;
+@use '~accoutrement/sass/tools';
+
+/// # Media Blocks & Ratios
+/// @group media
+
+// Media Blocks
+// ------------
+/// Media blocks align an image with fluid text.
+/// The vertical alignment and image size can be adjusted
+/// using html attributes and CSS variables.
+/// @group media
+[data-media] {
+  --column: wide;
+  --list-padding--default: 1em;
+  align-items: var(--align, start);
+  display: grid;
+  grid-gap: var(--media-gap, var(--gutter));
+  grid-template-areas: var(--reverse-y, 'image' 'content');
+  margin: var(--newline) 0;
+
+  &[data-reverse~='vertical'] {
+    --reverse-y: 'content' 'image';
+  }
+
+  @include tools.above('wide-page') {
+    grid-template-areas: var(--reverse-x, 'image content');
+    grid-template-columns: fit-content(25%) minmax(
+        min-content,
+        var(--media-content, 1fr)
+      );
+
+    &[data-reverse~='horizontal'] {
+      --reverse-x: 'content image';
+      grid-template-columns: minmax(min-content, var(--media-content, 1fr)) fit-content(
+          25%
+        );
+    }
+  }
 }
 
-[data-media] {
-  align-items: var(--align, stretch);
-  display: grid;
-  grid-template-columns: var(--spacer) 1fr;
-  grid-gap: var(--gutter);
+// Media Image
+// -----------
+/// The image in a media-block accepts variables
+/// for min/max and width values
+/// @group media
+.media-image {
+  grid-area: image;
+  justify-self: center;
+  max-width: var(--media-max, initial);
+  min-width: var(--media-min, initial);
+  width: var(--media-size, initial);
+
+  img,
+  svg {
+    height: auto;
+    width: 100%;
+  }
+}
+
+// Media Content
+// -------------
+/// @group media
+.media-content {
+  grid-area: content;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/// ## Ratios
+/// @group media
+
+// Ratio Parent
+// ------------
+/// Ratios are created with a parent wrapper
+/// set as relative context.
+/// @group media
+[data-ratio='parent'] {
+  --ratio: #{tools.ratio('_widescreen')};
+  position: relative;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 0;
+    padding-top: calc(100% / var(--ratio, #{tools.ratio('_widescreen')}));
+    width: 1px;
+  }
+}
+
+// Ratio Child
+// -----------
+/// The child element takes on the parent ratio
+/// through absolute positioning.
+/// @group media
+[data-ratio='child'] {
+  @include tools.position(0);
+  @include tools.square(100%);
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
   data-ccs="root"
-  data-ccs-theme="{{ site.themes[0] }}"
+  data-ccs-theme="{{ ccs.themes[0] }}"
   data-ccs-colors>
 <head>
   <meta charset="UTF-8">
@@ -29,6 +29,13 @@
       </ul>
     </nav>
   </header>
+
   {{ content | safe }}
+
+  <footer role="contentinfo">
+    {% include "site/contact.njk" %}
+    {% include "site/ccs.njk" %}
+  </footer>
+  <script type="text/javascript" src="{{ assets.js }}scripts.js"></script>
 </body>
 </html>

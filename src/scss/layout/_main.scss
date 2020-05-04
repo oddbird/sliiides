@@ -1,5 +1,4 @@
 html {
-  min-height: 100vh;
   overflow-y: auto;
   scroll-snap-type: block;
 }
@@ -7,42 +6,15 @@ html {
 body {
   display: grid;
   grid-template: 'banner' auto 'main' 1fr 'footer' auto / 100vw;
+  min-height: 100vh;
 }
 
 [role='banner'] {
-  background: var(--overlay);
-  display: grid;
-  font-size: var(--xsmall);
   grid-area: banner;
-  grid-template: 'bread links' auto / 1fr auto;
-  padding: var(--half-shim) var(--gutter);
-  position: sticky;
-  scroll-snap-align: start;
-  top: 0;
-  z-index: var(--banner, 10);
-}
-
-[data-nav='external'] {
-  --newline: 0;
-  --list-padding: 0;
-
-  li {
-    display: inline-block;
-  }
-
-  li:not(:last-child)::after {
-    content: ' | ';
-  }
 }
 
 main {
   grid-area: main;
-}
-
-.home {
-  padding: 0 var(--gutter);
-  margin: 0 auto;
-  max-width: var(--page);
 }
 
 [role='contentinfo'] {

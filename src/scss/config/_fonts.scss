@@ -62,6 +62,7 @@ $recursive-font: (
 
 $_variants: (
   body: (
+    font-weight: normal,
     --mono: 0,
     --casl: 0,
     --wght: 400,
@@ -77,6 +78,10 @@ $_variants: (
   ),
   fun: (
     --casl: 1,
+  ),
+  normal: (
+    font-weight: normal,
+    --wght: 400,
   ),
   light: (
     font-weight: 200,

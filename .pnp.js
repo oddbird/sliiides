@@ -35,7 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "@11ty/eleventy",
-        "npm:0.10.0"
+        "npm:0.11.0-beta.4"
       ],
       [
         "@11ty/eleventy-plugin-syntaxhighlight",
@@ -250,7 +250,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["#", "link:./src/filters::locator=sliiides%40workspace%3A."],
-            ["@11ty/eleventy", "npm:0.10.0"],
+            ["@11ty/eleventy", "npm:0.11.0-beta.4"],
             ["@11ty/eleventy-plugin-syntaxhighlight", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:3.0.1"],
             ["@babel/core", "npm:7.9.6"],
             ["@babel/preset-env", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.9.6"],
@@ -326,16 +326,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@11ty/eleventy", [
-        ["npm:0.10.0", {
-          "packageLocation": "./.yarn/cache/@11ty-eleventy-npm-0.10.0-1a31209067-2.zip/node_modules/@11ty/eleventy/",
+        ["npm:0.11.0-beta.4", {
+          "packageLocation": "./.yarn/cache/@11ty-eleventy-npm-0.11.0-beta.4-70acb1c1b0-2.zip/node_modules/@11ty/eleventy/",
           "packageDependencies": [
-            ["@11ty/eleventy", "npm:0.10.0"],
+            ["@11ty/eleventy", "npm:0.11.0-beta.4"],
             ["@11ty/dependency-tree", "npm:1.0.0"],
             ["browser-sync", "npm:2.26.7"],
             ["chalk", "npm:3.0.0"],
             ["chokidar", "npm:3.4.0"],
             ["debug", "virtual:ef2fb28f3185f9ba345cf0214d372bc8e04344320dd80b839f12ab23fbe300f7c2a62784bfffb92cb431640b461f8eb544464aadcc1823ebefc40d17e8ec16c9#npm:4.1.1"],
-            ["dependency-graph", "npm:0.8.1"],
+            ["dependency-graph", "npm:0.9.0"],
             ["ejs", "npm:2.7.4"],
             ["fast-glob", "npm:3.2.2"],
             ["fs-extra", "npm:8.1.0"],
@@ -346,7 +346,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["liquidjs", "npm:6.4.3"],
             ["lodash", "npm:4.17.15"],
             ["luxon", "npm:1.23.0"],
-            ["markdown-it", "npm:8.4.2"],
+            ["markdown-it", "npm:10.0.0"],
             ["minimist", "npm:1.2.5"],
             ["moo", "npm:0.5.1"],
             ["multimatch", "npm:4.0.0"],
@@ -371,7 +371,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@11ty-eleventy-plugin-syntaxhighlight-virtual-c72087d235/0/cache/@11ty-eleventy-plugin-syntaxhighlight-npm-3.0.1-ed24daf93f-2.zip/node_modules/@11ty/eleventy-plugin-syntaxhighlight/",
           "packageDependencies": [
             ["@11ty/eleventy-plugin-syntaxhighlight", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:3.0.1"],
-            ["@11ty/eleventy", "npm:0.10.0"],
+            ["@11ty/eleventy", "npm:0.11.0-beta.4"],
             ["prismjs", "npm:1.20.0"]
           ],
           "packagePeers": [
@@ -4988,10 +4988,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["dependency-graph", [
-        ["npm:0.8.1", {
-          "packageLocation": "./.yarn/cache/dependency-graph-npm-0.8.1-702c71b90e-2.zip/node_modules/dependency-graph/",
+        ["npm:0.9.0", {
+          "packageLocation": "./.yarn/cache/dependency-graph-npm-0.9.0-628106a115-2.zip/node_modules/dependency-graph/",
           "packageDependencies": [
-            ["dependency-graph", "npm:0.8.1"]
+            ["dependency-graph", "npm:0.9.0"]
           ],
           "linkType": "HARD",
         }]
@@ -9936,18 +9936,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["uc.micro", "npm:1.0.6"]
           ],
           "linkType": "HARD",
-        }],
-        ["npm:8.4.2", {
-          "packageLocation": "./.yarn/cache/markdown-it-npm-8.4.2-55847d41d0-2.zip/node_modules/markdown-it/",
-          "packageDependencies": [
-            ["markdown-it", "npm:8.4.2"],
-            ["argparse", "npm:1.0.10"],
-            ["entities", "npm:1.1.2"],
-            ["linkify-it", "npm:2.2.0"],
-            ["mdurl", "npm:1.0.1"],
-            ["uc.micro", "npm:1.0.6"]
-          ],
-          "linkType": "HARD",
         }]
       ]],
       ["markdown-it-footnote", [
@@ -13720,7 +13708,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["sliiides", "workspace:."],
             ["#", "link:./src/filters::locator=sliiides%40workspace%3A."],
-            ["@11ty/eleventy", "npm:0.10.0"],
+            ["@11ty/eleventy", "npm:0.11.0-beta.4"],
             ["@11ty/eleventy-plugin-syntaxhighlight", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:3.0.1"],
             ["@babel/core", "npm:7.9.6"],
             ["@babel/preset-env", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.9.6"],

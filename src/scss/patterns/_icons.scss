@@ -1,15 +1,28 @@
-// Icons
-// =======
+@use '~accoutrement/sass/tools';
 
+/// # SVG Icons
+/// @group icons
+
+// Icon
+// ----
+/// By default, icons take on the size of surrounding text.
+/// @group icons
 [data-icon] {
-  fill: currentColor;
+  display: inline-block;
+  height: var(--icon-height, var(--icon-size, 1em));
+  transform: translateY(-0.1em);
+  width: var(--icon-width, var(--icon-size, 1em));
 }
 
-[data-icon='miriam'] {
-  --mia-svg-eyes: hsla(
+[data-face] {
+  --eyes: hsla(
     var(--ccs-h--neutral),
-    var(--ccs-s--bg-contrast),
-    var(--ccs-l--bg-contrast),
-    var(--ccs-mode--invert)
+    var(--ccs-s--bg6),
+    var(--ccs-l--bg6),
+    var(--ccs-invert--zero)
   );
+}
+
+.eyes {
+  fill: var(--eyes, black);
 }

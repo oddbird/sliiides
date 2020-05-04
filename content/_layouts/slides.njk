@@ -2,6 +2,7 @@
 layout: base
 ---
 
+{% import "embed.macros.njk" as embed %}
 {% import "show.macros.njk" as show %}
 {% import "slides.macros.njk" as slides %}
 
@@ -14,14 +15,30 @@ layout: base
     page=page,
     is='header'
   ) %}
-    <h1>{{ page.data.talk | mdInline | safe }}</h1>
-    <p class="event h-card">
-      {{ page.data.venue | mdInline | safe }} --
-      {{ page.data.date | getDate('long') }}
-    </p>
-    <p class="byline h-card">
-      {{ page.data.author or 'Miriam Suzanne' }}
-    </p>
+    <h1>
+      {{ talk | mdInline | safe }}
+      {% if sub %}
+        <em>{{ sub | mdInline | safe }}</em>
+      {% endif %}
+    </h1>
+
+    {% call embed.media_block(
+      media=embed.svg('logos/oddbird'),
+      name='title-detail'
+    ) %}
+      <div>
+        <span class="byline h-card">
+          {{ author or 'Miriam Suzanne' }}
+        </span>
+        @
+        <strong class="event h-card">
+          {{ venue | mdInline | safe }}
+        </strong>
+      </div>
+      <time datetime="{{ date | getDate('iso') }}">
+        {{ date | getDate('short') }}
+      </time>
+    {% endcall %}
   {% endcall %}
 
   {{ show.slides(page) }}
