@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ title }}</title>
+
+  {% if (css != 'demo-only') %}
+    <link rel="stylesheet" href="/assets/css/remedy.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+  {% endif %}
+  {% if (css == 'demo') or (css == 'demo-only') %}
+    <link rel="stylesheet" href="./demo.css">
+  {% endif %}
+</head>
+{% set layoutName = 'base' if (layout == 'rad-base') else layout %}
+<body data-body-{{ layoutName or 'base' }}>
+  {% block body %}
+    {% set talkUrl = '/' + talk + '/' if talk else none %}
+    {% set talkIndex = collections.all | getPage(talkUrl) if talkUrl else none %}
+    {% set talkTitle = (talkIndex.data.title or talk) if talk else none %}
+    {% set backUrl = talkUrl + back + '/' if (talk and back) else back %}
+    {% set backPage = collections[talk or 'all'] | getPage(backUrl) if backUrl else none %}
+    {% set navPage = backPage or talkIndex %}
+
+    <nav data-nav>
+      {% if (navPage.url == page.url) or not navPage %}
+        <a href="/" rel="home">« home</a>
+      {% else %}
+        <a href="{{ navPage.url }}">
+          « {{ navPage.data.title | mdInline | safe }}
+        </a>
+      {% endif %}
+    </nav>
+
+    <h1 data-banner>{{ (banner or title or talkTitle) | mdInline | safe }}</h1>
+
+    <main data-main>
+      <div data-inner>
+        {{ content | safe }}
+      </div>
+    </main>
+
+    <footer data-footer>
+      <div class="page">
+        {% set url = (site.domain + page.url) | url %}
+        <a href="https://{{ url }}">{{ url }}</a>
+      </div>
+      <div class="twitter">
+        <a href="https://twitter.com/mirisuzanne">@mirisuzanne</a>
+      </div>
+    </footer>
+  {% endblock %}
+</body>
+</html>

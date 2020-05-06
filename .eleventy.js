@@ -22,6 +22,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy({ 'src/fonts': 'assets/fonts' });
   eleventyConfig.addPassthroughCopy({ 'src/images': 'assets/images' });
   eleventyConfig.addPassthroughCopy({ 'src/remedy': 'assets/css' });
+  eleventyConfig.addPassthroughCopy({ 'src/rad': 'assets/css' });
   // eleventyConfig.addPassthroughCopy({ 'src/media': 'assets/media' });
 
   // collections

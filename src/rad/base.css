@@ -1,0 +1,213 @@
+/* Zilla */
+@font-face {
+  font-family: 'Zilla Slab';
+  src: url('../fonts/ZillaSlab-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Zilla Slab';
+  src: url('../fonts/ZillaSlab-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Zilla Slab';
+  src: url('../fonts/ZillaSlab-BoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Zilla Slab';
+  src: url('../fonts/ZillaSlab-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Highlight */
+@font-face {
+  font-family: 'Zilla Highlight';
+  src: url('../fonts/ZillaSlabHighlight-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Zilla Highlight';
+  src: url('../fonts/ZillaSlabHighlight-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Highlight */
+@font-face {
+  font-family: 'Dank Mono';
+  src: url('../fonts/dankmono-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dank Mono';
+  src: url('../fonts/dankmono-italic-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* styles */
+html {
+  --zilla: 'Zilla Slab', serif;
+  --zilla-highlight: 'Zilla Highlight', serif;
+  --dank-mono: 'Dank Mono', monospace;
+
+  --body: var(--zilla);
+  --code: var(--dank-mono);
+  --strong: var(--zilla-highlight);
+
+  --size-3: calc(1.5rem + 3vw);
+  --size-2: calc(1.17rem + 3vw);
+  --size-1: calc(1rem + 3vw);
+  --size-l: calc(1rem + 2vw);
+  --size-m: calc(1rem + 1.5vw);
+  --size-s: calc(1rem + 1vw);
+  --size-u: 1rem;
+  --size-code: 0.8em;
+
+  --gap: var(--size-s);
+  --double-gap: calc(var(--size-m) * 2);
+  --half-gap: calc(var(--gap) / 2);
+  --shim: calc(var(--gap) / 4);
+
+  font-family: var(--zilla);
+  line-height: 1.4;
+}
+
+pre,
+code {
+  font-family: var(--code);
+  font-size: var(--size-code);
+}
+
+h1 {
+  font-size: inherit;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25;
+  margin: 0;
+}
+
+h1 {
+  font-size: inherit;
+}
+h2 {
+  font-size: var(--size-3);
+}
+h3 {
+  font-size: var(--size-2);
+}
+h4 {
+  font-size: var(--size-1);
+}
+h5 {
+  font-size: var(--size-l);
+}
+h6 {
+  font-size: var(--size-m);
+}
+
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong {
+  font-family: var(--strong);
+}
+
+[data-main] [href*='://']::after
+{
+  content: ' ↗ ';
+  font-size: 0.5em;
+}
+
+ul,
+ol,
+p {
+  margin-block: var(--gap);
+}
+
+[data-body-base] {
+  display: grid;
+  font-size: var(--size-s);
+  grid:
+    'nav' auto
+    'banner' auto
+    'main' 1fr
+    'footer' auto
+    / minmax(min-content, 1fr);
+  min-height: 100vh;
+}
+
+[data-nav],
+[data-banner],
+[data-main],
+[data-footer] {
+  padding: 0.25em 1em;
+}
+
+[data-nav],
+[data-banner],
+[data-footer] {
+  background: bisque;
+}
+
+[data-nav] {
+  grid-area: nav;
+}
+[data-banner] {
+  grid-area: banner;
+}
+[data-main] {
+  grid-area: main;
+}
+[data-footer] {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-area: footer;
+}
+
+@media (min-width: 40em) {
+  [data-body-base] {
+    grid: 'banner nav' auto 'main main' minmax(50vh, 1fr) 'footer footer' auto / minmax(
+        min-content,
+        1fr
+      ) minmax(min-content, 1fr);
+    height: 100vh;
+  }
+
+  [data-nav],
+  [data-footer] .twitter {
+    text-align: right;
+  }
+}
+
+[data-main] {
+  align-content: safe center;
+  border: 1px solid maroon;
+  border-width: 1px 0;
+  display: grid;
+  font-size: var(--size-m);
+  overflow: auto;
+}
+
+[data-inner] {
+  padding-block: var(--gap);
+}

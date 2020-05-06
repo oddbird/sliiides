@@ -8,9 +8,8 @@
   {%- set caption = [slide.caption or demoPage.data.title, pres] | join(' ') -%}
   {%- set slide = slide | merge({'caption': caption}) -%}
   {% call slides.base(slide, 'demo', page) %}
-    {%- set baseUrl = '/' if (page.data.process.env == 'dev') else page.data.site.url -%}
     {{ embed.iframe(
-      src=[baseUrl, demoPage.url] | joinPaths,
+      src=demoPage.url,
       width=slide.width or 560,
       height=slide.height or 315
     ) }}
