@@ -51,4 +51,21 @@ const styles = (dict) =>
     .map((val, prop) => (val ? `${prop}:${val};` : ''))
     .reduce((all, one) => `${all}${one}`, '');
 
-module.exports = { concat, typeCheck, styles };
+const joinPath = (base, append) => {
+  const baseSlash = base.endsWith('/');
+  const appendSlash = append.startsWith('/');
+
+  if (baseSlash && appendSlash) {
+    return base + append.slice(1);
+  }
+
+  if (!baseSlash && !appendSlash) {
+    return `${base}/${append}`;
+  }
+
+  return base + append;
+};
+
+const joinPaths = (paths) => paths.reduce(joinPath);
+
+module.exports = { concat, typeCheck, styles, joinPaths };

@@ -39,6 +39,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter('typeCheck', utils.typeCheck);
   eleventyConfig.addFilter('styles', utils.styles);
   eleventyConfig.addFilter('concat', utils.concat);
+  eleventyConfig.addFilter('joinPaths', utils.joinPaths);
 
   eleventyConfig.addFilter('meta', data.meta);
 

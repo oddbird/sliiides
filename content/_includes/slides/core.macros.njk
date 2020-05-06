@@ -10,7 +10,7 @@
   {% call slides.base(slide, 'demo', page) %}
     {%- set baseUrl = '/' if (page.data.process.env == 'dev') else page.data.site.url -%}
     {{ embed.iframe(
-      src=[baseUrl, 'demos/', slide.demo] | join(''),
+      src=[baseUrl, demoPage.url] | joinPaths,
       width=slide.width or 560,
       height=slide.height or 315
     ) }}
