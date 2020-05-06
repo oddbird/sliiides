@@ -1,0 +1,26 @@
+{% macro list(
+  pages,
+  name=none
+) %}
+{% if pages | length > 0 %}
+  <ul data-events='{{ name }}'>
+  {% for event in pages %}
+    <li>
+      <time>
+        {{ event.date | getDate('short') }}
+      </time>
+      <strong>
+        » {{ event.data.talk | mdInline | safe }}
+      </strong>
+      <h2>
+        <a href="{{ event.url }}">
+          {{ event.data.venue }}
+        </a>
+      </h2>
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+   <p>No events currently available…</p>
+{% endif %}
+{% endmacro %}

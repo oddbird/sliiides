@@ -9,11 +9,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ title or [talk, venue] | join(' at ') or 'Slides...' }}</title>
 
-  {% for style in site.styles | concat(page.data.styles) %}
-    <link rel="stylesheet" href="{{ assets.css + style }}">
+  {% for style in (styles or site.styles) %}
+    {% set style = style if ('.css' in style) else [assets.css, style, '.css'] | join %}
+    <link rel="stylesheet" href="{{ style }}">
   {% endfor %}
 </head>
 <body data-body="{{ layout or 'base' }}">
+{% block body %}
   <header role="banner">
     <strong>
       <a href="/" rel="home">{{ site.domain }}</a><span>{{ page.url }}</span>
@@ -37,5 +39,6 @@
     {% include "site/ccs.njk" %}
   </footer>
   <script type="text/javascript" src="{{ assets.js }}scripts.js"></script>
+{% endblock %}
 </body>
 </html>

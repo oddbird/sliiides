@@ -1,3 +1,5 @@
+{% import "utility.macros.njk" as utility %}
+
 {% macro nav(
   index,
   count
@@ -25,11 +27,13 @@
   slide,
   name,
   page,
+  styles=none,
   is='article'
 ) %}
   <{{ is or 'article'}}
     id="slide-{{ slide.index }}"
     data-slide="{{ slide.name or name }}"
+    {{ utility.style_if(styles or slide.styles) }}
     >
 
     <div class="slide-content">

@@ -38,9 +38,20 @@ h2 {
     @include fonts.var('extra');
   }
 
+  .pre,
+  i,
   code,
   em {
     @include fonts.var('light');
+  }
+
+  .pre,
+  i {
+    @include fonts.var('italic');
+  }
+
+  .pre {
+    display: block;
   }
 }
 

@@ -21,19 +21,12 @@ $_code-color-fade: var(--text-light);
 
   // prism tokens
   $code-color-comment: $_code-color-fade,
-  $code-color-keyword: var(--ccs-accent--fg2),
-  $code-color-value: var(--text-highlight),
-  $code-color-string: var(--text-highlight),
-  $code-color-name: var(--text-highlight),
-  $code-color-number: var(--text-highlight),
-  $code-color-variable: var(--ccs-accent--fg2),
-  $code-color-selector: var(--ccs-accent--fg2),
+  $code-color-keyword: var(--feature),
+  $code-color-value: var(--highlight),
+  $code-color-string: var(--highlight),
+  $code-color-name: var(--highlight),
+  $code-color-number: var(--highlight),
+  $code-color-variable: var(--feature),
+  $code-color-selector: var(--feature),
   $code-color-punctuation: $_code-color-fade,
 );
-
-#{prism.$code-selector-block} {
-  background: var(--callout);
-  border: var(--border-width) solid var(--border);
-  border-width: var(--border-width) 0;
-  grid-column: pull;
-}

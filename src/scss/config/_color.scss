@@ -56,8 +56,8 @@ $background-colors: (
       var(--ccs-fade)
     ),
   'overlay': var(--callout-fade),
-  'feature-from': var(--ccs-prime--fg2),
-  'feature-to': var(--ccs-accent--fg2),
+  'feature-from': hsl(var(--ccs-h--prime), var(--ccs-s), var(--ccs-l--fg2)),
+  'feature-to': hsl(var(--ccs-h--accent), var(--ccs-s), var(--ccs-l--fg2)),
 );
 
 // Content Colors

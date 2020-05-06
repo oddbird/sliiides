@@ -7,15 +7,16 @@
 } %}
 
 {% macro slides(
-  page
+  page,
+  collections
 ) %}
   {% for slide in page.data.slides %}
     {% set slide = slide | slideData(loop.index, page) %}
     {% set source = get[slide.from] if slide.from else none %}
-    {% if source %}
+    {% if source and source[slide.use] %}
       {{ source[slide.use](slide, page) }}
     {% else %}
-      {{ core.find(slide, page) }}
+      {{ core.find(slide, page, collections) }}
     {% endif %}
   {% endfor %}
 {% endmacro %}

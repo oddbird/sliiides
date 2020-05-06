@@ -73,5 +73,6 @@ button {
 }
 
 [data-btn~='small'] {
-  font-size: var(--font-small);
+  font-size: var(--xsmall);
+  padding: 0 var(--half-shim);
 }

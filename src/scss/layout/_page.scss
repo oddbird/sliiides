@@ -3,8 +3,8 @@
 
 .page {
   padding: 0 var(--gutter);
-  margin: 0 auto;
-  max-width: var(--page);
+  margin: var(--spacer) auto;
+  max-width: var(--wide-page);
 
   h1,
   h2 {

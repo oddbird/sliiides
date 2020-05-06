@@ -1,3 +1,4 @@
+[data-slide='demo'],
 [data-slide='iframe'],
 [data-slide='codepen'] {
   --align: stretch;
@@ -8,5 +9,6 @@
   iframe {
     height: 100%;
     margin: 0;
+    width: 100%;
   }
 }

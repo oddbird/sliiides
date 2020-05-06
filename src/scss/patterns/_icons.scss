@@ -23,6 +23,10 @@
   );
 }
 
+.founder-faces {
+  fill: var(--highlight);
+}
+
 .eyes {
   fill: var(--eyes, black);
 }

@@ -308,7 +308,8 @@ params:
   src,
   width=560,
   height=315,
-  span=none
+  span=none,
+  ratio=false
 ) %}
   {%- set attrs = {
     'src': src,
@@ -320,7 +321,11 @@ params:
     'allowfullscreen': true
   } -%}
   {%- set content %}<iframe {{ utility.show_attrs(attrs) }}></iframe>{% endset -%}
-  {{- ratio(width, height, span, content) | safe -}}
+  {%- if ratio -%}
+    {{- ratio(width, height, span, content) | safe -}}
+  {%- else -%}
+    {{ content | safe }}
+  {%- endif -%}
 {% endmacro %}
 
 {# @docs

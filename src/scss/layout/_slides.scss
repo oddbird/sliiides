@@ -31,22 +31,23 @@
 }
 
 .slide-footer {
+  align-items: center;
   background: var(--callout);
-  display: grid;
+  display: flex;
   font-size: var(--xsmall);
   grid-area: footer;
-  grid-template: 'caption nav' auto / 1fr auto;
   z-index: var(--bump, 1);
 }
 
 .slide-caption {
   --newline: 0;
-  grid-area: caption;
+  flex: 1;
   padding: var(--half-shim) var(--gutter);
 }
 
 .slide-nav {
   @include fonts.var('code');
-  grid-area: nav;
+  flex: 0;
   padding: var(--half-shim) var(--gutter);
+  white-space: nowrap;
 }

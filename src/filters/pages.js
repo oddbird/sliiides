@@ -17,11 +17,7 @@ params:
   page:
     type: 11ty page object
 */
-const isPublic = (page) => {
-  const live = page.data.draft !== true;
-  const title = page.data && page.data.title;
-  return live && title;
-};
+const isPublic = (page) => page.data.draft !== true;
 
 /* @docs
 label: isCurrent

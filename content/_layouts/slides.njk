@@ -2,54 +2,12 @@
 layout: base
 ---
 
-{% import "embed.macros.njk" as embed %}
+{% import "slides/auto.macros.njk" as auto %}
 {% import "show.macros.njk" as show %}
-{% import "slides.macros.njk" as slides %}
 
 {% set page = collections.all | getPage(page.url) %}
 
-{% set caption %}
-<button data-toggle="presenting" aria-pressed="false">
-  presenter mode
-</button>
-(will capture left/right arrow-keys)
-{% endset %}
-
 <main data-slides="{{ page.data.slides | length }}">
-  {% call slides.base(
-    slide={
-      'index': 0,
-      'caption': caption
-     },
-    name='event-title',
-    page=page,
-    is='header'
-  ) %}
-    <h1>
-      {{ talk | mdInline | safe }}
-      {% if sub %}
-        <em>{{ sub | mdInline | safe }}</em>
-      {% endif %}
-    </h1>
-
-    {% call embed.media_block(
-      media=embed.svg('logos/oddbird'),
-      name='title-detail'
-    ) %}
-      <div>
-        <span class="byline h-card">
-          {{ author or 'Miriam Suzanne' }}
-        </span>
-        @
-        <strong class="event h-card">
-          {{ venue | mdInline | safe }}
-        </strong>
-      </div>
-      <time datetime="{{ date | getDate('iso') }}">
-        {{ date | getDate('short') }}
-      </time>
-    {% endcall %}
-  {% endcall %}
-
-  {{ show.slides(page) }}
+  {{ auto.title(page) }}
+  {{ show.slides(page, collections) }}
 </main>

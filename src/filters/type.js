@@ -24,6 +24,7 @@ const imgConf = {
 const mdown = markdown({
   html: true,
   breaks: false,
+  linkify: true,
   typographer: true,
 })
   .use(mdMark)

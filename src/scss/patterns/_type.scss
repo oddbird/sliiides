@@ -5,6 +5,7 @@
 strong,
 em {
   @include patterns.fancy-text;
+  padding: 0 0.2ch;
 }
 
 strong {
@@ -17,6 +18,7 @@ em {
 
 blockquote {
   @include fonts.var('italic' 'fun');
+  font-size: var(--medium);
   position: relative;
   max-width: 46ch;
 
@@ -32,6 +34,7 @@ blockquote {
     @include fonts.var('normal');
     background: var(--feature-gradient);
     color: var(--bg);
+    padding: 0;
   }
 
   > :first-child {
@@ -46,6 +49,7 @@ blockquote {
     @include patterns.fancy-text;
     @include fonts.var('body');
     font-size: var(--small);
+    padding-right: 0.2ch;
   }
 }
 

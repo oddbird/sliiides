@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+npm install cssremedy --force --no-package-lock --no-save --ignore-scripts --no-bin-links --only=prod --prefix=temp
+rm -rf ./src/remedy/; cp -a ./temp/node_modules/cssremedy/css ./src/remedy/
+rm -rf temp

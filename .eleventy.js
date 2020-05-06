@@ -21,10 +21,8 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy({ _built: 'assets' });
   eleventyConfig.addPassthroughCopy({ 'src/fonts': 'assets/fonts' });
   eleventyConfig.addPassthroughCopy({ 'src/images': 'assets/images' });
+  eleventyConfig.addPassthroughCopy({ 'src/remedy': 'assets/css' });
   // eleventyConfig.addPassthroughCopy({ 'src/media': 'assets/media' });
-
-  eleventyConfig.addPassthroughCopy('content/robots.txt');
-  eleventyConfig.addPassthroughCopy('content/favicon.ico');
 
   // collections
   eleventyConfig.addCollection('events', (collection) =>
@@ -83,6 +81,16 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addDataExtension('yaml', yaml.safeLoad);
   eleventyConfig.setQuietMode(true);
   eleventyConfig.setDataDeepMerge(true);
+
+  eleventyConfig.setTemplateFormats([
+    'md',
+    'njk',
+    'html',
+    'txt',
+    'ico',
+    'css',
+    '11ty.js',
+  ]);
 
   // settings
   return {

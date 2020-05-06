@@ -1,22 +1,5 @@
 ---
 layout: page
 title: Sliiides…
+index: events
 ---
-
-<ul data-list='all'>
-{% for event in collections.events %}
-  <li>
-    <time>
-      {{ event.date | getDate('short') }}
-    </time>
-    <strong>
-      » {{ event.data.talk }}
-    </strong>
-    <h2>
-      <a href="{{ event.url }}">
-        {{ event.data.venue }}
-      </a>
-    </h2>
-  </li>
-{% endfor %}
-</ul>

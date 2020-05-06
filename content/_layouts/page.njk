@@ -4,5 +4,12 @@ layout: base
 
 <main class="page">
   <h1>{{ title }}</h1>
+
   {{ content | safe }}
+
+  {% if index %}
+    {% import "events.macros.njk" as events %}
+    {% set list = collections[index] | withData('data', venue) %}
+    {{ events.list(list | getPublic) }}
+  {% endif %}
 </main>
