@@ -1,6 +1,9 @@
 ---
 slug: css-is-rad
 title: CSS is Rad
+talk: CSS is **Rad**
+venue: Smashing NY
+date: 2019-10-15
 banner: CSS is **Rad**
 sections:
  - slug: intro

@@ -304,8 +304,6 @@ slides:
   title: The **Modern Web**
 - pre: Applications
   title: More **Powerful** & **Complex**
-- img: no-harm/paradox.jpg
-  alt: The Aesthetic-Accessibility Paradox
 - quote: |
     Web **for all**. Web **on everything**.
   cite: World Wide Web Consortium, 1989
@@ -421,6 +419,24 @@ slides:
     CSS is *Contextual*…
   title: |
     **Adapting** to change
+- pre: |
+    CSS is for…
+  title: |
+    Design **Systems**
+- md: |
+    ```html
+      <P><FONT SIZE="16" COLOR="RED">…</FONT></P>
+      <P><FONT SIZE="16" COLOR="RED">…</FONT></P>
+      <P><FONT SIZE="16" COLOR="RED">…</FONT></P>
+      <P><FONT SIZE="16" COLOR="RED">…</FONT></P>
+    ```
+- md: |
+    ```css
+    .warn { 
+      font-size: 16px;
+      color: red;
+    }
+    ```
 
 # 6. Awesome -------------------------
 - demo: awesome

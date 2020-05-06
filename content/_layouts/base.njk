@@ -18,7 +18,9 @@
 {% block body %}
   <header role="banner">
     <strong>
-      <a href="/" rel="home">{{ site.domain }}</a><span>{{ page.url }}</span>
+      <a href="/" rel="home">{{ site.domain }}</a>
+      {%- if home -%}<a href="{{ home }}">{{ home }}</a>{%- endif -%}
+      <span>{{ page.url | replace(home, '') if home else page.url }}</span>
     </strong>
     <nav data-nav="external" aria-label="external">
       <ul>

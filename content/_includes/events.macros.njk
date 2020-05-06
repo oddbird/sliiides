@@ -5,7 +5,7 @@
 {% if pages | length > 0 %}
   <ul data-events='{{ name }}'>
   {% for event in pages %}
-    <li>
+    <li class="event">
       <time>
         {{ event.date | getDate('short') }}
       </time>
