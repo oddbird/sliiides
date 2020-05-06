@@ -1,0 +1,48 @@
+{% import "slides.macros.njk" as slides %}
+{% import "embed.macros.njk" as embed %}
+
+{% macro title(
+  page
+) %}
+  {% set caption %}
+    <button data-btn="small" data-toggle="presenting" aria-pressed="false">
+      presenter mode
+    </button>
+    (will capture global use of left/right arrow-keys)
+  {% endset %}
+
+  {% call slides.base(
+    slide={
+      'index': 0,
+      'caption': caption
+     },
+    name='event-title',
+    page=page,
+    is='header'
+  ) %}
+    <h1>
+      {{ page.data.talk | mdInline | safe }}
+      {% if page.data.sub %}
+        <em>{{ page.data.sub | mdInline | safe }}</em>
+      {% endif %}
+    </h1>
+
+    {% call embed.media_block(
+      media=embed.svg('logos/oddbird'),
+      name='title-detail'
+    ) %}
+      <div>
+        <span class="byline h-card">
+          {{ page.data.author or 'Miriam Suzanne' }}
+        </span>
+        @
+        <strong class="event h-card">
+          {{ page.data.venue | mdInline | safe }}
+        </strong>
+      </div>
+      <time datetime="{{ page.date | getDate('iso') }}">
+        {{ page.date | getDate('long') }}
+      </time>
+    {% endcall %}
+  {% endcall %}
+{% endmacro %}

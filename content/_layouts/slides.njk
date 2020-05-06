@@ -1,0 +1,13 @@
+---
+layout: base
+---
+
+{% import "slides/auto.macros.njk" as auto %}
+{% import "show.macros.njk" as show %}
+
+{% set page = collections.all | getPage(page.url) %}
+
+<main data-slides="{{ page.data.slides | length }}">
+  {{ auto.title(page) }}
+  {{ show.slides(page, collections) }}
+</main>

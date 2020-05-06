@@ -1,0 +1,24 @@
+theme: herman
+dest: _site/style/
+
+package: ./package.json
+shortcutIcon: ./content/favicon.ico
+verbose: true
+
+herman:
+  extraLinks:
+    - name: Eleventy
+      url: http://www.11ty.io
+    - name: Accoutrement
+      url: https://oddbird.net/accoutrement/
+    - name: Cascading Color Systems
+      url: https://cascading-colors.netlify.com/
+    - name: Herman
+      url: https://oddbird.net/herman/
+  fontpath: src/fonts/
+  sass:
+    implementation: 'sass'
+    includepaths: ['src/scss']
+    jsonfile: _built/css/json.css
+  nunjucks:
+    templatepath: content/_includes

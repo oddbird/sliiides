@@ -1,0 +1,14 @@
+[data-slide='demo'],
+[data-slide='iframe'],
+[data-slide='codepen'] {
+  --align: stretch;
+  --justify: stretch;
+  --padding: var(--gutter-plus) 0 0;
+  --width: 100%;
+
+  iframe {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+  }
+}

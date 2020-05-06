@@ -1,0 +1,16 @@
+@use '~accoutrement/sass/tools';
+@use 'fonts';
+
+@mixin fancy-text {
+  color: var(--text-highlight);
+
+  @supports (background-clip: text) {
+    --link-color: transparent;
+    background: var(--feature-gradient);
+    background-clip: text;
+    box-decoration-break: clone;
+    color: transparent;
+    text-shadow: none;
+    @content;
+  }
+}

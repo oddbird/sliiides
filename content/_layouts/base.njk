@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+  data-ccs="root"
+  data-ccs-theme="{{ ccs.themes[0] }}"
+  data-ccs-colors>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ title or [talk, venue] | join(' at ') or 'Slides...' }}</title>
+
+  {% for style in (styles or site.styles) %}
+    {% set style = style if ('.css' in style) else [assets.css, style, '.css'] | join %}
+    <link rel="stylesheet" href="{{ style }}">
+  {% endfor %}
+</head>
+<body data-body="{{ layout or 'base' }}">
+{% block body %}
+  <header role="banner">
+    <strong>
+      <a href="/" rel="home">{{ site.domain }}</a>
+      {%- if home -%}<a href="{{ home }}">{{ home }}</a>{%- endif -%}
+      <span>{{ page.url | replace(home, '') if home else page.url }}</span>
+    </strong>
+    <nav data-nav="external" aria-label="external">
+      <ul>
+        <li>
+          <a href="https://twitter.com/mirisuzanne">@MiriSuzanne</a>
+        </li>
+        <li>
+          <a href="https://oddbird.net">OddBird</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  {{ content | safe }}
+
+  <footer role="contentinfo">
+    {% include "site/contact.njk" %}
+    {% include "site/ccs.njk" %}
+  </footer>
+  <script type="text/javascript" src="{{ assets.js }}scripts.js"></script>
+{% endblock %}
+</body>
+</html>

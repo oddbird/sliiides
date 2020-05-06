@@ -1,0 +1,110 @@
+{% import "slides.macros.njk" as slides %}
+{% import "embed.macros.njk" as embed %}
+{% import "utility.macros.njk" as utility %}
+
+{% macro demo(slide, page, collections) %}
+  {% set demoPage = collections.all | findPage('data.demo', slide.demo) %}
+  {%- set pres %}[[permalink]({{ demoPage.url }})]{% endset -%}
+  {%- set caption = [slide.caption or demoPage.data.title, pres] | join(' ') -%}
+  {%- set slide = slide | merge({'caption': caption}) -%}
+  {% call slides.base(slide, 'demo', page) %}
+    {{ embed.iframe(
+      src=demoPage.url,
+      width=slide.width or 560,
+      height=slide.height or 315
+    ) }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro title(slide, page) %}
+  {% call slides.base(slide, 'title', page) %}
+    <h2>
+      {% if slide.pre -%}
+        <span class="pre">{{ slide.pre | mdInline | safe }}</span>
+      {%- endif %}
+      {{ slide.title | mdInline | safe }}
+    </h2>
+    {% if slide.sub %}
+      <p class="subtitle">{{ slide.sub | mdInline | safe }}</p>
+    {% endif %}
+  {% endcall %}
+{% endmacro %}
+
+{% macro img(slide, page) %}
+  {% set imgStyle = {
+    '--img-position': slide.position,
+    '--img-fit': slide.fit
+  } %}
+  {% set styles = slide.style | merge(imgStyle) %}
+  {% call slides.base(slide, 'img', page, styles) %}
+    {{ embed.img(
+      src=slide.img,
+      alt=slide.alt
+    ) }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro quote(slide, page) %}
+  {% call slides.base(slide, 'quote', page) %}
+    <blockquote>
+      {{ slide.quote | md | safe }}
+      <div class="cite h-card">
+        {{- '--' | mdInline | safe -}}
+        {{- slide.cite | mdInline | safe -}}
+      </div>
+    </blockquote>
+  {% endcall %}
+{% endmacro %}
+
+{% macro md(slide, page) %}
+  {% call slides.base(slide, 'markdown', page) %}
+    {{ slide.md | md | safe }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro pen(slide, page) %}
+  {%- set pres %}[[present](https://codepen.io/{{ slide.user or 'mirisuzanne' }}/pres/{{ slide.id }}?editors=1100)]{% endset -%}
+  {%- set caption = [slide.caption, pres] | join(' ') if slide.caption else pres -%}
+  {%- set slide = slide | merge({'caption': caption}) -%}
+  {% call slides.base(slide, 'codepen', page) %}
+    {{ embed.codepen(
+      id=slide.id,
+      title=slide.pen,
+      edit=false if slide.noedit else true,
+      height=slide.height or 500,
+      theme=slide.theme or '39098',
+      tab=slide.tab or 'result',
+      preview=slide.preview
+    ) }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro default(slide, page) %}
+  {% call slides.base(slide, 'default', page) %}
+<pre>
+{%- for key, val in slide -%}
+{%- if not (key in ['page', 'index']) %}
+{{ key }}: {{ val }}
+{%- endif -%}
+{%- endfor -%}
+</pre>
+  {% endcall %}
+{% endmacro %}
+
+{% macro find(slide, page, collections) %}
+  {% if slide.demo %}
+    {{ demo(slide, page, collections) }}
+  {% elif slide.img %}
+    {{ img(slide, page) }}
+  {% elif slide.quote %}
+    {{ quote(slide, page) }}
+  {% elif slide.title %}
+    {{ title(slide, page) }}
+  {% elif slide.pen %}
+    {{ pen(slide, page) }}
+  {% elif slide.md %}
+    {{ md(slide, page) }}
+  {% else %}
+    {{ default(slide, page) }}
+  {% endif %}
+{% endmacro %}

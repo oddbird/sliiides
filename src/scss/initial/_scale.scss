@@ -1,0 +1,27 @@
+@use '../config/scale';
+@use '~accoutrement/sass/tools';
+
+/// # CSS Size Variables
+/// Convert useful [Sass scale tokens](config-scale.html)
+/// into global CSS variables.
+/// @group init-scale
+
+/// Generate variables from Sass maps,
+/// using Accountrement tools.
+/// @name Global Sizes
+/// @see $font-sizes
+/// @see $spacing-sizes
+/// @see $theme-sizes
+/// @link https://www.oddbird.net/accoutrement/docs/core-vars.html
+///   Accoutrement CSS Variables
+/// @group init-scale
+html {
+  @include tools.tokens--(scale.$font-sizes);
+  @include tools.tokens--(scale.$spacing-sizes);
+  @include tools.tokens--(scale.$theme-sizes);
+  @include tools.tokens--(scale.$page-sizes);
+
+  @include tools.below('page') {
+    --fit-min: 100%;
+  }
+}

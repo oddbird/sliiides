@@ -1,0 +1,22 @@
+html {
+  overflow-y: auto;
+  scroll-snap-type: block;
+}
+
+body {
+  display: grid;
+  grid-template: 'banner' auto 'main' 1fr 'footer' auto / 100vw;
+  min-height: 100vh;
+}
+
+[role='banner'] {
+  grid-area: banner;
+}
+
+main {
+  grid-area: main;
+}
+
+[role='contentinfo'] {
+  grid-area: footer;
+}

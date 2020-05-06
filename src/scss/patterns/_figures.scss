@@ -1,0 +1,65 @@
+@use '~accoutrement/sass/tools';
+
+img {
+  --img-filter-bright: brightness(var(--img-bright, 100%));
+  @include tools.transition('img-filter');
+  filter: var(--img-filter, var(--img-filter-bright));
+
+  &:hover {
+    --img-bright: 100%;
+  }
+}
+
+.ratio {
+  position: relative;
+
+  @include tools.before('') {
+    display: inline-block;
+    height: 0;
+    padding-top: calc(100% / var(--ratio));
+    width: 1px;
+  }
+
+  iframe {
+    @include tools.position(0 0 0 0);
+    @include tools.square(100%);
+  }
+}
+
+[data-pattern='figure'] {
+  --main-column: pull;
+  background: var(--callout);
+  margin: var(--gutter) 0;
+  padding: var(--gutter);
+
+  [data-meta='page'] + & {
+    --main-column: unset;
+    margin-top: 0;
+  }
+}
+
+[data-figure='content'] {
+  display: grid;
+  grid-gap: var(--shim);
+  grid-template-columns: [full-start] repeat(auto-fit, minmax(40%, 1fr)) [full-end];
+
+  img,
+  svg {
+    width: 100%;
+  }
+
+  [style] {
+    grid-column: var(--span, initial);
+    width: var(--width, 100%);
+  }
+}
+
+[data-figure='caption'] {
+  font-size: var(--font-small);
+  margin-top: var(--half-shim);
+}
+
+[data-place] {
+  height: var(--height, auto);
+  width: var(--width, 100%);
+}

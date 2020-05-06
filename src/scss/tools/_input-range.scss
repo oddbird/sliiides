@@ -1,0 +1,75 @@
+/// # Range Input Tools
+/// Provide browser-prefixed selectors for styling
+/// range input tracks and thumbs.
+/// @group tools-range
+
+// Track
+// -----
+/// Generate browser-prefixed selector blocks
+/// for styling range input 'tracks'.
+/// This works like a selector,
+/// with content rather than arguments.
+///
+/// @content
+///   The styles to apply to range input tracks
+/// @example scss
+///   @use 'tools/input-range' as range;
+///
+///   [type='range'] {
+///     @include range.track {
+///       appearance: none;
+///       height: 1em;
+///       cursor: pointer;
+///     }
+///   }
+/// @group tools-range
+@mixin track {
+  /* stylelint-disable */
+  &::-webkit-slider-runnable-track {
+    @content;
+  }
+  &::-moz-range-track {
+    @content;
+  }
+  &::-ms-track {
+    @content;
+  }
+  /* stylelint-enable */
+}
+
+// Track
+// -----
+/// Generate browser-prefixed selector blocks
+/// for styling range input 'thumbs' --
+/// the handle that can be moved along a track.
+/// This works like a selector,
+/// with content rather than arguments.
+///
+/// @content
+///   The styles to apply to range input thumbs
+/// @example scss
+///   @use 'tools/input-range' as range;
+///
+///   [type='range'] {
+///     @include range.thumb {
+///       appearance: none;
+///       height: 1em;
+///       width: 0.5em;
+///       background: var(--ccs-prime);
+///       cursor: pointer;
+///     }
+///   }
+/// @group tools-range
+@mixin thumb {
+  /* stylelint-disable */
+  &::-webkit-slider-thumb {
+    @content;
+  }
+  &::-moz-range-thumb {
+    @content;
+  }
+  &::-ms-thumb {
+    @content;
+  }
+  /* stylelint-enable */
+}

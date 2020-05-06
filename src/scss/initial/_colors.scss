@@ -1,0 +1,33 @@
+@use '../config/color' as config;
+@use '~accoutrement/sass/tools';
+@use '~cascading-color-systems' as ccs with (
+  $hues: config.ccs('hues'),
+  $saturation: config.ccs('saturation'),
+  $contrast: config.ccs('contrast'),
+  $steps: config.ccs('steps'),
+  $fades: config.ccs('fades'),
+  $fade-background: config.ccs('fade-background'),
+  $neutral-saturation: config.ccs('neutral-saturation'),
+  $build: true,
+  $gradients: true,
+);
+
+/// # CSS Color Variables
+/// Generate CSS variables from configuration colors,
+/// Using Accoutrement variable tools.
+/// @link https://www.oddbird.net/accoutrement/docs/core-vars.html
+///   Accoutrement Variables
+/// @link https://cascading-colors.netlify.com/
+///   Cascading Color Systems
+/// @group init-colors
+
+/// @group init-colors
+[data-ccs-colors] {
+  @include tools.tokens--(config.$ccs-colors);
+  @include tools.tokens--(config.$background-colors);
+  @include tools.tokens--(config.$content-colors);
+
+  --img-bright--base: #{ccs.if-mode($light: 50%, $dark: 40%)};
+  --img-bright--default: calc(var(--img-bright--base) + var(--ccs-l));
+  --img-contrast--default: calc(55% + var(--ccs-contrast));
+}

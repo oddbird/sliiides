@@ -1,0 +1,31 @@
+@use '~accoutrement/sass/tools';
+
+[role='banner'] {
+  background: var(--overlay);
+  display: grid;
+  font-size: var(--xsmall);
+  grid-gap: var(--gutter);
+  grid-template: 'bread links' auto / 1fr auto;
+  padding: var(--half-shim) var(--gutter);
+  position: sticky;
+  scroll-snap-align: start;
+  top: 0;
+  z-index: var(--banner, 10);
+}
+
+[data-nav='external'] {
+  --newline: 0;
+  --list-padding: 0;
+
+  li {
+    display: inline-block;
+  }
+
+  li:not(:last-child)::after {
+    content: ' | ';
+  }
+
+  @include tools.below('wide-page') {
+    display: none;
+  }
+}

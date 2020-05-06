@@ -1,0 +1,25 @@
+@use '~accoutrement/sass/tools';
+@use '../config/fonts';
+
+html {
+  @include fonts.var('body');
+  @include tools.font-family('static');
+  font-feature-settings: 'dlig' 1, 'liga' 1;
+  font-size: tools.size('rem');
+  line-height: tools.ratio('line-height');
+
+  // feature gradient
+  --feature-gradient: linear-gradient(
+    to bottom right,
+    var(--feature-from),
+    var(--feature-to)
+  );
+
+  @supports (font-variation-settings: normal) {
+    @include tools.font-family('recursive');
+  }
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}

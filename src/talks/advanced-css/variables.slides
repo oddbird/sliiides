@@ -1,0 +1,358 @@
+---
+title: CSS Variables
+subtitle: '& Functions'
+event: Advanced CSS & Sass
+home: /advanced-css/
+author: miriam
+tags: [css, sass, design systems, components, variables, naming, grid, layout]
+---
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+## 2014: CSS **Variables**
+Firefox 31 (unless you count **`currentColor`**)
+
+<!-- slide -->
+
+## `--aka`**`:`** `'custom properties'`**`;`**
+
+<!-- slide -->
+
+## `-<empty>-`**`browser-prefix`**
+
+<!-- slide -->
+
+## `var(` **`--property-name`** `, fallback)`
+
+<!-- slide -->
+
+### `var(--my-font,` **`Baskerville, Georgia, serif`**`)`
+
+<!-- slide -->
+
+### `var(--my-color,` **`var(--other-color, pink)`**`)`
+
+<!-- slide -->
+
+## Sass Variables **Scope**
+No **DOM** Awareness
+
+```scss
+.example { $columns: 2; }
+.nested-class { /* $columns == undefined */ }
+```
+
+<!-- slide -->
+
+## CSS Variables **Inherit**
+**DOM** Awareness!
+
+```scss
+.example { --columns: 2; }
+.nested-class { /* var(--columns) == 2 */ }
+```
+
+<!-- slide -->
+
+
+```scss
+@media (min-width: 30em) {
+  .example {
+    $columns: 6; /* 👎 {} scope only */
+    --columns: 6; /* 👍 30em+ browsers! */
+  }
+}
+```
+
+<!-- slide -->
+
+## **Global** Variables Inherit
+
+```css
+html {
+  --brand-color: hsl(330, 100%, 45%);
+}
+```
+
+<!-- slide -->
+
+## Some Should **Reset** Instead
+
+```css
+* {
+  --columns: 12;
+  --column-span: initial;
+}
+```
+
+<!-- slide -->
+
+## **Assign Locally** When Possible
+
+```css
+button {
+  --btn-color: green;
+}
+```
+
+<!-- slide -->
+
+## Avoid **Nesting**…
+
+```scss
+button {
+  background: blue
+}
+
+.this button {
+  background: red;
+}
+```
+
+<!-- slide -->
+
+## …For Lower **Specificity**
+
+```scss
+button {
+  --btn-color: var(--brand-color, blue);
+  background: var(--btn-color, blue);
+}
+
+.this {
+  --btn-color: red;
+}
+```
+
+<!-- slide -->
+
+## **Safe** Inline Styles
+
+```html
+<button style="--color: blue;">
+```
+
+<!-- slide -->
+
+## **Use** the Variable…
+
+```scss
+button {
+  background: var(--color, red);
+}
+```
+
+<!-- slide -->
+
+## …or **Ignore** the Variable
+
+```scss
+button.green {
+  background: green;
+}
+```
+
+<!-- slide -->
+
+## Missing **Longhand** (& Defaults)
+
+```css
+.example {
+  --shadow-y: -1px;
+  box-shadow: var(--shadow-x, 0)
+              var(--shadow-y, 1px)
+              var(--shadow-blur, 0)
+              var(--shadow-color, currentColor);
+}
+```
+
+<!-- slide -->
+
+## Individual **Color** Values
+
+```css
+* {
+  --h: 330;
+  --s: 100%;
+  --l: 34%;
+  background: hsl(var(--h), var(--s), var(--l));
+}
+```
+
+<!-- slide -->
+
+## `calc(` **`16px`** `+` **`20%`** `)`
+mix and match units
+
+<!-- slide -->
+
+## Variables `+` Calc `==` **Functions**
+`calc(` **`var(--span)`** `/` **`var(--columns)`** `* 100%)`
+
+<!-- slide -->
+
+## New Old **Grid System**?
+I'm not sure there's any reason to do this exactly...
+
+```css
+html {
+  --columns: 12;
+}
+
+[data-span] {
+  --width: calc(var(--span) / var(--columns) * 100%);
+  width: var(--width, initial);
+}
+```
+
+<!-- slide -->
+
+```css
+[data-span='3'] {
+  --span: 3;
+}
+
+[data-span='half'] {
+  --span: calc(var(--columns) / 2);
+}
+```
+
+<!-- slide -->
+
+## Smart **Media-Queries**
+
+```css
+* {
+  --columns: 6;
+  @media (min-width: 45em) { --columns: 12; }
+}
+```
+
+<!-- slide -->
+
+---
+demo: cssSusy
+resize: true
+caption: |
+  [AG Grid Nesting Test](http://oocss.org/grids_docs.html)
+  from OOCSS
+---
+
+<!-- slide -->
+
+### Variable **Issues**:
+## Unknown **Value Types**
+
+<!-- slide -->
+
+## Transition & Animate **Results**
+Not the variable itself...
+
+```scss
+button {
+  --color: green;
+  background: var(--color);
+  transition: background 0.5s;
+
+  &:hover {
+    --color: red;
+  }
+}
+```
+
+<!-- slide -->
+
+## Houdini [Properties & Values API][values] **\***
+**\*** Experimental (behind Chrome flag)
+
+[values]: https://drafts.css-houdini.org/css-properties-values-api/
+
+<!-- slide -->
+
+## In **JavaScript**
+
+```js
+CSS.registerProperty({
+  name: "--brand-color",
+  syntax: "<color>",
+  initialValue: "pink",
+  inherits: true,
+});
+```
+
+<!-- slide -->
+
+## Proposed **CSS**
+
+```css
+@property --brand-color {
+  syntax: "<color>";
+  initialValue: "pink";
+  inherits: true;
+}
+```
+
+<!-- slide -->
+
+## **Content** Requires **Quoted Values**
+
+```css
+div::after {
+  --string: 'hello world';
+  content: var(--string);
+}
+```
+
+<!-- slide -->
+
+## Content **Hack** For Numbers
+
+```css
+div::after {
+  --number: 3;
+  counter-reset: number var(--number);
+  content: counter(number);
+}
+```
+
+<!-- slide -->
+
+### Currently
+## **No Support** in **`url()`** | **`@media`**
+
+<!-- slide -->
+
+### ~~`var(--size)em`~~
+## `calc( var(--size)` **`* 1em`** `)`
+
+<!-- slide -->
+
+## `@supports (` **`--css: vars`** `) {}`
+Any valid **definition** will work...
+
+<!-- slide -->
+
+---
+split:
+  image: /images/_people/leaverou.jpg
+  size: cover
+---
+
+# Lea Verou | [@LeaVerou](https://twitter.com/LeaVerou/)
+### [CSS Variables Talk](https://www.youtube.com/watch?v=2an6-WVPuJU)
+and [slides](http://leaverou.github.io/css-variables)
+
+<!-- slide -->
+
+---
+layout: todo
+---
+
+1. Build 3 button colors, and 2 button padding-sizes
+2. Build a variable-based layout system

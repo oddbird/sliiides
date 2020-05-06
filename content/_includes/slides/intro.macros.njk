@@ -1,0 +1,32 @@
+{% import "slides.macros.njk" as slides %}
+{% import "embed.macros.njk" as embed %}
+
+{% macro oddbird(slide, page) %}
+  {%- set caption -%}
+    Established in <strong>2008</strong> by three odd siblings
+  {%- endset -%}
+  {%- set slide = slide | merge({'caption': caption}) -%}
+  {% call slides.base(slide, 'intro-oddbird', page) %}
+    {{ embed.svg('svg/oddbird') }}
+    <h2><strong>OddBird</strong> <i>Consulting</i></h2>
+    <p>Custom Apps, Design Systems, Training, & Refactors</p>
+  {% endcall %}
+{% endmacro %}
+
+{% macro oss(slide, page) %}
+  {%- set caption -%}
+    <strong>Core Contributor</strong> / <strong>Invited Expert</strong>
+  {%- endset -%}
+  {%- set slide = slide | merge({'caption': caption}) -%}
+  {% call slides.base(slide, 'intro-oss', page) %}
+    <ul class="oss-logos">
+      {% for name, link in page.data.oss %}
+        <li>
+          <a href="{{ link }}">
+            {{ embed.svg('logos/' + name, alt=name) }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endcall %}
+{% endmacro %}

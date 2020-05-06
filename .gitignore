@@ -1,4 +1,15 @@
 _site
+_built
+
+*.DS_Store
+*~
+.idea/
+.livereload
+*.orig
+*.swp
+*.swo
+*.css.map
+*.js.map
 
 # Logs
 logs
@@ -17,9 +28,19 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+coverage/
+jscache/
 coverage
-
-# nyc test coverage
 .nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
@@ -53,11 +74,19 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# Yarn Integrity file
+# Yarn
 .yarn-integrity
+.yarn/unplugged
+.yarn/build-state.yml
 
 # dotenv environment variables file
 .env
+ENV/
+env/
 
 # next.js build output
 .next
+
+# Python
+/venv
+.python-version

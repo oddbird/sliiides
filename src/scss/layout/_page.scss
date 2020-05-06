@@ -1,0 +1,43 @@
+@use '../config/patterns';
+@use '../config/fonts';
+
+.page {
+  padding: 0 var(--gutter);
+  margin: var(--spacer) auto;
+  max-width: var(--wide-page);
+
+  h1,
+  h2 {
+    @include patterns.fancy-text;
+  }
+
+  h1 {
+    margin-bottom: var(--newline);
+  }
+
+  h2 {
+    @include fonts.var('light');
+    font-size: var(--h3);
+  }
+
+  h3 {
+    font-size: var(--h4);
+  }
+}
+
+[data-events] {
+  font-size: var(--xsmall);
+  list-style: none;
+
+  h2 {
+    margin: 0;
+  }
+
+  ul {
+    font-size: 1rem;
+  }
+
+  .event {
+    margin-bottom: var(--newline);
+  }
+}

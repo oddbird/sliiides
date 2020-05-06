@@ -1,0 +1,32 @@
+---
+layout: demo
+demo: weighted-styles
+title: Weighted Font Sizes
+styles:
+  - demo.css
+---
+
+<h1>
+  <strong>Weighted</strong> Styles
+</h1>
+
+<p>
+  Inspired by
+  <a href="https://www.w3.org/People/howcome/p/cascade.html">the original CSS proposal</a>,
+  which includes "weighting" of each rule or style sheet,
+  and generates a weighted average:
+</p>
+
+<pre><code>
+/* user styles */
+html { font-size: 16px 60%; }
+
+/* author styles (40% remaining) */
+html { font-size: 3vw; }
+</code></pre>
+
+<p>
+  I've given the user font-size a weight of <code>60%</code>,
+  and my own `<code>72px</code>` font-size
+  a weight of <code>40%</code>.
+</p>

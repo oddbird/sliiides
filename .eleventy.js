@@ -1,43 +1,106 @@
-const hljs = require('@11ty/eleventy-plugin-syntaxhighlight');
-const md = require('markdown-it')({
-  html: true,
-  breaks: false,
-  linkify: true,
-  typographer: true,
-});
+'use strict';
 
-module.exports = eleventyConfig => {
-  eleventyConfig.addPlugin(hljs);
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const yaml = require('js-yaml');
+const _ = require('lodash');
 
-  // layouts
-  eleventyConfig.addLayoutAlias('base', 'base.njk');
-  eleventyConfig.addLayoutAlias('demo', 'demo.njk');
+const data = require('./src/filters/data');
+const pages = require('./src/filters/pages');
+const time = require('./src/filters/time');
+const type = require('./src/filters/type');
+const utils = require('./src/filters/utils');
+
+module.exports = (eleventyConfig) => {
+  eleventyConfig.setUseGitIgnore(false);
+  eleventyConfig.addPlugin(syntaxHighlight);
+
+  eleventyConfig.addWatchTarget('./src/images/');
+  eleventyConfig.addWatchTarget('./src/media/');
 
   // pass-through
-  eleventyConfig.addPassthroughCopy('assets');
+  eleventyConfig.addPassthroughCopy({ _built: 'assets' });
+  eleventyConfig.addPassthroughCopy({ 'src/fonts': 'assets/fonts' });
+  eleventyConfig.addPassthroughCopy({ 'src/images': 'assets/images' });
+  eleventyConfig.addPassthroughCopy({ 'src/remedy': 'assets/css' });
+  eleventyConfig.addPassthroughCopy({ 'src/rad': 'assets/css' });
+  // eleventyConfig.addPassthroughCopy({ 'src/media': 'assets/media' });
+
+  // collections
+  eleventyConfig.addCollection('events', (collection) =>
+    collection
+      .getAll()
+      .filter((item) => item.data.venue)
+      .sort((a, b) => b.date - a.date),
+  );
 
   // filters
-  eleventyConfig.addFilter('md', (content) => md.render(content));
-  eleventyConfig.addFilter('mdInline', (content) => md.renderInline(content));
-  eleventyConfig.addFilter('getPage', (collection, page) => {
-    const pageURL = (typeof page === 'string') ? page : page.url;
-    const list = collection.filter(page => page.url === pageURL);
-    return list ? list[0] : null;
+  eleventyConfig.addFilter('merge', _.merge);
+  eleventyConfig.addFilter('group', _.groupBy);
+
+  eleventyConfig.addFilter('typeCheck', utils.typeCheck);
+  eleventyConfig.addFilter('styles', utils.styles);
+  eleventyConfig.addFilter('concat', utils.concat);
+  eleventyConfig.addFilter('joinPaths', utils.joinPaths);
+
+  eleventyConfig.addFilter('meta', data.meta);
+
+  eleventyConfig.addFilter('getDate', time.getDate);
+
+  eleventyConfig.addFilter('isPublic', pages.isPublic);
+  eleventyConfig.addFilter('getPublic', pages.getPublic);
+  eleventyConfig.addFilter('isCurrent', pages.isCurrent);
+  eleventyConfig.addFilter('getPage', pages.getPage);
+  eleventyConfig.addFilter('findPage', pages.findPage);
+  eleventyConfig.addFilter('hasData', pages.hasData);
+  eleventyConfig.addFilter('getData', pages.getData);
+  eleventyConfig.addFilter('findData', pages.findData);
+  eleventyConfig.addFilter('withData', pages.withData);
+
+  eleventyConfig.addFilter('typogr', type.typogr);
+  eleventyConfig.addFilter('md', type.md);
+  eleventyConfig.addFilter('mdInline', type.mdInline);
+  eleventyConfig.addFilter('removeMd', type.removeMd);
+  eleventyConfig.addFilter('elide', type.elide);
+
+  eleventyConfig.addFilter('yaml', yaml.safeLoad);
+  eleventyConfig.addFilter('slideData', (slide, index, page) => {
+    slide.index = index;
+    slide.page = page;
+    return slide;
   });
 
   // shortcodes
-  eleventyConfig.addPairedShortcode('md', (content) => md.render(content));
-  eleventyConfig.addPairedShortcode('mdInline', (content) => md.renderInline(content));
+  eleventyConfig.addPairedShortcode('md', type.md);
+  eleventyConfig.addPairedShortcode('mdInline', type.mdInline);
+  eleventyConfig.addPairedShortcode('h', type.heading);
+  eleventyConfig.addShortcode(
+    'getDate',
+    (format) => `${time.getDate(time.now(), format)}`,
+  );
 
-  // markdown
-  eleventyConfig.setLibrary('md', md);
+  // config
+  eleventyConfig.setLibrary('md', type.mdown);
+  eleventyConfig.addDataExtension('yaml', yaml.safeLoad);
+  eleventyConfig.setQuietMode(true);
+  eleventyConfig.setDataDeepMerge(true);
+
+  eleventyConfig.setTemplateFormats([
+    'md',
+    'njk',
+    'html',
+    'txt',
+    'ico',
+    'css',
+    '11ty.js',
+  ]);
 
   // settings
   return {
+    dataTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
-    templateFormats: ['njk', 'md', 'css'],
     dir: {
-      data: '_data',
+      input: 'content',
       includes: '_includes',
       layouts: '_layouts',
     },

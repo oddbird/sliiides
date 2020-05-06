@@ -1,0 +1,48 @@
+@use '../config/color' as config;
+@use '~cascading-color-systems' as ccs;
+
+/// # Preset Color Themes
+/// We define several custom color themes to choose from.
+/// @group init-themes
+
+// Built-In Themes
+// ---------------
+/// The built-in themes generate two colors,
+/// which we apply to our `accent` and `special` color-names,
+/// and toggle depending on light/dark mode.
+/// @name Built-In Themes
+/// @group init-themes
+[data-ccs-theme] {
+  --ccs-accent--theme: #{ccs.if-mode(
+      $light: var(--ccs-theme--1),
+      $dark: var(--ccs-theme--2)
+    )};
+  --ccs-special--theme: #{ccs.if-mode(
+      $light: var(--ccs-theme--2),
+      $dark: var(--ccs-theme--1)
+    )};
+}
+
+// OddBird
+// -------
+/// The OddBird theme is based on default settings,
+/// but removes user hue settings.
+/// @name Default Theme
+/// @group init-themes
+[data-ccs-theme='oddbird'] {
+  --ccs-h--prime: var(--ccs-prime--config);
+  --ccs-h--accent: var(--ccs-accent--config);
+  --ccs-h--special: var(--ccs-special--config);
+  --ccs-custom-hue: none;
+}
+
+// Monochrome
+// ----------
+/// Provide a monochrome theme option,
+/// with one color for both `accent` and `special`.
+/// @name Monochrome Theme
+/// @group init-themes
+[data-ccs-theme='monochrome'] {
+  --ccs-accent--theme: var(--ccs-h--prime);
+  --ccs-special--theme: var(--ccs-h--prime);
+}

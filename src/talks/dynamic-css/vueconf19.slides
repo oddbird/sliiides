@@ -1,0 +1,1037 @@
+---
+title: Dynamic CSS
+subtitle: with Vue
+event: VueConf US
+author: miriam
+date: 2019-03-26
+image: /images/dynamic-css/_cover.jpg
+tags: [css, variables, custom properties, grid, graphs]
+---
+
+Don't be fooled by the declarative syntax,
+CSS is a powerful language for
+building dynamic design systems.
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/design-patterns.jpeg'
+alt: 'Jacob Schatz: Design Patterns'
+---
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+
+## [OddBird](https://oddbird.net)
+Full-Stack Client Services (**including Vue**)
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy.jpg'
+alt: 'Susy'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy-no.jpg'
+alt: 'Susy, scribbled out'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## HTML/CSS **History**
+
+<!-- slide -->
+
+## 1993: **HTML**
+Markup Language
+
+<!-- slide -->
+
+---
+image: '/images/patterns/oddbird-w-logo.jpg'
+alt: 'OddBird siblings (Jonny, Carl, and Miriam) in 1994'
+---
+
+<!-- slide -->
+
+## 1997: **`<font>`** `&&` **`<table>`**
+HTML 3.2
+
+<!-- slide -->
+
+## `(╯'□')╯︵` **`┻━┻`**
+"TABLES ARE FOR **DATA**"
+
+<!-- slide -->
+
+## ~~1996~~ 2000: Cascading **Style Sheets**
+
+<!-- slide -->
+
+![CSS is Awesome](/images/dynamic-css/css-is-awesome.jpg)
+(The **End**)
+
+<!-- slide -->
+
+## 2007-2010: **Grid Frameworks**
+Also: [**OddBird**](https://oddbird.net)
+
+<!-- slide -->
+
+---
+image: '/images/layouts/spread-narrow.jpg'
+alt: 'Span some columns on a single axis'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## `class="`**`column col6of12 last`**`"`
+
+<!-- slide -->
+
+---
+image: '/images/patterns/systems.png'
+alt: 'CSS Systems by Natalie Downe'
+caption: 'Source: http://www.slideshare.net/nataliedowne/css-systems-presentation'
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## **`target`** `/` **`context`** `*` `100%`
+Responsive before **Responsive(tm)**
+
+<!-- slide -->
+
+```scss
+.grid-span {
+  width: 23.7288136%; // 3 columns & 2 gutters
+  margin-right: 01.6949153%; // 1 gutter
+  padding-left: 08.4745763%; // 1 column & 1 gutter
+}
+```
+
+<!-- slide -->
+
+## 2009: **Sass**\* & Susy
+**\*** When I found out about it...
+
+<!-- slide -->
+
+```scss
+.grid-span {
+  width: span(3);
+  margin-right: gutter();
+  padding-left: span(1 wide);
+}
+```
+
+<!-- slide -->
+
+---
+video: '/images/dynamic-css/vueconf19/sarah.mov'
+---
+
+<!-- slide -->
+
+## 2009: **`@media`** queries
+Safari 4 -- **`if/then`**
+
+<!-- slide -->
+
+## 2011: **Responsive** Web Design
+[Ethan Marcotte](https://alistapart.com/article/responsive-web-design)
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/devices.jpg'
+alt: 'A zillion different devices of all sizes (original)'
+---
+
+<!-- slide -->
+
+> There are **too many variables to consider**.
+> The point of CSS is to make it so you don’t have to worry about them all.
+> **Define some constraints**.
+> Let the language work out the details.
+>
+> ---Keith J Grant, [Resilient, Declarative, Contextual](https://keithjgrant.com/posts/2018/06/resilient-declarative-contextual/)
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/explicit.jpg'
+alt: 'Chris Fritz: Explicit, clear relationships'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## First, **Do No Harm**
+![CSS is Awesome](/images/dynamic-css/css-is-awesome.jpg)
+
+<!-- slide -->
+
+## **Declarative** Syntax
+## **`!=`**
+## **Static** Results
+
+<!-- slide -->
+
+## Go with **the flow**!
+
+<!-- slide -->
+
+---
+demo: 'layoutFlow'
+---
+
+<!-- slide -->
+
+## 2011: **`calc()`**
+Firefox 4 -- **`function`**
+
+<!-- slide -->
+
+## `calc(` **`16px`** `+` **`20%`** `)`
+Combine **Fluid** & **Fixed** Widths!
+
+<!-- slide -->
+
+## 2012: **Flexbox**
+Chrome 21
+
+<!-- slide -->
+
+## `flex:` **`1 0 30`**`em;`
+Define **Ideal** with **Flexibility**!
+
+<!-- slide -->
+
+## 2014: CSS **Variables**
+Firefox 31 (unless you count **`currentColor`**)
+
+<!-- slide -->
+
+## `--aka`**`:`** `'custom properties'`**`;`**
+
+<!-- slide -->
+
+## `-<empty>-`**`browser-prefix`**
+
+<!-- slide -->
+
+## `var(` **`--property-name`** `, fallback)`
+
+<!-- slide -->
+
+## Sass Variables **Scope**
+
+```scss
+.example { $columns: 2; }
+.nested-class { /* $columns == undefined */ }
+```
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/browsers.jpeg'
+alt: 'Rahul Kadyan: Browsers dont understand ~~SFC~~ Sass'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## CSS Variables **Inherit**
+
+```scss
+.example { --columns: 2; }
+.nested-class { /* var(--columns) == 2 */ }
+```
+
+<!-- slide -->
+
+
+```scss
+@media (min-width: 30em) {
+  .example {
+    $columns: 6; /* 👎 {} scope only */
+    --columns: 6; /* 👍 30em+ browsers! */
+  }
+}
+```
+
+<!-- slide -->
+
+## Inherit **Everywhere**:
+
+```scss
+:root {
+  --brand-color: hsl(330, 100%, 45%);
+}
+```
+
+<!-- slide -->
+
+## **Don't** Inherit:
+
+```scss
+* {
+  --brand-color: initial;
+}
+```
+
+<!-- slide -->
+
+## Avoid **Nesting**…
+
+```scss
+button {
+  background: blue
+}
+
+.this button {
+  background: red;
+}
+```
+
+<!-- slide -->
+
+## …For Lower **Specificity**
+
+```scss
+button {
+  background: var(--btn-color, blue);
+}
+
+.this {
+  --btn-color: red;
+}
+```
+
+<!-- slide -->
+
+## **Safe** Inline Styles
+
+```html
+<button style="--color: blue;">
+```
+
+<!-- slide -->
+
+## **Use** the Variable…
+
+```scss
+button {
+  background: var(--color, red);
+}
+```
+
+<!-- slide -->
+
+## …or **Ignore** the Variable
+
+```scss
+button.green {
+  background: green;
+}
+```
+
+<!-- slide -->
+
+## Missing **Longhand** (& Defaults)
+
+```css
+.example {
+  --shadow-y: -1px;
+  box-shadow: var(--shadow-x, 0)
+              var(--shadow-y, 1px)
+              var(--shadow-blur, 0)
+              var(--shadow-color, currentColor);
+}
+```
+
+<!-- slide -->
+
+## Variables `+` Calc `==` **Functions**
+
+```css
+[data-span] {
+  --width: calc(var(--span) / var(--columns) * 100%);
+  width: var(--width, initial);
+}
+```
+
+<!-- slide -->
+
+```css
+[data-span='3'] {
+  --span: 3;
+}
+
+[data-span='half'] {
+  --span: calc(var(--columns) / 2);
+}
+```
+
+<!-- slide -->
+
+## Smart **Media-Queries**
+
+```css
+* {
+  --columns: 6;
+  @media (min-width: 45em) { --columns: 12; }
+}
+```
+
+<!-- slide -->
+
+---
+demo: 'cssSusy'
+resize: true
+caption: |
+  [AG Grid Nesting Test](http://oocss.org/grids_docs.html)
+  from OOCSS
+---
+
+<!-- slide -->
+
+## Manipulate **`hsl()`** Values
+
+```css
+* {
+  --h: 330;
+  --s: 100%;
+  --l: 34%;
+  background: hsl(var(--h), var(--s), var(--l));
+}
+```
+
+<!-- slide -->
+
+## Hue is **Radial**
+
+```css
+* {
+  --complement: calc(var(--h) - 180);
+  background: hsl(var(--complement), var(--s), var(--l));
+}
+```
+
+<!-- slide -->
+
+## Lightness is "**Clamped**"
+
+```css
+* {
+  --threshold: 55;
+  --contrast: calc((var(--l) - var(--threshold)) * -100%);
+  color: hsl(var(--h), var(--s), var(--contrast));
+}
+```
+
+<!-- slide -->
+
+---
+demo: 'hslTheme'
+caption: |
+  Inspired by [Facundo Corradini](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
+---
+
+<!-- slide -->
+
+## Variable **Issues**:
+
+1. Unknown value `type`s
+  (transition known properties, not variables)
+2. Don't work inside `url()`
+3. ~~`var(--size)em`~~ **=>** `calc(var(--size) * 1em)`
+
+<!-- slide -->
+
+## Houdini [Properties & Values API][values] **\***
+**\*** Experimental (behind Chrome flag)
+
+[values]: https://drafts.css-houdini.org/css-properties-values-api/
+
+<!-- slide -->
+
+## In **JavaScript**
+
+```js
+CSS.registerProperty({
+  name: "--brand-color",
+  syntax: "<color>",
+  initialValue: "pink",
+  inherits: true,
+});
+```
+
+<!-- slide -->
+
+## In **CSS**
+
+```css
+@property --brand-color {
+  syntax: "<color>";
+  initialValue: "pink";
+  inherits: true;
+}
+```
+
+<!-- slide -->
+
+## 2017: CSS **Grid**
+Firefox 52 **&** Chrome 57 **&** Safari 10
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/mind-blown.gif'
+alt: 'Mind-blown gif of Gregg Pollack as Carl Sagan'
+---
+
+<!-- slide -->
+
+## Truly **Two-Dimensional** Layouts
+columns & rows! mixed units!
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/layout.jpg'
+alt: 'Maria Lamardo: ARIA layout regions'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+demo: 'layoutGrid'
+caption: 'Grid lines 1-indexed and -1 in reverse (see dev tools)'
+resize: true
+---
+
+<!-- slide -->
+
+# Lines & **Spans**
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.example {
+  grid-column: 1 / 4;
+  grid-row: 2 / span 2;
+}
+```
+
+<!-- slide -->
+
+## Named **Areas**
+
+```css
+body {
+  grid-template-areas: 'header header'
+                       'nav main'
+                       'nav footer';
+}
+
+h1 { grid-area: header; }
+nav { grid-area: nav; }
+main { grid-area: main; }
+footer { grid-area: footer; }
+```
+
+<!-- slide -->
+
+## **Single** Source of Truth
+
+```scss
+@media (max-width: 50em) {
+  body {
+    grid-template: 'header'
+                   'nav'
+                   'main'
+                   'footer';
+  }
+}
+```
+
+<!-- slide -->
+
+---
+demo: 'layoutGrid'
+caption: 'Resize window to see media-query in action…'
+resize: true
+---
+
+<!-- slide -->
+
+## 2018: **Intrinsic** Web Design
+[Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
+
+<!-- slide -->
+
+1. **Fluid** & **Fixed**
+2. Stages of **Squishiness**
+3. Truly **Two-Dimensional** Layouts
+4. **Nested** Contexts
+5. **Expand** & **Contract** Content
+6. Media Queries, **As Needed**
+
+<!-- slide -->
+
+---
+style:
+  text-align: 'left'
+---
+
+## **`px`**/**`em`**/**`%`** `=>` fixed
+## **`fr`** `=>` fluid
+## **`minmax()`** `=>` fluid until fixed
+## **`auto`** `=>` flow
+
+<!-- slide -->
+
+---
+style:
+  text-align: 'left'
+---
+
+## **`%`** `=>` relative to **parent width**
+## **`vw`** `=>` relative to **the viewport**
+## **`fr`** `=>` relative to **available space**
+
+<!-- slide -->
+
+## **`1fr`** `==` **`minmax(auto, 1fr)`**
+### use **`minmax(0, 1fr)`** to allow shrinking
+
+<!-- slide -->
+
+## Let's Add **Vue**
+**CSS** & **JavaScript**
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/template.jpeg'
+alt: 'Andrew Krawchyk'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## Client **Day Planner**
+![Screenshot of schedule grid](/images/layouts/schedule.jpg)
+
+<!-- slide -->
+
+```html
+<div style="
+  --start: 30;
+  --duration: 60;
+" >
+```
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/inline.jpeg'
+alt: 'Krystal Campioni: Inline Styles'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+```html
+<div :style="{
+  '--start': item.start,
+  '--duration': item.duration
+}" >
+```
+
+<!-- slide -->
+
+---
+demo: 'layoutGridVar'
+caption: 'This one is for [Maria](https://twitter.com/marialamardo)'
+resize: true
+---
+
+<!-- slide -->
+
+---
+image: '/images/layouts/invade.jpg'
+caption: |
+  [Levitated Toy Factory](http://levitated.guru/work/)
+  at **Beyond Tellerand**
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/zen.jpeg'
+alt: 'Jen Looper: Zen and the Art of Vue'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/jsconfus18/learning.jpg'
+alt: 'One does not simply "learn" JavaScript'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+demo: 'vueInvaders'
+resize: true
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/dots.jpeg'
+alt: 'Guillaume Chau: Dot animation demo'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## Container: **Grid Values**
+
+```html
+<section
+  :style="{'--size': blipSize, '--gap': gapSize}">
+```
+
+<!-- slide -->
+
+```css
+section {
+  /* Grids! */
+  display: grid;
+  grid-auto-flow: dense;
+}
+```
+
+<!-- slide -->
+
+```css
+section {
+  /* Default grid values */
+  --size: 5px;
+  --gap: 1px;
+
+  /* Calculaed total size, for maintaining ratio */
+  --grid: calc(var(--size, 5px) * 6 + var(--gap, 1px) * 4);
+  grid-auto-rows: var(--grid);
+  grid-template-columns: repeat(auto-fill, var(--grid));
+  grid-gap: var(--gap);
+}
+```
+
+<!-- slide -->
+
+## Invader: **Grid Span**
+
+```html
+<div
+  v-for="invader in invaders"
+  :key="invader.id"
+  :style="{'--span': invader.scale}">
+```
+
+<!-- slide -->
+
+```css
+.invader {
+  /* Outer grid span */
+  grid-column-end: span var(--span);
+  grid-row-end: span var(--span);
+
+  /* Inner "blip" layout */
+  display: grid;
+  grid-gap: inherit;
+  grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+}
+```
+
+<!-- slide -->
+
+## Blip: **Placement** & **Alpha**
+
+```html
+<span
+  v-for="blip in invader.blips"
+  :key="blip.id"
+  :style="{'--alpha': blip.alpha, '--column': blip.column}" />
+```
+
+<!-- slide -->
+
+```css
+.blip {
+  /* Use alpha to turn blips on or off */
+  background-color: hsla(0, 0%, 100%, var(--alpha, 0));
+
+  /* Ensure the proper column layout */
+  grid-column-start: var(--column);
+}
+```
+
+<!-- slide -->
+
+## Bar **Charts**
+
+```html
+<table class="chart" style="--scale: 100">
+  <tr class="year">
+    <th class="date">2000</th>
+    <td class="bar" style="--value: 45">45%</td>
+  </tr>
+  <!-- etc… -->
+</table>
+```
+
+<!-- slide -->
+
+---
+demo: 'cssChart'
+resize: true
+caption: |
+  [Article on **CSS Tricks**](https://css-tricks.com/css-charts-grid-custom-properties/)
+---
+
+<!-- slide -->
+
+```css
+.bar {
+  --start: calc(var(--scale) + 1 - var(--value));
+  grid-row-start: var(--start);
+}
+```
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/cssconfar18/daniela.jpg'
+caption: |
+  Daniela Vázquez ([@d4tagirl](https://twitter.com/d4tagirl))
+  data visualization at **CSS Conf Argentina**
+---
+
+<!-- slide -->
+
+---
+demo: 'cssPlot'
+resize: true
+---
+
+<!-- slide -->
+
+---
+demo: 'cssLinegraph'
+resize: true
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/sprite.jpeg'
+alt: 'Krystal Campioni: Sprite animation'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/animations-copy.png'
+alt: 'Sprite from Monster Slayer animation'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+```js
+return {
+  sprite: {
+    src: spriteSrc, // e.g. url('…')
+    columns: 10,
+    rows: 5,
+  },
+}
+```
+
+<!-- slide -->
+
+```js
+return {
+  actions: [
+    {
+      name: 'idle',
+      row: 0, // 0 index
+    },
+    {
+      name: 'attack',
+      row: 1,
+    },
+    { ... },
+  ],
+}
+```
+
+<!-- slide -->
+
+```html
+<section
+  class="sprite-demo"
+  :style="{
+    '--src': sprite.src,
+    '--columns': sprite.columns,
+    '--rows': sprite.rows,
+}">
+  <div
+    v-for="action in actions" :key="action.name"
+    :data-action="action.name"
+    :style="{
+      '--row': action.row,
+  }"/>
+</section>
+```
+
+<!-- slide -->
+
+```css
+.sprite-demo {
+  --square: 10em; // anything but `%`
+  --steps: calc(var(--columns) - 1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--square));
+  grid-auto-rows: var(--square);
+}
+```
+
+<!-- slide -->
+
+```css
+@keyframes sprite {
+  to {
+    background-position: 100% var(--posY);
+  }
+}
+
+[data-action] {
+  --posY: calc(0px - var(--square) * var(--row));
+  animation: sprite 1s steps(var(--steps), end) infinite;
+  background-image: var(--src);
+  background-size: calc(var(--square) * var(--columns)) auto;
+  background-position: 0% var(--posY);
+  width: 100%;
+```
+
+<!-- slide -->
+
+---
+demo: 'cssSprites'
+caption: |
+  Animated sprites from
+  [Monster Slayer](https://github.com/krystalcampioni/monster-slayer)
+  by [Krystal Campioni](https://twitter.com/krystalcampioni)
+---
+
+<!-- slide -->
+
+## [Lea Verou](http://twitter.com/leaverou) on **Variables**
+[video](https://www.youtube.com/watch?v=2an6-WVPuJU)
+| [slides](http://leaverou.github.io/css-variables)
+
+<!-- slide -->
+
+## [Mauricio Palma][mp] **Movement** Demos
+https://codepen.io/collection/DVPpvo/
+
+[mp]: https://twitter.com/PalmaSwell
+
+<!-- slide -->
+
+## **Rachel Andrew**: gridbyexample.com
+examples, templates, and fallbacks
+
+<!-- slide -->
+
+## **Jen Simmons**: youtube.com/layoutland
+also: labs.jensimmons.com
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/think-bigger.jpeg'
+alt: 'Sarah Drasner: Think Bigger'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+demo: 'cssAwesome'
+resize: true
+caption: |
+  Inspired by [Stacy Kvernmo](https://codepen.io/stacy/pen/VxvpBj)
+---
+
+<!-- slide -->
+
+---
+layout: template
+---
+
+## Have **Fun**!
+Built with [**Vue**Finder](https://github.com/oddbird/vuefinder)
+
+<!-- slide -->
+
+---
+layout: contact
+form:
+  email: 'birds@oddbird.net'
+  next: 'https://oddbird.net/contact/thanks'
+  submit: 'send it!'
+---
+

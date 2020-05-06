@@ -1,0 +1,230 @@
+{% import "utility.macros.njk" as utility %}
+
+{# @docs
+label: input
+category: Inputs
+note: Generate an `<input>` or `<textarea>`
+params:
+  id:
+    type: string
+    note: Must be unique on the page, and match label `id`
+  type:
+    type: string
+    default: 'text'
+  required:
+    type: boolean
+    default: 'false'
+  name:
+    type: string | none
+    default: 'none'
+    note: The `id` is used when no name is given
+  attrs:
+    type: object
+    default: '{}'
+#}
+{% macro input(
+  id,
+  type='text',
+  required=false,
+  name=none,
+  attrs={}
+) -%}
+  {%- set text_like = [
+    'email', 'tel', 'url',
+    'password', 'search',
+    'number',
+    'date', 'time', 'datetime-local', 'month', 'week'
+  ] -%}
+  {%- set attrs = {
+    'type': type,
+    'data-input': ['text', type] | join(' ') if (type in text_like) else type,
+    'required': required,
+    'name': name or id,
+    'id': id
+  } | merge(attrs) -%}
+  {% if type == 'textarea' %}
+    <textarea {{ utility.show_attrs(attrs) }}></textarea>
+  {% else %}
+    <input {{ utility.show_attrs(attrs) }}>
+  {% endif %}
+{%- endmacro %}
+
+{# @docs
+label: input
+category: Inputs
+note: Generate a `<select>` with given options
+params:
+  id:
+    type: string
+    note: Must be unique on the page, and match label `id`
+  options:
+    type: array
+  required:
+    type: boolean
+    default: false
+  name:
+    type: string | none
+    default: none
+    note: The `id` is used when no name is given
+  attrs:
+    type: object
+    default: '{}'
+#}
+{% macro select(
+  id,
+  options,
+  required=false,
+  name=none,
+  attrs={}
+) -%}
+  {%- set attrs = {
+    'type': type,
+    'data-select': true,
+    'required': required,
+    'name': name or id,
+    'id': id
+  } | merge(attrs) -%}
+  <select {{ utility.show_attrs(attrs) }}>
+    {{- options -}}
+    {%- for option in options -%}
+      <option value="{{ option }}" {{ 'selected' if loop.first }}>
+        {{ option }}
+      </option>
+    {%- endfor -%}
+  </select>
+{%- endmacro %}
+
+{# @docs
+label: field_label
+category: Fields
+note: Generate a form-field label
+params:
+  label:
+    type: string
+  id:
+    type: string
+    note: Must be unique on the page, and match input `id`
+  required:
+    type: boolean
+    default: false
+#}
+{% macro field_label(
+  label,
+  id,
+  required=false
+) %}
+<label for="{{ id }}" data-label>
+  {{- label | mdInline | safe -}}
+  {%- if required -%}
+    <span aria-hidden="true">*</span>
+    <span class="sr-only">required</span>
+  {%- endif -%}
+</label>
+{% endmacro %}
+
+{# @docs
+label: wrapper
+category: Fields
+note: |
+  Used to group a form-field with the appropriate input,
+  and any associated notes or field-errors.
+params:
+  id:
+    type: string
+    note: Must be unique on the page, and match label `id`
+  name:
+    type: string | none
+    default: none
+    note: The `id` is used when no name is given
+  attrs:
+    type: object
+    default: '{}'
+  content:
+    type: string | none
+    default: none
+    note: Expects a `caller()` block when no content is provided
+#}
+{% macro wrapper(
+  id,
+  name=none,
+  attrs={},
+  content=none
+) -%}
+  {%- set content = content if (content != none) else caller() -%}
+  {%- set attrs = { 'data-field': (name or id) } | merge(attrs) -%}
+  <div {{ utility.show_attrs(attrs) }}>
+    {{ content | safe }}
+  </div>
+{%- endmacro %}
+
+{# @docs
+label: field
+category: Fields
+note: Generate a full field-block with wrapper, label, and input
+params:
+  label:
+    type: string
+  id:
+    type: string
+    note: Must be unique on the page, and match label `id`
+  type:
+    type: string | array
+    default: 'text'
+    note: Pass an array of option in order to create a `select` input
+  required:
+    type: boolean
+    default: 'false'
+  name:
+    type: string | none
+    default: none
+    note: The `id` is used when no name is given
+  field_attrs:
+    type: object
+    default: '{}'
+  input_attrs:
+    type: object
+    default: '{}'
+#}
+{% macro field(
+  label,
+  type='text',
+  required=false,
+  name=none,
+  id=none,
+  field_attrs={},
+  input_attrs={}
+) %}
+  {%- set name = name or label | slug -%}
+  {%- set id = id or ['field', name] | join('-') -%}
+  {%- set content -%}
+    {{- field_label(
+      label=label,
+      id=id,
+      required=required
+    ) -}}
+    {%- if type | typeCheck('string') -%}
+      {{- input(
+        id=id,
+        type=type,
+        required=required,
+        name=name,
+        attrs=input_attrs
+      ) -}}
+    {%- else -%}
+      {{- select(
+        id=id,
+        options=type,
+        required=required,
+        name=name,
+        attrs=input_attrs
+      ) -}}
+    {%- endif -%}
+  {%- endset -%}
+
+  {{- wrapper(
+    id=id,
+    name=name,
+    attrs=field_attrs,
+    content=content
+  ) -}}
+{% endmacro %}

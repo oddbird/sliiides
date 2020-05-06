@@ -1,0 +1,343 @@
+---
+title: Dynamic Styles
+subtitle: with Raw Data
+event: Advanced CSS & Sass
+home: /advanced-css/
+author: miriam
+tags: [css, sass, design systems, components, variables, naming, grid, layout]
+---
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+## Generic **Layout Utilities**
+
+```html
+<section class="layout-12">
+  <div class="col-span-3">hello world</div>
+</section>
+```
+
+<!-- slide -->
+
+```css
+.layout-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.layout-8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.layout-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+```
+
+<!-- slide -->
+
+## Why Not **Variables**?
+less code, more flexibility
+
+<!-- slide -->
+
+## Columns as **Data**
+
+```html
+<section style="--columns: 12;">
+```
+
+<!-- slide -->
+
+## Data-**Generated** Layout
+
+```css
+[style*='--columns'] {
+  --columns: 8;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+}
+```
+
+<!-- slide -->
+
+## **Complete** Flexibility?
+
+```html
+<section style="--layout: repeat(auto-fit, minmax(12em, 1fr));">
+```
+
+<!-- slide -->
+
+## Set **Columns** or **Layout**
+
+```css
+[style*='--layout'],
+[style*='--columns'] {
+  --columns: 8;
+  --layout: repeat(var(--columns), minmax(0, 1fr));
+  grid-template-columns: var(--layout);
+}
+```
+
+<!-- slide -->
+
+## **Pre-Defined** Layouts?
+
+```html
+<section style="--layout: var(--image-gallery);">
+```
+
+```css
+[style*='--layout'] {
+  --image-gallery: repeat(auto-fit, minmax(12em, 1fr));
+  --holy-grail: 12em 5fr 1fr;
+  /* --etc */
+}
+```
+
+<!-- slide -->
+
+## **Spanning** The Grid
+
+```html
+<div style="--span: 3;">hello world</div>
+```
+
+<!-- slide -->
+
+```css
+[style*='--span'] {
+  grid-column-end: span var(--span, 1);
+}
+```
+
+<!-- slide -->
+
+---
+demo: layoutGridVar
+caption: This one is for [Maria](https://twitter.com/marialamardo)
+resize: true
+---
+
+<!-- slide -->
+
+---
+image: '/images/advanced-css/graph.jpg'
+alt: Bar graph with random data
+style:
+  --image-size: 80%
+---
+
+<!-- slide -->
+
+## **Semantic** HTML
+
+```html
+<table class="chart" style="--scale: 100;">
+  <tr class="year">
+    <th class="date">2000</th>
+    <td class="bar" style="--value: 45;">45%</td>
+  </tr>
+  <!-- etc… -->
+</table>
+```
+
+<!-- slide -->
+
+## Adjustable **Scale**
+
+```css
+.year {
+  display: grid;
+  grid-template-rows: repeat(var(--scale), minmax(0, 1fr)) auto;
+}
+```
+
+<!-- slide -->
+
+## Date **Label**
+
+```css
+.date {
+  grid-row-start: -2;
+}
+```
+
+<!-- slide -->
+
+```css
+.bar {
+  /* Subtract the value from the scale (plus a 1-index) */
+  --start: calc(var(--scale) + 1 - var(--value));
+  grid-row: var(--start) / -2;
+}
+```
+
+<!-- slide -->
+
+## Data from **JavaScript**
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/jsconfus18/learning.jpg'
+alt: One does not simply "learn" JavaScript
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## **Get** (Inline / Computed) Variables
+
+```js
+element.style.getPropertyValue("--my-var");
+getComputedStyle(element).getPropertyValue("--my-var");
+```
+
+<!-- slide -->
+
+## **Set** (Inline) Variable
+element.style.setProperty("--my-var", jsVar + 4);
+
+<!-- slide -->
+
+## **Bind** Variables in Vue
+
+```html
+<table :style="{ '--scale': scale }" >
+  <tr v-for="year in years" :key="year.date" >
+    <th>{{ year.date }}</th>
+    <td :style="{ '--value': year.value }" >
+```
+
+<!-- slide -->
+
+## Our **Chart** Data
+
+```html
+<script>
+  export default {
+    data() {
+      return {
+        scale: 100;
+        years: [{ date: 2000, value: 45 }, ...]
+      }
+    },
+  }
+</script>
+```
+
+<!-- slide -->
+
+---
+demo: cssChart
+resize: true
+caption: |
+  [Article on **CSS Tricks**](https://css-tricks.com/css-charts-grid-custom-properties/)
+---
+
+<!-- slide -->
+
+## Background **Guides**
+
+```css
+.chart {
+  --line-every: 10;
+  background-image: linear-gradient(to top, #ccc 1px, transparent 1px);
+  background-size: 100% calc(100% / var(--scale) * var(--line-every));
+}
+```
+
+<!-- slide -->
+
+## Status **Colors** (Moving Gradient)
+
+```css
+.bar {
+  --position: calc(var(--start) / var(--scale) * 100%);
+  background-image: linear-gradient(to right, green, yellow, orange, red);
+  background-position: var(--position) 0;
+  background-size: 1600% 100%;
+}
+```
+
+<!-- slide -->
+
+## Status **Colors** (hsl)
+
+```css
+.bar {
+  --hue-scale: 120; /* red => green */
+  --hue: calc(var(--value) / var(--scale) * var(--hue-scale));
+  background-color: hsl(var(--hue), 100%, 100%);
+}
+```
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/cssconfar18/daniela.jpg'
+caption: |
+  Daniela Vázquez ([@d4tagirl](https://twitter.com/d4tagirl))
+  data visualization at **CSS Conf Argentina**
+---
+
+<!-- slide -->
+
+---
+demo: cssLinegraph
+resize: true
+---
+
+<!-- slide -->
+
+---
+demo: cssPlot
+resize: true
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/sprite.jpeg'
+alt: sprite animation
+style:
+  --image-size: contain
+caption: |
+  Krystal Campioni showing Vue sprite animations at VueConf US, 2019
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/vueconf19/animations-copy.png'
+alt: Sprite from Monster Slayer animation
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+demo: cssSprites
+caption: |
+  Animated sprites from
+  [Monster Slayer](https://github.com/krystalcampioni/monster-slayer)
+  by [Krystal Campioni](https://twitter.com/krystalcampioni)
+---
+
+<!-- slide -->
+
+---
+layout: todo
+---
+
+1. Build a graph of any kind
+2. Adjust both layout and colors based on data
+3. Build a sprite animation

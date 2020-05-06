@@ -1,0 +1,82 @@
+@use '~accoutrement/sass/tools';
+@use '../config/fonts';
+
+/// # Typography
+/// Basic typographic styles for the site.
+/// @group type
+
+// Horizontal Rules
+// ----------------
+/// Horizontal rules also provide spacing between sections.
+/// @group type
+hr {
+  margin: var(--spacer) 0;
+}
+
+.sr-only {
+  &:not(:focus):not(:active) {
+    @include tools.is-hidden;
+  }
+}
+
+// Selection
+// ---------
+/// Selected text is inverted,
+/// with a hint of the accent hue.
+/// @group type
+::selection {
+  background-color: var(--ccs-accent--fg5);
+  color: var(--bg);
+}
+
+// Paragraphs & Lists
+// ------------------
+/// Apply spacing after paragraphs and lists.
+/// @group type
+p,
+ul,
+ol {
+  margin-bottom: var(--newline);
+  margin-top: 0;
+}
+
+ul,
+ol {
+  padding-left: var(--list-padding, var(--list-padding--default, 0));
+
+  & & {
+    --list-padding--default: 1em;
+  }
+
+  @include tools.below('wide-break') {
+    --list-padding--default: 1em;
+  }
+}
+
+// List Markers
+// ------------
+/// Lighter markers and smaller bullet points…
+/// @group type
+::marker {
+  color: var(--text-light);
+
+  ul & {
+    font-size: 0.75em;
+  }
+}
+
+// Summary
+// -------
+/// Provide basic interaction styles for detail `summary` elements.
+/// @group type
+summary {
+  cursor: pointer;
+  color: var(--action);
+
+  &:hover,
+  &:focus,
+  &:active,
+  [open] > & {
+    color: var(--active);
+  }
+}

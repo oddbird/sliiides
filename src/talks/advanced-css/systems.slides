@@ -1,0 +1,744 @@
+---
+title: Building Systems
+subtitle: that Scale
+event: Advanced CSS & Sass
+home: /advanced-css/
+author: miriam
+tags: [css, sass, design systems, components, variables, naming, grid, layout]
+---
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+## **Organizing** CSS
+
+<!-- slide -->
+
+## `~`2007: Major **Grid Frameworks**
+Blueprint, 960gs, etc…
+
+<!-- slide -->
+
+---
+image: /images/layouts/12-after.jpg
+caption: Add a gutter on the right margin...
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## `class="`**`column col6of12 last`**`"`
+
+<!-- slide -->
+
+## 👍
+## Provide **Consistent Patterns**
+
+<!-- slide -->
+
+## 👍
+## Handle **Float Hacks**
+
+<!-- slide -->
+
+---
+caption: |
+  I make way too much of my living
+  fixing this problem…
+---
+
+## 👎
+## Bootstrap **Override Hell**
+
+<!-- slide -->
+
+---
+split:
+  image: /images/advanced-css/natalie.jpg
+  size: contain
+---
+
+# Natalie Downe | [@natbat](https://twitter.com/natbat)
+### 2008: [**CSS Systems**][sys]
+
+[sys]: http://www.slideshare.net/nataliedowne/css-systems-presentation
+
+<!-- slide -->
+
+---
+image: /images/patterns/systems.png
+alt: Cover page from 2008 CSS Systems talk by Natalie Downe
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## **Conventions** `>` Frameworks
+
+- **Shared** Vocabulary
+- **Reusable** Patterns
+- **Personalized** Styles
+
+<!-- slide -->
+
+## Beware "**Cute Duckling Scam**"
+**`colors.css`** | **`layout.css`** | **`typography.css`**
+
+<!-- slide -->
+
+---
+demo: codeConcerns
+---
+
+<!-- slide -->
+
+## "Use **The Cascade**"
+Higher specificity `=>` Higher specificity
+
+1. **Elements** `=>` Grouped by **Type**
+2. **Classes** `=>` Grouped by **Effect**
+3. **IDs** `=>` Grouped by **Component**
+
+<!-- slide -->
+
+### General
+### **⬇**
+### Patterns
+### **⬇**
+### Structures
+### **⬇**
+### Components
+### **⬇**
+### Overrides
+
+<!-- slide -->
+
+---
+caption: |
+  **\*** Before Media Queries & RWD™
+---
+
+## **Responsive** Layouts **\***
+### with
+## **Fluid** Components
+
+<!-- slide -->
+
+## **`max-width`**`: 100%;`
+
+<!-- slide -->
+
+## Be **Afraid of Heights**
+we never know how tall things are...
+
+<!-- slide -->
+
+## **Fluid** Math
+### `target` **`/`** `context` **`==`** `multiplier`
+`width: calc(<target> / <context> * 100%)`
+
+<!-- slide -->
+
+1. **Define** it
+2. **Develop** it
+3. **Maintain** it
+4. **Communicate** it
+
+<!-- slide -->
+
+---
+split:
+  image: /images/advanced-css/nicole.jpg
+  size: cover
+---
+
+# Nicole Sullizan | [@stubbornella](https://twitter.com/stubbornella)
+### 2009: [**Object Oriented CSS**](https://github.com/stubbornella/oocss)
+
+<!-- slide -->
+
+> a CSS “object” is a **repeating visual pattern**,
+> that can be **abstracted** into an **independent** snippet
+> of **HTML, CSS, and possibly JavaScript**.
+>
+> ---Nicole Sullivan, [OOCSS](https://github.com/stubbornella/oocss)
+
+<!-- slide -->
+
+## Separate **Structure** & **Skin**
+
+- **Reusable CSS** patterns across components
+- **Adjustable Themes** for each component
+
+<!-- slide -->
+
+## Separate **Container** & **Content**
+### "Rarely use **location-dependent** styles"
+
+<!-- slide -->
+
+---
+caption: |
+  BEM is what happens
+  when you change "rarely" to "never"
+---
+
+## **`.category-header`** `>` `.category h2`
+
+<!-- slide -->
+
+## Also from **OOCSS**...
+
+- **Media Object** Pattern
+- Composable **Utility Classes**
+- a whole lot more...
+
+<!-- slide -->
+
+## 2009-Present: **Repackaged**
+Atomic Design, SMACSS, BEM, ITCSS, etc...
+
+<!-- slide -->
+
+## ¯\\\_**(ツ)**_/¯
+## All are **Useful**
+**None** are Perfect | Mix and Match!
+
+<!-- slide -->
+
+---
+image: /images/patterns/itcss-metrics.png
+style:
+  --image-size: contain
+caption: |
+  [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
+  by [**Harry Roberts**](https://twitter.com/csswizardry)
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/un-itcss-metrics.png
+style:
+  --image-size: contain
+caption: |
+  **Normal Triangle** by ~~Maslow~~ **Miriam**
+---
+
+<!-- slide -->
+
+## **Cascading** Style Sheets
+Invented for **Reusable Patterns**
+
+<!-- slide -->
+
+## **DRY**: **D**on't **R**epeat **Y**ourself
+### `.warning { border-color: red; }`
+
+<!-- slide -->
+
+## **DSfP**: **D**on't **S**tretch **f**or **P**atterns
+### `.all-red-border-things { border-color: red; }`
+
+<!-- slide -->
+
+## **Reusable** | **Isolated**
+The **Cascade** is about **Balance**
+
+<!-- slide -->
+
+---
+caption: |
+  `data` is optional, `-` should be enforced
+---
+
+## **Namespace** Related Selectors
+`.btn-success` | `.btn-error` **`=>`** **`[data-btn="success`** `|` **`error"]`**
+
+<!-- slide -->
+
+---
+caption: |
+  More [details on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
+---
+
+- `[data-attr]` `=>` **Presence** (even if empty)
+- `[data-attr`**`=`**`"..."]` `=>` **Exact** match
+- `[data-attr`**`*`**`="..."]` `=>` **Any** match
+- `[data-attr`**`~`**`="..."]` `=>` **Space**-delimited (like classes)
+- `[data-attr`**`|`**`="..."]` `=>` **Hyphen**-delimited
+- `[data-attr`**`^`**`="..."]` `=>` **Starts** with...
+- `[data-attr`**`$`**`="..."]` `=>` **Ends** with...
+- `[data-attr="..."` **`i`**`|`**`s`**`]` `=>` **Case** sensativity
+
+<!-- slide -->
+
+## **Base**: `[data-btn]`
+### **Variations**: `[data-btn~='success']`
+
+<!-- slide -->
+
+## Code is **Communication**
+Most coding is maintainance...
+
+<!-- slide -->
+
+## Semantics **Improve Maintainance**
+Write **Meaningful Code**
+
+<!-- slide -->
+
+---
+image: /images/patterns/itcss-metrics.png
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/itcss-layers.png
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## **Patterns** `=>` Reusable Skins
+### **Components** `=>` Specific Functionality
+
+<!-- slide -->
+
+---
+image: /images/advanced-css/itcss-layers-note.png
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/partials.png
+alt: |
+  Sass folder, with nested config, initial, layout,
+  patterns, components, and styleguide folders
+style:
+  --image-size: contain
+caption: |
+  It's the concept that matters,
+  not the way you name it
+---
+
+<!-- slide -->
+
+## **Abstractions** by Type
+**`colors.scss`** | **`sizes.scss`** | **`fonts.scss`**
+
+<!-- slide -->
+
+## Sass **Duckling Scam**
+**`variables.scss`** | **`functions.scss`** | **`mixins.scss`**
+
+<!-- slide -->
+
+## Safe to **Import Anywhere**
+`@import 'config/index';` **`=>`** No CSS output
+
+<!-- slide -->
+
+---
+caption: |
+  **\*** Term coined by [Jina Anne](https://twitter.com/jina),
+  working on [SalesForce Lightning Design System](http://lightningdesignsystem.com/)
+---
+
+## Design **Tokens**\* (Settings)
+![Color preview screenshot](/images/agile-systems/color-preview.jpg)
+
+<!-- slide -->
+
+## CSS **Custom Properties**
+
+```css
+html {
+  --color-brand-blue: hsl(195, 85%, 35%);
+  --color-text-default: rgb(62, 62, 60);
+  --color-text-warning: rgb(255, 183, 93);
+  --color-text-error: rgb(194, 57, 52);
+}
+```
+
+<!-- slide -->
+
+## 👍
+## DOM **Aware**
+## **Zero** Dependencies
+
+<!-- slide -->
+
+---
+caption: |
+  **\*** This might be a solvable problem,
+  and I'm interested in it
+---
+
+## 👎
+## Not **Meaningfully** Organized **\***
+### Difficult to **Automate** / **Enforce**
+## Difficult to Show **Relationships**
+
+<!-- slide -->
+
+## Sass **Variables**
+
+```scss
+$color-brand: hsl(195, 85%, 35%);
+$color-text-default: darken($color-brand, 50%);
+$color-text-warning: rgb(255, 183, 93);
+$color-text-error: rgb(194, 57, 52);
+```
+
+<!-- slide -->
+
+## 👍
+## Easy to Show **Relationships**
+
+<!-- slide -->
+
+## 👎
+## Not **Meaningfully** Organized
+### Difficult to **Automate** / **Enforce**
+
+<!-- slide -->
+
+## Sass **Maps**
+
+```scss
+$colors: (
+  'brand-blue': hsl(195, 85%, 35%),
+  'text': rgb(62, 62, 60),
+  'warning': rgb(255, 183, 93),
+  'error': rgb(194, 57, 52),
+);
+```
+
+<!-- slide -->
+
+## **Accessing** Maps
+### `map-get($map, $key)`
+
+```scss
+html {
+  background: map-get($colors, 'brand-blue');
+}
+```
+
+<!-- slide -->
+
+## Adding **&** Editing **&** Merging
+### `map-merge($map1, $map2)`
+
+```scss
+$colors: map-merge($brand-colors, $text-colors);
+```
+
+<!-- slide -->
+
+## The **Map Problem**
+
+```scss
+$colors: (
+  'brand-blue': hsl(195, 85%, 35%),
+  'gray': desaturate(map-get($colors, 'brand-blue'), 80%),
+);
+```
+
+### **`[ERROR] Undefined variable: "$colors".`**
+
+<!-- slide -->
+
+## Map **Self-Reference**
+
+```scss
+$colors: (
+  '_brand-pink': hsl(330, 85%, 68%),
+  'escher': '_brand-pink',
+  'godel': 'escher',
+  'bach': 'godel',
+  'kevin bacon': 'bach',
+);
+```
+
+<!-- slide -->
+
+## **Recursive** Function
+
+```scss
+@function color(
+  $name,
+  $map: $colors
+) {
+  $name: map-get($map, $name) or $name;
+
+  // Self-calling lookup
+  @if map-has-key($colors, $name) {
+    $name: color($name);
+  }
+
+  @return $name;
+}
+```
+
+<!-- slide -->
+
+---
+pen:
+  title: Sass Recursive Function
+  id: bBdEXm
+---
+
+<!-- slide -->
+
+## Map **Adjustments**
+
+```scss
+$colors: (
+  '_brand-pink': hsl(330, 85%, 68%),
+  'escher': '_brand-pink',
+  'godel': 'escher',
+  'bach': 'godel',
+  'kevin bacon': 'bach' ('lighten': 20%),
+);
+```
+
+<!-- slide -->
+
+## ✨
+## [More **Function** Logic]
+
+<!-- slide -->
+
+---
+style:
+  --align-self: stretch
+  background-color: hsl(330, 85%, 48%)
+  color: white
+  display: flex
+  align-items: center
+  justify-content: center
+---
+
+## `color('kevin bacon')`
+
+<!-- slide -->
+
+## ¯\\\_**(ツ)**_/¯
+## Requires **Tooling**
+### Additional **Syntax**
+
+<!-- slide -->
+
+## 👍
+## **Meaningful** Organization
+## **Visible** Relationships
+### Possible to **Automate** / **Enforce**
+
+<!-- slide -->
+
+## Meaningful to **Humans** & **Machines**
+
+```scss
+@each $color in map-keys($colors) {
+  [data-color='#{$color}'] {
+    background-color: color($color);
+  }
+}
+```
+
+<!-- slide -->
+
+---
+pen:
+  title: Accoutrement Color Example
+  id: xqOwxe
+---
+
+<!-- slide -->
+
+## Assigned **Dynamically**
+
+```scss
+@each $name, $color in $colors {
+  $complement: (
+    '#{$name}--complement': complement($color)
+  );
+
+  $colors: map-merge($colors, $complement);
+}
+```
+
+<!-- slide -->
+
+## Accessed **Dynamically**
+
+```scss
+// this works:
+@mixin background($color-name) {
+  background: color($color-name);
+}
+
+// this doesn't work:
+@mixin background($color-name) {
+  background: $#{$color-name};
+}
+```
+
+<!-- slide -->
+
+## Even More **Layers**
+**Global** Colors » **Theme** Colors » **Component** Colors
+
+<!-- slide -->
+
+## **Export**able
+
+```scss
+// sass
+$colors: (
+  'brand-orange': hsl(24, 100%, 39%),
+  'brand-blue': hsl(195, 85%, 35%),
+  'brand-pink': hsl(330, 85%, 48%),
+);
+
+@include json-encode($colors);
+```
+
+<!-- slide -->
+
+```css
+/* css */
+/*! json-encode: '{
+  'brand-orange': 'hsl(24, 100%, 39%)',
+  'brand-blue': 'hsl(195, 85%, 35%)',
+  'brand-pink': 'hsl(330, 85%, 48%)'
+}' */
+```
+
+<!-- slide -->
+
+## Tools Can **Add Meaning**
+
+```scss
+.grid-span {
+  width: 23.7288136%;
+  margin-right: 01.6949153%;
+  padding-left: 08.4745763%;
+}
+```
+
+<!-- slide -->
+
+```scss
+.grid-span {
+  width: span(3);
+  margin-right: gutter();
+  padding-left: span(1 wide);
+}
+```
+
+<!-- slide -->
+
+## OddBird's [**Accoutrement**](https://oddbird.net/accoutrement/)
+Map tools for **colors**, **type**, **animations**, **sizes**, etc...
+
+<!-- slide -->
+
+## ¯\\\_**(ツ)**_/¯
+## Always a **Trade-Off**
+
+<!-- slide -->
+
+## Tools are a **ByProduct**
+Add them **as you need them** (**DRY** but **DSfP**)
+
+<!-- slide -->
+
+## Sass **Your Own Tools**
+(or **contribute** to ours...)
+
+<!-- slide -->
+
+## 👍
+## Opinionated about **Organization**
+
+<!-- slide -->
+
+## 👍
+## Opinionated about **Code Quality**
+
+<!-- slide -->
+
+## 👎
+## Opinionated about **Styles**
+
+<!-- slide -->
+
+## **Functions** `=>` Abstractions
+### **Mixins** `=>` Patterns (as needed)
+
+<!-- slide -->
+
+## Write **Tests** for **Logic**
+Sass functions & mixins
+
+<!-- slide -->
+
+---
+image: /images/advanced-css/true.jpg
+alt: Screenshot of the Oddbird True website
+caption: |
+  Write Sass unit tests with OddBird's
+  [True](https://www.oddbird.net/true/)
+---
+
+<!-- slide -->
+
+```scss
+@include describe('Plus [function]') {
+  @include it('Adds two or more numbers together') {
+    @include assert-equal(
+      plus(5, 8, 13),
+      5 + 8 + 13
+    );
+  }
+}
+```
+
+<!-- slide -->
+
+---
+image: /images/patterns/true.jpg
+alt: True command-line output, with all tests passing
+caption: |
+  True integrates with Mocha
+  and other JS test runners
+---
+
+<!-- slide -->
+
+---
+layout: todo
+---
+
+- Write a map of colors
+- Write a function to access the map
+- Write a loop to display colors
+- Use `data-` attributes as selectors
+- Write tests for your function

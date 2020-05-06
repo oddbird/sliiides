@@ -1,0 +1,56 @@
+{% import "utility.macros.njk" as utility %}
+
+{% macro nav(
+  index,
+  count
+) %}
+  <nav class="slide-nav" aria-label="slide {{ index }}">
+    {% if index > 0 %}
+      <a href="#slide-{{ index - 1 }}">«<span class="sr-only">
+        back to slide {{ index - 1 }}
+      </span></a>
+    {% endif %}
+    <a href="#slide-{{ index }}" class="current"><span class="sr-only">
+        this is slide
+      </span>
+      {{- index -}}/{{- count -}}
+    </a>
+    {% if index != count %}
+      <a href="#slide-{{ index + 1 }}">»<span class="sr-only">
+        on to slide {{ index + 1 }}
+      </span></a>
+    {% endif %}
+  </nav>
+{% endmacro %}
+
+{% macro base(
+  slide,
+  name,
+  page,
+  styles=none,
+  is='article'
+) %}
+  <{{ is or 'article'}}
+    id="slide-{{ slide.index }}"
+    data-slide="{{ slide.name or name }}"
+    {{ utility.style_if(styles or slide.styles) }}
+    >
+
+    <div class="slide-content">
+      {{ caller() }}
+    </div>
+
+    <footer class="slide-footer">
+      <p class="slide-caption">
+        {% if slide.caption %}
+          {{ slide.caption | mdInline | safe }}
+        {% endif %}
+      </p>
+
+      {{ nav(
+        index=slide.index,
+        count=page.data.slides | length
+      ) }}
+    </footer>
+  </{{ is or 'article'}}>
+{% endmacro %}

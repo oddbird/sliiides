@@ -1,0 +1,1135 @@
+---
+title: Don't Use My Grid System
+subtitle: The Past & Future of Web Layout
+event: Covalence Conference
+author: miriam
+date: 2019-01-16
+tags: [css, variables, custom properties, grid, graphs]
+---
+
+Miriam (the creator of Susy)
+will show you the history of web layout,
+how grid systems work,
+and practical tips to avoid using them.
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/covalence/intro.jpg'
+alt: "ES6 Modules in Electron"
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/covalence/intro-edit.jpg'
+alt: "Web Layouts in Electron"
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/covalence/electron.jpg'
+alt: "Hi, my name is Miriam, and I've never used Electron.js"
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/covalence/logos.jpg'
+alt: "Ok, so I use it every day…"
+---
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+
+## [OddBird](https://oddbird.net)
+Full-Stack **Consulting Agency**
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/covalence/nativize.jpg'
+caption: 'Jessica Lord: [Nativize is the New Normalize](https://www.youtube.com/watch?v=H6IDoraEpO0)'
+---
+
+<!-- slide -->
+
+## CSS **Layout**
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy.jpg'
+alt: 'Susy'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy-no.jpg'
+alt: 'No Susy'
+---
+
+<!-- slide -->
+
+---
+layout: template
+---
+
+## The **End**!
+Damn, that was easy…
+
+<!-- slide -->
+
+## 1993: **HTML**
+Markup Language
+
+<!-- slide -->
+
+---
+image: '/images/patterns/oddbird-w-logo.jpg'
+alt: 'OddBird siblings (Jonny, Carl, and Miriam) in 1994'
+---
+
+<!-- slide -->
+
+## 1997: **`<table>`**
+HTML 3.2
+
+<!-- slide -->
+
+## `(╯'□')╯︵` **`┻━┻`**
+"TABLES ARE FOR **DATA**"
+
+<!-- slide -->
+
+## 👎
+## **Limited** Styling
+
+<!-- slide -->
+
+## 👎
+## **Strict** (non-linear) Markup
+
+<!-- slide -->
+
+## 👎
+## **Accessibility** Nightmare
+
+<!-- slide -->
+
+## "Code is **Communication**"
+—Sarah Drasner **\***
+
+<!-- slide -->
+
+## **\*** (once)
+
+<!-- slide -->
+
+## Table Layouts **Destroy Meaning**
+for both humans and machines…
+
+<!-- slide -->
+
+## ~~1996~~ 2000: Cascading **Style Sheets**
+Principle of **Least Power**
+
+<!-- slide -->
+
+![CSS is Awesome](/images/dynamic-css/css-is-awesome.jpg)
+(This is a **Feature**)
+
+<!-- slide -->
+
+### don't be fooled…
+## **Declarative** Syntax **`!=`** **Static** Results
+
+<!-- slide -->
+
+## **Dynamic** Relationships
+how is this going to **change**…?
+
+<!-- slide -->
+
+### …when the **content** changes?
+## …when the **viewport** changes?
+### …when the **context** changes?
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/devices.jpg'
+alt: 'A zillion different devices of all sizes (original)'
+---
+
+<!-- slide -->
+
+## **!** 👨
+
+<!-- slide -->
+
+---
+image: '/images/patterns/people-masc.jpg'
+alt: 'Masculine emojis'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/people-femme.jpg'
+alt: 'Feminine emojis'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/patterns/people-rando.jpg'
+alt: 'Various people emojis'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## Go with **the flow**!
+
+<!-- slide -->
+
+---
+demo: 'layoutFlow'
+---
+
+<!-- slide -->
+
+## **Classic** Layouts…
+
+<!-- slide -->
+
+## **Position**?
+
+<!-- slide -->
+
+---
+image: '/images/layouts/pos-r.jpg'
+caption: 'Relative positions have no effect on flow'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/layouts/pos-a.jpg'
+caption: 'Absolute positions remove from flow'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## Absolute (or Fixed) For **Overlays** Only
+off-canvas, drop-downs, tooltips, modals, etc…
+
+<!-- slide -->
+
+## **Floats**?
+`float: `**`left`** // `float: `**`right`**
+
+<!-- slide -->
+
+---
+image: '/images/layouts/float.jpg'
+caption: 'Great for elements that should… float…'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+demo: 'layoutFloat'
+---
+
+<!-- slide -->
+
+## Requires **ClearFix** (Hack)
+apply to any **container** element…
+
+<!-- slide -->
+
+```scss
+// "Micro" Clearfix Mixin
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: ' ';
+    display: table;
+  }
+}
+
+// "Micro" Clearfix Class
+.clearfix::after { /* same… */ }
+```
+
+<!-- slide -->
+
+---
+demo: 'layoutFloat'
+---
+
+<!-- slide -->
+
+## `display:` **`flow-root`**
+the new **clearfix alternative**, with very little support…
+
+<!-- slide -->
+
+## 👍
+## Flexible **Markup** & **Nesting**!
+
+<!-- slide -->
+
+## 👎
+## **Explicit** Widths
+floats aren't very smart about context…
+
+<!-- slide -->
+
+## ¯\\\_**(ツ)**_/¯
+## not the worst **hacks**…
+
+<!-- slide -->
+
+## Display: **Table**?
+
+<!-- slide -->
+
+---
+demo: 'layoutTable'
+caption: 'Works like a table, but maybe more semantic'
+resize: 'both'
+---
+
+<!-- slide -->
+
+## No Margins, Use **`border-padding`**
+
+<!-- slide -->
+
+## 2007-2010: Major **Grid Frameworks**
+Blueprint, OOCSS, 960gs, Susy, etc…
+
+<!-- slide -->
+
+---
+image: '/images/layouts/12.jpg'
+caption: '12 column grid, single axis'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/layouts/spread-narrow.jpg'
+caption: 'Span some of those columns!'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/layouts/12-after.jpg'
+caption: 'Add a gutter on the right margin…'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/layouts/12-after-last.jpg'
+caption: 'Remove the last margin in a row…'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## **Classes** Are The **API**
+
+<!-- slide -->
+
+## `class="`**`column col6of12 last`**`"`
+
+<!-- slide -->
+
+---
+image: '/images/layouts/12-split-last.jpg'
+caption: '960gs uses "split" gutters to avoid `last`…'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## 👍
+## Provide **Consistent Patterns**
+and take care of all the hacks…
+
+<!-- slide -->
+
+## 👍
+## Developers Can **Ignore CSS**
+
+<!-- slide -->
+
+## 👎
+## Developers Will **Ignore CSS**
+
+<!-- slide -->
+
+## 👎
+## One Size **Fits No One**
+
+<!-- slide -->
+
+---
+image: '/images/patterns/systems.png'
+alt: 'CSS Systems by Natalie Downe'
+caption: 'Source: http://www.slideshare.net/nataliedowne/css-systems-presentation'
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+1. **Systems** > Frameworks
+2. **Fluid** Grids
+3. Static (`px`) | Elastic (`em`) **Containers**
+
+<!-- slide -->
+
+## 👍
+## "Responsive" **before** Responsive(tm)
+
+<!-- slide -->
+
+## Fluid Grid Math **Sux**
+
+```scss
+.grid-span {
+  width: 23.7288136%;
+  margin-right: 01.6949153%;
+  padding-left: 08.4745763%;
+}
+```
+
+<!-- slide -->
+
+## `target / context == multiplier`
+`width: percentage(target / context)`
+
+<!-- slide -->
+
+## Fluid Grid Math **Sux**
+
+```scss
+.grid-span {
+  width: percentage(((3*4em) + (2*1em)) / ((12*4em) + (11*1em))); // 23.7288136%
+  margin-right: percentage(1em / ((12*4em) + (11*1em))); // 01.6949153%
+  padding-left: percentage(((1*4em) + (1*1em)) / ((12*4em) + (11*1em))); // 08.4745763%
+}
+```
+
+<!-- slide -->
+
+## **Sass** (2006) & **Susy** (2009)
+
+```scss
+.grid-span {
+  width: span(3);
+  margin-right: gutter();
+  padding-left: span(1 wide);
+}
+```
+
+<!-- slide -->
+
+## 👍
+## **Any** Grid System, **On Demand**
+
+<!-- slide -->
+
+## 👎
+## Usually **Overkill**
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy-no.jpg'
+alt: 'No Susy'
+---
+
+<!-- slide -->
+
+## Remove **Gutters**
+
+<!-- slide -->
+
+---
+image: '/images/layouts/12-inside.jpg'
+caption: 'OOCSS uses fractions to keep math simple…'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## Fix the **Box Model**
+(**IE** got it right the first time)
+
+<!-- slide -->
+
+---
+image: '/images/layouts/content-box.jpg'
+caption: '**Content**-Box: `total = width/height` **`+`** `borders` **`+`** `padding`'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+---
+image: '/images/layouts/border-box.jpg'
+caption: '**Border**-Box: `total = width/height`'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## 👍
+## Global **Box-Sizing**
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+<!-- slide -->
+
+## 👎
+## **Fragile** Box-Sizing
+never inherit **layout properties**!
+
+
+```css
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+```
+
+<!-- slide -->
+
+## Avoid **Tightly Coupled** Elements
+components respond to **unexpected changes**
+
+<!-- slide -->
+
+## 2011: **`calc()`**
+Firefox 4
+
+<!-- slide -->
+
+## **Mixed-Unit** Calculations
+### `calc(` **`16px`** `+` **`20%`** `)`
+
+<!-- slide -->
+
+## 2012: **Flexbox**
+Chrome 21
+
+<!-- slide -->
+
+---
+demo: 'layoutFlex'
+---
+
+<!-- slide -->
+
+## **Global** Flow
+`flex-direction: column;` **|** `flex-wrap: wrap;`
+
+<!-- slide -->
+
+## **Individual** Sizing
+grow, shrink, basis **`=>`** `flex: 1 2 auto`;
+
+<!-- slide -->
+
+## 👍
+## `-Grow` & `-Shrink` Define **Relationships**!
+
+<!-- slide -->
+
+## 👎
+## Nesting **Matters**
+
+<!-- slide -->
+
+## 👎
+## Poor Page-Level **Performance**
+
+<!-- slide -->
+
+## 2014: `--css-`**`variables`**
+Firefox 31 (unless you count **`currentColor`**)
+
+<!-- slide -->
+
+```scss
+.example {
+  --color: red;
+  background: var(--red);
+}
+```
+
+<!-- slide -->
+
+## `-<empty>-`**`browser-prefix`**
+
+<!-- slide -->
+
+## `--aka`**`:`** `'custom properties'`**`;`**
+
+<!-- slide -->
+
+## `var(` **`--property-name`** `, fallback)`
+
+<!-- slide -->
+
+## Sass Variables **Scope**
+Based on **Source File Structure**
+
+<!-- slide -->
+
+```scss
+:root { $columns: 2; }
+.nested-class { /* $columns == undefined */ }
+
+@media (min-width: 30em) {
+  :root { /* $columns == undefined */ }
+  .nested-class { /* $columns == undefined */ }
+}
+```
+
+<!-- slide -->
+
+## CSS Variables **Inherit**
+Based on **DOM & Cascade**
+
+<!-- slide -->
+
+```scss
+:root { --columns: 2; }
+.nested-class { /* var(--columns) == 2 */ }
+
+@media (min-width: 30em) {
+  :root { --columns: 6; }
+  .nested-class { /* var(--columns) == 6 */ }
+}
+```
+
+<!-- slide -->
+
+## Inherit Everywhere:
+
+```scss
+:root {
+  --brand-color: hsl(330, 100%, 45%);
+}
+```
+
+<!-- slide -->
+
+## **Don't** Inherit:
+
+```scss
+* {
+  --brand-color: initial;
+}
+```
+
+<!-- slide -->
+
+## **Safe** Inline Styles
+
+```html
+<button style="--color: blue;">
+```
+
+<!-- slide -->
+
+## **Use** the Variable…
+
+```scss
+button {
+  background: var(--color, red);
+}
+```
+
+<!-- slide -->
+
+## …or **Ignore** the Variable
+
+```scss
+button.green {
+  background: green;
+}
+```
+
+<!-- slide -->
+
+## Avoid **Nesting**…
+
+```scss
+button {
+  background: blue
+}
+
+.this button {
+  background: red;
+}
+```
+
+<!-- slide -->
+
+## …For Lower **Specificity**
+
+```scss
+button {
+  background: var(--btn-color, blue);
+}
+
+.this {
+  --btn-color: red;
+}
+```
+
+<!-- slide -->
+
+## Combine with **`calc()`**
+
+```scss
+* {
+  --width: calc(var(--span) / var(--columns) * 100%);
+  box-sizing: border-box;
+  width: var(--width, initial);
+}
+
+.calc-gutters .item {
+  --span: 1;
+  float: left;
+  padding: var(--gutters);
+}
+```
+
+<!-- slide -->
+
+## Media **Queries**…
+
+```scss
+:root {
+  --columns: 3;
+  --gutters: 0.5em;
+
+  @media (min-width: 50em) {
+    --columns: 6;
+    --gutters: 1em;
+  }
+}
+```
+
+<!-- slide -->
+
+## **CSS**Susy!
+
+```css
+:root {
+  --susy-columns: 1;
+  --susy-gutters: 0.25;
+  --susy-spread: -1;
+  --susy-container-spread: -1;
+/*   --susy-static-grid: 1; */
+/*   --susy-debug-color: green; */
+}
+```
+
+<!-- slide -->
+
+## A Variable for **Every Function**…
+
+```css
+* {
+  /* gutter output math */
+  --su-inside-gutters: calc(
+      var(--gutter-width) * var(--gutters-inside)
+    );
+
+  --su-gutters-left: calc(
+      var(--gutter-width) * var(--gutters-left)
+    );
+}
+```
+
+<!-- slide -->
+
+---
+demo: 'cssSusy'
+resize: true
+caption: |
+  [AG Grid Nesting Test](http://oocss.org/grids_docs.html)
+  from OOCSS
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/susy-no.jpg'
+alt: 'Susy, scribbled out'
+style:
+  --image-size: 'contain'
+---
+
+<!-- slide -->
+
+## **Viewport Units**
+`vw`, `vh`, `vmin`, `vmax`
+
+<!-- slide -->
+
+## Full Height…
+## `height:` **`100vh`**
+
+<!-- slide -->
+
+## Sticky-Footer…
+## `min-height:` **`100vh`**
+
+<!-- slide -->
+
+## Breaking Out of the **Container**…
+## `calc(` **`50% - 50vw`** `)`
+
+<!-- slide -->
+
+## 2017: **Jet Packs***!
+*Kinda
+
+<!-- slide -->
+
+## 2017: CSS **Grid**
+Firefox 52 **&** Chrome 57 **&** Safari 10
+
+<!-- slide -->
+
+## **Nothing** Like It
+At All
+
+<!-- slide -->
+
+# The Spec is **Complex**…
+## **Getting Started** Is Not
+
+<!-- slide -->
+
+## Truly **Two-Dimensional** Layouts
+columns & rows! mixed units!
+
+<!-- slide -->
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr minmax(30em, 50%) 10vw; /* mixed units! */
+  grid-template-rows: 300px 300px 300px; /* repeat(3, 300px) */
+  grid-gap: 10px;
+}
+```
+
+<!-- slide -->
+
+---
+demo: 'layoutGrid'
+caption: 'Grid lines 1-indexed and -1 in reverse (see dev tools)'
+---
+
+<!-- slide -->
+
+# Grid-**Items**: By Line
+
+```css
+.one {
+  grid-column: 1 / 4;
+  grid-row: 2 / span 2;
+}
+
+.two {
+  grid-column: 2 / -1;
+  grid-row: 1 / -2;
+}
+```
+
+<!-- slide -->
+
+## **Global** Flow && Sizing
+With **`auto`** escape-hatch to element flow…
+
+```css
+body {
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(14em, auto) minmax(0, 1fr);
+}
+```
+
+<!-- slide -->
+
+## Named Areas
+
+```css
+body {
+  grid-template-areas: 'header header'
+                       'nav main'
+                       'footer footer';
+}
+
+h1 { grid-area: header; }
+nav { grid-area: nav; }
+main { grid-area: main; }
+footer { grid-area: footer; }
+```
+
+<!-- slide -->
+
+## **Single** Source of Truth
+
+```scss
+@media (max-width: 50em) {
+  body {
+    grid-template: 'header'
+                   'nav'
+                   'main'
+                   'footer';
+  }
+}
+```
+
+<!-- slide -->
+
+---
+demo: 'layoutGrid'
+caption: 'Resize window to see media-query in action…'
+---
+
+<!-- slide -->
+
+---
+style:
+  text-align: 'left'
+---
+
+## **`%`** => relative to **parent width**
+## **`vw`** => relative to **the viewport**
+## **`fr`** => relative to **available space**
+
+<!-- slide -->
+
+## **`1fr`** `==` **`minmax(auto, 1fr)`**
+### use **`minmax(0, 1fr)`** to allow shrinking
+
+<!-- slide -->
+
+## 2018: **Intrinsic** Web Design
+[Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
+
+<!-- slide -->
+
+## Fluid **&** Fixed
+
+<!-- slide -->
+
+## **Stages** of **Squishiness**
+
+<!-- slide -->
+
+1. **fixed**
+2. **fluid** (`fr`)
+3. **fluid**-until-**fixed** (`minmax()` | `flex-basis`)
+4. **flow** (`auto`)
+
+<!-- slide -->
+
+## **Nested** Contexts
+flexbox, grid, float, etc…
+
+<!-- slide -->
+
+## Expand & Contract **Content**
+justify, wrap, flex, etc…
+
+<!-- slide -->
+
+## Media Queries, **As Needed**
+`repeat(` **`auto-fit`** `, minmax(` **`20em`** `,` **`1fr`** `))`
+
+<!-- slide -->
+
+## **Data-Driven** Layouts
+`<div style="` **`--start`**`: 30;` **`--duration`**`: 60;">`
+
+<!-- slide -->
+
+---
+image: '/images/layouts/schedule.jpg'
+alt: 'Screenshot of schedule grid'
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## Bar **Charts**
+
+```html
+<dl class="chart" style="--scale: 100">
+  <dt class="date">2000</dt>
+  <dd class="bar" style="--value: 45">45%</dd>
+
+  <dt class="date">2001</dt>
+  <dd class="bar" style="--value: 100">100%</dd>
+
+  <!-- etc… -->
+</dl>
+```html
+
+<!-- slide -->
+
+```css
+.bar {
+  --start: calc(var(--scale) + 1 - var(--value));
+  grid-row-start: var(--start);
+}
+```
+
+<!-- slide -->
+
+---
+demo: 'cssChart'
+resize: true
+caption: |
+  [Article on **CSS Tricks**](https://css-tricks.com/css-charts-grid-custom-properties/)
+---
+
+<!-- slide -->
+
+---
+image: '/images/dynamic-css/covalence/graph.jpg'
+---
+
+<!-- slide -->
+
+---
+demo: 'cssLinegraph'
+resize: true
+---
+
+<!-- slide -->
+
+---
+demo: 'cssPlot'
+resize: true
+---
+
+<!-- slide -->
+
+---
+image: '/images/layouts/invade.jpg'
+caption: |
+  [Levitated Toy Factory](http://levitated.guru/work/)
+  at **Beyond Tellerand**
+---
+
+<!-- slide -->
+
+---
+demo: 'vueInvaders'
+resize: true
+---
+
+<!-- slide -->
+
+## [Lea Verou](http://twitter.com/leaverou): Variables
+[video](https://www.youtube.com/watch?v=2an6-WVPuJU)
+| [slides](http://leaverou.github.io/css-variables)
+
+<!-- slide -->
+
+## **Rachel Andrew**: gridbyexample.com
+examples, templates, and fallbacks
+
+<!-- slide -->
+
+## **Jen Simmons**: youtube.com/layoutland
+also: labs.jensimmons.com
+
+<!-- slide -->
+
+---
+demo: 'cssAwesome'
+resize: true
+caption: |
+  Inspired by [Stacy Kvernmo](https://codepen.io/stacy/pen/VxvpBj)
+---
+
+<!-- slide -->
+
+---
+layout: template
+---
+
+## Have **Fun**!
+
+<!-- slide -->
+
+---
+layout: contact
+form:
+  email: 'birds@oddbird.net'
+  next: 'https://oddbird.net/contact/thanks'
+  submit: 'send it!'
+---
+

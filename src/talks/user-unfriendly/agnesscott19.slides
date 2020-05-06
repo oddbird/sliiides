@@ -1,0 +1,853 @@
+---
+title: User Unfriendly
+subtitle: Notes Towards a Queer Web
+event: Agnes Scott College
+author: miriam
+date: 2019-09-17
+image: /images/unfriendly/_cover.jpg
+tags: [web, accessibility, usability, art, process]
+---
+
+A project-manager’s reflections on human-centered problem-solving,
+client communication, and agile web development.
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+
+## [OddBird](https://oddbird.net) **Web Consulting**
+Custom Apps, Design Systems, Refactors…
+
+<!-- slide -->
+
+> ### I make **art & software** that **celebrate the queer** complexity of human experience.
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/mia-codes.png
+alt: Miriam Suzanne, art & code & writing & speaking & theater & music & more...
+caption: |
+  From [my website](https://miriamsuzanne.com/) (I googled it)
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## The **World Wide Web**
+a history
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/timbl-89.jpg
+alt: Tim in front of a computer with the first web browser
+caption: |
+  **Sir Tim Berners-Lee**
+  [invented the World Wide Web](https://webfoundation.org/about/vision/history-of-the-web/)
+  in 1989
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/mia-89.jpg
+alt: young Miriam
+caption: |
+  a portrait of **this author** as a young queer -- 1989.
+---
+
+<!-- slide -->
+
+---
+caption: |
+  [info.cern.ch](http://info.cern.ch/hypertext/WWW/TheProject.html) »
+  Technical » HTML format » Constraints »
+---
+
+> ## It is required that HTML be a **common language between all platforms.**
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/www-mia.png
+alt: plain-text window of my site on an emulated NeXT WWW browser
+caption: |
+  worldwideweb.cern.ch/ -
+  Document » Open from full document reference »
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/mia-line-mode.png
+alt: plain-text terminal of my site on an emulated Line-Mode browser
+caption: |
+  [line-mode.cern.ch](http://line-mode.cern.ch/www/proxy?url=https://www.miriamsuzanne.com/)
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+> ### WWW parsers should **ignore tags** which they do not understand, and **ignore attributes** which they do not understand of tags which they do understand.
+
+<!-- slide -->
+
+---
+image: /images/process/ibm-pc.jpg
+alt: Old IBM desktop
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/process/imac.png
+alt: Desktops
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/process/iphone-3.jpg
+alt: All iPhones
+---
+
+<!-- slide -->
+
+---
+image: /images/process/tablets.jpg
+alt: Several tablets
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/devices.jpg
+alt: 100s of mobile Devices
+---
+
+<!-- slide -->
+
+---
+image: /images/process/smartwatch.jpg
+alt: Lineup of smart watches
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/braille.jpg
+alt: Braille computer attachment and headphones
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/smart-home.png
+alt: Google Home, Amazon Echo, and Apple HomePod
+---
+
+<!-- slide -->
+
+# The Web is...
+## **Accessible** by Design
+
+<!-- slide -->
+
+# The Web is...
+## **Contextual** by Design
+
+<!-- slide -->
+
+# The Web is...
+## **Resilient** by Design
+
+<!-- slide -->
+
+# The Web is...
+## **Customizable** by Design
+
+<!-- slide -->
+
+---
+caption: |
+  Open your **browser settings**, and you can override everything here.
+---
+
+### The **Web** Model
+## Is **User-Controlled** By Design
+
+<!-- slide -->
+
+> ## This implies **no... control over fonts or colors**, for example.
+
+<!-- slide -->
+
+---
+caption: |
+  **World Wide Web Consortium**
+  formed in **1994**
+---
+
+> ## Web for **All**
+> ## Web on **Everything**
+>
+> ---[W3C](https://www.w3.org/) Mission
+
+<!-- slide -->
+
+---
+image: /images/patterns/oddbird-w-logo.jpg
+alt: Three children at a table – playing Magic, The Gathering
+caption: OddBird siblings (Jonny, Carl, and Miriam) in **1994**
+---
+
+<!-- slide -->
+
+## Web has a **Mission Statement**
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/press.png
+alt: Gutenberg Press
+caption: |
+  What's the mission of the printing press?
+---
+
+<!-- slide -->
+
+## ~~1996~~ 2000: Cascading **Style Sheets**
+Principle of **Least Power**
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/zen.jpg
+alt: CSS Zen Garden
+caption: |
+  The [CSS Zen Garden](http://www.csszengarden.com/)
+  demonstrates multiple styles over a single HTML document
+---
+
+<!-- slide -->
+
+## **Performative Turn**(s)
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/jane-script.png
+alt: Jane/Eyre Script
+caption: |
+  Script from [Jane/Eyre](https://www.miriamsuzanne.com/theater/janeeyre/)
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/jane-eyre.jpg
+alt: Two women in bed
+caption: |
+  Photo from [Jane/Eyre](https://www.miriamsuzanne.com/theater/janeeyre/)
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/urinal.jpg
+alt: row of urinals
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/fountain.jpg
+alt: upside-down urinal, signed R. Mutt
+caption: |
+  **Marcel Duchamp** Fountain,
+  1917, photograph by **Alfred Stieglitz**
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/elsa.jpg
+alt: |
+  The woman who really made Duchamp’s ‘Fountain’ --
+  multisexual performance artiste
+  Baroness Elsa von Freytag-Loringhoven
+caption: |
+  a.k.a. **R Mutt** --
+  sent it to Duchamp several days before he "created" it
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: /images/process/sidesaddle-cover.jpg
+alt: Riding SideSaddle* -- a novel by Miriam Eric Suzanne
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/novel-raw.jpg
+alt: Text editor with English and Spanish drafts of my novel
+---
+
+<!-- slide -->
+
+---
+image: /images/process/sidesaddle-shuffle.jpg
+alt: Shuffling the sidesaddle cards
+---
+
+<!-- slide -->
+
+---
+image: /images/process/teacup.jpg
+alt: Teacup Gorilla at Larimer Lounge
+---
+
+<!-- slide -->
+
+---
+image: /images/_mia/true-west.jpg
+alt: 2016 True West Award in Theater
+---
+
+<!-- slide -->
+
+---
+image: /images/process/slides-code.jpg
+alt: screenshot of web page markdown, templates, and output html
+---
+
+<!-- slide -->
+
+---
+image: /images/process/mia-markup.jpg
+alt: screenshot of web page markup
+---
+
+<!-- slide -->
+
+---
+image: /images/process/mia-content.jpg
+alt: screenshot of web page without CSS
+---
+
+<!-- slide -->
+
+---
+image: /images/process/mia-style.jpg
+alt: screenshot of web page with CSS
+caption: miriamsuzanne.com (now with a whole new look)
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+> Looks pretty cool,
+> but having the menu and the text rotated like that
+> **just makes them super difficult to read**...
+>
+> ---Dude, Online
+
+<!-- slide -->
+
+### ¯\\\_**(ツ)**_/¯
+## What *is* **User Friendly**?
+
+<!-- slide -->
+
+---
+caption: |
+  Lori Emerson,
+  [From the Philosophy of the Open to the Ideology of the User-Friendly][uf]
+
+  [uf]: http://loriemerson.net/2013/02/02/from-the-philosophy-of-the-open-to-the-ideology-of-the-user-friendly-2/
+---
+
+## **Bootstrapping** vs **Plug-and-play**
+
+<!-- slide -->
+
+## Bootstrapping:
+### **Augmenting Human Intellect**
+
+<!-- slide -->
+
+---
+image: /images/process/demo.jpg
+alt: Douglas Engelbart demos modern computing
+caption: |
+  Douglas Engelbart,
+  [The Mother of All Demos](http://web.stanford.edu/dept/SUL/library/extra4/sloan/mousesite/1968Demo.html) (1968)
+  | *the mouse, hypertext, view switching, networked computers, early GUI*
+---
+
+<!-- slide -->
+
+> **Providing the means** for **users** to create **better tools.**
+
+<!-- slide -->
+
+> **Any barrier that exists**
+> between the user and some part of the system
+> will eventually be **a barrier to creative expression**.
+>
+> ---“**Design Principles Behind Smalltalk**” (Byte 1981)
+
+<!-- slide -->
+
+## Plug-and-play:
+### It **Just Works**
+
+<!-- slide -->
+
+---
+image: /images/process/steve-jobs.png
+alt: Steve Jobs sitting cross-legged hugging an early Mac
+caption: Steve Jobs, Apple II (1993)
+---
+
+<!-- slide -->
+
+## **Identical**, Easy-to-Use, **~~Low-Cost~~ Appliance**
+
+<!-- slide -->
+
+---
+image: /images/process/iphone-3.jpg
+alt: All iPhones
+---
+
+<!-- slide -->
+
+## "**Intuitive**" or "**Invisible**"?
+
+<!-- slide -->
+
+---
+image: /images/process/touch-chart.jpg
+alt: chart of common touch gestures
+---
+
+<!-- slide -->
+
+## "**Open**" or "**Adaptable**"?
+
+<!-- slide -->
+
+---
+image: /images/process/raspberrypi-kit.jpg
+alt: Raspberry Pi Kit vs Tablet
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/whatwomenwant.jpg
+alt: |
+  Altered 'What Women Want' movie poster
+  says 'What Users Want'
+---
+
+<!-- slide -->
+
+## ¯\\\_**(ツ)**_/¯
+## It **Depends**
+
+<!-- slide -->
+
+## Users Are **All Different**
+experiences, associations, skills, limitations
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/dontknowme.jpg
+alt: Ray Charles -- You Don't Know Me album cover
+caption: |
+  Don't take my word for it,
+  trust **Ray Charles**
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+## A **Queer Theory** Primer...
+
+<!-- slide -->
+
+## “**Strange**” or “**Peculiar**”
+**1800's**: becomes a (sexual) insult
+
+<!-- slide -->
+
+## **1980's/90's**: Reclaimed
+A **big tent** movement
+
+<!-- slide -->
+
+### ~~"We're all **the same**"~~
+## We're All **Different**
+
+...but our struggles & identities intersect...
+
+<!-- slide -->
+
+### ~~"We're **normal** too"~~
+## "Normal" is **Suspect**
+
+<!-- slide -->
+
+## Who **Defines** it? Who **Benefits**?
+"Normal" points to a power-imbalance…
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/skincolor.png
+alt: Girl with a 'skin color' bandaid significantly lighter than her skin
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/gender.jpg
+alt: |
+  Are you a man or a woman? man, woman, other
+caption: |
+  Hat tip [**@GenderTitle**](https://twitter.com/GenderTitle)
+---
+
+<!-- slide -->
+
+## "**Othering**", like literally
+
+<!-- slide -->
+
+## **First** Name / **Last** Name?
+(and that name never changes...)
+
+<!-- slide -->
+
+## Single "**Real**" Identity?
+(and no code switching ever)
+
+<!-- slide -->
+
+> Under an increasing pressure to monetize the data they store,
+> Facebook looks for ways to **limit difference** across the site.
+>
+> ---Ben Grosser, [How the Technological Design of Facebook Homogenizes Identity and Limits Personal Representation][limit]
+
+[limit]: https://bengrosser.com/blog/how-the-technological-design-of-facebook-homogenizes-identity-and-limits-personal-representation/
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/ai.jpg
+alt: Turns Out Algorithms Are Racist
+caption: |
+  [New Republic](https://newrepublic.com/article/144644/turns-algorithms-racist),
+  August 31, 2017
+---
+
+<!-- slide -->
+
+## 👨 **`<-`** Who Benefits?
+
+<!-- slide -->
+
+---
+image: /images/patterns/people-masc.jpg
+alt: Masculine emojis
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/people-femme.jpg
+alt: Feminine emojis
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/people-rando.jpg
+alt: Various people emojis
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## No One is an **Edge Case**
+### when
+## **Everyone** is an Edge Case
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/average.png
+alt: The End of Average
+---
+
+<!-- slide -->
+
+## Empathy is **Not Enough**
+### **Listening** > Imagining
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/abuse.jpg
+alt: |
+  A Twitter cofounder says a more diverse team
+  would have addressed abuse earlier.
+  Science says he's probably right.
+caption: |
+  No shit, Ev.
+  From [Business Insider](https://www.businessinsider.com/twitter-co-founder-ev-williams-team-diversity-2019-5)
+---
+
+<!-- slide -->
+
+### Find
+## **People**
+### and
+## **Ask Them**
+
+<!-- slide -->
+
+## Test **Stress Cases**
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/agnesscott/meyer-review.png
+alt: Facebook Shows Berieved Parents Their Year in Review
+---
+
+<!-- slide -->
+
+## **Users** are **Experts**
+
+<!-- slide -->
+
+## **Users** are **Experts**
+## **Users** are **Experts**
+## **Users** are **Experts**
+## **Users** are **Experts**
+## **Users** are **Experts**
+## **Users** are **Experts**
+
+<!-- slide -->
+
+> "If I had asked people **what they wanted**,
+> they would have said **faster horses**."
+>
+> ---~~Henry Ford~~ **John McNeece** (kinda)
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/humane.jpg
+alt: |
+  Empowering,
+  Finite,
+  Inclusive,
+  Respectful,
+  Thoughtful,
+  Transparent
+style:
+  --image-size: contain
+caption: |
+  [Humane By Design](https://humanebydesign.com/) Principles
+---
+
+<!-- slide -->
+
+## User **Expertise**:
+
+1. End **Goals**
+2. **Existing** Solutions
+3. Points of **Failure**
+
+<!-- slide -->
+
+## User **Blind Spots**:
+1. **Interface** Design
+
+<!-- slide -->
+
+## Ask about **Problems**, not **Solutions**
+works with art feedback as well…
+
+<!-- slide -->
+
+## Always Ask **Why**
+look for the **root causes**…
+
+<!-- slide -->
+
+## Analyze **Patterns**
+common pain-points, related issues, etc…
+
+<!-- slide -->
+
+## Recognize **Personal Bias**
+
+<!-- slide -->
+
+## When the **Problem** is in Act V, The **Solution** is Often in Act I
+
+<!-- slide -->
+
+## Set **Meaningful Goals**
+**click-through rates** are not universal success
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/impact.jpg
+alt: Impact or Immersive
+caption: |
+  [Jon Tan speaking][aea] at An Event Apart
+
+  [aea]: https://aneventapart.com/news/post/durable-design-by-jon-tan-aea-video
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/emergent.jpg
+alt: Enacted or Emergent
+caption: |
+  [Jon Tan speaking][aea] at An Event Apart
+
+  [aea]: https://aneventapart.com/news/post/durable-design-by-jon-tan-aea-video
+---
+
+<!-- slide -->
+
+> Do I want to create work
+> in which everyone feels the same,
+> or **everyone feels differently**?
+>
+> ---Anne Bogart, [A Director Prepares][prep]
+
+[prep]: https://www.amazon.com/Director-Prepares-Seven-Essays-Theatre/dp/0415238323
+
+<!-- slide -->
+
+## Know Your **Innovation Budget**
+
+<!-- slide -->
+
+---
+image: /images/process/mia-style.jpg
+alt: screenshot of web page with CSS
+caption: miriamsuzanne.com (now with a whole new look)
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: /images/process/sidesaddle-shuffle.jpg
+alt: Shuffling the sidesaddle cards
+---
+
+<!-- slide -->
+
+## **Test** & **Trust**
+
+<!-- slide -->
+
+> Users spend most of their time on other sites.
+> This means that users prefer your website to work
+> **the same way as all the other sites** they already know.
+>
+> ---[Jakob Nielsen](https://www.nngroup.com/people/jakob-nielsen/)
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/unique.jpg
+alt: |
+  Wireframe with top logo and navigation,
+  a hero image that says `we're unique`,
+  and three columns featuring large icons.
+caption: |
+  "All Websites Look The Same"
+  from [NoVolume](http://www.novolume.co.uk/blog/all-websites-look-the-same/)
+---
+
+<!-- slide -->
+
+> ### The fact we can control a paper page is really a **limitation of that medium**.
+>
+> ---John Allsopp,
+> [A Dao of Web Design](http://alistapart.com/article/dao) (April 07, 2000)
+
+<!-- slide -->
+
+---
+image: /images/process/same.jpg
+alt: No!
+style:
+  --image-size: contain
+caption: http://DoWebsitesNeedToLookExactlyTheSameInEveryBrowser.com/
+---
+
+<!-- slide -->
+
+> **It takes craft** to set up the circumstances
+> that are **simple** and yet
+> **contain the ambiguities** and the incongruity
+> **of human experience**.
+>
+> ---Anne Bogart, [A Director Prepares][prep]
+
+[prep]: https://www.amazon.com/Director-Prepares-Seven-Essays-Theatre/dp/0415238323
+
+<!-- slide -->
+
+---
+layout: contact
+form:
+  email: birds@oddbird.net
+  next: https://oddbird.net/contact/thanks
+  submit: send it!
+---
+

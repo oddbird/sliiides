@@ -1,0 +1,1201 @@
+---
+title: Agile Design Systems
+event: Agile Alliance
+author: miriam
+date: 2019-08-07
+image: /images/agile-systems/_cover.jpg
+oddsite: talks/agile-systems/
+download: agile-systems/agile19.pdf
+tags: [css, sass, design systems, components, performance]
+toc:
+  - name: '**Why** Design Systems?'
+    slug: why
+  - name: Pattern **Audit**
+    slug: audit
+  - name: Start **Small**
+    slug: small
+  - name: Define The **API**
+    slug: api
+  - name: '**Integrated** Agile Process'
+    slug: agile
+---
+
+How can we incorporate patterns into our code,
+using templates and pre-processors to iterate and automate
+living design systems in an agile and integrated process?
+
+<!-- slide -->
+
+---
+layout: title
+---
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+
+## [OddBird](https://oddbird.net) **Web Consulting**
+Custom Apps, Design Systems, Refactors -- since 2008
+
+<!-- slide -->
+
+---
+image: /images/patterns/oddbird-w-logo.jpg
+alt: Three children at a table – playing Magic, The Gathering
+caption: OddBird siblings (Jonny, Carl, and Miriam) in 1994
+---
+
+<!-- slide -->
+
+---
+logos:
+  - alt: Mozilla
+    src: _oddbird/clients/mozilla.svg
+  - alt: SRAM
+    src: _oddbird/clients/sram.svg
+  - alt: ORCAS
+    src: _oddbird/clients/orcas.svg
+---
+
+<!-- slide -->
+
+---
+logos:
+  - alt: Sass
+    src: _oddbird/oss/sass.svg
+  - alt: Django
+    src: _oddbird/oss/django.svg
+  - alt: Susy
+    src: _oddbird/oss/susy.svg
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/lightning.jpg
+alt: Salesforce Lightning Design System
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/lonely-planet-colors.jpg
+alt: Lonely Planet Design System
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/chimp-grids.jpg
+alt: Mailchimp Grids
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/herman-scale.jpg
+alt: Herman Scale Previews
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/NYC-m.jpg
+alt: M
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/NYC.jpg
+alt: New York City Transit Authority Graphic Standards Manual
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/NYC-date.jpg
+alt: '1970'
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/NYC-n.jpg
+alt: N
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/NYC-numbers.jpg
+alt: Numbers 5-8
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/NYC-sign.jpg
+alt: Diagram of sign construction
+style:
+  --image-position: bottom
+---
+
+<!-- slide -->
+
+## Nerd
+## **`<-`**
+
+<!-- slide -->
+
+## Nerd
+## **`->`**
+
+<!-- slide -->
+
+## ¯\\\_**(ツ)**_/¯
+
+<!-- slide -->
+
+## Design **Systems**
+**Style** Guides + **Tool** Kits + **Component** Libraries + **???**
+
+<!-- slide -->
+
+## **Single** Source of Truth
+
+<!-- slide -->
+
+## Potentially **Cross-Application**
+even cross-platform…
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/bootstrap.jpg
+alt: Introduction to Bootstrap
+style:
+  --image-position: top
+caption:
+  Your Own **Personal** Bootstrap
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/chimp-voice.jpg
+alt: Mailchimp Voice
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/lightning-motion.jpg
+alt: Salesforce LDS Motion System
+style:
+  --image-position: top
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/lego-library.jpg
+alt: Lego Component Library
+---
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/lego-organizer.jpg
+alt: Lego Organizer
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/lego.jpg
+alt: Lego Airplane
+---
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/lego-play.jpg
+alt: |
+  Girl from an 80s Lego commercial,
+  holding her fantastic creation with a smirk
+---
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/lego-food.jpg
+alt: Baby eating a Lego block
+---
+
+<!-- slide -->
+
+## Design Systems `==` **Integration**
+Design **&** Code **&** Process **&** Tools **&** … **&** ???
+
+<!-- slide -->
+
+---
+image: /images/patterns/lightning-code.jpg
+alt: LDS icons with markup
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/lightning-codex.jpg
+alt: Scribbled out LDS icons with markup
+---
+
+<!-- slide -->
+
+## You are not **MailForce** or **InstaFace**
+(unless you are)
+
+<!-- slide -->
+
+### Similar Problems
+## **Unique Constraints**
+
+<!-- slide -->
+
+## (Team **Size**)
+
+<!-- slide -->
+
+## (Team **Structure**)
+
+<!-- slide -->
+
+## (Internal **vs.** Consulting)
+
+<!-- slide -->
+
+## (Web **vs.** OS-Specific)
+
+<!-- slide -->
+
+## (Is it **1970**?)
+
+<!-- slide -->
+
+![OddBird Faces](/images/_oddbird/allbirds.svg)
+
+## **Web** Consulting
+
+<!-- slide -->
+
+## Designers **+** Developers **+** **???**
+
+<!-- slide -->
+
+> ### How do you **sell it to clients** (or the boss)?
+
+<!-- slide -->
+
+## (We **Don't**)
+
+<!-- slide -->
+
+> Since OddBird thinks about handoff from the beginning,
+> **maintenance has been super easy.**
+> For example, **100% unit test coverage was a given.**
+> I never had to ask for it.
+>
+> ---Sara Taillon, CTO at ORCAS
+
+<!-- slide -->
+
+> ### If it doesn't have tests, **it's legacy code**
+>
+> ---Carl Meyer
+
+<!-- slide -->
+
+> ### If it's not documented, **it doesn't exist**
+>
+> ---Me
+
+<!-- slide -->
+
+> ### If it's not **accessible**, it doesn't exist
+>
+> ---Also Me
+
+<!-- slide -->
+
+## Accessibility is **a Basic Human Right**
+[UN Convention on the Rights of Persons with Disabilities][un]
+
+[un]: https://www.un.org/development/desa/disabilities/convention-on-the-rights-of-persons-with-disabilities/article-9-accessibility.html
+
+<!-- slide -->
+
+## Perceivable, Operable, Understandable, **Robust**
+
+<!-- slide -->
+
+## Accessibility is **For Everyone**
+long-term, temporary, situational, or robotic…
+
+<!-- slide -->
+
+# The Web is...
+## **Accessible** by Design
+
+<!-- slide -->
+
+# The Web...
+## Has a **Mission**
+
+<!-- slide -->
+
+> ## Web **for all**.
+> ## Web **on everything**.
+>
+> ---[World Wide Web Consortium][W3C], **1994**
+
+[W3C]: http://www.w3.org/Consortium/mission.html#principles
+
+<!-- slide -->
+
+---
+image: /images/process/www-cern.jpg
+alt: Screenshot of first world wide website
+caption: |
+  CERN
+  [first website](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
+  with line-mode browser simulation
+---
+
+<!-- slide -->
+
+---
+image: /images/process/ibm-pc.jpg
+alt: Old IBM desktop
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/process/imac.png
+alt: Desktops
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/process/iphone-3.jpg
+alt: All iPhones
+---
+
+<!-- slide -->
+
+---
+image: /images/process/tablets.jpg
+alt: Several tablets
+---
+
+<!-- slide -->
+
+---
+image: /images/dynamic-css/devices.jpg
+alt: 100s of mobile Devices
+---
+
+<!-- slide -->
+
+---
+image: /images/process/smartwatch.jpg
+alt: Lineup of smart watches
+---
+
+<!-- slide -->
+
+---
+image: /images/unfriendly/braille.jpg
+alt: Braille computer attachment and headphones
+---
+
+<!-- slide -->
+
+# The Web is...
+## **Contextual** by Design
+
+<!-- slide -->
+
+# The Web is...
+## **Resilient** by Design
+
+<!-- slide -->
+
+# The Web is...
+## **Customizable** by Design
+
+<!-- slide -->
+
+### The **Web** Model
+## Is **User-Controlled** By Design
+
+<!-- slide -->
+
+## HTML/CSS are **Declarative**
+Too Many **Variables**
+
+<!-- slide -->
+
+> ### The fact we can control a paper page is really a **limitation of that medium**.
+>
+> ---John Allsopp,
+> [A Dao of Web Design](http://alistapart.com/article/dao) (April 07, 2000)
+
+<!-- slide -->
+
+## Accessible `==` **User Friendly**
+
+<!-- slide -->
+
+## Use **Built-In** Tools
+
+```html
+<button>
+  Do a thing.
+</button>
+```
+
+<!-- slide -->
+
+## Fakes Are **Not Robust**
+
+```html
+<div
+  onclick="DoThing();"
+  onkeypress="DoThing();"
+  tabindex="0"
+  role="button">
+  Do a thing.
+</div>
+```
+
+<!-- slide -->
+
+## Provide **Accessible Patterns**
+
+<!-- slide -->
+
+## Document **Accessible Uses**
+
+<!-- slide -->
+
+---
+toc: audit
+---
+
+<!-- slide -->
+
+### **Existing** Apps:
+## What Do We **Have**?
+
+<!-- slide -->
+
+## cssstats.com
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/stats-colors.jpg
+caption: color stats from the VueConf website
+---
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/stats-fonts.jpg
+caption: font-size stats from the VueConf website
+---
+
+<!-- slide -->
+
+## Take **Screenshots**
+**Organize** into Groups
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/pnc-buttons.jpg
+alt: a wide variety of buttons from one web application
+caption: |
+  Image from
+  [Interface Inventory](http://bradfrost.com/blog/post/interface-inventory/)
+  by Brad Frost
+---
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/pages-to-patterns.jpg
+alt: printed and cut-out UI elements grouped on a page
+style:
+  --image-size: cover
+caption: |
+  Image from
+  [From Pages to Patterns](https://alistapart.com/article/from-pages-to-patterns-an-exercise-for-everyone/)
+  by Charlotte Jackson
+---
+
+<!-- slide -->
+
+### **All** Apps:
+## What Do We **Need**?
+
+<!-- slide -->
+
+---
+toc: small
+---
+
+<!-- slide -->
+
+## Up-To-Date **`>`** Comprehensive
+### Start small, **get it right**, and expand…
+
+<!-- slide -->
+
+## Design **Tokens**
+Abstract: broad reach, low specificity
+
+<!-- slide -->
+
+## **Color** Tokens
+![Color preview screenshot](/images/agile-systems/color-preview.jpg)
+
+<!-- slide -->
+
+---
+image: /images/patterns/itcss-metrics.png
+alt: |
+  a triangle on it's point,
+  with 'reach' across the top
+  and 'specificity/explicitness' down the sides
+style:
+  --image-size: contain
+caption: |
+  [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
+  by [**Harry Roberts**](https://twitter.com/csswizardry)
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/un-itcss-metrics.png
+alt: same triangle, flipped vertically
+style:
+  --image-size: contain
+caption: |
+  **Normal Triangle** by ~~Maslow~~ **Miriam**
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/itcss-layers.png
+alt: |
+  stacked layers in the triangle labeled
+  (from wide to narrow) --
+  settings, tools, generic, elements, objects, components, overrides
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## **Cascading** Style Sheets
+Invented to create **re-usable patterns**
+
+<!-- slide -->
+
+## `.warning { color: red; }`
+
+<!-- slide -->
+
+---
+image: /images/patterns/itcss-layers-note.png
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+## Sass **Variables**
+
+```scss
+$color-text-default: rgb(62, 62, 60);
+$color-text-warning: rgb(255, 183, 93);
+$color-text-error: rgb(194, 57, 52);
+
+.example {
+  background: $color-text-error;
+}
+```
+
+<!-- slide -->
+
+## 👎 Not **Meaningfully** Organized
+## 👎 Encourages **One-Offs**
+## 👎 Difficult to **Automate**
+
+<!-- slide -->
+
+---
+caption: |
+  See [Salesforce-UX **Theo**](https://github.com/salesforce-ux/theo)
+---
+
+# **YAML** & **Theo**
+
+```yml
+props:
+  text_default:
+    value: "rgb(62, 62, 60)"
+  text_warning:
+    value: "rgb(255, 183, 93)"
+  text_error:
+    value: "rgb(194, 57, 52)"
+
+global:
+  type: "color"
+  category: "brand-colors"
+```
+
+<!-- slide -->
+
+```yml
+aliases:
+  vermilion:
+    value: "7, 83%"
+props:
+  color_vermilion:
+    value: "hsla({!vermilion}, 53%, 1)"
+  color_vermilion_dark:
+    value: "hsla({!vermilion}, 43%, 1)"
+```
+
+<!-- slide -->
+
+## 👍 Easier to **Export** from YAML
+## 👎 Not A **Style Language**
+
+<!-- slide -->
+
+---
+caption: |
+  See [OddBird's **Accoutrement**](https://oddbird.net/accoutrement/)
+---
+
+## Sass **Maps**
+
+```scss
+$text-colors: (
+  'default': rgb(62, 62, 60),
+  'warning': rgb(255, 183, 93),
+  'error': rgb(194, 57, 52),
+);
+
+.example {
+  background: color('error');
+}
+```
+
+<!-- slide -->
+
+## The **Map Problem**
+
+```scss
+$colors: (
+  'brand-blue': hsl(195, 85%, 35%),
+  'gray': desaturate(map-get($colors, 'brand-blue'), 80%),
+);
+```
+
+### **`[ERROR] Undefined variable: "$colors".`**
+
+<!-- slide -->
+
+## Map **Self-Reference**
+
+```scss
+$colors: (
+  '_brand-pink': hsl(330, 85%, 68%),
+  'escher': '#_brand-pink',
+  'godel': '#escher',
+  'bach': '#godel',
+  'kevin bacon': '#bach' ('lighten': 20%),
+);
+```
+
+<!-- slide -->
+
+---
+style:
+  --align-self: 'stretch'
+  background-color: 'hsl(330, 85%, 48%)'
+  color: 'white'
+  display: 'flex'
+  align-items: 'center'
+  justify-content: 'center'
+---
+
+## `color('kevin bacon')`
+
+<!-- slide -->
+
+## Code is **Communication**
+
+<!-- slide -->
+
+```scss
+code {
+  background: #d4e0e4;
+  border: #92b1bc;
+  color: #13323c;
+}
+```
+
+<!-- slide -->
+
+```scss
+code {
+  background: mix($brand, #fff, 80%);
+  border: mix($brand, #fff, 50%);
+  color: mix($brand, #000, 50%);
+}
+```
+
+<!-- slide -->
+
+## Code Patterns **Add Meaning**
+
+```scss
+code {
+  background: color('callout');
+  border: color('border');
+  color: contrast('callout');
+}
+```
+
+<!-- slide -->
+
+## 👍 **Meaningful** Relationships!
+## 👍 Encourages **Patterns**
+## 👍 **Functional** Adjustments
+
+<!-- slide -->
+
+## 👎 **Requires** Additional Tooling
+
+<!-- slide -->
+
+## Even More **Layers**
+**Global** Settings » **Theme** Defaults » **Component** Details
+
+<!-- slide -->
+
+```scss
+$brand-colors: (
+  '_brand-blue': hsl(195, 85%, 35%),
+  '_brand-pink': hsl(330, 85%, 48%),
+);
+
+$theme-colors: (
+  'text': …,
+  'border': …,
+  // ...
+);
+
+$button-colors: (
+  'button-text': …,
+  'button-border': …,
+  // ...
+);
+```
+
+<!-- slide -->
+
+## CSS **Custom Properties**
+
+```css
+:root {
+  --color-text-default: rgb(62, 62, 60);
+  --color-text-warning: rgb(255, 183, 93);
+  --color-text-error: rgb(194, 57, 52);
+}
+
+.example {
+  background: var(--color-text-error);
+}
+```
+
+<!-- slide -->
+
+## 👍 **Browser** Native
+## 👍 **Live** Themes
+## 👍 **Cascading** is Awesome
+
+<!-- slide -->
+
+## 👎 Not **Meaningfully** Organized
+## 👎 Encourages **One-Offs**
+## 👎 Difficult to **Automate**(?)
+
+<!-- slide -->
+
+## ¯\\\_**(ツ)**_/¯
+### Worth **Some Effort**?
+
+<!-- slide -->
+
+---
+demo: varTheme
+---
+
+<!-- slide -->
+
+## Know The **Trade-Offs**
+adjust to **your** needs…
+
+<!-- slide -->
+
+---
+toc: api
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/lightning-code.jpg
+alt: LDS icons with markup
+---
+
+<!-- slide -->
+
+## SLDS Docs `=>` **HTML & CSS**
+Copy & Paste
+
+<!-- slide -->
+
+### `class="slds-icon` **`slds-icon-text-warning`** `slds-icon--x-small"`
+
+<!-- slide -->
+
+## Related Classes `=>` **Data Attributes**
+icon **color** and **size** classes
+
+<!-- slide -->
+
+### **`data-slds-icon-color`**`="<option>"`
+`.slds-icon-text-default` | `.slds-icon-text-warning` | `.slds-icon-text-error`
+
+<!-- slide -->
+
+## HTML Template **Logic is Great**
+**pre-processors** for your markup!
+
+<!-- slide -->
+
+## Example: **Vue**
+### `<icon :image="isSuccess` **`?`** `'checkmark'` **`:`** `'x'">`
+
+<!-- slide -->
+
+## **Components** Provide Meaning
+### `<my-icon name="gear" />`
+
+<!-- slide -->
+
+## SLDS React `=>` **Component Library**
+Install the package on npm...
+
+<!-- slide -->
+
+---
+demo: codeConcerns
+---
+
+<!-- slide -->
+
+---
+toc: agile
+---
+
+<!-- slide -->
+
+## "Less **Theory**, More **Practice**"
+Less **Mockups**, More **Code**
+
+<!-- slide -->
+
+## **Ugly Helps** Communicate
+Isolate variables to focus on what's important
+
+<!-- slide -->
+
+---
+image: /images/process/activity.png
+alt: UX sketch
+---
+
+<!-- slide -->
+
+---
+image: /images/process/fonts.jpg
+alt: UX wireframes with colors/fonts removed
+---
+
+<!-- slide -->
+
+---
+image: /images/process/qn-mockup.jpg
+alt: QuarqNet code sample
+---
+
+<!-- slide -->
+
+---
+image: /images/process/interactive-wire.jpg
+alt: Clickable wireframes
+---
+
+<!-- slide -->
+
+---
+image: /images/process/qasper.jpg
+alt: QuarqNet final
+---
+
+<!-- slide -->
+
+## **Iterate** on Features/Epics
+sketch » wire-frame » html markup » back-end » **design**
+
+<!-- slide -->
+
+### Test, Test, Test
+## Tight **Feedback Loop**
+
+<!-- slide -->
+
+## "Move Fast & **Fix Things**"
+Everyone is **responsible** & **collaborating**
+
+<!-- slide -->
+
+### Make Patterns & Documentation
+## The **Lazy** Option
+
+<!-- slide -->
+
+## **Automate** from **Structured Code**
+
+<!-- slide -->
+
+---
+image: /images/agile-systems/herman.jpg
+style:
+  --image-size: contain
+caption: |
+  OddBird's [**Herman**](https://oddbird.net/herman)
+  is based on [**SassDoc**](http://sassdoc.com) syntax
+----
+
+<!-- slide -->
+
+```scss
+// SLDS Colors
+// -----------
+/// These are the colors we stole from SLDS system,
+/// in order to create a demo.
+/// @group color
+/// @colors
+$slds-colors: (
+  'text-default': rgb(62, 62, 60),
+  'text-warning': rgb(255, 183, 93),
+  'text-error': rgb(194, 57, 52),
+);
+```
+
+<!-- slide -->
+
+## `/// ` **`@colors`**
+![Herman Colors](/images/agile-systems/herman-colors.jpg)
+
+<!-- slide -->
+
+## `/// ` **`@sizes`**
+![Herman Scale](/images/agile-systems/herman-scale.jpg)
+
+<!-- slide -->
+
+## `/// @sizes` **`{ruler}`**
+![Herman Ruler](/images/agile-systems/herman-ruler.jpg)
+
+<!-- slide -->
+
+## `/// ` **`@ratios`**
+![Herman Ratios](/images/agile-systems/herman-ratios.jpg)
+
+<!-- slide -->
+
+## `///` **`@icons`** `templates/icons/`
+
+<!-- slide -->
+
+![Herman Icons](/images/agile-systems/herman-icons.jpg)
+
+<!-- slide -->
+
+## **Herman** Components
+
+```scss
+/// Navigation items, with inactive and active states.
+/// @group nav
+/// @example njk
+///   {% import 'nav.macros.njk' as nav %}
+///   {{ nav.bar(active="dashboard", items=[…]) }}
+.nav-bar {
+  /* … */
+}
+```
+
+<!-- slide -->
+
+![Herman Component](/images/agile-systems/herman-comp.jpg)
+
+<!-- slide -->
+
+## **¯\\\_(ツ)_/¯**
+## **Sass-First** Breaks Down…
+### Only **Nunjucks** For Now…
+
+<!-- slide -->
+
+## [VueDS](https://vueds.com/) (with Theo)
+![Vue Design Systems](/images/agile-systems/vueds.jpg)
+
+<!-- slide -->
+
+## **VueDS** Components
+
+````md
+<docs>
+  ```jsx
+  <nav-bar active="Dashboard" :navItems="[…]"/>
+  ```
+</docs>
+````
+
+<!-- slide -->
+
+![VueDS Component](/images/agile-systems/vueds-comp.jpg)
+
+<!-- slide -->
+
+## I Want **Both** :)
+please…
+
+<!-- slide -->
+
+## Design System as **Artifact**
+Code is a **Single Source of Truth**
+
+<!-- slide -->
+
+---
+toc: done
+---
+
+<!-- slide -->
+
+## Up-To-Date **`>`** Comprehensive
+### Start small, **make it easy**, and expand…
+
+<!-- slide -->
+
+## **Meaningful** & **Structured** Code
+Readable by **Humans** & **Machines**
+
+<!-- slide -->
+
+## **Inline** Documentation
+Helps the human factors…
+
+<!-- slide -->
+
+## **Agile** & **Integrated** Process
+Everyone shares a single-source…
+
+<!-- slide -->
+
+---
+image: /images/patterns/lego-site.jpg
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/lego-helmet.jpg
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+image: /images/patterns/lego-atomic.jpg
+style:
+  --image-size: contain
+---
+
+<!-- slide -->
+
+---
+layout: template
+---
+
+## **Thank you**!
+[Download the checklist »][check]
+
+[check]: https://oddbird.net/static/resources/design-systems-checklist.pdf
+
+<!-- slide -->
+
+---
+layout: contact
+form:
+  email: 'birds@oddbird.net'
+  next: 'https://oddbird.net/contact/thanks'
+  submit: 'send it!'
+---
+

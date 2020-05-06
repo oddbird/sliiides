@@ -1,0 +1,53 @@
+@use '../config/fonts';
+
+[data-slides] {
+  display: grid;
+  grid-area: banner / main / main;
+  grid-template-columns: minmax(min-content, 1fr);
+  grid-auto-rows: minmax(100vh, auto);
+}
+
+[id^='slide'] {
+  border-top: thin dotted var(--border);
+  display: grid;
+  grid-template: 'content' 1fr 'footer' auto / var(--width, 1fr);
+  scroll-snap-align: start;
+}
+
+.slide-content {
+  align-content: var(--align, safe center);
+  display: grid;
+  grid-area: content;
+  justify-content: var(--justify, safe center);
+  max-width: 100vw;
+  overflow: auto;
+  padding: var(--padding, var(--gutter));
+
+  img,
+  svg,
+  video {
+    width: var(--img-width, 100%);
+  }
+}
+
+.slide-footer {
+  align-items: center;
+  background: var(--callout);
+  display: flex;
+  font-size: var(--xsmall);
+  grid-area: footer;
+  z-index: var(--bump, 1);
+}
+
+.slide-caption {
+  --newline: 0;
+  flex: 1;
+  padding: var(--half-shim) var(--gutter);
+}
+
+.slide-nav {
+  @include fonts.var('code');
+  flex: 0;
+  padding: var(--half-shim) var(--gutter);
+  white-space: nowrap;
+}

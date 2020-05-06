@@ -1,0 +1,32 @@
+@use '~accoutrement/sass/tools';
+
+/// # SVG Icons
+/// @group icons
+
+// Icon
+// ----
+/// By default, icons take on the size of surrounding text.
+/// @group icons
+[data-icon] {
+  display: inline-block;
+  height: var(--icon-height, var(--icon-size, 1em));
+  transform: translateY(-0.1em);
+  width: var(--icon-width, var(--icon-size, 1em));
+}
+
+[data-face] {
+  --eyes: hsla(
+    var(--ccs-h--neutral),
+    var(--ccs-s--bg6),
+    var(--ccs-l--bg6),
+    var(--ccs-invert--zero)
+  );
+}
+
+.founder-faces {
+  fill: var(--highlight);
+}
+
+.eyes {
+  fill: var(--eyes, black);
+}

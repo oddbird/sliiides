@@ -1,0 +1,55 @@
+/// # Replaced Media Defaults
+/// @group init-media
+
+// Replaced Elements
+// -----------------
+/// Replaced media elements get a new-line of spacing after.
+/// @group init-media
+audio,
+canvas,
+iframe,
+video {
+  margin-bottom: var(--newline);
+}
+
+// Image brightness
+// ----------------
+/// Adjust image brightness depending on mode & contrast
+img {
+  filter: brightness(var(--img-bright, var(--img-bright--default, 1)))
+    contrast(var(--img-contrast, var(--img-contrast--default, 1)));
+}
+
+// Audio
+// -----
+/// Audio is full-width by default.
+/// @group init-media
+audio {
+  width: 100%;
+}
+
+// SVG defaults
+// ------------
+/// Unless otherwise defined,
+/// embedded SVGs will take on the color
+/// of surrounding content.
+/// Adding `1px` padding helps with overflow clipping errors
+/// on rounded paths.
+/// @group init-media
+svg {
+  fill: var(--fill, currentColor);
+  padding: 1px;
+}
+
+// Miriam
+// ------
+/// The "miriam" icon has a few special features,
+/// including a potential animation,
+/// and the ability to change eye colors
+/// (for light/dark modes).
+/// We may need to extend this to all face icons…
+/// @group init-media
+[data-face='miriam'] {
+  --mia-svg-animate: none;
+  --mia-svg-eyes: darkslategray;
+}

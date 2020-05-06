@@ -1,0 +1,37 @@
+/* User Font Size */
+html {
+  font-size: 1em;
+}
+
+/* Author Font Size */
+html {
+  /*   font-size: 3vw; */
+}
+
+/* Weighted average */
+html {
+  /* user */
+  --user-size: 1em;
+  --user-weight: 60;
+
+  /* author */
+  --author-size: 3vw;
+
+  /* math… */
+  --author-weight: calc(100 - var(--user-weight));
+  --author: calc(var(--author-size, 1em) * var(--author-weight));
+  --user: calc(var(--user-size) * var(--user-weight));
+  --average: calc((var(--author) + var(--user)) / 100);
+
+  /* find the average… */
+  /*   font-size: var(--average, 1em); */
+}
+
+/* layout */
+body {
+  display: grid;
+  font-weight: bold;
+  line-height: 1;
+  min-height: 100vh;
+  place-content: safe center;
+}
