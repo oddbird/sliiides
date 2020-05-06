@@ -83,7 +83,7 @@
     "rollup-plugin-terser": "^5.3.0",
     "sass": "^1.26.3",
     "sassdoc": "^2.7.1",
-    "sassdoc-theme-herman": "^3.0.2",
+    "sassdoc-theme-herman": "^3.1.0",
     "slugify": "^1.4.0",
     "striptags": "^3.1.1",
     "stylelint": "^13.3.3",

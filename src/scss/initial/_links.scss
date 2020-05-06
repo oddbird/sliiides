@@ -21,14 +21,6 @@
 /// Text underlines are also applied,
 /// but the target depends on the presence or absence of icons,
 /// in order to avoid awkward-looking icon underlines.
-/// @example njk
-///   {% import 'utility.macros.njk' as utility %}
-///   <a href="#">simple text link</a>
-///   {{ utility.icon_link(
-///     icon='icons/external.svg',
-///     text='link with icon',
-///     url='#'
-///   ) }}
 /// @group links
 a {
   &:link,

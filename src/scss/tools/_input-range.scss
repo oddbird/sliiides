@@ -15,10 +15,12 @@
 /// @example scss
 ///   @use 'tools/input-range' as range;
 ///
-///   @include range.track {
-///     appearance: none;
-///     height: 1em;
-///     cursor: pointer;
+///   [type='range'] {
+///     @include range.track {
+///       appearance: none;
+///       height: 1em;
+///       cursor: pointer;
+///     }
 ///   }
 /// @group tools-range
 @mixin track {
@@ -48,12 +50,14 @@
 /// @example scss
 ///   @use 'tools/input-range' as range;
 ///
-///   @include range.thumb {
-///     appearance: none;
-///     height: 1em;
-///     width: 0.5em;
-///     background: var(--ccs-prime);
-///     cursor: pointer;
+///   [type='range'] {
+///     @include range.thumb {
+///       appearance: none;
+///       height: 1em;
+///       width: 0.5em;
+///       background: var(--ccs-prime);
+///       cursor: pointer;
+///     }
 ///   }
 /// @group tools-range
 @mixin thumb {
