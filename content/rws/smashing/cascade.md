@@ -602,4 +602,8 @@ slides:
 - pre: The Cascade is 
   title: Not **Going Away**
 - title: Learn To **Use It**
+- pre: |
+    @MiriSuzanne
+  title: |
+    **#ResilientWebSystems**
 ---

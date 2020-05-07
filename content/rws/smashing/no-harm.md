@@ -492,4 +492,8 @@ slides:
 - pre: |
     *CSS* is
   title: Downright **Radical**
+- pre: |
+    @MiriSuzanne
+  title: |
+    **#ResilientWebSystems**
 ---
