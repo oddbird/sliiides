@@ -1,0 +1,59 @@
+@import '../remedy.css';
+@import '../fonts.css';
+@import '../colors.css';
+@import '../type.css';
+
+
+/* show/hide the demos… */
+p, menu { visibility: hidden; }
+
+
+html {
+  align-content: center;
+  display: grid;
+  grid: auto / minmax(min-content, 35em);
+  background:
+    linear-gradient(90deg, white, white) padding-box no-repeat,
+    linear-gradient(
+      to bottom right,
+      var(--moz-purple),
+      var(--moz-red)
+    ) border-box no-repeat fixed
+  ;
+  border: 1em solid transparent;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1em;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+code {
+  background-color: hsla(0 0% 50% / 0.25);
+  display: inline-block;
+  padding: 0 0.125em;
+}
+
+p, table, menu {
+  margin: 3em 0;
+}
+
+td, th {
+  padding: 0.25em 0.5em;
+}
+
+p, menu {
+  padding: 1em;
+  outline: 3px dotted var(--moz-blue-dark);
+}
+
+table {
+  width: 100%;
+}
+
+caption {
+  text-align: left;
+  margin-bottom: 1em;
+}

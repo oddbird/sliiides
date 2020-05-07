@@ -1,0 +1,10 @@
+/* override user-agent, with lower specificity */
+th, td {
+  border-width: thick;
+}
+
+
+/* no way to override UA-important */
+menu[type="context"] {
+  display: block !important;
+}

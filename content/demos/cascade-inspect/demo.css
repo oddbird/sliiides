@@ -1,0 +1,23 @@
+#declared {
+  outline-style: dashed;
+}
+
+/* main {
+  font-style: italic;
+} */
+
+/* .inherited {
+  outline-style: solid;
+  outline-offset: 1em !important;
+} */
+
+.demo-section {
+  outline: 0.125em dotted currentColor;
+  outline-offset: 0.25em;
+}
+
+/* layout */
+body {
+  max-width: 50ch;
+  margin: 0 auto;
+}

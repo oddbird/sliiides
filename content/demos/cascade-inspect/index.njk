@@ -1,0 +1,39 @@
+---
+demo: cascade-inspect
+title: Inspecting The Cascade
+---
+
+<h1>{{ title }}</h1>
+
+<main>
+  <section id="declared" class="demo-section">
+    <h2 style="color: rebeccapurple">
+      <strong>Declared Rules</strong> by Specificity
+    </h2>
+    <ul>
+      <li>
+        At the top of the rule panel,
+        we can see directly targeted selector-blocks
+        sorted by their relative weight:
+        a combination of specificity and source-order.
+      </li>
+      <li>
+        Generally rules higher up in the panel
+        will overrive rules lower down.
+      </li>
+    </ul>
+  </section>
+
+  <section id="inherited" class="demo-section inherited">
+    <h2>
+      <strong>Inherited Rules</strong> by Distance
+    </h2>
+    <p>
+      Below the targeted rules
+      we can see inherited properties from ancestor selectors:
+      from the closest parent
+      all the way back to the document root.
+      The closest ancestor will always win.
+    </p>
+  </section>
+</main>

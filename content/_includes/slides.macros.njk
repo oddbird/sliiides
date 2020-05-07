@@ -1,5 +1,21 @@
 {% import "utility.macros.njk" as utility %}
 
+{% macro title(
+  slide
+) %}
+  {% if slide.title %}
+    <h2>
+      {% if slide.pre -%}
+        <span class="pre">{{ slide.pre | mdInline | safe }}</span>
+      {%- endif %}
+      {{ slide.title | mdInline | safe }}
+    </h2>
+    {% if slide.sub %}
+      <p class="subtitle">{{ slide.sub | mdInline | safe }}</p>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
 {% macro nav(
   index,
   count

@@ -1,0 +1,40 @@
+{% import "slides/core.macros.njk" as core %}
+
+{% macro main(slide, page) %}
+{% set slideBase %}
+img: patterns/itcss-metrics.png
+alt: |
+  inverted triange, with
+  range accross the top,
+  and specificity/explicitness
+  down the sides
+fit: contain
+caption: |
+  [**Inverted Triangle** CSS](http://technotif.com/manage-large-css-projects-with-itcss/)
+  by [**Harry Roberts**](https://twitter.com/csswizardry)
+{% endset %}
+
+  {{ core.img(
+    slide=slideBase | yaml | merge(slide),
+    page=page
+  ) }}
+{% endmacro %}
+
+{% macro layers(slide, page) %}
+{% set slideBase %}
+img: patterns/itcss-layers.png
+alt: |
+  Triangle, point down, with layers:
+  settings, tools, generics, elements,
+  objects, components, overrides
+fit: contain
+caption: |
+  [**Inverted Triangle** CSS](http://technotif.com/manage-large-css-projects-with-itcss/)
+  by [**Harry Roberts**](https://twitter.com/csswizardry)
+{% endset %}
+
+  {{ core.img(
+    slide=slideBase | yaml | merge(slide),
+    page=page
+  ) }}
+{% endmacro %}

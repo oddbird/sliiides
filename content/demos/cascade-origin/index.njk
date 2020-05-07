@@ -1,0 +1,44 @@
+---
+demo: cascade-origin
+title: Cascade Origins & Importance
+styles:
+  - ua.css
+  - inline.css
+---
+
+<h1>{{ title }}</h1>
+
+<main>
+  <table rules="all">
+    <caption>
+      user-agent border-width is set using:
+      <code>table[rules][rules="all"] > tr > td</code>
+    </caption>
+    <thead>
+      <tr>
+        <th>head</th>
+        <th>head</th>
+        <th>head</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>cell</td>
+        <td>cell</td>
+        <td>cell</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p id="inline-style" style="background: black; color: white;">
+    Inline styles are impossible to override in CSS
+    without <code>!important</code>
+  </p>
+
+  <menu>
+    It will be impossible to display this
+    <code>&lt;menu&gt;</code>
+    if we add
+    <code>type="context"</code>
+  </menu>
+</main>

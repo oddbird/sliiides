@@ -1,3 +1,5 @@
+layout: demo
 styles:
   - remedy
   - /demos/base.css
+  - demo.css

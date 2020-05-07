@@ -18,15 +18,7 @@
 
 {% macro title(slide, page) %}
   {% call slides.base(slide, 'title', page) %}
-    <h2>
-      {% if slide.pre -%}
-        <span class="pre">{{ slide.pre | mdInline | safe }}</span>
-      {%- endif %}
-      {{ slide.title | mdInline | safe }}
-    </h2>
-    {% if slide.sub %}
-      <p class="subtitle">{{ slide.sub | mdInline | safe }}</p>
-    {% endif %}
+    {{ slides.title(slide) }}
   {% endcall %}
 {% endmacro %}
 
@@ -58,7 +50,10 @@
 
 {% macro md(slide, page) %}
   {% call slides.base(slide, 'markdown', page) %}
-    {{ slide.md | md | safe }}
+    {{ slides.title(slide) }}
+    <div class="md">
+      {{ slide.md | md | safe }}
+    </div>
   {% endcall %}
 {% endmacro %}
 
@@ -76,6 +71,29 @@
       tab=slide.tab or 'result',
       preview=slide.preview
     ) }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro list(slide, page) %}
+  {%- set content -%}
+  {%- for item in (slide.ol or slide.ul) -%}
+    {% set feature =
+      (loop.index in slide.feature)
+      if slide.feature | typeCheck('array')
+      else (loop.index == slide.feature)
+    %}
+    <li {% if feature %}class="feature"{% endif %}>
+      {{- item | mdInline | safe -}}
+    </li>
+  {%- endfor -%}
+  {%- endset -%}
+  {% call slides.base(slide, 'list', page) %}
+    {{ slides.title(slide) }}
+    {% if slide.ol %}
+      <ol>{{ content | safe }}</ol>
+    {% else %}
+      <ul>{{ content | safe }}</ul>
+    {% endif %}
   {% endcall %}
 {% endmacro %}
 
@@ -98,12 +116,14 @@
     {{ img(slide, page) }}
   {% elif slide.quote %}
     {{ quote(slide, page) }}
-  {% elif slide.title %}
-    {{ title(slide, page) }}
   {% elif slide.pen %}
     {{ pen(slide, page) }}
   {% elif slide.md %}
     {{ md(slide, page) }}
+  {% elif slide.ol or slide.ul %}
+    {{ list(slide, page) }}
+  {% elif slide.title %}
+    {{ title(slide, page) }}
   {% else %}
     {{ default(slide, page) }}
   {% endif %}

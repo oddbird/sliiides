@@ -1,0 +1,25 @@
+@keyframes invert {
+  from {
+    background: white;
+    color: black;
+  }
+  to {
+    background: black;
+    color: white;
+  }
+}
+
+/* animations override normal values */
+* {
+/*   animation: invert 3s infinite alternate both; */
+}
+
+/* transitions override everything */
+p {
+  opacity: 1 !important;
+  transition: opacity 5s;
+}
+
+p:hover {
+  /* opacity: 0 !important; */
+}

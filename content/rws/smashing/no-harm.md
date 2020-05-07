@@ -91,7 +91,7 @@ slides:
 - quote: |
     The web would have become a **giant fax machine** 
     where **pictures of text** would be passed along.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
 - img: no-harm/viola.jpg
   alt: the viola browser
   fit: contain
@@ -180,47 +180,61 @@ slides:
 - title: |
     **Cascading** ~~HTML~~ **style sheets**
   sub: |
-    *Håkon Wium Lie*, October 1994
+    *Håkon Lie*, October 1994
   caption: w3.org/People/howcome/p/cascade.html
 - img: no-harm/hakon.jpg
-  alt: young Håkon Wium Lie
-  caption: Håkon Wium Lie
+  alt: young Håkon Lie
+  caption: Håkon Lie
 - img: patterns/oddbird-w-logo.jpg
   alt: OddBird logo imposed over three children playing Magic The Gathering
   caption: OddBird founders meeting, 1994 (Jonny, Carl, Miriam)
 - quote: |
     This proposal tries to 
     **soften the tension** between the *author* and the *reader*.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - quote: |
     *The author* often wants to give the documents 
     a **distinct look and feel**, 
     the *user* will set *preferences* to make 
     **all documents appear more similar**.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - quote: |
     Author and reader use **same notation**.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - title: The **Cascade**
 - quote: |
     **An ordered list (cascade) of style sheets** … 
     can be referenced from the same document … 
     **and merged** as they are encountered.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - title: |
     cascade **Origins**
   sub: a *balance of power* between stakeholders
 - quote: |
     The **user/browser** specifies *initial preferences* 
     and **hands the remaining influence over to the document**.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - quote: |
     If conflicts arise **the user should have the last word**, 
     but one should also allow the author to attach **style hints**.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - quote: |
     Provide **hints** that the browser **may or may not use**.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - md: |
     ## **Weighted** Influence
     ```js 
@@ -259,7 +273,9 @@ slides:
 - quote: |
     The order of the two is irrelevant -- 
     the **more specific statements will override the more general** ones.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - md: |
     ## **Media ~~Queries~~** Selectors
     ```js 
@@ -269,7 +285,9 @@ slides:
 - quote: |
     Presentation decisions **based on the user's environment**; 
     e.g. the *size of the screen* or the *current date*.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - md: |
     ```
     AGE > 3d 
@@ -279,7 +297,9 @@ slides:
 - quote: |
     HTML documents should also be influenced 
     by the **relevance of each document** for each individual user.
-  cite: Håkon Wium Lie
+  cite: Håkon Lie
+  caption: |
+    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - md: |
     ```
     RELEVANCE > 80 
@@ -294,7 +314,7 @@ slides:
 - pre: Presented @
   title: |
     **WWW Conference** 1995
-  sub: by *Håkon Wium Lie* & *Bert Bos*
+  sub: by *Håkon Lie* & *Bert Bos*
 - quote: |
     Ended up in political discussions about the **author-reader balance**.
   cite: Bert Bos
@@ -439,6 +459,19 @@ slides:
     ```
 
 # 6. Awesome -------------------------
+- title: CSS **Saved** The Web
+  sub: from becoming *inaccessible* & *platform-specific*
+- pre: The *Difficult Bits*
+  title: Come From That **Difficult Problem**
+- quote: |
+    ...This implies no device-specific markup,
+    **or anything which requires control over fonts or colors**.
+  cite: WWW Project
+- title: |
+    We're Doing **The Impossible**
+- pre: By Providing
+  title: |
+    **HINTS** & **SUGGESTIONS**
 - demo: awesome
   caption: Over-specified, but still *resilient*
 - img: advanced-css/indesign-is.jpg

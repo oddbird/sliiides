@@ -29,7 +29,10 @@ params:
     note: Optionally check for a particular type
 */
 const typeCheck = (val, is) => {
-  const type = typeof val;
+  let type = typeof val;
+  if (type === 'object') {
+    type = Array.isArray(val) ? 'array' : type;
+  }
   return is ? type === is : type;
 };
 

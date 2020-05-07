@@ -9,8 +9,8 @@ $_code-color-fade: var(--text-light);
 
   $code-tab-size: 2,
 
-  $code-block-padding: var(--gutter),
-  $code-inline-padding: 0 var(--quarter-shim),
+  $code-block-padding: 0,
+  $code-inline-padding: 0,
   $code-border-radius: 0,
 
   $code-border: null,
