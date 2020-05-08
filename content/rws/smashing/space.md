@@ -278,6 +278,11 @@ slides:
 
 - demo: logical-props
 
+- pen: |
+    Logical properties demo: inline form
+  id: abbpKzK
+  user: hus_hmd
+
 # intrinsic sizes --------------
 
 - title: |
