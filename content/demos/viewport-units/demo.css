@@ -1,0 +1,54 @@
+/* Full height! */
+body {
+  height: 100vh;
+}
+
+img {
+  margin: 0 calc(50% - 50vw);
+  width: 100vw;
+}
+
+/* layout */
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+h1,
+footer {
+  background: papayawhip;
+  flex: none;
+}
+
+h1,
+h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+  overflow: auto;
+}
+
+article {
+  border-inline: medium dotted;
+  margin-inline: auto;
+  max-width: 45ch;
+  padding-inline: 0.5em;
+}
+
+h1,
+main,
+footer {
+  padding: 0.5rem;
+}
+
+footer {
+  font-size: 0.5em;
+}
+
+img {
+  max-width: initial;
+}

@@ -22,6 +22,7 @@
   max-width: 100vw;
   overflow: auto;
   padding: var(--padding, var(--gutter));
+  resize: var(--resize, none);
 
   img,
   svg,
@@ -47,7 +48,7 @@
 
 .slide-nav {
   @include fonts.var('code');
-  flex: 0;
+  flex: none;
   padding: var(--half-shim) var(--gutter);
   white-space: nowrap;
 }

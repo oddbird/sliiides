@@ -1,0 +1,73 @@
+article {
+  /* writing-mode: sideways-rl; */
+}
+
+/* logical */
+.logical {
+  margin-block-end: 2em;
+  max-inline-size: 25ch;
+}
+
+.block-start {
+  inset-block-start: -0.5em;
+}
+
+.block-end {
+  inset-block-end: -0.5em;
+}
+
+.inline-start {
+  inset-inline-start: -0.5em;
+}
+
+.inline-end {
+  inset-inline-end: -0.5em;
+}
+
+/* physical */
+.physical {
+  margin-bottom: 2em;
+  max-width: 25ch;
+}
+
+.top {
+  top: -0.5em;
+}
+
+.bottom {
+  bottom: -0.5em;
+}
+
+.left {
+  left: -0.5em;
+}
+
+.right {
+  right: -0.5em;
+}
+
+/* layout */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
+}
+
+h1 {
+  margin: 0;
+}
+
+article {
+  outline: 1px solid;
+  padding: 1em;
+  margin: 1em;
+  position: relative;
+}
+
+code {
+  background: maroon;
+  color: white;
+  display: inline flow-root;
+  font-size: 0.75em;
+  padding: 0.25em 0.5em;
+  position: absolute;
+}

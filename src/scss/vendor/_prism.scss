@@ -140,6 +140,7 @@ $code-color-punctuation: $code-color-fade !default;
     &.property,
     &.tag {
       @include fonts.var('italic');
+      color: $code-color-name;
     }
 
     &.important,

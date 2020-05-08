@@ -6,7 +6,7 @@
   {% if slide.title %}
     <h2>
       {% if slide.pre -%}
-        <span class="pre">{{ slide.pre | mdInline | safe }}</span>
+        <span class="pre">{{ slide.pre | string | mdInline | safe }}</span>
       {%- endif %}
       {{ slide.title | mdInline | safe }}
     </h2>
@@ -46,13 +46,19 @@
   styles=none,
   is='article'
 ) %}
+  {% set autoStyles = {
+    '--resize': slide.resize
+  } %}
+  {% set styles = (autoStyles | merge(styles)) | merge(slide.styles) %}
   <{{ is or 'article'}}
     id="slide-{{ slide.index }}"
     data-slide="{{ slide.name or name }}"
     {{ utility.style_if(styles or slide.styles) }}
     >
 
-    <div class="slide-content">
+    <div
+      class="slide-content"
+      {{ utility.attr_if('data-resize', slide.resize) }}>
       {{ caller() }}
     </div>
 

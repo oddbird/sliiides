@@ -1,0 +1,31 @@
+/* block formatting context ---------------- */
+svg {
+  float: left;
+}
+
+div {
+  /*   display: flow-root; */
+}
+
+/* block ---------------- */
+
+main,
+div,
+p {
+  /*   display: block flow; */
+  outline: 3px dotted;
+}
+
+/* inline ---------------- */
+
+svg,
+a,
+em {
+  /*   display: inline flow; */
+  background: bisque;
+}
+
+/* layout */
+main {
+  padding: 1em;
+}
