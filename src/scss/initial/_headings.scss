@@ -31,7 +31,6 @@ h4 {
 h1,
 h2 {
   @include fonts.var('extra');
-  font-size: var(--h1);
   line-height: 1.2;
 
   strong {
@@ -53,6 +52,14 @@ h2 {
   .pre {
     display: block;
   }
+}
+
+h1 {
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
 }
 
 h3 {

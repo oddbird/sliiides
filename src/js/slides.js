@@ -2,7 +2,7 @@ export default function () {
   const pres = document.querySelector('[data-body=slides]');
   const slides = document.querySelector('[data-slides]');
   const presToggle = document.querySelector('[data-toggle=presenting]');
-  const totalSlides = parseInt(slides.dataset.slides, 10);
+  const totalSlides = parseInt(slides.dataset.slides, 10) + 1;
   const numberFromHash = (hash) => parseInt(hash.split('-').pop(), 10);
   const isPresenting = () => sessionStorage.getItem('presenting') === 'true';
 

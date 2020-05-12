@@ -7,3 +7,18 @@ html {
 body {
   padding: 1em;
 }
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0.5em 0;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: darkblue;
+}

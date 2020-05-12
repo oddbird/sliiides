@@ -11,13 +11,3 @@ body {
   place-content: safe center;
   place-items: safe center;
 }
-
-/* layout */
-body {
-  min-height: 100vh;
-}
-
-img {
-  border: medium solid rebeccapurple;
-  border-radius: 0.125em;
-}

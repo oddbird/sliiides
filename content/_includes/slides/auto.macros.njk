@@ -33,7 +33,7 @@
     ) %}
       <div>
         <span class="byline h-card">
-          {{ page.data.author or 'Miriam Suzanne' }}
+          {{ page.data.author or page.data.mia.name }}
         </span>
         @
         <strong class="event h-card">
@@ -43,6 +43,38 @@
       <time datetime="{{ page.date | getDate('iso') }}">
         {{ page.date | getDate('long') }}
       </time>
+    {% endcall %}
+  {% endcall %}
+{% endmacro %}
+
+{% macro end(page) %}
+  {% call slides.base(
+    slide={
+      'index': page.data.slides | length + 1
+     },
+    name='closer',
+    page=page,
+    is='footer'
+  ) %}
+    {% if page.data.quote %}
+      {{ embed.blockquote(
+        page.data.quote.text,
+        page.data.quote.cite
+      ) }}
+    {% endif %}
+
+    {% call embed.media_block(
+      media=embed.svg('logos/oddbird'),
+      name='closer-detail'
+    ) %}
+      <h2>
+        <span class="pre">
+          @{{ page.data.twitter or page.data.mia.twitter }}
+        </span>
+        <strong class="byline h-card">
+          {{ page.data.author or page.data.mia.name }}
+        </strong>
+      </h2>
     {% endcall %}
   {% endcall %}
 {% endmacro %}

@@ -16,15 +16,3 @@ h2 {
   /* outline: 0.25em dotted rebeccapurple; */
   /* outline-offset: 0.25em; */
 }
-
-/* layout */
-main {
-  padding: 1em;
-}
-
-nav ul {
-  display: flex;
-  gap: 1em;
-  list-style: none;
-  padding: 0;
-}

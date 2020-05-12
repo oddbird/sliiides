@@ -1,10 +1,11 @@
 {% import "utility.macros.njk" as utility %}
 
 {% macro title(
-  slide
+  slide,
+  class=none
 ) %}
   {% if slide.title %}
-    <h2>
+    <h2 {{ utility.attr_if('class', class) }}>
       {% if slide.pre -%}
         <span class="pre">{{ slide.pre | string | mdInline | safe }}</span>
       {%- endif %}
@@ -20,6 +21,7 @@
   index,
   count
 ) %}
+  {% set count = count + 1 %}
   <nav class="slide-nav" aria-label="slide {{ index }}">
     {% if index > 0 %}
       <a href="#slide-{{ index - 1 }}">«<span class="sr-only">
@@ -44,7 +46,8 @@
   name,
   page,
   styles=none,
-  is='article'
+  is='article',
+  class=none
 ) %}
   {% set autoStyles = {
     '--resize': slide.resize
@@ -53,6 +56,7 @@
   <{{ is or 'article'}}
     id="slide-{{ slide.index }}"
     data-slide="{{ slide.name or name }}"
+    {{ utility.attr_if('class', class) }}
     {{ utility.style_if(styles or slide.styles) }}
     >
 

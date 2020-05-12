@@ -1,0 +1,18 @@
+body {
+  display: grid;
+  /* min-height: 100vh; */
+  /* gap: 0.5em; */
+  /* place-content: safe center; */
+}
+
+header {
+  /* grid-column: span 2; */
+}
+
+.b {
+  /* grid-column: span 2; */
+}
+
+body {
+  /* grid-auto-flow: dense; */
+}

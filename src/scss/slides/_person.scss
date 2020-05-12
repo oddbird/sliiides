@@ -1,0 +1,34 @@
+[data-slide='person'] {
+  --align: stretch;
+  // --h2: var(--h3);
+  --justify: stretch;
+  --padding: var(--gutter-plus) 0 0;
+  --width: 100%;
+
+  .slide-content {
+    display: grid;
+    grid-template-columns: [face-start] minmax(0, 1fr) [bio-start] var(--spacer) [face-end] 2fr [bio-end];
+  }
+
+  .u-photo {
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--spacer)) 100%, 0 100%);
+    grid-area: 1 / face;
+    object-fit: var(--img-fit, cover);
+    object-position: var(--img-position, center);
+    overflow: hidden;
+    place-self: stretch;
+  }
+
+  .pre {
+    font-size: var(--h3);
+  }
+
+  .person {
+    align-self: safe center;
+    background: var(--bg);
+    display: grid;
+    grid-area: 1 / bio;
+    padding: var(--gutter);
+    position: relative;
+  }
+}

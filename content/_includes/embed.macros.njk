@@ -217,6 +217,21 @@ params:
   {%- endfor -%}
 {%- endmacro %}
 
+{% macro blockquote(
+  quote,
+  cite=none
+) %}
+  <blockquote>
+    {{ quote | md | safe }}
+    {% if cite %}
+      <div class="cite h-card">
+        {{- '--' | mdInline | safe -}}
+        {{- cite | mdInline | safe -}}
+      </div>
+    {% endif %}
+  </blockquote>
+{% endmacro %}
+
 {# @docs
 label: img
 category: Embed

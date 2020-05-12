@@ -2,4 +2,5 @@ layout: demo
 styles:
   - remedy
   - /demos/base.css
+  - setup.css
   - demo.css

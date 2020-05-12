@@ -1,0 +1,18 @@
+body {
+  /* display: grid; */
+  /* gap: 1em; */
+  /* min-height: 100vh; */
+
+  /* grid template rows */
+}
+
+@media (min-width: 40em) {
+  body {
+    /* grid template columns */
+  }
+}
+
+/* h1 { grid-area: banner; } */
+/* nav { grid-area: nav; } */
+/* main { grid-area: main; } */
+/* footer { grid-area: footer; } */

@@ -36,15 +36,32 @@
   {% endcall %}
 {% endmacro %}
 
+{% macro person(slide, page) %}
+  {% set imgStyle = {
+    '--img-position': slide.position,
+    '--img-fit': slide.fit
+  } %}
+  {% set styles = slide.style | merge(imgStyle) %}
+  {% call slides.base(slide, 'person', page, styles, class='h-card') %}
+    {{ embed.img(
+      src='_people/' + slide.face,
+      alt=slide.alt,
+      attrs={'class': 'u-photo'}
+    ) }}
+    <div class="person">
+      {{ slides.title(slide, 'p-name') }}
+      {% if slide.md %}
+      <div class="md">
+        {{ slide.md | md | safe }}
+      </div>
+      {% endif %}
+    </div>
+  {% endcall %}
+{% endmacro %}
+
 {% macro quote(slide, page) %}
   {% call slides.base(slide, 'quote', page) %}
-    <blockquote>
-      {{ slide.quote | md | safe }}
-      <div class="cite h-card">
-        {{- '--' | mdInline | safe -}}
-        {{- slide.cite | mdInline | safe -}}
-      </div>
-    </blockquote>
+    {{ embed.blockquote(slide.quote, slide.cite) }}
   {% endcall %}
 {% endmacro %}
 
@@ -58,8 +75,10 @@
 {% endmacro %}
 
 {% macro pen(slide, page) %}
-  {%- set pres %}[[present](https://codepen.io/{{ slide.user or 'mirisuzanne' }}/pres/{{ slide.id }}?editors=1100)]{% endset -%}
-  {%- set caption = [slide.caption, pres] | join(' ') if slide.caption else pres -%}
+  {%- set pres %}[present](https://codepen.io/{{ slide.user or 'mirisuzanne' }}/pres/{{ slide.id }}?editors=1100){% endset -%}
+  {%- set raw %}[debug](https://codepen.io/{{ slide.user or 'mirisuzanne' }}/debug/{{ slide.id }}){% endset -%}
+  {%- set links -%}[{{ [pres, raw] | join(' | ') }}]{%- endset -%}
+  {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
   {%- set slide = slide | merge({'caption': caption}) -%}
   {% call slides.base(slide, 'codepen', page) %}
     {{ embed.codepen(
@@ -71,29 +90,6 @@
       tab=slide.tab or 'result',
       preview=slide.preview
     ) }}
-  {% endcall %}
-{% endmacro %}
-
-{% macro list(slide, page) %}
-  {%- set content -%}
-  {%- for item in (slide.ol or slide.ul) -%}
-    {% set feature =
-      (loop.index in slide.feature)
-      if slide.feature | typeCheck('array')
-      else (loop.index == slide.feature)
-    %}
-    <li {% if feature %}class="feature"{% endif %}>
-      {{- item | mdInline | safe -}}
-    </li>
-  {%- endfor -%}
-  {%- endset -%}
-  {% call slides.base(slide, 'list', page) %}
-    {{ slides.title(slide) }}
-    {% if slide.ol %}
-      <ol>{{ content | safe }}</ol>
-    {% else %}
-      <ul>{{ content | safe }}</ul>
-    {% endif %}
   {% endcall %}
 {% endmacro %}
 
@@ -112,6 +108,8 @@
 {% macro find(slide, page, collections) %}
   {% if slide.demo %}
     {{ demo(slide, page, collections) }}
+  {% elif slide.face  %}
+    {{ person(slide, page) }}
   {% elif slide.img %}
     {{ img(slide, page) }}
   {% elif slide.quote %}
@@ -120,8 +118,6 @@
     {{ pen(slide, page) }}
   {% elif slide.md %}
     {{ md(slide, page) }}
-  {% elif slide.ol or slide.ul %}
-    {{ list(slide, page) }}
   {% elif slide.title %}
     {{ title(slide, page) }}
   {% else %}

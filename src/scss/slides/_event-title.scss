@@ -1,3 +1,6 @@
+@use '../config/patterns';
+
+// opener
 [data-slide='event-title'] {
   em,
   strong {
@@ -8,4 +11,26 @@
 [data-media='title-detail'] {
   --align: center;
   --fill: var(--feature);
+}
+
+// closer
+[data-slide='closer'] {
+  .slide-content {
+    justify-items: center;
+  }
+
+  blockquote {
+    border: 2px solid var(--border);
+    border-image: var(--feature-gradient) 1;
+    border-width: 2px 0;
+    padding: var(--gutter) 0;
+  }
+}
+
+[data-media='closer-detail'] {
+  --fill: var(--feature);
+
+  .pre {
+    font-size: 1rem;
+  }
 }

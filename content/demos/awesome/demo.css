@@ -17,12 +17,3 @@
   text-decoration: underline;
   outline: 0;
 }
-
-/* layout */
-body {
-  display: grid;
-  font-weight: bold;
-  line-height: 1;
-  min-height: 100vh;
-  place-content: safe center;
-}

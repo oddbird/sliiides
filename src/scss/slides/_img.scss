@@ -1,9 +1,10 @@
 [data-slide='img'] {
+  --align: stretch;
+  --justify: stretch;
+  --padding: var(--gutter-plus) 0 0;
+  --width: 100%;
+
   .slide-content {
-    --align: stretch;
-    --justify: stretch;
-    --padding: var(--gutter-plus) 0 0;
-    --width: 100%;
     display: flex;
     flex-direction: column;
   }
