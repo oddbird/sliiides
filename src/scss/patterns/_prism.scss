@@ -21,12 +21,12 @@ $_code-color-fade: var(--text-light);
 
   // prism tokens
   $code-color-comment: $_code-color-fade,
-  $code-color-keyword: var(--feature),
-  $code-color-value: var(--highlight),
-  $code-color-string: var(--highlight),
-  $code-color-name: var(--highlight),
-  $code-color-number: var(--highlight),
-  $code-color-variable: var(--feature),
-  $code-color-selector: var(--feature),
+  $code-color-keyword: var(--highlight),
+  $code-color-value: var(--highlight-prime),
+  $code-color-string: var(--highlight-prime),
+  $code-color-name: var(--highlight-prime),
+  $code-color-number: var(--highlight-prime),
+  $code-color-variable: var(--highlight),
+  $code-color-selector: var(--highlight-special),
   $code-color-punctuation: $_code-color-fade,
 );

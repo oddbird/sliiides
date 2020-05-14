@@ -25,8 +25,10 @@ hr {
 /// with a hint of the accent hue.
 /// @group type
 ::selection {
-  background-color: var(--ccs-accent--fg5);
-  color: var(--bg);
+  /* stylelint-disable */
+  background-color: var(--ccs-accent--fg5) !important;
+  color: var(--bg) !important;
+  /* stylelint-enable */
 }
 
 // Paragraphs & Lists

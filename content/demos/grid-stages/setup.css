@@ -1,0 +1,71 @@
+html {
+  font-size: min(1em + 0.5vw, 1.25em);
+}
+
+body {
+  padding: 0;
+}
+
+.demo {
+  --color-primary: hsl(258, 37%, 46%);
+  --color-text: hsl(260, 14%, 29%);
+  --color-border-light: hsl(0, 0%, 80%);
+  --color-overlay: hsl(259, 36%, 28%);
+  --image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/150150/code2.png');
+}
+
+.social {
+  border: thin solid var(--color-primary);
+  border-width: thin 0;
+}
+
+h1,
+main {
+  border: thin solid var(--color-primary);
+  border-width: 0 thin;
+  margin: 0;
+}
+
+h1 {
+  font-size: calc(1.5em + 2vw);
+  line-height: 1.2;
+  text-align: center;
+  padding: 1rem 1rem 2rem;
+}
+
+h1 b {
+  display: block;
+  font-size: min(2em + 5vw, 5em);
+  text-transform: uppercase;
+  margin-bottom: -0.25em;
+}
+
+main {
+  padding: 0 1.5em;
+}
+
+h2 {
+  align-items: center;
+  display: flex;
+  font-size: min(1.5em + 1vw, 2em);
+  font-weight: normal;
+  margin-top: -0.6em;
+  text-align: center;
+  gap: 1rem;
+}
+
+h2::before,
+h2::after {
+  border-top: thin solid var(--color-primary);
+  content: '';
+  flex: 1;
+}
+
+main p {
+  columns: 2 20ch;
+  gap: 1.5em;
+}
+
+footer {
+  border-top: thin solid var(--color-primary);
+}

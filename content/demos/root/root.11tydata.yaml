@@ -1,0 +1,3 @@
+override:styles:
+  - remedy
+  - /demos/base.css

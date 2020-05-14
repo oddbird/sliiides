@@ -15,9 +15,12 @@ slides:
 - pre: 90s... 
   title: HTML **`<table>`**
 
-- pre: |
-    `(╯'□')╯︵` *`┻━┻`*
-  title: TABLES ARE FOR **DATA**
+- title: |
+    (╯`'□'`)╯︵ **┻━┻** \
+    TABLES ARE FOR **DATA**
+
+- title: |
+    **┬──┬** ノ( ゜-゜ノ)
 
 - pre: 00s...
   title: |
@@ -72,10 +75,9 @@ slides:
     ```
   caption: Watch out for *sub-pixel rounding*
 
-- pre: |
-    `(╯'□')╯︵` *`┻━┻`*
-  title: FLOATS ARE FOR 
-  sub: uh... **floating, I guess?**
+- title: |
+    (╯`'□'`)╯︵ **┻━┻** \
+    FLOATS ARE FOR **---**
 
 - img: layouts/float.jpg
   caption: Great for elements that should... float...
@@ -139,11 +141,20 @@ slides:
     5. **Expand** & **Contract** Content
     6. Media Queries, **As Needed**
 
-# implicit --------------------------
+# quickstart --------------------------
 
 - title: |
     **Implicit** grids
   sub: generate **auto**-columns/rows **as needed**
+
+- title: |
+    **Explicit** grids
+  sub: generate columns/rows from a **template**
+
+- title: |
+    **grid-auto-flow**: row
+  sub: |
+    **`column`** | [+ **`dense`**]
 
 - pre: Item *Placement*...
   title: |
@@ -160,32 +171,6 @@ slides:
     grid-column: **span `<count>`**
   sub: either **start** or **end** can be a span
 
-- pre: |
-    *Implicit* Tracks
-  title: |
-    grid-**auto**-columns \
-    grid-**auto**-rows \
-
-- pen: Implicit Grids with Sizing
-  id: XQxNBg
-
-- title: Sizing **Implicit Tracks**
-  sub: |
-     **`grid-auto-rows`** | **`grid-auto-columns`**
-
-- title: |
-    **grid-auto-flow**: row
-  sub: |
-    **`column`** | [+ **`dense`**]
-
-- demo: grid-implicit
-
-# explicit --------------------------
-
-- title: |
-    **Explicit** grids
-  sub: generate columns/rows from a **template**
-
 - demo: grid-quickstart
 
 # terms -------------------------------
@@ -197,12 +182,20 @@ slides:
   id: ObmjeZ
   user: stacy
 
+# defaults -------------------------
+
+- pre: |
+    Sizing *Implicit* Tracks
+  title: |
+    grid-**auto**-columns \
+    grid-**auto**-rows \
+
 # templates -------------------------
 
 - pre: Defining *Templates*
   title: |
-     grid-template-**columns** \
-     grid-template-**rows**
+     grid-**template**-columns \
+     grid-**template**-rows
 
 - pre: Fluid *&* Fixed
   title: 20**em** 25<strong>%</strong> 200**px**
@@ -300,7 +293,12 @@ slides:
   title: 
     Auto ➡ **Minmax** ➡ Flex
 
-- todo: demo column sizing
+- img: grids/layout.jpg
+  alt: grid page layout
+  caption: |
+    [on dropbox](https://www.dropbox.com/s/2f5uifofg54rflv/Screenshot%202020-05-13%2022.17.35.jpg?dl=0)
+
+- demo: grid-stages
 
 # grid areas ------------------------------
 

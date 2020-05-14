@@ -72,16 +72,17 @@ $content-colors: (
   'text': var(--ccs-neutral--fg-full),
   'text-light': var(--ccs-neutral--fg3),
   'accent': var(--ccs-accent--fg1),
-  'highlight': var(--ccs-accent--fg3),
   'feature': var(--ccs-prime--fg4),
-  'feature-accent': var(--ccs-accent--fg1),
+  'highlight': var(--ccs-accent--fg3),
+  'highlight-prime': var(--ccs-accent--fg3),
+  'highlight-special': var(--ccs-special--fg3),
   'border': var(--ccs-neutral),
   'border-fade': var(--ccs-neutral--fade),
   'shadow':
     hsla(var(--ccs-h--neutral), var(--ccs-s--fg6), var(--ccs-l--fg6), 0.25),
   'action': var(--ccs-prime--fg3),
   'active': '#highlight',
-  'icons': var(--ccs-special--fg1),
+  'icons': '#feature-special',
   'strikeout': var(--bg),
 );
 
