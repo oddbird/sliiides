@@ -1,0 +1,45 @@
+---
+demo: vars-temps
+title: Animated Chart
+temps: [
+    49, 48, 47, 46, 45, 45, 45, 46, 49, 53, 59, 63,
+    66, 69, 71, 71, 72, 71, 70, 68, 65, 62, 59, 57
+  ]
+---
+
+{% set day %}{#
+#}--day-start: 0;{#
+#}--day-end: 24;{#
+#}--high-temp: {{ temps | max }};{#
+#}--low-temp: {{ temps | min }};{#
+#}{% endset %}
+
+<table class="day" style="{{ day | trim }}">
+  <thead>
+    <!-- Hours -->
+    <tr data-row="hours">
+      {% for time in range(0, 24) %}
+      <th data-cell="hour-title">
+        {{ time }}hr
+      </th>
+      {% endfor %}
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- Temps -->
+    <tr data-row="temps" style="--ease: var(--in-out-back);">
+
+      <!-- Temp -->
+      {% for temp in temps %}
+      <td data-cell="temp-value"
+        style="--temp: {{ temp }}; --index: {{ loop.index }};" >
+        <span class="temp-value">
+          {{ temp }}°
+        </span>
+      </td>
+      {% endfor %}
+
+    </tr>
+  </tbody>
+</table>

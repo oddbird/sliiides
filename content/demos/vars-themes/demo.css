@@ -1,0 +1,26 @@
+html {
+  --brand-dark: rebeccapurple;
+  --brand-light: #ebe;
+  --brand-black: #101;
+  --brand-white: #fef;
+}
+
+[data-theme] {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+[data-theme='dark'] {
+  --bg-color: var(--brand-dark);
+  --text-color: var(--brand-light);
+}
+
+[data-theme='light'] {
+  --bg-color: var(--brand-light);
+  --text-color: var(--brand-dark);
+}
+
+[data-theme='contrast'] {
+  --bg-color: var(--brand-black);
+  --text-color: var(--brand-white);
+}

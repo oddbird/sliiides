@@ -3,13 +3,16 @@
 {% import "utility.macros.njk" as utility %}
 
 {% macro demo(slide, page, collections) %}
-  {% set demoPage = collections.all | findPage('data.demo', slide.demo) %}
-  {%- set pres %}[[permalink]({{ demoPage.url }})]{% endset -%}
-  {%- set caption = [slide.caption or demoPage.data.title, pres] | join(' ') -%}
+  {%- set demoUrl = slide.demo if ('://' in slide.demo) else none -%}
+  {%- set demoPage = false if demoUrl else collections.all | findPage('data.demo', slide.demo) -%}
+  {%- set demoUrl = demoPage.url if demoPage else demoUrl -%}
+  {%- set demoTitle = demoPage.data.title if demoPage else slide.title -%}
+  {%- set pres %}[[permalink]({{ demoUrl }})]{% endset -%}
+  {%- set caption = [slide.caption or demoTitle, pres] | join(' ') -%}
   {%- set slide = slide | merge({'caption': caption}) -%}
   {% call slides.base(slide, 'demo', page) %}
     {{ embed.iframe(
-      src=demoPage.url,
+      src=demoUrl,
       width=slide.width or 560,
       height=slide.height or 315
     ) }}

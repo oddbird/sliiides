@@ -1,0 +1,27 @@
+html {
+  font-size: calc(1em + 0.5vw);
+}
+
+thead,
+tbody {
+  display: contents;
+}
+
+[data-cell='hour-title'] {
+  padding-bottom: 1em;
+  text-align: left;
+}
+
+[data-cell='temp-value'] {
+  text-align: center;
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+}
+
+table {
+  display: grid;
+  grid: auto 1fr / 1fr;
+}

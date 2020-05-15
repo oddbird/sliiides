@@ -1,0 +1,16 @@
+---
+demo: vars-themes
+title: Color Themes
+---
+
+{% set themes = [
+  'light',
+  'dark',
+  'contrast'
+] %}
+
+{% for theme in themes %}
+<div data-theme="{{ theme }}">
+  Our "{{ theme }}" Theme
+</div>
+{% endfor %}

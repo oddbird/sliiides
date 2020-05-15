@@ -1,10 +1,14 @@
 ---
 title: Custom Properties & Functions
-talk: Custom Properties & **Functions**
+talk: Custom **Properties** & **Functions**
 date: 2020-05-15
 slides:
 
 # intro ---------------------
+
+- pre: |
+    *Variables*
+  title: In **CSS**
 
 - title: |
     **current**Color
@@ -33,6 +37,17 @@ slides:
     `-<empty>-`**`browser-prefix`**
 
 - title: |
+    **`--very`**`: few restrictions;`
+
+- pen: Page construction in CJSS
+  user: scottkellum
+  id: WqwjLm
+  tabs: css
+
+- title: |
+    `var(` **`--name`** `)`
+
+- title: |
     `var(` **`--name`** `, fallback)`
 
 - title: Only **One Fallback**
@@ -44,27 +59,83 @@ slides:
   md: |
     `var(--my-color,` *`var(--other-color, pink)`*`)`
 
+- pen: Invalid, Unsupported, or Undefined
+  id: OYoVLX
+
 # Sass ---------------------
+
+- pre: Some *Overlap*
+  title: With **Sass Variables**
+
+- md: |
+    ```scss
+    $my-color: rebeccapurple;
+    --my-color: rebeccapurple;
+    ```
+
+- pre: Store *Data*
+  title: For **Later Use**
+
+- pre: Establish
+  title: |
+    **Global** Patterns
+
+- title: |
+    Keep Code **DRY** 
+  sub: |
+    "*Don't Repeat Yourself*"
+
+- pre: |
+    With a *Single*
+  title: |
+    Source of **Truth**
+
+- md: |
+    ```css
+    html {
+      --gutter: 1.5rem;
+      --shim: calc(var(--gutter) / 2);
+    }
+    ```
+
+- md: |
+    ```css
+    html {
+      --brand-color: hsl(330, 100%, 45%);
+      --action: var(--brand-color);
+    }
+    ```
+
+- pre: But there are
+  title: Important **Differences**
 
 - pre: Sass Variables *Scope*
   title: Without **DOM Awareness**
 
 - md: |
     ```scss
-    .example { $columns: 2; }
-    .nested-class { /* $columns == undefined */ }
+    .example { 
+      $columns: 2; 
+    }
+    .nested-class { 
+      /* $columns == undefined */ 
+    }
     ```
 
-- pre: Custom Props *Inherit*
+- pre: Properties *Inherit*
   title: With **DOM Awareness!**
 
 - md: |
     ```css
-    .example { --columns: 2; }
-    .nested-class { /* var(--columns) == 2 */ }
+    .example { 
+      --columns: 2; 
+    }
+    .nested-class { 
+      /* var(--columns) == 2 */ 
+    }
     ```
 
-- title: Media-Query **Toggle**
+- title: Media-Query **Changes**
   md: |
     ```scss
     @media (min-width: 30em) {
@@ -75,81 +146,190 @@ slides:
     }
     ```
 
-# defining ---------------------
+- pre: Custom *Properties*
+  title: Not Just **Variables**
 
-- title: |
-    **Global** Variables
-  md: |
-    ```css
+- title: Use **Both**
+
+- pre: Will It *Change*
+  title: In The **Browser**?
+
+- pre: Will It *Change*
+  title: Depending on **Context**?
+
+- pre: Keep *NSYNC*...
+  title: Properties From **Variables**
+
+- md: |
+    ```scss
+    $gutter: 1rem;
+    html { --gutter: #{$gutter}; }
+    ```
+
+- md: |
+    ```scss
+    $brand-colors: (
+      'brand-blue': hsl(195, 52%, 31%),
+      'brand-orange': hsl(24, 100%, 62%),
+      'brand-pink': hsl(330, 100%, 45%),
+    );
+    ```
+
+- md: |
+    ```scss
     html {
-      --brand-color: hsl(330, 100%, 45%);
+      @for $name, $value in $brand-colors {
+        --#{$name}: #{$value};
+      }
     }
     ```
 
-- pre: Or *`:root`*
-  title: For **Multiple Formats**??
-  sub: Only the *rootest root*, *higher specificity*
+# root ---------------------
+
+- title: |
+    *`<root-rant>`*...
+  sub: Only the *rootest root*
+
+- md: |
+    ```css
+    :root {
+      --brand-color: hsl(330, 100%, 45%);
+      --action: var(--brand-color);
+    }
+    ```
+
+- pre: |
+    *`:root`* selects
+  title: Any **Document** Root
+  sub: Like `<svg>` or `<xml>` or `<html>`
 
 - demo: root-solo
 - demo: root-embed
 
+- pre: Pseudo-*class* Has
+  title: Higher **Specificity**
+
+- pre: Maybe *Use Cases*?
+  title: But **Be Careful**
+
 - title: |
     *`</root-rant>`*
 
-- pre: Inherits *Resolved Value*
-  title: Compiled Where **Defined**
+# inheritance ---------------------
 
-- pre: Stop *Inheritance*
-  title: With **Universal** Declaration
+- pre: Custom *Properties*
+  title: Inherit By **Default**
 
-- md: |
+- pre: Reset *Inheritance*
+  title: With **Explicit** Selectors
+
+- title: Declare **Locally**
+  md: |
     ```css
-    * {
-      --columns: 12;
-      --column-span: initial;
-    }
-    ```
-
-- pre: When Reasonable
-  title: Declare **Locally**
-
-- md: |
-    ```css
-    button {
+    [data-button='go'] {
       --btn-color: green;
     }
     ```
 
+- title: Declare **Universally**
+  md: |
+    ```css
+    * {
+      --grid-area: main;
+    }
+    ```
+
+- title: Combine **Both**
+  md: |
+    ```css
+    [data-grid] * {
+      --grid-area: main;
+    }
+    ```
+
+- title: Declare **Nowhere** First
+  md: |
+    ```css
+    [data-grid] * {
+      grid-area: var(--grid-area, main);
+    }
+    ```
+  caption: |
+    Like JS **`undefined`**
+
 # use cases ---------------------
 
-- title: Avoid **Nesting**...
+- title: Lots  of **Use Cases**
+
+- pre: Use (& *Manage*)
+  title: The **Cascade**!
+
+- pre: Changes...
+  title: Based on **Context** / **Theme**
 
 - md: |
-    ```scss
+    ```css
     button {
       background: blue
     }
 
-    .this button {
-      background: red;
+    [data-theme='rebecca'] button {
+      background: rebeccapurple;
     }
     ```
 
--  title: ...For Lower **Specificity**
-
 - md: |
-    ```scss
+    ```css
     button {
-      --btn-color: var(--brand-color, blue);
       background: var(--btn-color, blue);
     }
 
-    .this {
+    [data-theme='rebecca'] {
       --btn-color: red;
     }
     ```
 
-- title: Safe **Inline Styles**
+- pre: Inheritance 
+  title: Rewards **Proximity**
+  sub: Like "scroped styles"
+
+- pre: Component *Parameters* 
+  title: Set By **Inheritance**
+
+- md: |
+    ```css
+    .component {
+      color: var(--color, black);
+    }
+
+    .context {
+      --color: rebeccapurple;
+    }
+    ```
+
+- pre: Changes...
+  title: Based on **State** / **Type**
+
+- md: |
+    ```css
+    [data-button] {
+      background: var(--btn-color, blue);
+    }
+
+    [data-button]:disabled {
+      --btn-color: gray;
+    }
+
+    [data-button='go'] {
+      --btn-color: green;
+    }
+    ```
+
+- pre: Avoids *Nesting*
+  title: For Lower **Specificity**
+
+- pre: Component *Parameters* 
+  title: As Safe **Inline Styles**
 
 - md: |
     ```html
@@ -159,18 +339,16 @@ slides:
 - pre: Optionally
   title: |
     **Use** The Variable...
-
-- md: |
-    ```scss
+  md: |
+    ```css
     button {
       background: var(--color, red);
     }
     ```
 
 - title: ...Or **Ignore** It
-
-- md: |
-    ```scss
+  md: |
+    ```css
     button.green {
       background: green;
     }
@@ -181,14 +359,73 @@ slides:
 
 - md: |
     ```css
-    .example {
-      --shadow-y: -1px;
+    .box {
       box-shadow: var(--shadow-x, 0)
                   var(--shadow-y, 1px)
                   var(--shadow-blur, 0)
                   var(--shadow-color, currentColor);
     }
+    
+    .usage { --shadow-y: -1px; }
     ```
+
+- demo: vars-basic
+
+# functions ----------------------------
+
+- title: Custom **Functions** & **Mixins**
+
+- demo: vars-stripes
+
+- img: dynamic-css/smashing-vars.jpg
+  alt: CSS Custom Properties in the Cascade by Miriam Suzanne
+  caption: |
+    Article on
+    [Smashing Magazine](https://www.smashingmagazine.com/2019/07/css-custom-properties-cascade/)
+
+# Colors ----------------------
+
+- title: Color **Themes**
+
+- demo: vars-themes
+
+- md: |
+    ```css
+    [data-theme] {
+      background: var(--background);
+      color: var(--text);
+    }
+
+    [data-theme='light'] {
+      --background: #ddf;
+      --text: #226;
+    }
+    ```
+
+- title: Think in **Layers**
+  sub: Brand **➡** Theme **➡** Purpose **➡**
+
+- md: |
+    ```css
+    html {
+      --brand-light: #ddf;
+      --brand-dark: #226;
+    }
+    ```
+
+- pre: |
+    "Soft *Patch*" 
+  title: Between **Layers**
+
+- md: |
+    ```css
+    [data-theme='light'] {
+      --background: var(--brand-light);
+      --text: var(--brand-dark);
+    }
+    ```
+
+- demo: vars-themes
 
 - title: Individual **Color Channels**
 
@@ -198,183 +435,285 @@ slides:
       --h: 330;
       --s: 100%;
       --l: 34%;
-    }
-
-    button {
-      background: hsl(var(--h), var(--s), var(--l));
+      --color: hsl(var(--h), var(--s), var(--l));
     }
     ```
 
-# functions ----------------------------
+- title: Hue is **Radial**
+  md: |
+    ```css
+    * {
+      --complement: calc(var(--h) - 180);
+      background: hsl(var(--complement), var(--s), var(--l));
+    }
+    ```
 
-# ## `calc(` **`16px`** `+` **`20%`** `)`
-# mix and match units
+- title: Lightness is "**Clamped**"
+  md: |
+    ```css
+    * {
+      --threshold: 55;
+      --contrast: calc((var(--l) - var(--threshold)) * -100%);
+      color: hsl(var(--h), var(--s), var(--contrast));
+    }
+    ```
 
-# <!-- slide -->
+- demo: https://talks.oddbird.net/demos/hslTheme
+  caption: |
+    Inspired by [Facundo Corradini](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
 
-# ## Variables `+` Calc `==` **Functions**
-# `calc(` **`var(--span)`** `/` **`var(--columns)`** `* 100%)`
+- title: |
+    [Cascading Colors](cascading-colors.netlify.com/)
 
-# <!-- slide -->
+# Custom Cascades -----------------------
 
-# ## New Old **Grid System**?
-# I'm not sure there's any reason to do this exactly...
+- title: Custom **Cascades**
 
-# ```css
-# html {
-#   --columns: 12;
-# }
+- pen: Custom (Property) Cascades
+  id: KKdWXGo
 
-# [data-span] {
-#   --width: calc(var(--span) / var(--columns) * 100%);
-#   width: var(--width, initial);
-# }
-# ```
+- md: |
+    ```css
+    html {
+      @media (prefers-color-scheme: dark) {
+        --os-mode: -1;
+      }
 
-# <!-- slide -->
+      @media (prefers-color-scheme: light) {
+        --os-mode: 1;
+      }
+    }
+    ```
 
-# ```css
-# [data-span='3'] {
-#   --span: 3;
-# }
+- md: |
+    ```css
+    [data-colors='light'] {
+      --html-mode: 1;
+    }
 
-# [data-span='half'] {
-#   --span: calc(var(--columns) / 2);
-# }
-# ```
+    [data-colors='dark'] {
+      --html-mode: -1;
+    }
+    ```
 
-# <!-- slide -->
+- md: |
+    ```css
+    [data-colors] {
+      --mode: var(
+        --user-mode, var(
+          --html-mode, var(
+            --os-mode, 1
+          )
+        )
+      );
+    }
+    ```
 
-# ## Smart **Media-Queries**
+# Layouts --------------------------------
 
-# ```css
-# * {
-#   --columns: 6;
-#   @media (min-width: 45em) { --columns: 12; }
-# }
-# ```
+- title: Dynamic **Layouts**
 
-# <!-- slide -->
+- title: |
+    [cssSusy](https://talks.oddbird.net/demos/cssSusy)
+  caption: |
+    [AG Grid Nesting Test](http://oocss.org/grids_docs.html)
+    from OOCSS
 
-# ---
-# demo: cssSusy
-# resize: true
-# caption: |
-#   [AG Grid Nesting Test](http://oocss.org/grids_docs.html)
-#   from OOCSS
-# ---
+- title: Client **Day Planner**
+  md: |
+    ![Screenshot of schedule grid](/images/layouts/schedule.jpg)
 
-# <!-- slide -->
+- title: Define the **Day**
+  md: |
+    ```html
+    <main style="
+      --day-start: 9,
+      --day-end: 18
+    ">
+    ```
 
-# ### Variable **Issues**:
-# ## Unknown **Value Types**
+- title: Define the **Events**
+  md: |
+    ```html
+    <section style="
+      --event-start: 13,
+      --event-end: 14
+    ">
+    ```
 
-# <!-- slide -->
+- title: |
+    [Charts & Data](https://talks.oddbird.net/demos/cssChart)
+  caption: |
+    Article on [CSS Tricks](https://css-tricks.com/css-charts-grid-custom-properties/)
 
-# ## Transition & Animate **Results**
-# Not the variable itself...
+- img: layouts/invade.jpg
+  caption: |
+    [Levitated Toy Factory](http://levitated.guru/work/)
+    at **Beyond Tellerand**
 
-# ```scss
-# button {
-#   --color: green;
-#   background: var(--color);
-#   transition: background 0.5s;
+- img: dynamic-css/jsconfus18/learning.jpg
+  alt: |
+    List of code dourses, all titled Learn X Language,
+    except the JavaScript course titled
+    Intro To JS
+  caption: One does not simply "learn" JavaScript
+  fit: contain
 
-#   &:hover {
-#     --color: red;
-#   }
-# }
-# ```
+- title: |
+    [Vue Invaders](https://talks.oddbird.net/demos/vueInvaders)
 
-# <!-- slide -->
+# Sprite Animations ---------------------------
 
-# ## Houdini [Properties & Values API][values] **\***
-# **\*** Experimental (behind Chrome flag)
+- title: CSS **Animation**
 
-# [values]: https://drafts.css-houdini.org/css-properties-values-api/
+- demo: vars-temps
 
-# <!-- slide -->
+- pre: Set *Index* Prop
+  title: To Offset **Delay**
 
-# ## In **JavaScript**
+- md: |
+    ```html
+    <div style="--index: {{ loop.index }};">
+    ```
 
-# ```js
-# CSS.registerProperty({
-#   name: "--brand-color",
-#   syntax: "<color>",
-#   initialValue: "pink",
-#   inherits: true,
-# });
-# ```
+    ```css
+    animation-delay: calc(var(--index) * 50ms);
+    ```
 
-# <!-- slide -->
+- pre: Create *API*
+  title: For **HTML Soft Patch**
 
-# ## Proposed **CSS**
+- md: |
+    ```html
+    <div style="--ease: var(--in-out-back);">
+    ```
 
-# ```css
-# @property --brand-color {
-#   syntax: "<color>";
-#   initialValue: "pink";
-#   inherits: true;
-# }
-# ```
+    ```css
+    [style*='--ease'] {
+      --in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+      --out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    ```
 
-# <!-- slide -->
+- img: dynamic-css/vueconf19/sprite.jpeg
+  alt: Krystal Campioni sprite animation
+  fit: contain
 
-# ## **Content** Requires **Quoted Values**
+- img: dynamic-css/vueconf19/animations-copy.png
+  alt: Sprite from Monster Slayer animation
+  fit: contain
 
-# ```css
-# div::after {
-#   --string: 'hello world';
-#   content: var(--string);
-# }
-# ```
+- md: |
+    ```html
+    <section
+      class="sprite-demo"
+      :style="{
+        '--src': show.sprite.src,
+        '--columns': show.sprite.columns,
+        '--rows': show.sprite.rows,
+    }">...</section>
+    ```
 
-# <!-- slide -->
+- md: |
+    ```html
+    <div
+      v-for="action in show.actions"
+      :key="action.name"
+      :data-action="action.name"
+      :style="{
+        '--row': action.row,
+      }"
+    />
+    ```
 
-# ## Content **Hack** For Numbers
+- title: |
+    [cssSprites](https://talks.oddbird.net/demos/cssSprites)
+  caption: |
+    Animated sprites from
+    [Monster Slayer](https://github.com/krystalcampioni/monster-slayer)
+    by [Krystal Campioni](https://twitter.com/krystalcampioni)
 
-# ```css
-# div::after {
-#   --number: 3;
-#   counter-reset: number var(--number);
-#   content: counter(number);
-# }
-# ```
+# Issues ---------------------------
 
-# <!-- slide -->
+- pre: Variable *Issues*...
+  title: Unknown **Value Types**
 
-# ### Currently
-# ## **No Support** in **`url()`** | **`@media`**
+- pre: Transition & Animate 
+  title: |
+    **Target** Properties
+  sub: Not the variable itself...
 
-# <!-- slide -->
+- md: |
+    ```scss
+    button {
+      --color: green;
+      background: var(--color);
+      transition: background 0.5s;
 
-# ### ~~`var(--size)em`~~
-# ## `calc( var(--size)` **`* 1em`** `)`
+      &:hover {
+        --color: red;
+      }
+    }
+    ```
 
-# <!-- slide -->
+- title: Houdini **Fix**
+  caption: |
+    [Properties & Values API](https://drafts.css-houdini.org/css-properties-values-api/)
 
-# ## `@supports (` **`--css: vars`** `) {}`
-# Any valid **definition** will work...
+- title: Proposed **CSS**
+  md: |
+    ```css
+    @property --brand-color {
+      syntax: "<color>";
+      initialValue: "pink";
+      inherits: true;
+    }
+    ```
 
-# <!-- slide -->
+- title: Current **JavaScript**
+  md: |
+    ```js
+    CSS.registerProperty({
+      name: "--brand-color",
+      syntax: "<color>",
+      initialValue: "pink",
+      inherits: true,
+    });
+    ```
 
-# ---
-# split:
-#   image: /images/_people/leaverou.jpg
-#   size: cover
-# ---
+- pre: Variable *Issues*...
+  title: Content Requires **Quoted Values**
 
-# # Lea Verou | [@LeaVerou](https://twitter.com/LeaVerou/)
-# ### [CSS Variables Talk](https://www.youtube.com/watch?v=2an6-WVPuJU)
-# and [slides](http://leaverou.github.io/css-variables)
+- md: |
+    ```css
+    div::after {
+      --string: 'hello world';
+      content: var(--string);
+    }
+    ```
 
-# <!-- slide -->
+- pre: |
+    *No Support* in
+  title: |
+     **url()** and **@media**
 
-# ---
-# layout: todo
-# ---
+- pre: |
+    ~~`var(--size)em`~~
+  title: |
+    `calc( var(--size)` **`* 1em`** `)`
 
-# 1. Build 3 button colors, and 2 button padding-sizes
-# 2. Build a variable-based layout system
+- title: |
+    `@supports (` **`--css: vars`** `)`
+  sub: Any valid **definition** will work...
 
+- face: anatudor.jpg
+  pre: |
+    @anatudor
+  title: |
+    **Ana** Tudor
+  sub: |
+    [CSS Tricks](https://css-tricks.com/author/thebabydino/)
+    &&
+    [CodePen](https://codepen.io/thebabydino/)
 ---

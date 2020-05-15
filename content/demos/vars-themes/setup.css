@@ -1,0 +1,9 @@
+body {
+  display: grid;
+  min-height: 100vh;
+}
+
+[data-theme] {
+  display: grid;
+  place-content: center;
+}

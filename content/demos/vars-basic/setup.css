@@ -1,0 +1,8 @@
+button {
+  font: inherit;
+}
+
+footer {
+  margin: var(--gutter) 0;
+  padding: var(--gutter);
+}

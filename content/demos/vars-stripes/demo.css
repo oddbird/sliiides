@@ -1,0 +1,16 @@
+html {
+  --stripes: linear-gradient(
+    var(--stripes-angle, to right),
+    powderblue 20%,
+    pink 20% 40%,
+    white 40% 60%,
+    pink 60% 80%,
+    powderblue 80%
+  );
+}
+
+body {
+  background-image: var(--stripes);
+}
+
+/* [style*='--stripes-angle'] */

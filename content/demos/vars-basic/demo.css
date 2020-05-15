@@ -1,0 +1,27 @@
+/* global */
+html {
+  /* colors */
+  --brand: rebeccapurple;
+  --warning: maroon;
+  --bg: #eee;
+  --text: #333;
+
+  /* sizes */
+  --gutter: 1rem;
+  --shim: calc(var(--gutter) / 2);
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+.box {
+  box-shadow: var(--shadow-x, 0) var(--shadow-y, 0) var(--shadow-blur, 1em)
+    var(--shadow-color, var(--brand, currentColor));
+}
+
+button {
+  background: var(--brand);
+  border: thin solid var(--text);
+  color: var(--bg);
+  padding: var(--shim) var(--gutter);
+}
