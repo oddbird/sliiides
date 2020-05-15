@@ -487,7 +487,7 @@ slides:
   title: |
     **Stacy** Kvernmo
   md: |
-    [CodePen Grid Demos](https://codepen.io/collection/XRRJGq/2/#)
+    [CodePen Grid Demos](https://codepen.io/collection/XRRJGq/)
 
 - face: rachelandrew.jpg
   pre: |
