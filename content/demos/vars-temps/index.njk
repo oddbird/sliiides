@@ -1,6 +1,9 @@
 ---
 demo: vars-temps
 title: Animated Chart
+start: 0
+end: 24
+ease: var(--in-out-back)
 temps: [
     49, 48, 47, 46, 45, 45, 45, 46, 49, 53, 59, 63,
     66, 69, 71, 71, 72, 71, 70, 68, 65, 62, 59, 57
@@ -8,8 +11,8 @@ temps: [
 ---
 
 {% set day %}{#
-#}--day-start: 0;{#
-#}--day-end: 24;{#
+#}--day-start: {{ start }};{#
+#}--day-end: {{ end }};{#
 #}--high-temp: {{ temps | max }};{#
 #}--low-temp: {{ temps | min }};{#
 #}{% endset %}
@@ -28,7 +31,7 @@ temps: [
 
   <tbody>
     <!-- Temps -->
-    <tr data-row="temps" style="--ease: var(--in-out-back);">
+    <tr data-row="temps" style="--ease: {{ ease }};">
 
       <!-- Temp -->
       {% for temp in temps %}

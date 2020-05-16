@@ -521,7 +521,7 @@ slides:
 
 - title: Client **Day Planner**
   md: |
-    ![Screenshot of schedule grid](/images/layouts/schedule.jpg)
+    ![Screenshot of schedule grid]({{ img }}layouts/schedule.jpg)
 
 - title: Define the **Day**
   md: |
@@ -572,12 +572,14 @@ slides:
   title: To Offset **Delay**
 
 - md: |
-    ```html
+    ```twig
     <div style="--index: {{ loop.index }};">
     ```
 
     ```css
-    animation-delay: calc(var(--index) * 50ms);
+    [style*='--index'] {
+      animation-delay: calc(var(--index) * 50ms);
+    }
     ```
 
 - pre: Create *API*

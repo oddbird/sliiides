@@ -72,7 +72,10 @@
   {% call slides.base(slide, 'markdown', page) %}
     {{ slides.title(slide) }}
     <div class="md">
-      {{ slide.md | md | safe }}
+      {%- set imgMark = '{{ img }}' -%}
+      {%- set imgPath = page.data.assets.images -%}
+      {%- set fixMd = slide.md | replace(imgMark, imgPath) if (imgMark in slide.md) else slide.md -%}
+      {{- fixMd | md | safe -}}
     </div>
   {% endcall %}
 {% endmacro %}
