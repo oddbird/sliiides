@@ -463,7 +463,7 @@ slides:
     Inspired by [Facundo Corradini](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
 
 - title: |
-    [Cascading Colors](cascading-colors.netlify.com/)
+    [Cascading Colors](https://cascading-colors.netlify.com/)
 
 # Custom Cascades -----------------------
 

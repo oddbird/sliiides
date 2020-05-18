@@ -35,7 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "@11ty/eleventy",
-        "npm:0.11.0-beta.4"
+        "npm:0.11.0"
       ],
       [
         "@11ty/eleventy-plugin-syntaxhighlight",
@@ -250,7 +250,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["#", "link:./src/filters::locator=sliiides%40workspace%3A."],
-            ["@11ty/eleventy", "npm:0.11.0-beta.4"],
+            ["@11ty/eleventy", "npm:0.11.0"],
             ["@11ty/eleventy-plugin-syntaxhighlight", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:3.0.1"],
             ["@babel/core", "npm:7.9.6"],
             ["@babel/preset-env", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.9.6"],
@@ -326,10 +326,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@11ty/eleventy", [
-        ["npm:0.11.0-beta.4", {
-          "packageLocation": "./.yarn/cache/@11ty-eleventy-npm-0.11.0-beta.4-70acb1c1b0-2.zip/node_modules/@11ty/eleventy/",
+        ["npm:0.11.0", {
+          "packageLocation": "./.yarn/cache/@11ty-eleventy-npm-0.11.0-00c571d6b8-2.zip/node_modules/@11ty/eleventy/",
           "packageDependencies": [
-            ["@11ty/eleventy", "npm:0.11.0-beta.4"],
+            ["@11ty/eleventy", "npm:0.11.0"],
             ["@11ty/dependency-tree", "npm:1.0.0"],
             ["browser-sync", "npm:2.26.7"],
             ["chalk", "npm:3.0.0"],
@@ -345,7 +345,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["javascript-stringify", "npm:2.0.1"],
             ["liquidjs", "npm:6.4.3"],
             ["lodash", "npm:4.17.15"],
-            ["luxon", "npm:1.23.0"],
+            ["luxon", "npm:1.24.1"],
             ["markdown-it", "npm:10.0.0"],
             ["minimist", "npm:1.2.5"],
             ["moo", "npm:0.5.1"],
@@ -371,7 +371,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@11ty-eleventy-plugin-syntaxhighlight-virtual-c72087d235/0/cache/@11ty-eleventy-plugin-syntaxhighlight-npm-3.0.1-ed24daf93f-2.zip/node_modules/@11ty/eleventy-plugin-syntaxhighlight/",
           "packageDependencies": [
             ["@11ty/eleventy-plugin-syntaxhighlight", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:3.0.1"],
-            ["@11ty/eleventy", "npm:0.11.0-beta.4"],
+            ["@11ty/eleventy", "npm:0.11.0"],
             ["prismjs", "npm:1.20.0"]
           ],
           "packagePeers": [
@@ -9852,10 +9852,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["luxon", [
-        ["npm:1.23.0", {
-          "packageLocation": "./.yarn/cache/luxon-npm-1.23.0-9d92c689c6-2.zip/node_modules/luxon/",
+        ["npm:1.24.1", {
+          "packageLocation": "./.yarn/cache/luxon-npm-1.24.1-4ed266bac4-2.zip/node_modules/luxon/",
           "packageDependencies": [
-            ["luxon", "npm:1.23.0"]
+            ["luxon", "npm:1.24.1"]
           ],
           "linkType": "HARD",
         }]
@@ -13708,7 +13708,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["sliiides", "workspace:."],
             ["#", "link:./src/filters::locator=sliiides%40workspace%3A."],
-            ["@11ty/eleventy", "npm:0.11.0-beta.4"],
+            ["@11ty/eleventy", "npm:0.11.0"],
             ["@11ty/eleventy-plugin-syntaxhighlight", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:3.0.1"],
             ["@babel/core", "npm:7.9.6"],
             ["@babel/preset-env", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.9.6"],

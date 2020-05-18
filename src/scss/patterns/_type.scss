@@ -5,7 +5,6 @@
 strong,
 em {
   @include patterns.fancy-text;
-  padding: 0 0.2ch;
 }
 
 strong {
@@ -34,7 +33,6 @@ blockquote {
     @include fonts.var('normal');
     background: var(--feature-gradient);
     color: var(--bg);
-    padding: 0;
   }
 
   > :first-child {

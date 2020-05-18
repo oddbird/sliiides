@@ -28,9 +28,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@11ty/eleventy@npm:^0.11.0-beta.4":
-  version: 0.11.0-beta.4
-  resolution: "@11ty/eleventy@npm:0.11.0-beta.4"
+"@11ty/eleventy@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@11ty/eleventy@npm:0.11.0"
   dependencies:
     "@11ty/dependency-tree": ^1.0.0
     browser-sync: ^2.26.7
@@ -47,7 +47,7 @@ __metadata:
     javascript-stringify: ^2.0.1
     liquidjs: ^6.4.3
     lodash: ^4.17.15
-    luxon: ^1.23.0
+    luxon: ^1.24.1
     markdown-it: ^10.0.0
     minimist: ^1.2.5
     moo: ^0.5.1
@@ -66,7 +66,7 @@ __metadata:
     valid-url: ^1.0.9
   bin:
     eleventy: cmd.js
-  checksum: 2/30ebead8198aa65d2fbaa5bd0cec6a517d1b6ce09027b3ea79d271e2372a88cf5bd274420ded6d87d2d4bdeea6088667a00855ef8c816eb75e3159de51addd3d
+  checksum: 2/fe9c4cfc2d0c728dc69d0d5a196cdf0e0ea1cecebd3d566fb80be48482bbbf55b084a71734d091c6f4b68a46540540226939cbb77d2809a1b57e3adaccc46126
   languageName: node
   linkType: hard
 
@@ -8566,10 +8566,10 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"luxon@npm:^1.23.0":
-  version: 1.23.0
-  resolution: "luxon@npm:1.23.0"
-  checksum: 2/0d7238f2612cd9303f6670c31e2fcc75578bb4e4dc4d649989d4a79df428c9046e3525fccb58e040de3de8c21647521efa4aa25eff8fb5a9320d47bc5a1eee07
+"luxon@npm:^1.24.1":
+  version: 1.24.1
+  resolution: "luxon@npm:1.24.1"
+  checksum: 2/3e5a9599e1fb49d2b5e9c6f6d42ce4e4d05d785310785ac8a67ef2ccd26477dd123eb688057366330be847ef400bb2503f77ac26cb7560c09f32846c7973ee34
   languageName: node
   linkType: hard
 
@@ -12106,7 +12106,7 @@ fsevents@~2.1.2:
   resolution: "sliiides@workspace:."
   dependencies:
     "#": "link:./src/filters"
-    "@11ty/eleventy": ^0.11.0-beta.4
+    "@11ty/eleventy": 0.11.0
     "@11ty/eleventy-plugin-syntaxhighlight": ^3.0.1
     "@babel/core": ^7.9.0
     "@babel/preset-env": ^7.9.5
