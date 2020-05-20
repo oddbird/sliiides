@@ -111,6 +111,28 @@
   {% endcall %}
 {% endmacro %}
 
+{% macro section(slide, page) %}
+  {% call slides.base(slide, 'section', page) %}
+    <ol class="toc">
+      {% for item in page.data.slides %}
+        {% if item.section %}
+          {% set current = item.section == slide.section %}
+          <li {% if current %}class="current-section"{% endif %}>
+            {% if current %}
+              <h2>{{ slide.section | mdInline | safe }}</h2>
+            {% else %}
+              {{ utility.link_if(
+                item.section | mdInline | safe,
+                ['#slide', loop.index] | join('-')
+              ) }}
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  {% endcall %}
+{% endmacro %}
+
 {% macro find(slide, page, collections) %}
   {% if slide.demo %}
     {{ demo(slide, page, collections) }}
@@ -126,6 +148,8 @@
     {{ md(slide, page) }}
   {% elif slide.title %}
     {{ title(slide, page) }}
+  {% elif slide.section %}
+    {{ section(slide, page) }}
   {% else %}
     {{ default(slide, page) }}
   {% endif %}

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"
+  {% block htmlAttrs %}
   data-ccs="root"
   data-ccs-theme="{{ ccs.themes[0] }}"
-  data-ccs-colors>
+  data-ccs-colors
+  {% endblock %}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

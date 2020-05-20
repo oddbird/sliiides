@@ -83,7 +83,7 @@ $content-colors: (
   'action': var(--ccs-prime--fg3),
   'active': '#highlight',
   'icons': '#feature-special',
-  'strikeout': var(--bg),
+  'strikeout': '#highlight',
 );
 
 // CCS Defaults
@@ -142,9 +142,6 @@ $_ccs: (
 ///   See map for valid tokens.
 /// @return {*} -
 ///   Value from `$ccs` map, based on given key
-/// @example scss
-///   @use 'config/color';
-///   $prime-hue: color.ccs('prime');
 /// @group config-color
 @function ccs($token) {
   @return map-get($_ccs, $token);

@@ -1,0 +1,17 @@
+/* layout */
+figure {
+  align-content: start;
+  border: 1px solid maroon;
+}
+
+.verdon {
+  background: #a8a8a8;
+}
+
+.fosse {
+  background: #f2f2f2;
+}
+
+figcaption {
+  padding: 1em;
+}

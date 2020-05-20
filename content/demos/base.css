@@ -22,3 +22,11 @@ a:focus,
 a:active {
   color: darkblue;
 }
+
+button,
+input,
+textarea {
+  border: thin solid currentColor;
+  font: inherit;
+  padding: 0.125em 0.25em;
+}

@@ -1,5 +1,11 @@
 {% extends "content/_layouts/base.njk" %}
 
+{% import "utility.macros.njk" as utility %}
+
+{% block htmlAttrs -%}
+  {{ utility.show_attrs(attrs) if attrs else '' }}
+{%- endblock %}
+
 {% block body %}
   {{ content | safe }}
 {% endblock %}

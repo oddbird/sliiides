@@ -28,7 +28,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@11ty/eleventy@npm:0.11.0":
+"@11ty/eleventy@npm:^0.11.0":
   version: 0.11.0
   resolution: "@11ty/eleventy@npm:0.11.0"
   dependencies:
@@ -12106,7 +12106,7 @@ fsevents@~2.1.2:
   resolution: "sliiides@workspace:."
   dependencies:
     "#": "link:./src/filters"
-    "@11ty/eleventy": 0.11.0
+    "@11ty/eleventy": ^0.11.0
     "@11ty/eleventy-plugin-syntaxhighlight": ^3.0.1
     "@babel/core": ^7.9.0
     "@babel/preset-env": ^7.9.5

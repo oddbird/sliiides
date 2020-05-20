@@ -6,6 +6,11 @@
 
   @supports (background-clip: text) {
     --link-color: transparent;
+    background: linear-gradient(
+      to bottom right,
+      tools.color('feature-from'),
+      tools.color('feature-to')
+    );
     background: var(--feature-gradient);
     background-clip: text;
     box-decoration-break: clone;

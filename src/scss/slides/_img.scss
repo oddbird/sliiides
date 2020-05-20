@@ -10,10 +10,13 @@
   }
 
   img {
-    flex: 1 1 50vh;
     overflow: hidden;
     object-fit: var(--img-fit, cover);
     object-position: var(--img-position, center);
     width: 100%;
+
+    @supports (object-fit: cover) {
+      flex: 1 1 50vh;
+    }
   }
 }

@@ -27,7 +27,7 @@ a {
   &:visited {
     --underline-color--default: var(--accent);
     --underline-thickness--default: 0.1em;
-    --underline-offset--default: 0.15em;
+    --underline-offset--default: 0.125em;
     color: var(--link, var(--action));
   }
 

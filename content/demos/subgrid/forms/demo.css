@@ -1,0 +1,16 @@
+.field {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-column-gap: 1em;
+  margin-bottom: 1em;
+}
+
+/* Sub-Grids */
+
+.field {
+  display: grid;
+  grid-column: span 2;
+  grid-template-columns: inherit;
+  grid-template-columns: subgrid;
+  grid-column-gap: inherit;
+}

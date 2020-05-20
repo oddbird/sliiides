@@ -1,4 +1,4 @@
-@use '~accoutrement/sass/tools' as *;
+@use '~accoutrement/sass/tools';
 
 /// # Animation Configuration
 /// @group config-animation
@@ -16,6 +16,8 @@ $times: (
   'relaxed': 500ms,
 );
 
+@include tools.add-times($times);
+
 // Changes
 // -------
 /// @group config-animation
@@ -23,6 +25,9 @@ $times: (
 /// @link https://oddbird.net/accoutrement/docs/animate-change.html
 ///   Animate Changes
 $changes: (
-  'img-filter': filter time('fast') ease('_in-out'),
-  'move': transform time('fast') ease('_in-out-back'),
+  'img-filter': filter tools.time('fast') tools.ease('_in-out'),
+  'underline': text-decoration tools.time('fast') tools.ease('_in-out'),
+  'move': transform tools.time('fast') tools.ease('_in-out-back'),
 );
+
+@include tools.add-changes($changes);

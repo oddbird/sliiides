@@ -1,0 +1,19 @@
+/* .basic-support::marker {
+  color: green;
+} */
+
+
+/* h2::after {
+  content: ' ❌';
+} */
+
+
+/* @supports selector(::marker) {
+  ::marker {
+    color: green;
+  }
+
+  h2::after {
+    content: ' ✅';
+  }
+} */

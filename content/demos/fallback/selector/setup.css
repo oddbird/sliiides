@@ -1,0 +1,8 @@
+html {
+  align-content: center;
+  display: grid;
+  grid: auto / minmax(min-content, 35em);
+  border: 1em solid transparent;
+  justify-content: center;
+  min-height: 100vh;
+}

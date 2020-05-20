@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
+
+body {
+  padding: 0;
+}
+
+header {
+  background: hsl(323.3, 62%, 15.5%) url('/assets/images/demos/space.jpg')
+    no-repeat fixed;
+  background-size: cover;
+}
+
+h1 {
+  color: hsla(211.7, 51.5%, 98.2%, 0.65);
+  font-family: 'Megrim', cursive;
+  font-size: calc(2rem + 2vw);
+}
+
+main {
+  padding: 1em;
+}

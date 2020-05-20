@@ -1,0 +1,47 @@
+body {
+  display: grid;
+  min-height: 100vh;
+  align-content: safe center;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+main {
+  display: grid;
+  grid-auto-rows: minmax(8em, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8em), 1fr));
+  gap: 1em;
+}
+
+figure {
+  display: grid;
+  grid-template:
+    [img-start] 1fr [caption-start] min-content [img-end caption-end]
+    / [img-start caption-start] 1fr [img-end caption-end];
+  margin: 0;
+  position: relative;
+}
+
+img {
+  border: thin solid currentColor;
+  grid-area: img;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+figcaption {
+  background: hsla(330deg, 5%, 95%, 0.9);
+  border: thin solid currentColor;
+  border-radius: 0.25em;
+  grid-area: caption;
+  font-size: 0.75em;
+  margin: 0.25em;
+  padding: 0.25em;
+}
+
+strong {
+  display: block;
+}

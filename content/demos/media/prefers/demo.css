@@ -1,0 +1,71 @@
+/* defaults */
+html {
+  --dark: hsl(323.3, 62%, 15.5%);
+  --light: hsl(323.3, 32%, 65.5%);
+  --bg: var(--light);
+  --text: var(--dark);
+}
+
+h1 {
+  background-color: var(--bg, var(--light, #eee));
+  color: var(--text, var(--dark, #222));
+  opacity: var(--opacity, 0.75);
+}
+
+/* preferences */
+@media (prefers-color-scheme: dark) {
+  html {
+    --bg: var(--dark);
+    --text: var(--light);
+  }
+}
+
+@media (prefers-contrast: high) {
+  html {
+    --dark: hsl(323.3, 62%, 5.5%);
+    --light: hsl(323.3, 32%, 95.5%);
+  }
+}
+
+@media (prefers-contrast: low) {
+  html {
+    --dark: hsl(323.3, 62%, 15.5%);
+    --light: hsl(323.3, 32%, 45.5%);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  html {
+    --opacity: 0;
+  }
+}
+
+/* provide overrides? */
+[data-color-scheme='light'] {
+  --bg: var(--light);
+  --text: var(--dark);
+}
+
+[data-color-scheme='dark'] {
+  --bg: var(--dark);
+  --text: var(--light);
+}
+
+[data-contrast='no-preference'] {
+  --dark: hsl(323.3, 62%, 15.5%);
+  --light: hsl(323.3, 32%, 65.5%);
+}
+
+[data-contrast='high'] {
+  --dark: hsl(323.3, 62%, 5.5%);
+  --light: hsl(323.3, 32%, 95.5%);
+}
+
+[data-contrast='low'] {
+  --dark: hsl(323.3, 62%, 15.5%);
+  --light: hsl(323.3, 32%, 45.5%);
+}
+
+[data-transparency='reduce'] {
+  --opacity: 0;
+}

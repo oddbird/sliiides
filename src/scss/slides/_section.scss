@@ -1,0 +1,12 @@
+[data-slide='section'] {
+  li {
+    text-decoration: line-through;
+    text-decoration-color: var(--strikeout);
+    text-decoration-thickness: 0.125em;
+  }
+
+  .current-section,
+  .current-section ~ * {
+    text-decoration: none;
+  }
+}

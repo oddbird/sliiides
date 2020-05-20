@@ -1,0 +1,22 @@
+figure {
+  filter: sepia(80%);
+  transition: filter 300ms ease-out;
+}
+
+figcaption {
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+figure:hover {
+  filter: sepia(0%);
+}
+
+figure:hover figcaption {
+  opacity: 1;
+}
+
+/* media query! */
+/* @media (hover: hover) {
+
+} */
