@@ -49,11 +49,13 @@ slides:
   fit: contain
 
 - title: |
-    *ClearLeft*
-  md: |
+    **ClearLeft**
+  sub: Consulting **Agency**
+  
+- md: |
     - High **quality** code
     - On tight **deadlines**
-    - For **handover** to client developers
+    - For **handover** to client
   caption: |
     This matches our experience at [OddBird](https://oddbird.net)
 
@@ -70,7 +72,7 @@ slides:
     - **Reusable** Patterns
     - **Personalized** Styles
 
-- pre: Ordering 
+- pre: CSS Ordering 
   title: Based on **Specificity**
 
 - md: |
@@ -110,7 +112,7 @@ slides:
   title: |
     Page **Components**
   sub: |
-    most of your styles will be in here *[??]*
+    "most of your styles will be in here"
 
 - pre: 5...
   title: |
@@ -134,29 +136,12 @@ slides:
     .any-internal { /* % values only */ }
     ```
 
-- title: Look for **Patterns** 
-
 - pre: Don't Overly *Sandbox*
   title: Focus on **What** Not **Where**
 
 - pre: Up & Down
-  tile: |
+  title: |
     **Font Size** Constantly
-
-- pre: Always be  
-  title: |
-    **Afraid** of **Heights**
-  sub: we never know how tall things are...
-
-- pre: Beware of
-  title: |
-    "Cute Duckling **Scams**"
-  sub: |
-    **`colors.css`** | **`layout.css`** | **`typography.css`**
-
-# ---
-# demo: codeConcerns
-# ---
 
 - pre: Dont *Re-engineer* 
   title: |
@@ -194,13 +179,9 @@ slides:
 
 - pre: Object *Structure*
   title: Minimal & **Reusable**
-  sub: |
-    "using classes to name your objects & their components"
 
 - pre: Object *Skin*
   title: Multiple **Theme Options**
-  sub: |
-    "a large amount of **visual variety** without much code"
 
 - pre: Separate 
   title: |
@@ -214,12 +195,12 @@ slides:
 - pre: Also from *OOCSS*...
   title: |
     **Media Object**
-
-- todo: demo media object?
+  caption: |
+    Now a 
+    [fundamental part](https://getbootstrap.com/docs/4.0/layout/media-object/)
+    of any framework
 
 # other systems ----------------
-
-- todo: key points of SMACSS, BEM, Atomic Design?
 
 - pre: 2009-Present
   title: |
@@ -233,52 +214,44 @@ slides:
 
 # Cascade Aligned ------------------------------
 
-- pre: CSS and...
-  title: Programming **Paradigms**
+- pre: Fundamental
+  title: |
+    **Priciples** of CSS
 
 - pre: |
-    CSS as 
+    CSS is
   title: |
     **Object-Oriented**
 
-- quote: |
-    **Objects** are instances of *classes*, 
-    which also determine their *types*.
-  cite: |
-    [Wikipedia](https://en.wikipedia.org/wiki/Object-oriented_programming)
-
-- title: |
-    `article`**`.post`**
-  sub: |
-    Instance of **`.post`** class, type **`article`**
+- img: systems/atomic-template.jpg
+  alt: wireframe of a site
+  fit: contain
+  caption: |
+    Image from Brad Frost's
+    [Atomic Web Design](https://bradfrost.com/blog/post/atomic-web-design/)
 
 - title: Object **Composition**
   sub: |
-    `.person` class can include `.name` & `.address` classes
+    **`.person`** class contains **`.name`** & **`.address`** classes
 
 - pre: |
-    CSS as  
+    CSS can be  
   title: |
     **Functional**
-
-- quote: |
-    A **declarative and composable** style, 
-    where *small functions are combined* in a modular manner. 
-  cite: |
-    [Wikipedia](https://en.wikipedia.org/wiki/Functional_programming)
 
 - title: |
     `p.alert`**`.error`**
   sub: |
-    The result of passing `p` through `.alert` & `.error` functions
+    Composed result of `p`, `.alert`, & `.error` functions
 
 - pre: But CSS
   title: Is **Fundamentally Different**
   sub: |
     [Resilient, Declarative, Contextual](https://keithjgrant.com/posts/2018/06/resilient-declarative-contextual/)
 
-- title: |
-    **Cascade Aligned** Programming
+- pre: |
+    *Cascade Aligned* 
+  title: Programming
 
 - pre: The *Cascade* 
   title: Is About **Balancing Concerns**
@@ -324,25 +297,22 @@ slides:
     **Normal** Flow
 
 - pre: Express
-  title: What You **Mean**
-  sub: |
-    Not *whatever mimics the mockup in Chrome*
+  title: What We **Mean**
 
 - pre: Clear *Semantics*
   title: Help the **Browsers**
-  sub: Adjust to context
+  sub: Make informed decisions
 
-- pre: Clear *Semantics*
+- pre: Help the *Browsers*
   title: Help the **Users**
-  sub: With accessibility & other APIs
 
-- pre: Clear *Semantics*
-  title: Help other **Developers**
+- title: Help other **Developers**
   sub: Read & understand & maintain the code
 
 # organizing -----------------------------------
 
-- title: |
+- pre: Several
+  title: |
     **Organizing** Conventions
 
 - pre: CSS *Systems*
@@ -351,6 +321,10 @@ slides:
     1. **Elements**
     2. **Classes**
     3. **IDs**
+
+- pre: |
+    *OOCSS*
+  title: Not Explicit, But…
 
 - pre: |
     *Atomic* Design
@@ -364,6 +338,31 @@ slides:
   caption: |
     [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/)
     by [Brad Frost](https://bradfrost.com/)
+
+- img: systems/atoms.jpg
+  alt: label, input, and button atoms
+  fit: contain
+  caption: |
+    Atoms from Brad Frost's
+    [Atomic Web Design](https://bradfrost.com/blog/post/atomic-web-design/)
+- img: systems/molecule.jpg
+  alt: search form molecule, with label, input, and button
+  fit: contain
+  caption: |
+    Molecules from Brad Frost's
+    [Atomic Web Design](https://bradfrost.com/blog/post/atomic-web-design/)
+- img: systems/organism.jpg
+  alt: banner organism, with logo, navigation, and search
+  fit: contain
+  caption: |
+    Organisms from Brad Frost's
+    [Atomic Web Design](https://bradfrost.com/blog/post/atomic-web-design/)
+- img: systems/atomic-template.jpg
+  alt: wireframe of a full page
+  fit: contain
+  caption: |
+    Templates from Brad Frost's
+    [Atomic Web Design](https://bradfrost.com/blog/post/atomic-web-design/)
 
 - pre: |
     *SMACSS*
@@ -383,20 +382,9 @@ slides:
 - pre: |
     *ITCSS*
   title: Based on **Reach**
-  md: |
-    1. **Settings**
-    2. **Tools**
-    3. **Generic**
-    4. **Elements**
-    5. **Objects** (reusable structures)
-    6. **Components** (recognisable UI)
-    7. **Trumps**
   caption: |
     [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
     by [**Harry Roberts**](https://twitter.com/csswizardry)
-
-- pre: CSS *Systems* + *OOCSS*
-  title: Updated **with Pictures**
 
 - img: patterns/itcss-metrics.png
   fit: contain
@@ -406,17 +394,31 @@ slides:
   caption: |
     **Normal Triangle** by ~~Maslow~~ **Miriam**
 
+- pre: |
+    Narrow/Broad *Reach*
+  title: How **Many** Elements?
+- pre: |
+    Low/High *Specificity*
+  title: What Selector **Weight**?
+- pre: |
+    Generic to *Explicit*
+  title: What **Desired Impact**?
+  sub: From `p {}` through `.text-center {}`
+
 - img: patterns/itcss-layers.png
   fit: contain
 
 - img: advanced-css/itcss-layers-note.png
   fit: contain
 
+- pre: CSS *Systems* + *OOCSS*
+  title: Updated **with Pictures**
+
 # oddbird ----------------------------
 
 - pre: OddBird
   title: Based on **Reach & Complexity**
-  md: |
+- md: |
     1. **Tools**
     2. **Config**
     4. **Initial**
@@ -433,15 +435,17 @@ slides:
   sub: Sass, Accoutrement, Herman, Cascading Colors...
 
 - pre: Config
-  title: Design **Tokens**
-  sub: Coined by [Jina](https://twitter.com/jina)
+  title: |
+    Design **Tokens** \
+    Tool **Configuration**
+  caption: Term coined by [Jina](https://twitter.com/jina)
 
 - title: Tokens by **Purpose**
   sub: |
     **`_colors.scss`** | **`_sizes.scss`** | **`_fonts.scss`**
 
-- pre: Avoid the
-  title: Sass **Duckling Scam**
+- pre: Not by
+  title: Sass **Feature**
   sub: | 
     **`_variables.scss`** | **`_functions.scss`** | **`_mixins.scss`**
 
@@ -460,6 +464,7 @@ slides:
 
 - pre: Layouts
   title: Specific **Templates**
+  sub: Often composed of existing *patterns*
 
 - pre: Components
   title: Specific **Functionality**
@@ -468,7 +473,85 @@ slides:
 - pre: Layer *Folders*
   title: With **Sass Partials**
 
-- todo: Expand on Vue/React Structures...
+- md: |
+    - **`sass/`**
+      - `tools/`
+      - `config/`
+        - *`_colors.scss`*
+        - *`_fonts.scss`*
+        - *`_sizes.scss`*
+        - *`_index.scss`*
+      - `initial/`
+      - `patterns/`
+      - `layouts/`
+      - `components/`
+      - *`style.scss`*
+
+- pre: With *Vue*
+  title: 
+    Single File **Components**
+- pre: With *Vue*
+  title: 
+    Component Styles **Scoped**
+
+- pre: |
+    *Scope*
+  title: |
+    Is About **Ownership**
+
+- pen: Isolation Donut
+  id: mdbGGwZ
+
+- md: |
+    ```html
+    <article-component>
+      <h2>...</h2>
+
+      <sub-component />
+
+      <footer>...</footer>
+    </article-component>
+    ```
+
+- md: |
+    ```html
+    <article-component data-scope='article'>
+      <h2 data-scope='article'>...</h2>
+
+      <sub-component data-scope='article' data-scope='sub'>
+        <!-- internals of sub only have scope='sub' -->
+      </sub-component>
+
+      <footer data-scope='article'>...</footer>
+    </article-component>
+    ```
+
+- md: |
+    ```html
+    <style scoped>
+      article { ... }
+      h2 { ... }
+      footer { ... }
+    </style>
+    ```
+- md: |
+    ```css
+    article[data-scope=article] { ... }
+    h2[data-scope=article] { ... }
+    footer[data-scope=article] { ... }
+    ```
+- md: |
+    ```html
+    <article data-scope="article instance-id">
+    ```
+    ```css
+    h2[data-scope~=article] { 
+      /* all instances */ 
+    }
+    h2[data-scope~=instance-id] { 
+      /* unique instance */ 
+    }
+    ```
 
 # naming -----------------------------
 
@@ -513,28 +596,9 @@ slides:
   title: Of **Selector Structure**
   sub: Everything is *equal specificity*
 
-- todo: more on scoping
-
-# utilities -----------------------------
-
-- todo: more on tailwind
-
-- pre: DRY Code
-  title: |
-    **D**on't **R**epeat **Y**ourself
-  sub: | 
-    *`.warning`* `{ border-color: red; }`
-
-- pre: DSfP 
-  title: |
-    **D**on't **S**tretch **f**or **P**atterns
-  sub: |
-    *`.bc-r`* `{ border-color: red; }`
-
-- pre: Use *Utility Classes*
-  title: For **Meaningful** Utilities
-  sub: |
-    **`.sr-only`** | **`.clearfix`** | **`.elide-text`**
+- pre: Combine *Selectors*
+  title: To Match **Scope** & **Specificity**
+  sub: In **meaningful** ways
 
 # namespace ------------------
 
@@ -604,4 +668,32 @@ slides:
   title: Screen Reader **Only**
   sub: |
     *`[data-hidden='screen']`* | *`[data-hidden='small-screen']`*
+
+# utilities -----------------------------
+
+- pre: Use *Utility Classes*
+  title: For **Meaningful** Utilities
+  sub: |
+    **`.sr-only`** | **`.clearfix`** | **`.elide-text`**
+
+- pre: And then... 
+  title: There's **Tailwind**
+  sub: All *explicit*, all the time
+  caption: https://tailwindcss.com/
+
+- pre: 👎 Framework
+  title: Override **Hell**
+
+- pre: DRY Code
+  title: |
+    **D**on't **R**epeat **Y**ourself
+  sub: | 
+    *`.warning`* `{ border-color: red; }`
+
+- pre: DSfP 
+  title: |
+    **D**on't **S**tretch **f**or **P**atterns
+  sub: |
+    *`.bc-r`* `{ border-color: red; }`
+
 ---

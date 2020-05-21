@@ -21,9 +21,39 @@ slides:
   title: |
     Errors **Silently**
 
-- pre: This is *CSS*
+- pre: |
+    ~~*ReferenceError*~~
+  title: Variable is not defined
+
+- pre: |
+    ~~*SyntaxError*~~
+  title: Missing `}` after property list 
+
+- md: |
+    ```css
+      @what about (this: fake code I) {
+        made-up :: that's not valid at all?
+      }
+
+      html { 
+        background: rebeccapurple;
+        beep: boop;
+        color: white;
+        color: color(display-p3 0.9975 0.7295 0.8147);
+      }
+    ```
+
+- demo: resilient
+
+- pre: The *Primary Feature*
   title: |
-    **Primary Feature**
+    Of **CSS**
+- pre: The *Primary Feature*
+  title: |
+    Of ~~**CSS**~~ The **Entire Web**
+- pre: Web *Compatible*
+  title: |
+    **Forwards** & **Backwards**    
 
 - quote: |
     Web **for all**. Web **on everything**.
@@ -42,16 +72,6 @@ slides:
   alt: Braille keyboard and headphones
 - img: unfriendly/agnesscott/smart-home.png
   alt: Google Home, Amazon Echo, and Apple HomePod
-- pre: |
-    *Forwards* & *Backwards*
-  title: |
-    **Compatible**  
-- quote:
-    WWW parsers should 
-    **ignore tags** which they do not understand, 
-    and **ignore attributes** which they do not understand 
-    of tags which they do understand.
-  cite: WWW Project
 
 - pre: Browser Support
   title: is **Not A Binary**
@@ -60,20 +80,14 @@ slides:
   title: |
     **Support** CSS Grid?
 
-- pre: Can *I*
+- pre: Can *I Use*
   title: |
-    **Use** CSS Grid?
-
-- pre: List of
-  title: |
-    **Supported** Browsers
+    CSS **Grid**?
 
 - img: resilient/yesno.jpg
   alt: Do you like grid? check yes or no
   caption: |
     [CanIUse](https://caniuse.com/)?
-
-- title: 🤞 Please **Say Yes** 🤞
 
 - img: resilient/yesno-answer.jpg
   alt: Mixed yes/no/maybe answers
@@ -82,6 +96,10 @@ slides:
     *Arbitrary* Cutoff
   title: |
     **95%** ? **100%** ? Last **Two** ?
+
+- pre: List of
+  title: |
+    **Supported** Browsers
 
 - img: resilient/how-this-works.jpg
   alt: |
@@ -103,13 +121,16 @@ slides:
   title: |
     **Know** How To Do This
 
-- pre: Can *You Use*
+- pre: We *Can Use*
   title: |
-    **Hover** or **Cursor** Styles?
+    **Hover** or **Cursor** Styles
   sub: Not worth much on touch devices...
 
-- pre: Responsive ➡ *Resilient*
-  title: More Than **Viewport Width**
+- pre: |
+    *Responsive*
+  title: To **Viewport** Height/Width
+
+- title: Responsive ➡ **Resilient**
 
 - pre: Re-*Define*
   title: What **Support** Means
@@ -203,6 +224,7 @@ slides:
 - pre: 2009...
   title: |
     [**Modernizr**](https://modernizr.com/) for CSS3
+  sub: Sniff *features* not *browsers*
 
 - md: |
     ```css
@@ -211,7 +233,7 @@ slides:
     }
 
     .cssgradients .header {
-      background-image: linear-gradient(cornflowerblue, rebeccapurple);
+      background-image: linear-gradient(deeppink, rebeccapurple);
     }
     ```  
 
@@ -227,10 +249,6 @@ slides:
 - pre: Now…
   title: |
     **`@media`** & **`@supports`**
-
-- pre: Now…
-  title: |
-    `@supports` **`selector()`**
 
 - pre: Now…
   title: |
