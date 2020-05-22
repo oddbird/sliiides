@@ -8,6 +8,8 @@
 }
 
 [id^='slide'] {
+  background: var(--slide-background, inherit);
+  color: var(--slide-color, inherit);
   border-top: thin dotted var(--border);
   display: grid;
   grid-template: 'content' 1fr 'footer' auto / var(--width, 1fr);

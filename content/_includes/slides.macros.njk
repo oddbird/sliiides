@@ -50,14 +50,16 @@
   class=none
 ) %}
   {% set autoStyles = {
-    '--resize': slide.resize
+    '--resize': slide.resize,
+    '--slide-background': slide.background,
+    '--slide-color': slide.color
   } %}
   {% set styles = (autoStyles | merge(styles)) | merge(slide.styles) %}
   <{{ is or 'article'}}
     id="slide-{{ slide.index }}"
     data-slide="{{ slide.name or name }}"
     {{ utility.attr_if('class', class) }}
-    {{ utility.style_if(styles or slide.styles) }}
+    {{ utility.style_if(styles) if styles else '' }}
     >
 
     <div

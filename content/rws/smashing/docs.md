@@ -59,12 +59,6 @@ slides:
 
 # examples ----------------
 
-- img: agile-systems/bootstrap.jpg
-  alt: Introduction to Bootstrap
-  position: top
-  caption:
-    Your Own **Personal** Bootstrap
-
 - img: patterns/lightning.jpg
   alt: Salesforce Lightning Design System
   position: top
@@ -124,11 +118,11 @@ slides:
 - pre: Represent
   title: Multiple **Concerns**
 
-- img: agile-systems/lego-organizer.jpg
-  alt: Lego Organizer
-
 - img: patterns/lego-library.jpg
   alt: Lego Component Library
+
+- img: agile-systems/lego-organizer.jpg
+  alt: Lego Organizer
 
 - img: patterns/lego.jpg
   alt: Lego Airplane
@@ -210,6 +204,13 @@ slides:
     **Understandable**, \
     **Robust**
 
+- title: (Learn To **Test**)
+  md: |
+    - Browser DevTools 
+    - [Axe](https://www.deque.com/axe/devtools/) DevTools
+    - [VoiceOver](https://www.apple.com/accessibility/mac/vision/) (Mac) 
+    - [NVDA](https://www.nvaccess.org/download/) (PC) 
+
 - pre: Accessibility is 
   title: For **Everyone**
   sub: Along any number of spectrums
@@ -223,9 +224,10 @@ slides:
 
 # audit -----------------------
 
-- pre: |
-    *Audit* Existing Apps
-  title: What Do We **Have Already**?
+- section: |
+    **Audit** Existing Materials
+
+- title: What Do We **Have Already**?
 
 - title: Take **Screenshots** & **Organize**
 
@@ -254,19 +256,15 @@ slides:
     [From Pages to Patterns](https://alistapart.com/article/from-pages-to-patterns-an-exercise-for-everyone/)
     by Charlotte Jackson
 
-- pre: |
-    *Audit* All Apps
-  title: What **Do We Need**?
+- section: |
+    **Plan** Your Approach
 
-- pre: Start *Designing*
-  title: Look for **Patterns**
+- title: What **Do We Need**?
+- title: What's The **Code Stack**?
+- title: What's The **Process**?
 
-- pre: Go *Back*
-  title: |
-    **Iterative** Process
-
-- pre: Start
-  title: Small **& Bulid**
+- pre: Start *Small*
+  title: Get It **Right** & **Expand**
 
 - pre: Continuous *Integration*
   title: |
@@ -279,11 +277,16 @@ slides:
   title: |
     **Separate** Forks 
 
-- pre: Start *Small*
-  title: Get It **Right** & **Expand**
+- pre: Start *Designing*
+  title: Look for **Patterns**
+
+- pre: Go *Back*
+  title: |
+    **Iterative** Process
 
 - pre: Start With
   title: What **You Know**
+
 - pre: Start With
   title: What **Has Most Reach**
 
@@ -292,6 +295,9 @@ slides:
   sub: Board reach, low specificity
 
 # automation ----------------------
+
+- section: |
+    **Structured** Code
 
 - img: agile-systems/color-preview.jpg
   alt: A color palette with 3 colors and their code values
@@ -475,9 +481,8 @@ slides:
 
 # integrated -----------------------
 
-- pre: Integrated 
-  title: |
-    **Development** Tools
+- section: |
+    **Integrate** Tools & Process
 
 - pre: Integrated 
   title: |
@@ -504,12 +509,25 @@ slides:
     @function color(...) {...}
     ```
 
+- img: docs/sassdoc-theme.jpg
+  alt: Generated site, showing mixins and functions
+  position: top
+  fit: 100% auto
+  caption: |
+    [SassDoc Default Theme](http://sassdoc.com/theme-gallery/preview/default/)
+
 - img: docs/herman.jpg
   position: top
   fit: 100% auto
   caption: |
     OddBird's [**Herman**](https://oddbird.net/herman)
     is based on [**SassDoc**](http://sassdoc.com) syntax
+
+- title: |
+    `///` *`@colors`* \
+    `///` *`@sizes`* \
+    `///` *`@ratios`* \
+    `///` *`@fonts`*
 
 - md: |
     ```scss/3
@@ -523,12 +541,6 @@ slides:
       'brand-pink': hsl(330, 100%, 45%),
     );
     ```
-
-- title: |
-    `///` *`@colors`* \
-    `///` *`@sizes`* \
-    `///` *`@ratios`* \
-    `///` *`@fonts`*
 
 - img: agile-systems/herman-colors.jpg
   alt: Herman Color Previews
