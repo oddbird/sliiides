@@ -1,0 +1,50 @@
+---
+demo: vars-charts
+scale: 100
+years:
+  - year: 2000
+    value: 45
+  - year: 2001
+    value: 100
+  - year: 2002
+    value: 63
+  - year: 2003
+    value: 11
+  - year: 2004
+    value: 46
+  - year: 2005
+    value: 88
+  - year: 2006
+    value: 35
+  - year: 2007
+    value: 5
+  - year: 2008
+    value: 78
+  - year: 2009
+    value: 91
+  - year: 2010
+    value: 55
+  - year: 2011
+    value: 16
+---
+
+<table style="--scale: {{ scale }};">
+  <thead>
+    <tr>
+      {% for item in years %}
+        <th class="date">{{ item.year }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="chart">
+      {% for item in years %}
+        <td style="--value: {{ item.value }};">
+          <div class="bar">
+            <span class="value">{{ item.value }}%</span>
+          </div>
+        </td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+html {
+  font-size: calc(1em + 0.5vw);
+}
+
+body {
+  display: grid;
+  align-content: center;
+  min-height: 100vh;
+}
+
+table {
+  width: 100%;
+}
+
+td,
+th,
+.value {
+  padding: 0 0.25em;
+}
+
+.value {
+  text-align: center;
+}

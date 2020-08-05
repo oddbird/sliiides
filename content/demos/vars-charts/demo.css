@@ -1,0 +1,35 @@
+.chart {
+  /* Generate background guides */
+  /* (sub-pixel rounding errors make this imperfect) */
+  --line-every: 10;
+  background-image: linear-gradient(to bottom, #ccc 1px, transparent 1px);
+  background-size: 100% calc(100% / var(--scale) * var(--line-every));
+}
+
+/* Each bar on the graph… */
+/* ---------------------- */
+
+.bar {
+  display: grid;
+  grid-template-rows: repeat(var(--scale, 100), minmax(1px, 1fr));
+  min-height: 80vh;
+}
+
+.bar::before {
+  --start: calc(var(--scale) + 1 - var(--value));
+  grid-row: var(--start) / -1;
+  content: '';
+
+  /* Background-Color */
+  --position: calc(var(--start) / var(--scale) * 100%);
+  background-image: linear-gradient(to right, green, yellow, orange, red);
+  background-size: 1600% 100%;
+  background-position: var(--position) 0;
+
+  /* Other styles… */
+  border-radius: 5px 5px 0 0;
+}
+
+.value {
+  grid-row: -1;
+}

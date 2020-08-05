@@ -1,0 +1,70 @@
+/* display styles */
+/* -------------- */
+
+@supports not (--css: variables) {
+  body::before {
+    content: 'This browser does not support CSS Variables';
+    display: block;
+  }
+}
+
+html {
+  font-size: calc(1rem + 1vw);
+}
+
+body {
+  padding: var(--static-gutters);
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 1em;
+  padding: 0.25em 0.5ch;
+  text-shadow: 0 0 2px white;
+}
+
+aside::before,
+aside::after,
+article::before,
+article::after,
+section::before,
+section::after,
+div::before,
+div::after,
+footer::before,
+footer::after {
+  content: ' ';
+  display: table;
+  clear: both;
+}
+
+section,
+footer {
+  clear: both;
+}
+
+section,
+article {
+  outline: 2px dotted;
+}
+
+aside {
+  background-color: hsla(180, 50%, 50%, 0.5);
+}
+
+[data-susy~='6'] [data-susy~='3'],
+[data-susy~='4'] [data-susy~='2'] {
+  background-color: hsla(0, 50%, 50%, 0.5);
+}
+
+section [data-susy~='2'] {
+  background-color: hsla(45, 50%, 50%, 0.5);
+}
+
+footer {
+  background-color: hsla(-45, 50%, 50%, 0.5);
+}

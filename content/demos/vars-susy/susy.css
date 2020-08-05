@@ -1,0 +1,105 @@
+html {
+  /* "--susy-" variables establish the grid */
+  /* settings will inherit... */
+  --susy-columns: 4;
+  --susy-gutters: 0.25;
+  --susy-spread: 0;
+  --susy-container-spread: 0;
+  --susy-debug-color: hsla(0, 0%, 0%, 0.125);
+
+  /* for static grids only */
+  --susy-static-grid: 0; /* boolean */
+  --susy-static-gutters: var(--susy-static-grid); /* boolean */
+  --susy-column-width: 5em;
+}
+
+[data-susy] {
+  /* ...but all the math has to happen on the element. */
+
+  /* INTERNAL MATH */
+  /* ------------- */
+
+  /* container math */
+  ---su-container-sum: calc(
+    var(--susy-columns) +
+      (
+        (var(--susy-columns) + var(--susy-container-spread)) *
+          var(--susy-gutters)
+      )
+  );
+
+  /* span math */
+  ---su-span-sum: calc(
+    var(--span) + ((var(--span) + var(--susy-spread)) * var(--susy-gutters))
+  );
+
+  /* gutter output math */
+  ---su-inside-gutters: calc(var(--gutter-width) * var(--gutters-inside));
+
+  ---su-gutters-left: calc(var(--gutter-width) * var(--gutters-left));
+
+  ---su-gutters-right: calc(var(--gutter-width) * var(--gutters-right));
+
+  /* background grid math */
+  ---su-grid-image-sum: calc(1 + var(--susy-gutters));
+  ---su-grid-gutter-ratio: calc(
+    var(--susy-gutters) / var(---su-grid-image-sum) * 100%
+  );
+  ---su-split-gutter-ratio: calc(var(---su-grid-gutter-ratio) / 2);
+
+  /* PUBLIC FUNCTIONS */
+  /* ---------------- */
+
+  /* span functions */
+  --fluid-span: calc(var(---su-span-sum) / var(---su-container-sum) * 100%);
+  --static-span: calc(var(---su-span-sum) * var(--susy-column-width));
+
+  --span-width: calc(
+    var(--static-span) * var(--susy-static-grid) + var(--fluid-span) *
+      (1 - var(--susy-static-grid))
+  );
+
+  /* container functions */
+  --container-width: calc(var(---su-container-sum) * var(--susy-column-width));
+
+  /* gutter functions */
+  --fluid-gutters: calc(var(--susy-gutters) / var(---su-container-sum) * 100%);
+  --static-gutters: calc(var(--susy-gutters) * var(--susy-column-width));
+
+  --gutter-width: calc(
+    var(--static-gutters) * var(--susy-static-gutters) + var(--fluid-gutters) *
+      (1 - var(--susy-static-gutters))
+  );
+
+  /* debug functions */
+  --debug-image: linear-gradient(
+    to right,
+    var(--susy-debug-color, #ccc) calc(100% - var(---su-grid-gutter-ratio)),
+    transparent calc(100% - var(---su-grid-gutter-ratio))
+  );
+  --debug-image-split: linear-gradient(
+    to right,
+    transparent var(---su-split-gutter-ratio),
+    var(--susy-debug-color, #ccc) var(---su-split-gutter-ratio),
+    var(--susy-debug-color, #ccc) calc(100% - var(---su-split-gutter-ratio)),
+    transparent calc(100% - var(---su-split-gutter-ratio))
+  );
+  --debug-image-size: calc(
+    var(---su-grid-image-sum) / var(---su-container-sum) * 100%
+  );
+
+  /* PUBLIC MIXINS */
+  /* ------------- */
+
+  --span: initial; /* integer */
+  --gutters-inside: initial; /* multiplier */
+  --gutters-left: initial; /* multiplier */
+  --gutters-right: initial; /* multiplier */
+
+  /* output */
+  width: var(--span-width, initial);
+  padding-left: var(---su-inside-gutters, initial);
+  padding-right: var(---su-inside-gutters, initial);
+  margin-left: var(---su-gutters-left, initial);
+  margin-right: var(---su-gutters-right, initial);
+}

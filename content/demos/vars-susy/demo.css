@@ -1,0 +1,102 @@
+/* Global Settings */
+/* --------------- */
+
+[data-susy='root'] {
+  --susy-columns: 1;
+  --susy-gutters: 0.25;
+  --susy-spread: -1;
+  --susy-container-spread: -1;
+  /*   --susy-static-grid: 1; */
+  /*   --susy-debug-color: green; */
+}
+
+/* Container */
+/* --------- */
+
+[data-susy='root'] {
+  background-image: var(--debug-image);
+  background-size: var(--debug-image-size);
+  margin: var(--static-gutters);
+  overflow: hidden;
+}
+
+/* Medium Screens */
+/* -------------- */
+
+@media (min-width: 30em) {
+  /* settings */
+  [data-susy='root'] {
+    --susy-columns: 5;
+  }
+
+  /* floats and gutters */
+  [data-susy]:not([data-susy='root']) {
+    --gutters-right: var(--gutters-last, 1);
+    float: left;
+    margin-bottom: var(--gutter-width);
+  }
+
+  [data-susy] {
+    --gutters-last: initial;
+  }
+
+  [data-susy~='last'] {
+    --gutters-last: 0;
+  }
+
+  /* layout */
+  [data-susy~='2'] {
+    --span: 1;
+  }
+
+  [data-susy~='6'] {
+    --span: 3;
+  }
+  [data-susy~='6'] * {
+    --susy-columns: 3;
+  }
+
+  [data-susy~='3'] {
+    --span: 3;
+  }
+
+  [data-susy~='4'] {
+    --span: 2;
+  }
+  [data-susy~='4'] * {
+    --susy-columns: 2;
+  }
+}
+
+/* Large Screens */
+/* ------------- */
+
+@media (min-width: 50em) {
+  /* settings */
+  [data-susy='root'] {
+    --susy-columns: 10;
+  }
+
+  /* layout */
+  [data-susy='root'] {
+    max-width: var(--container-width);
+  }
+
+  [data-susy~='2'] {
+    --span: 2;
+  }
+
+  [data-susy~='6'] {
+    --span: 6;
+  }
+  [data-susy~='6'] * {
+    --susy-columns: 6;
+  }
+
+  [data-susy~='4'] {
+    --span: 4;
+  }
+  [data-susy~='4'] * {
+    --susy-columns: 4;
+  }
+}

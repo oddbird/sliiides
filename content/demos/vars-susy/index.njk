@@ -1,0 +1,34 @@
+---
+demo: vars-susy
+title: SusyCSS
+override:styles:
+  - remedy
+  - /demos/base.css
+  - susy.css
+  - setup.css
+  - demo.css
+---
+
+<h1>SusyCSS</h1>
+
+<main data-susy='root'>
+  <aside data-susy="2"><h2>2of10</h2></aside>
+
+  <article data-susy="6">
+
+    <div data-susy="3"><h2>3of6</h2></div>
+    <div data-susy="3 last"><h2>3of6</h2></div>
+
+    <section>
+      <div data-susy="2"><h2>2of6</h2></div>
+      <article data-susy="4 last">
+        <div data-susy="2"><h2>2of4</h2></div>
+        <div data-susy="2 last"><h2>2of4</h2></div>
+        <footer><h2>full</h2></footer>
+      </article>
+    </section>
+
+  </article>
+
+  <aside data-susy="2 last"><h2>2of10</h2></aside>
+</main>

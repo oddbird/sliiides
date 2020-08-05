@@ -1,8 +1,8 @@
 layout: slides
-talk: Dynamic CSS
-sub: Layouts & Beyond
-hero:
-  img: dynamic-css/_cover.jpg
+title: Dynamic CSS
+talk: |
+  **Dynamic CSS**:
+  *Layouts & Beyond*
 tags:
   - css
   - variables
