@@ -11,4 +11,8 @@
     min-height: 100vh;
     align-content: start;
   }
+
+  @media print {
+    display: none;
+  }
 }

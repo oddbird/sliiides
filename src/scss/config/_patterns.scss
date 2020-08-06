@@ -18,4 +18,9 @@
     text-shadow: none;
     @content;
   }
+
+  @media print {
+    background: transparent;
+    color: var(--text-highlight);
+  }
 }
