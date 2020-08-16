@@ -1,6 +1,12 @@
 {% import "slides.macros.njk" as slides %}
 {% import "embed.macros.njk" as embed %}
 
+{% macro logo(slide, page) %}
+  {% call slides.base(slide, 'intro-logo', page) %}
+    {{ embed.svg('logos/oddbird') }}
+  {% endcall %}
+{% endmacro %}
+
 {% macro oddbird(slide, page) %}
   {%- set caption -%}
     Established in <strong>2008</strong> by three odd siblings
