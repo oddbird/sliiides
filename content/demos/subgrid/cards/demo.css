@@ -1,0 +1,49 @@
+.same {
+  /* display: none !important; */
+}
+
+.diff {
+  display: none !important;
+}
+
+/* Grids */
+
+body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, 24em));
+  grid-gap: 1em;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  /* grid-template-rows: auto 1fr auto; */
+}
+
+.card-header,
+.card-body {
+  grid-column-end: span 2;
+}
+
+/* Subgrid Rows */
+
+body {
+  /* grid-template-rows: auto repeat(2, auto 1fr auto); */
+}
+
+.card {
+  /* grid-row: span 3; */
+  /* grid-template-rows: subgrid; */
+  /* grid-row-gap: 0; */
+}
+
+/* Subgrid Columns */
+
+body {
+  /* grid-template-columns: repeat(2, fit-content(12em) fit-content(10em)); */
+}
+
+.card {
+  /* grid-column: span 2; */
+  /* grid-template-columns: subgrid; */
+}

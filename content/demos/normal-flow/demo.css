@@ -1,17 +1,3 @@
-/* demo */
-strong,
-em,
-code {
-  outline: 2px dotted rebeccapurple;
-}
-
-h1,
-p,
-div {
-  outline: 2px solid rebeccapurple;
-  padding: 0 0.5em;
-}
-
 /* resizing */
 h1 {
   overflow: hidden;
@@ -22,13 +8,4 @@ code {
   overflow: hidden;
   /* resize: both; */
   /* display: inline-block; */
-}
-
-/* layout */
-body {
-  display: grid;
-  font-weight: bold;
-  line-height: 1;
-  min-height: 100vh;
-  place-content: safe center;
 }

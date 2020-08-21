@@ -97,6 +97,10 @@ module.exports = (eleventyConfig) => {
     '11ty.js',
   ]);
 
+  eleventyConfig.setBrowserSyncConfig({
+    ghostMode: false,
+  });
+
   // settings
   return {
     dataTemplateEngine: 'njk',

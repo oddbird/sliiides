@@ -31,6 +31,10 @@ hr {
   /* stylelint-enable */
 }
 
+.click-select {
+  user-select: all;
+}
+
 // Paragraphs & Lists
 // ------------------
 /// Apply spacing after paragraphs and lists.
@@ -60,7 +64,7 @@ ol {
 /// Lighter markers and smaller bullet points…
 /// @group type
 ::marker {
-  color: var(--text-light);
+  color: var(--highlight);
 
   ul & {
     font-size: 0.75em;

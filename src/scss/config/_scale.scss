@@ -26,8 +26,8 @@ $font-sizes: (
   'xsmall': max(14px, 0.5rem),
   'rem': calc(1.25em + 1.25vw),
   'medium': 1.25rem,
-  'large': calc(1.25rem + 1vw),
-  'xlarge': calc(1.5rem + 2vw),
+  'large': calc(1.25rem + var(--scale)),
+  'xlarge': calc(1.5rem + var(--scale) * 2),
   'h1': '#xlarge',
   'h2': '#xlarge',
   'h3': '#large',
@@ -48,6 +48,7 @@ $font-sizes: (
 /// @sizes {ruler}
 /// @group config-scale
 $spacing-sizes: (
+  'scale': 1vw,
   'gutter': 0.75rem,
   'newline': '#gutter',
   'gutter-plus': calc(var(--gutter) * 1.5),

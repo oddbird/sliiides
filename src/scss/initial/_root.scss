@@ -6,6 +6,7 @@ html {
   @include tools.font-family('static');
   font-feature-settings: 'dlig' 1, 'liga' 1;
   font-size: tools.size('rem');
+  font-size: var(--rem);
   line-height: tools.ratio('line-height');
 
   // feature gradient
@@ -18,6 +19,11 @@ html {
   @supports (font-variation-settings: normal) {
     @include tools.font-family('recursive');
   }
+}
+
+[data-view='grid'] {
+  --rem: 1em;
+  --scale: 0.25vw;
 }
 
 [data-smooth] {

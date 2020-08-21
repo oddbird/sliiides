@@ -1,0 +1,60 @@
+/* Styles */
+html {
+  font-size: 1.5em;
+}
+
+body {
+  align-content: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  grid-column: 1 / -1;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+.card,
+.card-body {
+  border: 1px solid rebeccapurple;
+}
+
+.card {
+  background: papayawhip;
+  border-radius: 0.25em;
+}
+
+.card-body {
+  border-width: 1px 0;
+}
+
+.byline,
+button {
+  align-self: center;
+  margin: 0;
+}
+
+.card-header {
+  padding: 1em;
+}
+
+.card-body {
+  padding: 0 1em;
+}
+
+.byline,
+button {
+  margin: 1em;
+}
+
+button {
+  white-space: nowrap;
+}

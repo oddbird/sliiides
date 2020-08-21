@@ -5,17 +5,17 @@ html {
 
 /* Author Font Size */
 html {
-  /*   font-size: 3vw; */
+  /* font-size: 3em; */
 }
 
 /* Weighted average */
 html {
-  /* user */
+  /* sizes */
   --user-size: 1em;
-  --user-weight: 60;
+  --author-size: 3em;
 
-  /* author */
-  --author-size: 3vw;
+  /* weight */
+  --user-weight: 60;
 
   /* math… */
   --author-weight: calc(100 - var(--user-weight));
@@ -24,14 +24,5 @@ html {
   --average: calc((var(--author) + var(--user)) / 100);
 
   /* find the average… */
-  /*   font-size: var(--average, 1em); */
-}
-
-/* layout */
-body {
-  display: grid;
-  font-weight: bold;
-  line-height: 1;
-  min-height: 100vh;
-  place-content: safe center;
+  /* font-size: var(--average, 1em); */
 }

@@ -3,6 +3,10 @@ figure {
   overflow: hidden;
 }
 
+::marker {
+  color: rebeccapurple;
+}
+
 img {
   float: left;
   min-width: 200px;
@@ -16,26 +20,13 @@ img {
 
 a:link,
 a:visited {
-  /* text-decoration-color: rebeccapurple; */
-  /* text-decoration-thickness: 0.05em; */
-  /* text-underline-offset: 0.1em; */
-
-  /* text-decoration-skip-ink: none; */
-  /* transition: text-decoration 300ms ease-in-out, color 300ms ease-in-out; */
+  /* text-decoration-color: white; */
+  /* text-decoration-thickness: 0.5em; */
+  /* text-underline-offset: -0.25em; */
 }
 
-a:hover,
-a:focus,
-a:active {
-  /* text-decoration-thickness: 0.2em; */
-
-  /* text-decoration-thickness: 1.1em; */
-  /* text-underline-offset: -1em; */
-  /* color: white; */
-}
-
-main {
-  /* scroll-snap-type: y; */
+html {
+  /* scroll-snap-type: block mandatory; */
   /* scroll-padding: 1em; */
 }
 

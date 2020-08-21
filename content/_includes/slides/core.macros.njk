@@ -146,7 +146,7 @@
     {{ pen(slide, page) }}
   {% elif slide.md %}
     {{ md(slide, page) }}
-  {% elif slide.title %}
+  {% elif slide.title or slide.pre %}
     {{ title(slide, page) }}
   {% elif slide.section %}
     {{ section(slide, page) }}

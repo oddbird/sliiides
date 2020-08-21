@@ -6,9 +6,11 @@
 ) %}
   {% set caption %}
     <button data-btn="small" data-toggle="presenting" aria-pressed="false">
-      presenter mode
+      present
     </button>
-    (will capture global use of left/right arrow-keys)
+    <button data-btn="small" data-toggle="grid" aria-pressed="false">
+      grid
+    </button>
   {% endset %}
 
   {% call slides.base(

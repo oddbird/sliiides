@@ -1,19 +1,47 @@
 @use '../config/fonts';
+@use 'sass:math';
 
 [data-slides] {
   display: grid;
   grid-area: banner / main / main;
-  grid-template-columns: minmax(min-content, 1fr);
   grid-auto-rows: minmax(100vh, auto);
+  grid-template-columns: minmax(min-content, 1fr);
+
+  [data-view='grid'] & {
+    grid-gap: var(--double-gutter);
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(var(--page), 1fr));
+    padding: var(--spacer) var(--gutter);
+    place-content: safe center;
+  }
 }
 
 [id^='slide'] {
   background: var(--slide-background, inherit);
   color: var(--slide-color, inherit);
-  border-top: thin dotted var(--border);
+  border-top: thin solid var(--border);
   display: grid;
   grid-template: 'content' 1fr 'footer' auto / var(--width, 1fr);
   scroll-snap-align: start;
+
+  [data-view='grid'] & {
+    border: thin solid var(--border);
+    scroll-margin-top: var(--spacer);
+
+    &:target {
+      outline: thick dotted var(--accent);
+      outline-offset: var(--shim);
+      z-index: 2;
+    }
+
+    &::before {
+      content: '';
+      grid-area: content;
+      height: 0;
+      padding-top: math.percentage(9/21);
+      width: 0;
+    }
+  }
 }
 
 .slide-content {

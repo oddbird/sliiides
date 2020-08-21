@@ -1,0 +1,21 @@
+/* layout */
+body {
+  display: grid;
+  font-weight: bold;
+  line-height: 1;
+  min-height: 100vh;
+  place-content: safe center;
+}
+
+strong,
+em,
+code {
+  background: papayawhip;
+}
+
+h1,
+p,
+div {
+  outline: 2px solid rebeccapurple;
+  padding: 0 0.5em;
+}

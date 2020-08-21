@@ -4,7 +4,7 @@
   slide,
   class=none
 ) %}
-  {% if slide.title %}
+  {% if slide.title or slide.pre %}
     <h2 {{ utility.attr_if('class', class) }}>
       {% if slide.pre -%}
         <span class="pre">{{ slide.pre | string | mdInline | safe }}</span>
