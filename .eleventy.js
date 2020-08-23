@@ -25,14 +25,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy({ 'src/rad': 'assets/css' });
   // eleventyConfig.addPassthroughCopy({ 'src/media': 'assets/media' });
 
-  // collections
-  eleventyConfig.addCollection('events', (collection) =>
-    collection
-      .getAll()
-      .filter((item) => item.data.venue)
-      .sort((a, b) => b.date - a.date),
-  );
-
   // filters
   eleventyConfig.addFilter('merge', _.merge);
   eleventyConfig.addFilter('group', _.groupBy);

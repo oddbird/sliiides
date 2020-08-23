@@ -12,7 +12,8 @@ sections:
  - slug: mayiuse
  - slug: resources
 tags:
-  - index
+  - talk
+  - css is rad
 ---
 
 {%- for section in sections %}

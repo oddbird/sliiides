@@ -9,7 +9,21 @@ layout: base
 
   {% if index %}
     {% import "events.macros.njk" as events %}
-    {% set list = collections[index] | withData('data', venue) %}
-    {{ events.list(list | getPublic) }}
+    {% set tags = tags or [] %}
+
+    {% if ('talk' in tags) %}
+      {% set pages = collections[index] | withData('data.venue', venue) | getPublic %}
+      {{ events.talks(pages) }}
+    {% endif %}
+
+    {% if ('workshop' in tags) %}
+      {% if venue %}
+        {% set pages = collections[index] | withData('data.venue', venue) | withData('data.talk') | getPublic %}
+        {{ events.workshop_talks(pages) }}
+      {% else %}
+        {% set pages = collections[index] | withData('data.venue', venue) | withData('data.index') | getPublic %}
+        {{ events.workshop_venues(pages) }}
+      {% endif %}
+    {% endif %}
   {% endif %}
 </main>

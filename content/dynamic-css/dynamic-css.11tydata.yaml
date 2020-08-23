@@ -3,9 +3,7 @@ title: Dynamic CSS
 talk: |
   **Dynamic CSS**:
   *Layouts & Beyond*
+home: /dynamic-css/
 tags:
-  - css
-  - variables
-  - custom properties
-  - grid
-  - graphs
+  - talk
+  - dynamic css

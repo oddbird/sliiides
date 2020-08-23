@@ -17,11 +17,11 @@
 {% set layoutName = 'base' if (layout == 'rad-base') else layout %}
 <body data-body-{{ layoutName or 'base' }}>
   {% block body %}
-    {% set talkUrl = '/' + talk + '/' if talk else none %}
+    {% set talkUrl = '/' + root + '/' if root else none %}
     {% set talkIndex = collections.all | getPage(talkUrl) if talkUrl else none %}
-    {% set talkTitle = (talkIndex.data.title or talk) if talk else none %}
-    {% set backUrl = talkUrl + back + '/' if (talk and back) else back %}
-    {% set backPage = collections[talk or 'all'] | getPage(backUrl) if backUrl else none %}
+    {% set talkTitle = (talkIndex.data.title or root) if root else none %}
+    {% set backUrl = talkUrl + back + '/' if (root and back) else back %}
+    {% set backPage = collections[root or 'all'] | getPage(backUrl) if backUrl else none %}
     {% set navPage = backPage or talkIndex %}
 
     <nav data-nav>

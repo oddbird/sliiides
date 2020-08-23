@@ -1,26 +1,65 @@
-{% macro list(
-  pages,
-  name=none
-) %}
+{% macro talks(pages) %}
 {% if pages | length > 0 %}
-  <ul data-events='{{ name }}'>
-  {% for event in pages %}
-    <li class="event">
+  <section data-events='talks'>
+  {% for event in pages | sort(true, false, 'date') %}
+    <article class="event">
       <time>
         {{ event.date | getDate('short') }}
       </time>
-      <strong>
-        » {{ event.data.talk | mdInline | safe }}
-      </strong>
       <h2>
         <a href="{{ event.url }}">
           {{ event.data.venue }}
         </a>
       </h2>
-    </li>
+    </article>
   {% endfor %}
-  </ul>
+  </section>
 {% else %}
    <p>No events currently available…</p>
 {% endif %}
 {% endmacro %}
+
+{% macro workshop_talks(pages) %}
+{% if pages | length > 0 %}
+  <section data-events='workshop-talks'>
+    {% for date, events in pages | sort(false, false, 'date') | groupby('date') %}
+      <article class="workshop">
+        <h2>
+          {{ date | getDate('short') }}
+        </h2>
+        <ul>
+          {% for event in events %}
+            <li>
+              <a href="{{ event.url }}">
+                {{ event.data.talk | mdInline | safe }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </article>
+    {% endfor %}
+  </section>
+{% else %}
+   <p>No events currently available…</p>
+{% endif %}
+{% endmacro %}
+
+{% macro workshop_venues(pages) %}
+{% if pages | length > 0 %}
+  <section data-events='workshop-venues'>
+  {% for event in pages | sort(true, false, 'date') %}
+    <article class="event">
+      <time>
+        {{ event.date | getDate('short') }}
+      </time>
+      <h2>
+        <a href="{{ event.url }}">
+          {{ event.data.title }}
+        </a>
+      </h2>
+    </article>
+  {% endfor %}
+  </section>
+{% else %}
+   <p>No events currently available…</p>
+{% endif %}{% endmacro %}
