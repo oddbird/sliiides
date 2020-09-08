@@ -1,5 +1,6 @@
 css: /assets/css/
 js: /assets/js/
+fonts: /assets/fonts/
 images: /assets/images/
 sizes:
   gallery: 50vw
