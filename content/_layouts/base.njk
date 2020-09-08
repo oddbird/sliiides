@@ -7,9 +7,11 @@
   {% endblock %}>
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="OddBird presentation slide decks and demos">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ title or [talk, venue] | join(' at ') or 'Slides...' }}</title>
+  <title>{{ title or [talk, venue] | join(' at ') or 'OddBird Slides' }}</title>
+  <link rel="preload" as="font" href="assets/fonts/Recursive_VF_1.043--subset_range_english_basic.woff2">
 
   {% for style in (styles or site.styles) %}
     {% set style = style if ('.css' in style) else [assets.css, style, '.css'] | join %}
@@ -43,6 +45,9 @@
     {% include "site/ccs.njk" %}
   </footer>
   <script type="text/javascript" src="{{ assets.js }}scripts.js"></script>
+  {% for script in scripts %}
+    <script type="text/javascript" src="{{ assets.js }}{{ script }}"></script>
+  {% endfor %}
 {% endblock %}
 </body>
 </html>

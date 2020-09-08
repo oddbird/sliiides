@@ -13,6 +13,7 @@
   {% call slides.base(slide, 'demo', page) %}
     {{ embed.iframe(
       src=demoUrl,
+      title=demoTitle,
       width=slide.width or 560,
       height=slide.height or 315
     ) }}
@@ -48,7 +49,7 @@
   {% call slides.base(slide, 'person', page, styles, class='h-card') %}
     {{ embed.img(
       src='_people/' + slide.face,
-      alt=slide.alt,
+      alt=slide.alt or ['Headshot of', slide.title | removeMd ] | join(' ') ,
       attrs={'class': 'u-photo'}
     ) }}
     <div class="person">

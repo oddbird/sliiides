@@ -151,7 +151,13 @@ params:
   {%- elif item.svg -%}
     {{- svg(item.svg, item.alt) | safe -}}
   {%- elif item.iframe -%}
-    {{- iframe(item.iframe, item.width, item.height, item.span) -}}
+    {{- iframe(
+      src=item.iframe,
+      title=item.title,
+      width=item.width,
+      height=item.height,
+      span=item.span
+    ) -}}
   {%- elif item.audio -%}
     {{- audio(item.audio, span) -}}
   {%- endif -%}
@@ -321,6 +327,7 @@ params:
 #}
 {% macro iframe(
   src,
+  title,
   width=560,
   height=315,
   span=none,
@@ -328,6 +335,7 @@ params:
 ) %}
   {%- set attrs = {
     'src': src,
+    'title': title,
     'width': width,
     'height': height,
     'frameborder': '0',
