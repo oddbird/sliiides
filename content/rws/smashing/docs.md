@@ -155,10 +155,8 @@ slides:
 - title: (Private **vs.** Public)
 - title: (Is it **1970**?)
 
-- md: |
-    ## ![OddBird]({{ img }}_oddbird/allbirds.svg)
-    
-    **Small** Team, Multiple **Clients**, Quick **Handoff**
+- from: intro
+  use: oddbird
 
 # selling the idea ----------------------
 

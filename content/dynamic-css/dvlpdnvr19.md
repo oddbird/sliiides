@@ -24,7 +24,7 @@ slides:
     *~~1996~~ 2000…* \
     **Cascading** Style Sheets
 - md: |
-    ![CSS is Awesome](/images/dynamic-css/css-is-awesome.jpg)
+    ![CSS is Awesome]({{ assets.images }}dynamic-css/css-is-awesome.jpg)
     (The **End**)
 - img: dynamic-css/devices.jpg
   alt: A zillion different devices of all sizes (original)

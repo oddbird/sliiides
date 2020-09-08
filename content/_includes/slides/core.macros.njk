@@ -50,6 +50,7 @@
     {{ embed.img(
       src='_people/' + slide.face,
       alt=slide.alt or ['Headshot of', slide.title | removeMd ] | join(' ') ,
+      sizes='person',
       attrs={'class': 'u-photo'}
     ) }}
     <div class="person">

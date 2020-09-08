@@ -1,3 +1,6 @@
 css: /assets/css/
 js: /assets/js/
 images: /assets/images/
+sizes:
+  gallery: 50vw
+  person: 30vw

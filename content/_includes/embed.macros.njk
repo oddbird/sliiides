@@ -280,7 +280,8 @@ params:
   'src': assets.images + src,
   'alt': alt,
   'width': width,
-  'height': height
+  'height': height,
+  'sizes': assets.sizes[sizes] or sizes
 }) -%}
 <img {{ utility.show_attrs(attrs) }}/>
 {%- endif -%}

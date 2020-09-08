@@ -20,6 +20,14 @@ img {
     contrast(var(--img-contrast, var(--img-contrast--default, 1)));
 }
 
+picture {
+  display: contents;
+
+  source {
+    display: none;
+  }
+}
+
 // Audio
 // -----
 /// Audio is full-width by default.
