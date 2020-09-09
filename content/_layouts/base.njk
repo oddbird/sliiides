@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ title or [talk, venue] | join(' at ') or 'OddBird Slides' }}</title>
-  <link rel="preload" as="font" href="{{ assets.fonts }}Recursive_VF_1.043--subset_range_english_basic.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="{{ assets.fonts }}Recursive_VF_1.043--subset_range_english_basic.woff2">
 
   {% for style in (styles or site.styles) %}
     {% set style = style if ('.css' in style) else [assets.css, style, '.css'] | join %}
