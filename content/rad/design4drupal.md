@@ -7,10 +7,7 @@ proposal: &proposal
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 quote: 
   text: |
-    CSS is **unlike anything else**… 
-    designed for the realities 
-    of a **flexible, multilingual, multi-device** web.
-  cite: Rachel Andrew
+    Let the web **fail beautifully**
 slides:
 
 # intro
@@ -528,12 +525,6 @@ slides:
 - pre: We *Already*
   title: |
     **Know How** To Do This
-- img: rad/car-seat.jpg
-  alt: Woman adjusting a car seat
-  position: bottom
-- title: Font **Stacks**
-  sub: |
-    `font-family: `*`Consolas`*`, `*`Menlo`*`, `*`'Courier New'`*`, `*`monospace`*`;`
 - pre: 2010...
   title: |
     **Responsive** Web Design**™️**
@@ -549,6 +540,12 @@ slides:
   cite: Keith J Grant
   caption: |
     [Resilient, Declarative, Contextual](https://keithjgrant.com/posts/2018/06/resilient-declarative-contextual/)
+- img: rad/car-seat.jpg
+  alt: Woman adjusting a car seat
+  position: bottom
+- title: Font **Stacks**
+  sub: |
+    `font-family: `*`Consolas`*`, `*`Menlo`*`, `*`'Courier New'`*`, `*`monospace`*`;`
 
 - pre: So *how* do we 
   title: Code For **Resilience**?
@@ -706,14 +703,6 @@ slides:
 
 # outro
 
-- face: jensimmons.jpg
-  pre: |
-    @jensimmons
-  title: |
-    **Jen** Simmons
-  md: |
-    [Resilient Videos](https://www.youtube.com/watch?v=u00FY9vADfQ&list=PLbSquHt1VCf1kpv9WRGMCA9_Nn4vCLZ9Y)
-
 - md: |
     # More **Resources**:
     - [Why is CSS so Weird?][weird] (video) by Miriam
@@ -729,6 +718,14 @@ slides:
     [rdc]: https://keithjgrant.com/posts/2018/06/resilient-declarative-contextual/
     [rwd]: https://resilientwebdesign.com/
     [saga]: https://www.w3.org/Style/LieBos2e/history/Overview.htm
+
+- face: jensimmons.jpg
+  pre: |
+    @jensimmons
+  title: |
+    **Jen** Simmons
+  md: |
+    [Resilient Videos](https://www.youtube.com/watch?v=u00FY9vADfQ&list=PLbSquHt1VCf1kpv9WRGMCA9_Nn4vCLZ9Y)
 
 - from: intro
   use: oddbird
