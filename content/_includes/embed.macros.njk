@@ -301,7 +301,7 @@ params:
   alt=none
 ) -%}
   {%- include path + '.svg' -%}
-  {% if alt %}<span class="sr-only">{{ alt }}</span>{% endif %}
+  {% if alt %}<span class="visually-hidden">{{ alt }}</span>{% endif %}
 {%- endmacro %}
 
 

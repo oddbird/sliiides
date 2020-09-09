@@ -84,8 +84,33 @@ slides:
     Dave Shea's [CSS Zen Garden](http://www.csszengarden.com/)
     demonstrates the power of CSS
 
+- title: |
+    **Performative** Turn
+- img: unfriendly/agnesscott/jane-script.png
+  alt: Jane/Eyre Script
+  caption: |
+    Script from [Jane/Eyre](https://www.miriamsuzanne.com/theater/janeeyre/)
+- img: unfriendly/agnesscott/jane-eyre.jpg
+  alt: Two women in bed
+  caption: |
+    Photo from [Jane/Eyre](https://www.miriamsuzanne.com/theater/janeeyre/)
+- img: unfriendly/urinal.jpg
+  alt: row of urinals
+- img: unfriendly/fountain.jpg
+  alt: upside-down urinal, signed R. Mutt
+  caption: |
+    **Marcel Duchamp** Fountain,
+    1917, photograph by **Alfred Stieglitz**
+
 - pre: |
     *CSS* is a
+  title: Weird **Art Project**
+
+- pre: Not just stylesheets...
+  title: Browsers **Perform the Web**
+
+- pre: |
+    *The Web* is a
   title: Weird **Art Project**
 
 # vision / history

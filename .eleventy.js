@@ -95,8 +95,8 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPlugin(pluginLocalRespimg, {
     folders: {
-      source: './content', // Folder images are stored in
-      output: './_site', // Folder images should be output to
+      source: 'content', // Folder images are stored in
+      output: '_site', // Folder images should be output to
     },
     images: {
       resize: {
@@ -107,6 +107,7 @@ module.exports = (eleventyConfig) => {
       gifToVideo: false, // Convert GIFs to MP4 videos
       sizes: '100vw', // Default image `sizes` attribute
       lazy: false, // Include `loading="lazy"` attribute for images
+      additional: ['assets/images/**/**/*'],
     },
   });
 
