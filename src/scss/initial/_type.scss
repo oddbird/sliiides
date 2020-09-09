@@ -13,7 +13,7 @@ hr {
   margin: var(--spacer) 0;
 }
 
-.sr-only {
+.visually-hidden {
   &:not(:focus):not(:active) {
     @include tools.is-hidden;
   }

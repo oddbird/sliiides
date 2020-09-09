@@ -23,6 +23,7 @@ slides:
     The **WorldWideWeb** Project
 
 - face: mia-89.jpg
+  alt: 7 year old Miriam with her hands on her knees
   pre: |
     1989
   title: The **Artist** (it me)

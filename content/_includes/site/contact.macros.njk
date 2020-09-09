@@ -62,10 +62,10 @@ params:
     required=true
   ) }}
 
-  <label data-honey aria-hidden="true">
-    <span>Don't fill out this field:</span>
+  <div data-honey>
+    <label>Don't fill out this field:</label>
     <input name="subject" />
-  </label>
+  </div>
 
   <div class="form-actions">
     <button
@@ -129,7 +129,7 @@ params:
         {%- set hide_details = info.hide_details or (not details) -%}
         {%- set text = info.user | replace("%s", id) if info.user else info.text or id -%}
         {%- set context %} <i>on</i> {{ info.title or site | capitalize }}{% endset -%}
-        {%- set context = '<span class="sr-only">' + context + '</span>' if hide_details else context %}
+        {%- set context = '<span class="visually-hidden">' + context + '</span>' if hide_details else context %}
         {%- set text = text + context if hide_details else text -%}
         <li>
           {{- utility.icon_link(

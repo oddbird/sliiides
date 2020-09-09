@@ -3,6 +3,7 @@
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const yaml = require('js-yaml');
 const _ = require('lodash');
+const pluginLocalRespimg = require('eleventy-plugin-local-respimg');
 
 const data = require('./src/filters/data');
 const pages = require('./src/filters/pages');
@@ -14,15 +15,14 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.setUseGitIgnore(false);
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  eleventyConfig.addWatchTarget('./src/images/');
   eleventyConfig.addWatchTarget('./src/media/');
 
   // pass-through
   eleventyConfig.addPassthroughCopy({ _built: 'assets' });
   eleventyConfig.addPassthroughCopy({ 'src/fonts': 'assets/fonts' });
-  eleventyConfig.addPassthroughCopy({ 'src/images': 'assets/images' });
   eleventyConfig.addPassthroughCopy({ 'src/remedy': 'assets/css' });
   eleventyConfig.addPassthroughCopy({ 'src/rad': 'assets/css' });
+  eleventyConfig.addPassthroughCopy('assets');
   // eleventyConfig.addPassthroughCopy({ 'src/media': 'assets/media' });
 
   // filters
@@ -91,6 +91,24 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.setBrowserSyncConfig({
     ghostMode: false,
+  });
+
+  eleventyConfig.addPlugin(pluginLocalRespimg, {
+    folders: {
+      source: 'content', // Folder images are stored in
+      output: '_site', // Folder images should be output to
+    },
+    images: {
+      resize: {
+        min: 300, // Minimum width to resize an image to
+        max: 1500, // Maximum width to resize an image to
+        step: 300, // Width difference between each resized image
+      },
+      gifToVideo: false, // Convert GIFs to MP4 videos
+      sizes: '100vw', // Default image `sizes` attribute
+      lazy: false, // Include `loading="lazy"` attribute for images
+      additional: ['assets/images/**/**/*'],
+    },
   });
 
   // settings

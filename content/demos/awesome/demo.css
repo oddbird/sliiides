@@ -11,6 +11,9 @@
 .rad [contenteditable] {
   color: rebeccapurple;
   display: block;
+
+  /* chrome uses break-word for contenteditable */
+  overflow-wrap: normal;
 }
 
 .rad [contenteditable]:focus {
