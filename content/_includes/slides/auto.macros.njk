@@ -4,19 +4,10 @@
 {% macro title(
   page
 ) %}
-  {% set caption %}
-    <button data-btn="small" data-toggle="presenting" aria-pressed="false">
-      present
-    </button>
-    <button data-btn="small" data-toggle="grid" aria-pressed="false">
-      grid
-    </button>
-  {% endset %}
-
   {% call slides.base(
     slide={
       'index': 0,
-      'caption': caption
+      'controls': true
      },
     name='event-title',
     page=page,

@@ -23,30 +23,13 @@
 </head>
 <body data-body="{{ layout or 'base' }}">
 {% block body %}
-  <header role="banner">
-    <strong>
-      <a href="/" rel="home">{{ site.domain }}</a>
-      {%- if home -%}<a href="{{ home }}">{{ home }}</a>{%- endif -%}
-      <span>{{ page.url | replace(home, '') if home else page.url }}</span>
-    </strong>
-    <nav data-nav="external" aria-label="external">
-      <ul>
-        <li>
-          <a href="https://twitter.com/mirisuzanne">@MiriSuzanne</a>
-        </li>
-        <li>
-          <a href="https://oddbird.net">OddBird</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  {% import "site/layout.macros.njk" as layout %}
+  {% set page = collections.all | getPage(page.url) %}
 
+  {{ layout.banner(page, site) }}
   {{ content | safe }}
+  {{ layout.footer(ccs) }}
 
-  <footer role="contentinfo">
-    {% include "site/contact.njk" %}
-    {% include "site/ccs.njk" %}
-  </footer>
   <script type="text/javascript" src="{{ assets.js }}scripts.js"></script>
   {% for script in scripts %}
     <script type="text/javascript" src="{{ assets.js }}{{ script }}"></script>

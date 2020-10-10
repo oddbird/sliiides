@@ -5,3 +5,4 @@ images: /assets/images/
 sizes:
   gallery: 50vw
   person: 30vw
+  quote: 5em

@@ -225,17 +225,28 @@ params:
 
 {% macro blockquote(
   quote,
-  cite=none
+  cite=none,
+  source=none
 ) %}
   <blockquote>
     {{ quote | md | safe }}
-    {% if cite %}
-      <div class="cite h-card">
-        {{- '--' | mdInline | safe -}}
-        {{- cite | mdInline | safe -}}
-      </div>
-    {% endif %}
+    {{ credit(cite, source) }}
   </blockquote>
+{% endmacro %}
+
+{% macro credit(
+  name=none,
+  source=none
+) %}
+{% if name or source %}
+<p class="cite h-card">
+  {{ '--' | mdInline | safe }}
+  {{ name | mdInline | safe }}
+  {%- if source %},
+    {{ source | mdInline | safe }}
+  {% endif %}
+</p>
+{% endif %}
 {% endmacro %}
 
 {# @docs
@@ -273,7 +284,6 @@ params:
   sizes=none,
   attrs={}
 ) -%}
-
 {%- if src -%}
 {% set assets = 'assets' | meta %}
 {%- set attrs = attrs | merge({
@@ -287,6 +297,14 @@ params:
 {%- endif -%}
 {%- endmacro %}
 
+{% macro face(path, alt, name) %}
+  {{ img(
+    src='_people/' + path,
+    alt=alt or ['Headshot of', name | removeMd ] | join(' ') ,
+    sizes='quote',
+    attrs={'class': 'u-photo'}
+  ) }}
+{% endmacro %}
 
 {# @docs
 label: svg

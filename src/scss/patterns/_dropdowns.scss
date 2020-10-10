@@ -1,8 +1,26 @@
 @use '../config/actions';
+@use '~accoutrement/sass/tools';
+
+.dropdown-summary {
+  margin-right: auto;
+  max-width: max-content;
+  padding: var(--half-shim) var(--shim);
+
+  &[aria-pressed='true'],
+  [open] & {
+    @include tools.z-index('popup');
+
+    &::before {
+      @include tools.z-index('backdrop');
+      @include tools.position(0 0 0 0 fixed);
+      content: '';
+    }
+  }
+}
 
 [data-dropdown] {
-  --push: calc(100% + var(--half-shim));
-  --top: var(--push);
+  @include tools.z-index('popup');
+  --top: initial;
   --right: initial;
   --bottom: initial;
   --left: initial;
@@ -19,12 +37,27 @@
   right: var(--right);
   top: var(--top);
   width: 35ch;
-  z-index: 100;
 
   &[aria-expanded='true'],
-  summary + & {
+  [open] & {
     display: block;
   }
+}
+
+[data-dropdown~='top'] {
+  --bottom: 100%;
+}
+
+[data-dropdown~='bottom'] {
+  --top: 100%;
+}
+
+[data-dropdown~='left'] {
+  --right: 0;
+}
+
+[data-dropdown~='right'] {
+  --left: 0;
 }
 
 [data-dropdown~='links'] {
@@ -45,5 +78,5 @@
 }
 
 [data-dropdown~='pad'] {
-  padding: var(--gutter);
+  padding: var(--shim);
 }

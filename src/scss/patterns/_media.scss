@@ -52,7 +52,10 @@
 
   img,
   svg {
-    height: auto;
+    border-radius: var(--media-radius, initial);
+    height: var(--media-height, auto);
+    object-fit: var(--media-fit, initial);
+    object-position: var(--media-position, initial);
     width: 100%;
   }
 }
@@ -70,6 +73,16 @@
   > *:last-child {
     margin-bottom: 0;
   }
+}
+
+[data-media='quote'] {
+  --media-size: 5em;
+  --media-height: var(--media-size);
+  --media-radius: 100%;
+  --media-gap: var(--shim);
+  --media-fit: cover;
+  --media-position: center;
+  // --quote-space-left: 0;
 }
 
 /// ## Ratios

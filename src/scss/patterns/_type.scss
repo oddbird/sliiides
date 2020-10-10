@@ -19,6 +19,7 @@ blockquote {
   @include fonts.var('italic' 'fun');
   font-size: var(--medium);
   position: relative;
+  margin-block-start: var(--quote-space-left, revert);
   max-width: 46ch;
 
   @include tools.before('"') {
@@ -31,8 +32,7 @@ blockquote {
 
   strong {
     @include fonts.var('normal');
-    background: var(--feature-gradient);
-    color: var(--bg);
+    @include patterns.fancy-highlight;
   }
 
   > :first-child {

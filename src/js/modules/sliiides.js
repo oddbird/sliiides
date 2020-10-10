@@ -4,9 +4,11 @@ export default function () {
   const slides = document.querySelector('[data-slides]');
   const presToggle = document.querySelector('[data-toggle=presenting]');
   const gridToggle = document.querySelector('[data-toggle=grid]');
+  const followToggle = document.querySelector('[data-toggle=follow]');
   const totalSlides = parseInt(slides.dataset.slides, 10) + 1;
   const isPresenting = () => sessionStorage.getItem('presenting') === 'true';
   const isFollowing = () => sessionStorage.getItem('follow') === 'true';
+  const isGridView = () => sessionStorage.getItem('view') === 'grid';
 
   const slideFromHash = (hash) => parseInt(hash.split('-').pop(), 10) || 0;
   const inRange = (slide) => slide >= 0 && slide <= totalSlides;
@@ -54,29 +56,38 @@ export default function () {
 
   const presOn = () => {
     presToggle.setAttribute('aria-pressed', 'true');
-    pres.addEventListener('keyup', captureKeys);
+    root.setAttribute('data-present', 'true');
+    pres.addEventListener('keydown', captureKeys);
   };
 
   const presOff = () => {
     presToggle.setAttribute('aria-pressed', 'false');
-    pres.removeEventListener('keyup', captureKeys);
+    root.setAttribute('data-present', 'false');
+    pres.removeEventListener('keydown', captureKeys);
   };
 
   const followMode = () => {
-    console.log('Hello');
     goTo(getActive());
   };
 
   const gridOn = () => {
     gridToggle.setAttribute('aria-pressed', 'true');
     root.setAttribute('data-view', 'grid');
-    goTo(getActive());
-    window.addEventListener('storage', followMode);
   };
 
   const gridOff = () => {
     gridToggle.setAttribute('aria-pressed', 'false');
     root.setAttribute('data-view', 'default');
+  };
+
+  const followOn = () => {
+    followToggle.setAttribute('aria-pressed', 'true');
+    goTo(getActive());
+    window.addEventListener('storage', followMode);
+  };
+
+  const followOff = () => {
+    followToggle.setAttribute('aria-pressed', 'false');
     window.removeEventListener('storage', followMode);
   };
 
@@ -96,8 +107,12 @@ export default function () {
       presOn();
     }
 
-    if (isFollowing()) {
+    if (isGridView()) {
       gridOn();
+    }
+
+    if (isFollowing()) {
+      followOn();
     } else {
       updateStorageFromHash();
     }
@@ -122,12 +137,26 @@ export default function () {
 
   if (gridToggle) {
     gridToggle.addEventListener('click', () => {
-      const isOn = isFollowing();
+      const isOn = isGridView();
 
       if (isOn) {
         gridOff();
       } else {
         gridOn();
+      }
+
+      sessionStorage.setItem('view', isOn ? 'default' : 'grid');
+    });
+  }
+
+  if (followToggle) {
+    followToggle.addEventListener('click', () => {
+      const isOn = isFollowing();
+
+      if (isOn) {
+        followOff();
+      } else {
+        followOn();
       }
 
       sessionStorage.setItem('follow', !isOn);

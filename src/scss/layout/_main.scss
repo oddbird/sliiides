@@ -3,7 +3,7 @@ html {
   scroll-snap-type: block;
 }
 
-body {
+[data-body] {
   display: grid;
   grid-template: 'banner' auto 'main' 1fr 'footer' auto / 100vw;
   min-height: 100vh;

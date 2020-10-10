@@ -1,4 +1,5 @@
 {% import "slides.macros.njk" as slides %}
+{% import "slides/toc.macros.njk" as toc %}
 {% import "embed.macros.njk" as embed %}
 {% import "utility.macros.njk" as utility %}
 
@@ -47,12 +48,7 @@
   } %}
   {% set styles = slide.style | merge(imgStyle) %}
   {% call slides.base(slide, 'person', page, styles, class='h-card') %}
-    {{ embed.img(
-      src='_people/' + slide.face,
-      alt=slide.alt or ['Headshot of', slide.title | removeMd ] | join(' ') ,
-      sizes='person',
-      attrs={'class': 'u-photo'}
-    ) }}
+    {{ embed.face(slide.face, slide.alt, slide.title) | safe }}
     <div class="person">
       {{ slides.title(slide, 'p-name') }}
       {% if slide.md %}
@@ -65,8 +61,18 @@
 {% endmacro %}
 
 {% macro quote(slide, page) %}
+  {% set face = embed.face(slide.face, slide.alt, slide.cite) if slide.face else none %}
+  {% set quote = embed.blockquote(slide.quote, slide.cite, slide.source) %}
   {% call slides.base(slide, 'quote', page) %}
-    {{ embed.blockquote(slide.quote, slide.cite) }}
+    {% if face %}
+      {{ embed.media_block(
+        media=face,
+        name='quote',
+        content=quote
+      ) | safe }}
+    {% else %}
+      {{ quote | safe }}
+    {% endif %}
   {% endcall %}
 {% endmacro %}
 
@@ -79,6 +85,27 @@
       {%- set fixMd = slide.md | replace(imgMark, imgPath) if (imgMark in slide.md) else slide.md -%}
       {{- fixMd | md | safe -}}
     </div>
+  {% endcall %}
+{% endmacro %}
+
+{% macro code(slide, page) %}
+  {% set lang = slide.lang or 'scss' %}
+  {% call slides.base(slide, 'code', page) %}
+    {{ slides.title(slide) }}
+    <div class="code">
+      {% highlight lang -%}
+      {{- slide.code | safe -}}
+      {%- endhighlight %}
+    </div>
+  {% endcall %}
+{% endmacro %}
+
+{% macro exact(slide, page) %}
+  {% call slides.base(slide, 'exact', page) %}
+    {{ slides.title(slide) }}
+    <pre>
+      {{- slide.exact | safe -}}
+    </pre>
   {% endcall %}
 {% endmacro %}
 
@@ -113,45 +140,27 @@
   {% endcall %}
 {% endmacro %}
 
-{% macro section(slide, page) %}
-  {% call slides.base(slide, 'section', page) %}
-    <ol class="toc">
-      {% for item in page.data.slides %}
-        {% if item.section %}
-          {% set current = item.section == slide.section %}
-          <li {% if current %}class="current-section"{% endif %}>
-            {% if current %}
-              <h2>{{ slide.section | mdInline | safe }}</h2>
-            {% else %}
-              {{ utility.link_if(
-                item.section | mdInline | safe,
-                ['#slide', loop.index] | join('-')
-              ) }}
-            {% endif %}
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ol>
-  {% endcall %}
-{% endmacro %}
-
 {% macro find(slide, page, collections) %}
   {% if slide.demo %}
     {{ demo(slide, page, collections) }}
-  {% elif slide.face  %}
-    {{ person(slide, page) }}
   {% elif slide.img %}
     {{ img(slide, page) }}
+  {% elif slide.code %}
+    {{ code(slide, page) }}
+  {% elif slide.exact %}
+    {{ exact(slide, page) }}
   {% elif slide.quote %}
     {{ quote(slide, page) }}
   {% elif slide.pen %}
     {{ pen(slide, page) }}
+  {% elif slide.face %}
+    {{ person(slide, page) }}
   {% elif slide.md %}
     {{ md(slide, page) }}
   {% elif slide.title or slide.pre %}
     {{ title(slide, page) }}
-  {% elif slide.section %}
-    {{ section(slide, page) }}
+  {% elif slide.toc or slide.section %}
+    {{ toc.section(slide, page) }}
   {% else %}
     {{ default(slide, page) }}
   {% endif %}

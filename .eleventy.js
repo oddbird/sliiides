@@ -5,6 +5,7 @@ const yaml = require('js-yaml');
 const _ = require('lodash');
 const pluginLocalRespimg = require('eleventy-plugin-local-respimg');
 
+const config = require('./config');
 const data = require('./src/filters/data');
 const pages = require('./src/filters/pages');
 const time = require('./src/filters/time');
@@ -22,8 +23,12 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy({ 'src/fonts': 'assets/fonts' });
   eleventyConfig.addPassthroughCopy({ 'src/remedy': 'assets/css' });
   eleventyConfig.addPassthroughCopy({ 'src/rad': 'assets/css' });
-  eleventyConfig.addPassthroughCopy('assets');
-  // eleventyConfig.addPassthroughCopy({ 'src/media': 'assets/media' });
+
+  if (config.env === 'dev') {
+    eleventyConfig.addPassthroughCopy({
+      'content/assets/images': 'assets/images',
+    });
+  }
 
   // filters
   eleventyConfig.addFilter('merge', _.merge);
@@ -44,6 +49,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter('isPublic', pages.isPublic);
   eleventyConfig.addFilter('getPublic', pages.getPublic);
   eleventyConfig.addFilter('isCurrent', pages.isCurrent);
+  eleventyConfig.addFilter('getCurrent', pages.isCurrent);
   eleventyConfig.addFilter('getPage', pages.getPage);
   eleventyConfig.addFilter('findPage', pages.findPage);
   eleventyConfig.addFilter('hasData', pages.hasData);
@@ -93,23 +99,25 @@ module.exports = (eleventyConfig) => {
     ghostMode: false,
   });
 
-  eleventyConfig.addPlugin(pluginLocalRespimg, {
-    folders: {
-      source: 'content', // Folder images are stored in
-      output: '_site', // Folder images should be output to
-    },
-    images: {
-      resize: {
-        min: 300, // Minimum width to resize an image to
-        max: 1500, // Maximum width to resize an image to
-        step: 300, // Width difference between each resized image
+  if (config.env !== 'dev') {
+    eleventyConfig.addPlugin(pluginLocalRespimg, {
+      folders: {
+        source: 'content', // Folder images are stored in
+        output: '_site', // Folder images should be output to
       },
-      gifToVideo: false, // Convert GIFs to MP4 videos
-      sizes: '100vw', // Default image `sizes` attribute
-      lazy: false, // Include `loading="lazy"` attribute for images
-      additional: ['assets/images/**/**/*'],
-    },
-  });
+      images: {
+        resize: {
+          min: 300, // Minimum width to resize an image to
+          max: 1500, // Maximum width to resize an image to
+          step: 300, // Width difference between each resized image
+        },
+        gifToVideo: false, // Convert GIFs to MP4 videos
+        sizes: '100vw', // Default image `sizes` attribute
+        lazy: false, // Include `loading="lazy"` attribute for images
+        additional: ['assets/images/**/**/*'],
+      },
+    });
+  }
 
   // settings
   return {

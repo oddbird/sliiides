@@ -9,7 +9,10 @@
 
   [data-slides] + & {
     min-height: 100vh;
-    align-content: start;
+  }
+
+  [data-view='grid'] & {
+    min-height: initial;
   }
 
   @media print {

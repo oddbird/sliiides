@@ -1,3 +1,5 @@
+{% import "utility.macros.njk" as utility %}
+
 {% macro talks(pages) %}
 {% if pages | length > 0 %}
   <section data-events='talks'>
@@ -7,9 +9,10 @@
         {{ event.date | getDate('short') }}
       </time>
       <h2>
-        <a href="{{ event.url }}">
-          {{ event.data.venue }}
-        </a>
+        {{ utility.link_if(
+          event.data.venue,
+          event.url if event | isCurrent else none
+        ) }}
       </h2>
     </article>
   {% endfor %}
@@ -30,9 +33,10 @@
         <ul>
           {% for event in events %}
             <li>
-              <a href="{{ event.url }}">
-                {{ event.data.talk | mdInline | safe }}
-              </a>
+              {{ utility.link_if(
+                event.data.talk | mdInline | safe,
+                event.url if event | isCurrent else none
+              ) }}
             </li>
           {% endfor %}
         </ul>
@@ -53,9 +57,10 @@
         {{ event.date | getDate('short') }}
       </time>
       <h2>
-        <a href="{{ event.url }}">
-          {{ event.data.title }}
-        </a>
+        {{ utility.link_if(
+          event.data.title,
+          event.url if event | isCurrent else none
+        ) }}
       </h2>
     </article>
   {% endfor %}

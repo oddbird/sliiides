@@ -1,3 +1,4 @@
+@use '~accoutrement/sass/tools';
 @use '../config/fonts';
 @use 'sass:math';
 
@@ -29,9 +30,9 @@
     scroll-margin-top: var(--spacer);
 
     &:target {
+      @include tools.z-index('active');
       outline: thick dotted var(--accent);
       outline-offset: var(--shim);
-      z-index: 2;
     }
 
     &::before {
@@ -57,22 +58,32 @@
   img,
   svg,
   video {
-    width: var(--img-width, 100%);
+    width: var(--img-width, var(--media-width, 100%));
   }
 }
 
 .slide-footer {
+  @include tools.z-index('bump');
   align-items: center;
   background: var(--callout);
   display: flex;
   font-size: var(--xsmall);
   grid-area: footer;
-  z-index: var(--bump, 1);
+  justify-content: space-between;
+}
+
+.slide-caption,
+.slide-controls {
+  flex: 1;
+}
+
+.slide-controls {
+  position: relative;
+  margin: 0 var(--shim);
 }
 
 .slide-caption {
   --newline: 0;
-  flex: 1;
   padding: var(--half-shim) var(--gutter);
 }
 
@@ -81,4 +92,8 @@
   flex: none;
   padding: var(--half-shim) var(--gutter);
   white-space: nowrap;
+
+  [data-present='true'] & {
+    display: none;
+  }
 }

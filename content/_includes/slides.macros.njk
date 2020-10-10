@@ -1,5 +1,33 @@
 {% import "utility.macros.njk" as utility %}
 
+{% macro controls() %}
+  <details class="slide-controls">
+    <summary class="dropdown-summary">View Options</summary>
+    <div data-dropdown="pad top right">
+      <p>
+        <button data-btn="inline start" data-toggle="presenting" aria-pressed="false">
+          Present
+        </button>
+        use arrows to move
+      </p>
+
+      <p>
+        <button data-btn="inline start" data-toggle="follow" aria-pressed="false">
+          Follow
+        </button>
+        along with other tabs
+      </p>
+
+      <p>
+        <button data-btn="inline start" data-toggle="grid" aria-pressed="false">
+          Grid View
+        </button>
+        rather than full-page
+      </p>
+    </div>
+  </details>
+{% endmacro %}
+
 {% macro title(
   slide,
   class=none
@@ -47,7 +75,8 @@
   page,
   styles=none,
   is='article',
-  class=none
+  class=none,
+  attrs={}
 ) %}
   {% set autoStyles = {
     '--resize': slide.resize,
@@ -59,6 +88,7 @@
     id="slide-{{ slide.index }}"
     data-slide="{{ slide.name or name }}"
     {{ utility.attr_if('class', class) }}
+    {{ utility.show_attrs(attrs) }}
     {{ utility.style_if(styles) if styles else '' }}
     >
 
@@ -69,11 +99,15 @@
     </div>
 
     <footer class="slide-footer">
-      <p class="slide-caption">
-        {% if slide.caption %}
+      {% if slide.controls %}
+        {{ controls() }}
+      {% elif slide.caption %}
+        <p class="slide-caption">
           {{ slide.caption | mdInline | safe }}
-        {% endif %}
-      </p>
+        </p>
+      {% else %}
+        <div> </div>
+      {% endif %}
 
       {{ nav(
         index=slide.index,

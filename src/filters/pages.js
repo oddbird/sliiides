@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 
-const { now, getDate } = require('./time');
+const { now } = require('./time');
 
 /* @docs
 label: Page Filters
@@ -22,15 +22,12 @@ const isPublic = (page) => page.data.draft !== true;
 /* @docs
 label: isCurrent
 category: Status
-note: Check that the page does not have an end date
+note: Check that the page date has come
 params:
   page:
     type: 11ty page object
 */
-const isCurrent = (page) =>
-  page.data.end === 'ongoing' ||
-  !page.data.end ||
-  getDate(page.data.end) >= now;
+const isCurrent = (page) => page.date <= now;
 
 /* @docs
 label: getPublic
@@ -42,6 +39,17 @@ params:
     note: containing 11ty page objects
 */
 const getPublic = (collection) => collection.filter((page) => isPublic(page));
+
+/* @docs
+label: getCurrent
+category: Filter
+note: Return only the public pages from a collection
+params:
+  collection:
+    type: array
+    note: containing 11ty page objects
+*/
+const getCurrent = (collection) => collection.filter((page) => isCurrent(page));
 
 /* @docs
 label: hasData
@@ -182,6 +190,7 @@ module.exports = {
   isPublic,
   isCurrent,
   getPublic,
+  getCurrent,
   getPage,
   findPage,
   hasData,

@@ -72,7 +72,17 @@ button {
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
+[data-btn~='inline'],
 [data-btn~='small'] {
   font-size: var(--xsmall);
   padding: 0 var(--half-shim);
+}
+
+[data-btn~='block'] {
+  width: 100%;
+  margin-bottom: var(--newline);
+}
+
+[data-btn~='start'] {
+  margin-right: var(--half-shim);
 }

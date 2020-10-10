@@ -1,16 +1,14 @@
 @use '~accoutrement/sass/tools';
 
 [role='banner'] {
+  @include tools.z-index('banner');
   background: var(--overlay);
   display: grid;
   font-size: var(--xsmall);
   grid-gap: var(--gutter);
   grid-template: 'bread links' auto / 1fr auto;
   padding: var(--half-shim) var(--gutter);
-  position: sticky;
   scroll-snap-align: start;
-  top: 0;
-  z-index: var(--banner, 10);
 }
 
 [data-nav='external'] {
