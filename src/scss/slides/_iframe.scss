@@ -1,6 +1,4 @@
-[data-slide='demo'],
-[data-slide='iframe'],
-[data-slide='codepen'] {
+[data-slide~='iframe'] {
   --align: stretch;
   --justify: stretch;
   --padding: 0;

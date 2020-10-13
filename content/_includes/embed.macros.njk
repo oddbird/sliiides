@@ -502,3 +502,16 @@ params:
   url='http://codepen.io'
 ) }}.</p><script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 {% endmacro %}
+
+
+{% macro caniuse(
+  feature,
+  periods=none
+) %}
+{% set periods = periods or 'future_1,current,past_1,past_2' %}
+<picture>
+  <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/{{ feature }}.webp">
+  <source type="image/png" srcset="https://caniuse.bitsofco.de/image/{{ feature }}.png">
+  <img src="https://caniuse.bitsofco.de/image/{{ feature }}.jpg" alt="Data on support for the {{ feature }} feature across the major browsers from caniuse.com">
+</picture>
+{% endmacro %}

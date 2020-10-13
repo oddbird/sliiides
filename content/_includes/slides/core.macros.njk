@@ -11,7 +11,7 @@
   {%- set pres %}[[permalink]({{ demoUrl }})]{% endset -%}
   {%- set caption = [slide.caption or demoTitle, pres] | join(' ') -%}
   {%- set slide = slide | merge({'caption': caption}) -%}
-  {% call slides.base(slide, 'demo', page) %}
+  {% call slides.base(slide, 'iframe demo', page) %}
     {{ embed.iframe(
       src=demoUrl,
       title=demoTitle,
@@ -115,7 +115,7 @@
   {%- set links -%}[{{ [pres, raw] | join(' | ') }}]{%- endset -%}
   {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
   {%- set slide = slide | merge({'caption': caption}) -%}
-  {% call slides.base(slide, 'codepen', page) %}
+  {% call slides.base(slide, 'iframe codepen', page) %}
     {{ embed.codepen(
       id=slide.id,
       title=slide.pen,
@@ -124,6 +124,18 @@
       theme=slide.theme or '39098',
       tab=slide.tab or 'result',
       preview=slide.preview
+    ) }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro caniuse(slide, page) %}
+  {%- set links -%}[[{{ slide.caniuse }} on caniuse](https://caniuse.com/#feat={{ slide.caniuse }})]{%- endset -%}
+  {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
+  {%- set slide = slide | merge({'caption': caption}) -%}
+  {% call slides.base(slide, 'img caniuse', page) %}
+    {{ embed.caniuse(
+      feature=slide.caniuse,
+      periods=slide.periods
     ) }}
   {% endcall %}
 {% endmacro %}
@@ -153,6 +165,8 @@
     {{ quote(slide, page) }}
   {% elif slide.pen %}
     {{ pen(slide, page) }}
+  {% elif slide.caniuse %}
+    {{ caniuse(slide, page) }}
   {% elif slide.face %}
     {{ person(slide, page) }}
   {% elif slide.md %}
