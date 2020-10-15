@@ -27,7 +27,7 @@ params:
   page:
     type: 11ty page object
 */
-const isCurrent = (page) => page.date <= now;
+const isCurrent = (page) => page.date <= now();
 
 /* @docs
 label: getPublic

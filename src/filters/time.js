@@ -74,7 +74,7 @@ const formatDate = (date, format) => {
     long: `${MM} ${d}, ${yyyy}`,
   };
 
-  return formats[format];
+  return formats[format] || date.toUTCString();
 };
 
 /* @docs
@@ -94,7 +94,7 @@ params:
 */
 const getDate = (date, format) => {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
-  return format ? formatDate(dateObj, format) : dateObj;
+  return format ? formatDate(dateObj, format) : dateObj.toUTCString();
 };
 
 module.exports = { now, getDate };
