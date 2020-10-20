@@ -80,6 +80,10 @@
 .slide-controls {
   position: relative;
   margin: 0 var(--shim);
+
+  @media print {
+    visibility: hidden;
+  }
 }
 
 .slide-caption {
@@ -94,6 +98,12 @@
   white-space: nowrap;
 
   [data-present='true'] & {
+    display: none;
+  }
+}
+
+@media print {
+  [data-to] {
     display: none;
   }
 }

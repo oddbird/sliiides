@@ -2,15 +2,11 @@
 @use 'fonts';
 
 @mixin fancy-text {
-  color: var(--text-highlight);
+  color: var(--feature-to);
 
   @supports (background-clip: text) {
     --link-color: transparent;
-    background: linear-gradient(
-      to bottom right,
-      tools.color('feature-from'),
-      tools.color('feature-to')
-    );
+    background: tools.color('brand-pink');
     background: var(--feature-gradient);
     background-clip: text;
     box-decoration-break: clone;
@@ -23,7 +19,7 @@
 
   @media print {
     background: transparent;
-    color: var(--text-highlight);
+    color: var(--feature-to);
   }
 }
 
