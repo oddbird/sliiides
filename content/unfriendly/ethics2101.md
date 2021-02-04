@@ -277,7 +277,7 @@ slides:
 
 - pre: Design for
   title: |
-    **Edge** Cases
+    ~~Edge~~ **A Range** Cases
 
 - pre: Design for
   title: |
