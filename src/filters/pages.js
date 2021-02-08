@@ -12,12 +12,22 @@ category: File
 /* @docs
 label: isPublic
 category: Status
-note: Check that a page is
+note: Check that a page is public
 params:
   page:
     type: 11ty page object
 */
 const isPublic = (page) => page.data.draft !== true;
+
+/* @docs
+label: isVisible
+category: Status
+note: Check that a page is visible
+params:
+  page:
+    type: 11ty page object
+*/
+const isVisible = (page) => page.data.draft !== 'private';
 
 /* @docs
 label: isCurrent
@@ -39,6 +49,17 @@ params:
     note: containing 11ty page objects
 */
 const getPublic = (collection) => collection.filter((page) => isPublic(page));
+
+/* @docs
+label: getVisible
+category: Filter
+note: Return only the visible pages from a collection
+params:
+  collection:
+    type: array
+    note: containing 11ty page objects
+*/
+const getVisible = (collection) => collection.filter((page) => isVisible(page));
 
 /* @docs
 label: getCurrent
@@ -188,8 +209,10 @@ const findPage = (collection, keys, value) =>
 
 module.exports = {
   isPublic,
+  isVisible,
   isCurrent,
   getPublic,
+  getVisible,
   getCurrent,
   getPage,
   findPage,

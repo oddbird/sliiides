@@ -48,6 +48,8 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addFilter('isPublic', pages.isPublic);
   eleventyConfig.addFilter('getPublic', pages.getPublic);
+  eleventyConfig.addFilter('isVisible', pages.isVisible);
+  eleventyConfig.addFilter('getVisible', pages.getVisible);
   eleventyConfig.addFilter('isCurrent', pages.isCurrent);
   eleventyConfig.addFilter('getCurrent', pages.isCurrent);
   eleventyConfig.addFilter('getPage', pages.getPage);

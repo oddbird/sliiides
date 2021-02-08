@@ -8,19 +8,19 @@
         <button data-btn="inline start" data-toggle="presenting" aria-pressed="false">
           Present
         </button>
-        use arrows to move
+        using arrow keys to move
       </p>
 
       <p>
         <button data-btn="inline start" data-toggle="follow" aria-pressed="false">
-          Follow
+          Sync
         </button>
-        along with other tabs
+        position from another tab
       </p>
 
       <p>
         <button data-btn="inline start" data-toggle="grid" aria-pressed="false">
-          Grid View
+          View as grid
         </button>
         rather than full-page
       </p>
@@ -32,16 +32,21 @@
   slide,
   class=none
 ) %}
-  {% if slide.title or slide.pre %}
+  {% if slide.title %}
     <h2 {{ utility.attr_if('class', class) }}>
       {% if slide.pre -%}
         <span class="pre">{{ slide.pre | string | mdInline | safe }}</span>
       {%- endif %}
       {{ slide.title | mdInline | safe }}
     </h2>
-    {% if slide.sub %}
-      <p class="subtitle">{{ slide.sub | mdInline | safe }}</p>
-    {% endif %}
+  {% elif slide.pre %}
+    <h3 {{ utility.attr_if('class', [class, 'pre'] | join(' ')) }}>
+      {{ slide.pre | string | mdInline | safe }}
+    </h3>
+  {% endif %}
+
+  {% if slide.sub %}
+    <p class="subtitle">{{ slide.sub | mdInline | safe }}</p>
   {% endif %}
 {% endmacro %}
 

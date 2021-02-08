@@ -11,7 +11,7 @@
       <h2>
         {{ utility.link_if(
           event.data.venue,
-          event.url if event | isCurrent else none
+          event.url if event | isPublic else none
         ) }}
       </h2>
     </article>
@@ -35,7 +35,7 @@
             <li>
               {{ utility.link_if(
                 event.data.talk | mdInline | safe,
-                event.url if event | isCurrent else none
+                event.url if event | isPublic else none
               ) }}
             </li>
           {% endfor %}
@@ -59,7 +59,7 @@
       <h2>
         {{ utility.link_if(
           event.data.title,
-          event.url if event | isCurrent else none
+          event.url if event | isPublic else none
         ) }}
       </h2>
     </article>

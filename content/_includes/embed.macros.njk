@@ -287,7 +287,7 @@ params:
 {%- if src -%}
 {% set assets = 'assets' | meta %}
 {%- set attrs = attrs | merge({
-  'src': assets.images + src,
+  'src': src if ('://' in src) else assets.images + src,
   'alt': alt,
   'width': width,
   'height': height,

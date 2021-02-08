@@ -1,5 +1,6 @@
 {% import "slides.macros.njk" as slides %}
 {% import "slides/toc.macros.njk" as toc %}
+{% import "slides/code.macros.njk" as code %}
 {% import "embed.macros.njk" as embed %}
 {% import "utility.macros.njk" as utility %}
 
@@ -33,9 +34,10 @@
     '--img-fit': slide.fit
   } %}
   {% set styles = slide.style | merge(imgStyle) %}
+  {% set placeholder = ['http://placeimg.com/640/480/', slide.img or 'any', '?s=', slide.index] | join %}
   {% call slides.base(slide, 'img', page, styles) %}
     {{ embed.img(
-      src=slide.img,
+      src=slide.img if ('.' in slide.img) else placeholder,
       alt=slide.alt
     ) }}
   {% endcall %}
@@ -84,18 +86,6 @@
       {%- set imgPath = page.data.assets.images -%}
       {%- set fixMd = slide.md | replace(imgMark, imgPath) if (imgMark in slide.md) else slide.md -%}
       {{- fixMd | md | safe -}}
-    </div>
-  {% endcall %}
-{% endmacro %}
-
-{% macro code(slide, page) %}
-  {% set lang = slide.lang or 'scss' %}
-  {% call slides.base(slide, 'code', page) %}
-    {{ slides.title(slide) }}
-    <div class="code">
-      {% highlight lang -%}
-      {{- slide.code | safe -}}
-      {%- endhighlight %}
     </div>
   {% endcall %}
 {% endmacro %}
@@ -158,7 +148,13 @@
   {% elif slide.img %}
     {{ img(slide, page) }}
   {% elif slide.code %}
-    {{ code(slide, page) }}
+    {{ code.block(slide, page) }}
+  {% elif slide.html %}
+    {{ code.html(slide, page) }}
+  {% elif slide.css %}
+    {{ code.css(slide, page) }}
+  {% elif slide.scss %}
+    {{ code.scss(slide, page) }}
   {% elif slide.exact %}
     {{ exact(slide, page) }}
   {% elif slide.quote %}

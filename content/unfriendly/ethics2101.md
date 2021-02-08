@@ -252,7 +252,7 @@ slides:
   title: With **Machine Learning**
 
 - img: unfriendly/agnesscott/meyer-review.png
-  alt: Facebook Shows Berieved Parents Their Year in Review
+  alt: Facebook Shows Bereaved Parents Their Year in Review
 
 - img: unfriendly/twitter-crop.jpg
   alt: |

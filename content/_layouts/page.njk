@@ -18,16 +18,16 @@ layout: base
     {% set tags = tags or [] %}
 
     {% if ('talk' in tags) %}
-      {% set pages = collections[index] | withData('data.venue', venue) | getPublic %}
+      {% set pages = collections[index] | withData('data.venue', venue) | getVisible %}
       {{ events.talks(pages) }}
     {% endif %}
 
     {% if ('workshop' in tags) %}
       {% if venue %}
-        {% set pages = collections[index] | withData('data.venue', venue) | withData('data.talk') | getPublic %}
+        {% set pages = collections[index] | withData('data.venue', venue) | withData('data.talk') | getVisible %}
         {{ events.workshop_talks(pages) }}
       {% else %}
-        {% set pages = collections[index] | withData('data.venue', venue) | withData('data.index') | getPublic %}
+        {% set pages = collections[index] | withData('data.venue', venue) | withData('data.index') | getVisible %}
         {{ events.workshop_venues(pages) }}
       {% endif %}
     {% endif %}

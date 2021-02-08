@@ -1,0 +1,29 @@
+{% import "slides.macros.njk" as slides %}
+
+{% macro block(slide, page) %}
+  {% set lang = slide.lang or 'scss' %}
+  {% call slides.base(slide, 'code', page) %}
+    {{ slides.title(slide) }}
+    <div class="code">
+      {% highlight lang -%}
+      {{- slide.code | safe -}}
+      {%- endhighlight %}
+    </div>
+  {% endcall %}
+{% endmacro %}
+
+{% macro css(slide, page) %}
+  {% set slide = slide | merge({lang: 'css', code: slide.css}) %}
+  {{ block(slide, page) }}
+{% endmacro %}
+
+{% macro scss(slide, page) %}
+  {% set slide = slide | merge({lang: 'scss', code: slide.scss}) %}
+  {{ block(slide, page) }}
+{% endmacro %}
+
+{% macro html(slide, page) %}
+  {% set slide = slide | merge({lang: 'html', code: slide.html}) %}
+  {{ block(slide, page) }}
+{% endmacro %}
+
