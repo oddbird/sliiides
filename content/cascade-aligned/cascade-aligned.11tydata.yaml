@@ -2,6 +2,15 @@ layout: slides
 title: Cascade Aligned Programming
 talk: |
   **Cascade Aligned** Programming
+description: |
+  What does it mean to style a medium
+  that must adapt universally across languages,
+  devices, operating systems, user-preferences, browsers, and interfaces?
+  The result is CSS,
+  a programming language unlike any other --
+  built around a resilient “cascade” of hints & suggestions
+  for the browser to interpret in each context.
+  How would we describe a cascade-informed, approach to writing code?
 tags:
   - talk
   - cascade aligned programming

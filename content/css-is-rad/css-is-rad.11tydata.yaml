@@ -1,4 +1,11 @@
 layout: rad-base
 root: css-is-rad
+description: |
+  CSS is weird --
+  not like other languages, and not like print design either --
+  but trapped in a strange middle ground with unique rules and constraints.
+  This language is designed to be
+  resilient, declarative, accessible, and contextual --
+  with progressive enhancement and graceful degradation built in.
 tags:
   - css-is-rad

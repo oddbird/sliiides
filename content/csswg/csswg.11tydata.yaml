@@ -2,6 +2,11 @@ layout: slides
 title: CSSWG Proposals
 talk: CSSWG **Proposals**
 home: /csswg/
+description: |
+  In order to help authors with long-standing issues
+  around responsive design systems & component libraries,
+  I'm proposing native CSS scope and container-query features
+  based on the tools & approaches that are already being used.
 tags:
   - csswg
   - talk
