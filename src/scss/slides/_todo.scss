@@ -1,0 +1,6 @@
+@use '../config/patterns';
+
+[data-slide='todo'] {
+  --bg: var(--ccs-accent--bg4);
+  --border: var(--accent);
+}

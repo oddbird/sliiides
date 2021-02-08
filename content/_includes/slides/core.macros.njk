@@ -28,6 +28,16 @@
   {% endcall %}
 {% endmacro %}
 
+{% macro todo(slide, page) %}
+  {% set slide = slide | merge({
+    'pre': 'ToDo...',
+    'title': slide.todo
+  }) %}
+  {% call slides.base(slide, 'todo', page, attrs={ 'data-ccs-colors': 'dark' }) %}
+    {{ slides.title(slide) }}
+  {% endcall %}
+{% endmacro %}
+
 {% macro img(slide, page) %}
   {% set imgStyle = {
     '--img-position': slide.position,
@@ -171,6 +181,8 @@
     {{ title(slide, page) }}
   {% elif slide.toc or slide.section %}
     {{ toc.section(slide, page) }}
+  {% elif slide.todo %}
+    {{ todo(slide, page) }}
   {% else %}
     {{ default(slide, page) }}
   {% endif %}

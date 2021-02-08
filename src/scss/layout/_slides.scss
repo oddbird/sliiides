@@ -18,8 +18,8 @@
 }
 
 [id^='slide'] {
-  background: var(--slide-background, inherit);
-  color: var(--slide-color, inherit);
+  background: var(--slide-background, var(--bg));
+  color: var(--slide-color, var(--text));
   border-top: thin solid var(--border);
   display: grid;
   grid-template: 'content' 1fr 'footer' auto / var(--width, 1fr);
