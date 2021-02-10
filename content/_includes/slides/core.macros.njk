@@ -44,7 +44,7 @@
     '--img-fit': slide.fit
   } %}
   {% set styles = slide.style | merge(imgStyle) %}
-  {% set placeholder = ['http://placeimg.com/640/480/', slide.img or 'any', '?s=', slide.index] | join %}
+  {% set placeholder = ['https://placeimg.com/640/480/', slide.img or 'any', '?s=', slide.index] | join %}
   {% call slides.base(slide, 'img', page, styles) %}
     {{ embed.img(
       src=slide.img if ('.' in slide.img) else placeholder,
