@@ -18,4 +18,9 @@
   @media print {
     display: none;
   }
+
+  h2 {
+    font-size: var(--h4);
+    margin-bottom: var(--shim);
+  }
 }

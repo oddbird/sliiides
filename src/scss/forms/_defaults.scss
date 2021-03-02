@@ -1,0 +1,28 @@
+/// # Form Fields & Inputs
+/// @group forms
+
+/// @group forms
+textarea {
+  min-height: calc(6em + 4vw);
+  resize: vertical;
+}
+
+/// @group forms
+select {
+  font: inherit;
+  font-size: var(--xsmall);
+  width: 100%;
+}
+
+/// @group forms
+fieldset {
+  border-color: var(--border-fade);
+  margin: 0 0 var(--newline);
+  padding: var(--shim);
+}
+
+/// @group forms
+legend {
+  font-size: var(--xsmall);
+  padding: 0 var(--shim);
+}

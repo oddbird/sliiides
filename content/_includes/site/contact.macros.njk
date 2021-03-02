@@ -40,7 +40,12 @@ params:
   action="{{ next }}"
   netlify-honeypot="subject"
   data-netlify="true"
+  aria-labeledby="contact-form-label"
+  id="contact-form"
   {{ utility.show_attrs(attrs) }}>
+
+  <h2 id="contact-form-label">Leave a message</h2>
+
   <div data-fieldgroup="contact-info">
 
     {{ forms.field(

@@ -3,28 +3,35 @@
 {% macro controls() %}
   <details class="slide-controls">
     <summary class="dropdown-summary">View Options</summary>
-    <div data-dropdown="pad top right">
-      <p>
-        <button data-btn="inline start" data-toggle="presenting" aria-pressed="false">
+    <ul data-dropdown="pad top right list">
+      <li>
+        <button data-btn="small" data-toggle="presenting" aria-pressed="false">
           Present
         </button>
         using arrow keys to move
-      </p>
+      </li>
 
-      <p>
-        <button data-btn="inline start" data-toggle="follow" aria-pressed="false">
-          Sync
+      <li>
+        <button data-btn="small" data-toggle="follow" aria-pressed="false">
+          Follow
         </button>
         position from another tab
-      </p>
+      </li>
 
-      <p>
-        <button data-btn="inline start" data-toggle="grid" aria-pressed="false">
+      <li>
+        <button data-btn="small" data-toggle="grid" aria-pressed="false">
           View as grid
         </button>
         rather than full-page
-      </p>
-    </div>
+      </li>
+
+      <li>
+        <button data-ccs-input="mode" data-btn="small" type="button">
+          Invert colors
+        </button>
+        or <a href="#ccs-menu">adjust manually</a>
+      </li>
+    </ul>
   </details>
 {% endmacro %}
 

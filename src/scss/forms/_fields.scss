@@ -1,0 +1,61 @@
+@use '~accoutrement/sass/tools';
+
+// Fields
+// ------
+/// Form fields (using the `label` for markup)
+/// are set to block display, with a margin.
+/// @group forms
+[data-field],
+[data-fieldset] {
+  display: var(--ccs-custom-display, block);
+  margin-bottom: var(--shim);
+}
+
+// Labels
+// ------
+/// Form label text uses a span inside the wrapper label
+/// and is displayed above the input.
+/// @group forms
+[data-label] {
+  display: block;
+}
+
+// Text Inputs
+// -----------
+/// Varioius input "types" all rely on the same basic
+/// text-input style.
+/// @group forms
+[data-input*='text'] {
+  background-color: var(--bg-full);
+  border: thin solid var(--border);
+  border-radius: 0;
+  color: var(--text);
+  display: block;
+  font: inherit;
+  font-size: var(--xsmall);
+  padding: var(--half-shim);
+  width: 100%;
+
+  &:focus {
+    border-color: var(--action);
+    outline: medium solid var(--action);
+    outline-offset: 0;
+  }
+}
+
+// Form Actions
+// ------------
+/// A wrapper element to provide layout and spacing
+/// of the actions at the end of a form.
+/// @group forms
+.form-actions {
+  margin-top: var(--newline);
+}
+
+// Honey
+// -----
+/// Apply to honey-pot SPAM-protection fields…
+/// @group forms
+[data-honey] {
+  @include tools.is-hidden;
+}

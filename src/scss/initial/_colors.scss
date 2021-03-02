@@ -30,4 +30,11 @@
   --img-bright--base: #{ccs.if-mode($light: 50%, $dark: 40%)};
   --img-bright--default: calc(var(--img-bright--base) + var(--ccs-l));
   --img-contrast--default: calc(55% + var(--ccs-contrast));
+
+  // feature gradient
+  --feature-gradient: linear-gradient(
+    to bottom right,
+    var(--feature-from),
+    var(--feature-to)
+  );
 }

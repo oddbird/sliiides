@@ -9,13 +9,6 @@ html {
   font-size: var(--rem);
   line-height: tools.ratio('line-height');
 
-  // feature gradient
-  --feature-gradient: linear-gradient(
-    to bottom right,
-    var(--feature-from),
-    var(--feature-to)
-  );
-
   @supports (font-variation-settings: normal) {
     @include tools.font-family('recursive');
   }

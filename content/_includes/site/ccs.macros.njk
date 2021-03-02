@@ -1,12 +1,33 @@
 {% import 'forms.macros.njk' as forms %}
 
 {% macro form(ccs) %}
-  <form data-ccs="menu">
+  <form data-ccs="menu" id="ccs-menu" aria-labeledby="css-menu-label">
+    <h2 id="css-menu-label">Adjust colors</h2>
+
+    {% call forms.fieldset(
+      legend='Color Mode',
+      name='ccs-modes',
+      attrs={'data-radio': 'group'}
+    ) %}
+      {% for mode in ['light', 'dark', 'auto'] %}
+        {{ forms.radio(
+          label=mode,
+          id=[mode, 'mode'] | join('-'),
+          group='ccs-modes',
+          attrs={'data-ccs-colors': true if (mode == 'auto') else mode},
+          input_attrs={
+            'data-ccs-input': [mode, 'mode'] | join('-'),
+            'checked': true if (mode == 'auto') else false
+          }
+        ) }}
+      {% endfor %}
+    {% endcall %}
+
     {{ forms.field(
       label='Theme',
       type=ccs.themes,
       field_attrs={'data-ccs-field': 'theme'},
-      input_attrs={'data-ccs-input': 'theme'}
+      input_attrs={'data-ccs-input': 'theme unset-values'}
     ) }}
 
     {{ forms.field(
@@ -56,21 +77,5 @@
         'value': ccs.contrast
       }
     ) }}
-
-    <div data-ccs="buttons">
-      <button
-        data-ccs-input="mode"
-        data-btn="small"
-        type="button">
-        invert
-      </button>
-      <button
-        data-ccs-input="unset"
-        data-btn="small"
-        type="button"
-        hidden>
-        reset
-      </button>
-    </div>
   </form>
 {% endmacro %}

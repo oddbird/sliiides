@@ -75,7 +75,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "cascading-color-systems",
-        "npm:0.1.0-beta.11"
+        "npm:0.1.0-beta.14"
       ],
       [
         "chalk",
@@ -264,7 +264,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/pnpify", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:2.0.0-rc.22"],
             ["accoutrement", "npm:2.1.3"],
             ["autoprefixer", "npm:9.7.6"],
-            ["cascading-color-systems", "npm:0.1.0-beta.11"],
+            ["cascading-color-systems", "npm:0.1.0-beta.14"],
             ["chalk", "npm:4.0.0"],
             ["chokidar-cli", "npm:2.1.0"],
             ["core-js", "npm:3.6.5"],
@@ -3580,10 +3580,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["cascading-color-systems", [
-        ["npm:0.1.0-beta.11", {
-          "packageLocation": "./.yarn/cache/cascading-color-systems-npm-0.1.0-beta.11-4bbbe80aab-2.zip/node_modules/cascading-color-systems/",
+        ["npm:0.1.0-beta.14", {
+          "packageLocation": "./.yarn/cache/cascading-color-systems-npm-0.1.0-beta.14-567c8a6701-2.zip/node_modules/cascading-color-systems/",
           "packageDependencies": [
-            ["cascading-color-systems", "npm:0.1.0-beta.11"]
+            ["cascading-color-systems", "npm:0.1.0-beta.14"]
           ],
           "linkType": "HARD",
         }]
@@ -14341,7 +14341,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/pnpify", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:2.0.0-rc.22"],
             ["accoutrement", "npm:2.1.3"],
             ["autoprefixer", "npm:9.7.6"],
-            ["cascading-color-systems", "npm:0.1.0-beta.11"],
+            ["cascading-color-systems", "npm:0.1.0-beta.14"],
             ["chalk", "npm:4.0.0"],
             ["chokidar-cli", "npm:2.1.0"],
             ["core-js", "npm:3.6.5"],

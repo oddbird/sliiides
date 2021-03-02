@@ -1,0 +1,78 @@
+@use '~accoutrement/sass/tools';
+
+/// # Button Pattern
+/// @group buttons
+
+// Basic Buttons
+// -------------
+/// The basic button accepts one CSS adjustment variable --
+/// `--btn-padding` --
+/// which allows an override of inline padding on the button.
+/// @group buttons
+[data-btn] {
+  @include tools.transition('colors');
+  align-items: center;
+  background: var(
+    --btn-bg,
+    linear-gradient(to bottom right, var(--highlight), var(--feature))
+  );
+  border: thin solid var(--btn-border, var(--btn-text, var(--feature)));
+  border-radius: var(--radius);
+  color: var(--btn-text, var(--bg));
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  padding: var(--quarter-shim) var(--btn-padding, var(--double-gutter));
+  position: relative;
+
+  &:hover,
+  &:focus {
+    --btn-bg: var(--accent);
+    --btn-text: var(--bg);
+  }
+
+  &:active,
+  &[aria-pressed='true'] {
+    --btn-bg: var(--active);
+    --btn-text: var(--bg);
+  }
+
+  &[aria-pressed='true'] {
+    &::before {
+      @include tools.position(null null null 0);
+      content: '✔';
+      color: var(--accent);
+      text-shadow: 1px 1px 0 var(--btn-text);
+      transform: translateX(-0.5em);
+    }
+  }
+}
+
+// Small
+// -----
+/// "xSmall" buttons override both the font-size
+/// and the inline padding.
+/// @group buttons
+[data-btn~='small'] {
+  --btn-padding: var(--shim);
+  font-size: var(--xsmall);
+}
+
+// Menu
+// -----
+/// @group buttons
+[data-btn~='menu'] {
+  @include tools.font-family('body');
+  --btn-bg: transparent;
+  --btn-border: var(--border-fade);
+  --btn-text: var(--action);
+  --marker: var(--btn-text);
+  display: list-item;
+
+  [open] & {
+    --btn-bg: var(--active);
+    --btn-border: var(--btn-bg);
+    --btn-text: var(--bg);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+}

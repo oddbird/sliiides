@@ -77,7 +77,7 @@ $spacing-sizes: (
 $theme-sizes: (
   'page-margin': calc(var(--quarter-shim) + 4vw),
   'border-width': medium,
-  'radius': var(--half-shim),
+  'radius': var(--quarter-shim),
 );
 
 @include tools.add-sizes($theme-sizes);

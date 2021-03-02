@@ -13,7 +13,7 @@
     &::before {
       @include tools.z-index('backdrop');
       @include tools.position(0 0 0 0 fixed);
-      content: '';
+      content: var(--auto-close, initial);
     }
   }
 }
@@ -29,6 +29,7 @@
   border: var(--border-width) solid var(--border);
   box-shadow: var(--box-shadow);
   display: none;
+  gap: var(--shim);
   left: var(--left);
   max-height: calc(var(--rhythm) * 2 + 40vh);
   max-width: calc(100vw - var(--gutter) * 2);
@@ -40,7 +41,7 @@
 
   &[aria-expanded='true'],
   [open] & {
-    display: block;
+    display: grid;
   }
 }
 
@@ -58,6 +59,15 @@
 
 [data-dropdown~='right'] {
   --left: 0;
+}
+
+[data-dropdown~='auto-close'] {
+  --auto-close: '';
+}
+
+[data-dropdown~='list'] {
+  list-style: none;
+  margin: 0;
 }
 
 [data-dropdown~='links'] {

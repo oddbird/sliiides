@@ -95,6 +95,96 @@ params:
 {%- endmacro %}
 
 {# @docs
+label: radio
+category: Inputs
+note: |
+  Radio inputs are displayed as a series of buttons,
+  and expect to be nested in a fieldset
+  with `data-radio='group'` applied.
+params:
+  label:
+    type: string
+  id:
+    type: string
+    note: Must be unique on the page
+  group:
+    type: string
+    note: All related radio inputs must have the same group name
+  required:
+    type: boolean
+    default: false
+  attrs:
+    type: object
+    default: '{}'
+    note: Applied to the label
+  input_attrs:
+    type: object
+    default: '{}'
+    note: Applied to the input
+#}
+{% macro radio(
+  label,
+  id,
+  group,
+  required=false,
+  attrs={},
+  input_attrs={}
+) %}
+  {{ input(
+    id=id,
+    type='radio',
+    required=required,
+    name=group,
+    attrs={'data-radio': 'input'} | merge(input_attrs)
+  ) }}
+  {{ field_label(
+    label=label,
+    id=id,
+    required=required,
+    attrs={'data-radio': 'option'} | merge(attrs)
+  ) }}
+{% endmacro %}
+
+{# @docs
+label: fieldset
+category: Fields
+note: Create a fieldset to group related fields
+params:
+  legend:
+    type: string | none
+  name:
+    type: string | none
+    default: 'none'
+    note: |
+      Used in the `data-fieldset` attribute,
+      as a unique hook for the fieldset.
+      Generates a slug of the legend if no name is provided.
+  content:
+    type: string | none
+    default: none
+    note: Expects a `caller()` block when no content is provided
+  attrs:
+    type: object
+    default: '{}'
+#}
+{% macro fieldset(
+  legend,
+  name,
+  content=none,
+  attrs={}
+) %}
+  {%- set content = content if (content != none) else caller() -%}
+  <fieldset data-fieldset="{{ name or legend | slug }}">
+    {%- if legend -%}
+      <legend>{{ legend | mdInline | safe }}</legend>
+    {%- endif -%}
+    <div class="fieldset-content" {{ utility.show_attrs(attrs) }}>
+      {{ content | safe }}
+    </div>
+  </fieldset>
+{% endmacro %}
+
+{# @docs
 label: field_label
 category: Fields
 note: Generate a form-field label
@@ -107,14 +197,18 @@ params:
   required:
     type: boolean
     default: false
+  attrs:
+    type: object
+    default: '{}'
 #}
 {% macro field_label(
   label,
   id,
-  required=false
+  required=false,
+  attrs={}
 ) %}
-<label for="{{ id }}" data-label>
-  {{- label | mdInline | safe -}}
+<label for="{{ id }}" data-label {{ utility.show_attrs(attrs) }}>
+ {{- label | mdInline | safe -}}
   {%- if required -%}
     <span aria-hidden="true">*</span>
     <span class="visually-hidden">required</span>
