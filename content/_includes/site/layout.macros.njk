@@ -5,7 +5,7 @@
   <header role="banner">
     <strong>
       <a href="/" rel="home">{{ site.domain }}</a>
-      {%- if page.data.home -%}<a href="{{ home }}">{{ page.data.home }}</a>{%- endif -%}
+      {%- if page.data.home -%}<a href="{{ page.data.home }}">{{ page.data.home }}</a>{%- endif -%}
       <span>{{ page.url | replace(page.data.home, '') if page.data.home else page.url }}</span>
     </strong>
     <nav data-nav="external" aria-label="external">

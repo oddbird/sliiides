@@ -4,17 +4,17 @@ date: 2020-10-13
 quote:
   text: |
     Our medium is not done.
-    Our medium is still 
+    Our medium is still
     **going through radical changes**.
   cite: Jen Simmons, *Designing with Grid*
 slides:
 # intro to vars
-- pre: I heard 
+- pre: I heard
   title: You Like **Variables**
 - code: |
     a {
       color: $brand-primary;
-    } 
+    }
   caption: Sass
 - lang: less
   code: |
@@ -65,7 +65,7 @@ slides:
 
 # in CSS
 - pre: What about
-  title: 
+  title:
     Variables In **CSS**?
 
 - pre: 2006…
@@ -134,7 +134,7 @@ slides:
   source: |
     [@tabatkins](https://twitter.com/tabatkins/status/1099050056760487936)
   caption: |
-    You can even make it 
+    You can even make it
     [flip a table](https://twitter.com/tabatkins/status/1099093964727083008)
 
 - pen: Page construction in CJSS
@@ -164,7 +164,7 @@ slides:
       /* colors */
       --brand-color: hsl(330, 100%, 45%);
       --action: var(--brand-color);
-      
+
       /* sizes */
       --gutter: 1.5rem;
       --spacer: calc(var(--gutter) * 3);
@@ -207,20 +207,20 @@ slides:
 
 - pre: More than
   title: |
-    Global **Tokens** 
+    Global **Tokens**
 
-- title: Custom **Properties** 
+- title: Custom **Properties**
   sub: defined by systems, components, etc
 
-- title: Values That **Change** 
+- title: Values That **Change**
 
-- title: Different **States** 
+- title: Different **States**
   sub: hover, focus, active, etc
 
 - title: Different **Variations**
   sub: info, warning, error, etc
 
-- title: Different **Context** 
+- title: Different **Context**
   sub: light/dark mode, viewports, etc
 
 - pre: The 🌊 *Cascade*
@@ -277,7 +277,7 @@ slides:
 - section: Managing **Context**
 
 - pre: For *contextual styling*
-  title: | 
+  title: |
     **Proximity** Matters
 
 - pre: The 🌊 *Cascade*
@@ -366,7 +366,7 @@ slides:
 - pre: Global *keywords*…
   title: |
     Inherit, **Initial**, Unset, Revert
-  
+
 - pre: Un-define
   title: |
     Using **`initial`** Keyword
@@ -406,7 +406,7 @@ slides:
 - title: |
     `var(` **`--name`** `, fallback)`
   sub: Only *One Fallback*
-  
+
 - title: Allows **List Values**
   sub: |
     `var(--my-font,` *`Baskerville, Georgia, serif`*`)`
@@ -540,7 +540,7 @@ slides:
     - `[attr`**`|`**`="..."]` ➡ **Hyphen**-delimited
     - `[attr`**`^`**`="..."]` ➡ **Starts** with...
     - `[attr`**`$`**`="..."]` ➡ **Ends** with...
-    - `[attr="..."` **`i`**`|`**`s`**`]` ➡ **Case** sensativity
+    - `[attr="..."` **`i`**`|`**`s`**`]` ➡ **Case** sensitivity
   caption: |
     More [details on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 
@@ -548,7 +548,7 @@ slides:
   md: |
     - [CSS Custom Properties In The Cascade](https://www.smashingmagazine.com/2019/07/css-custom-properties-cascade/), by **me**
     - [Using Custom Property “Stacks” to Tame the Cascade](https://css-tricks.com/using-custom-property-stacks-to-tame-the-cascade/), by **me**
-    - [Global and Component Style Settings with CSS Variables](https://www.sarasoueidan.com/blog/style-settings-with-css-variables/), 
+    - [Global and Component Style Settings with CSS Variables](https://www.sarasoueidan.com/blog/style-settings-with-css-variables/),
       by **Sara Soueidan**
     - [A user’s guide to CSS variables](https://increment.com/frontend/a-users-guide-to-css-variables/),
       by **Lea Verou**

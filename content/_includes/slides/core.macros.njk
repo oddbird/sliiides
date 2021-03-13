@@ -33,7 +33,7 @@
     'pre': 'ToDo...',
     'title': slide.todo
   }) %}
-  {% call slides.base(slide, 'todo', page, attrs={ 'data-ccs-colors': 'dark' }) %}
+  {% call slides.base(slide, 'todo', page) %}
     {{ slides.title(slide) }}
   {% endcall %}
 {% endmacro %}

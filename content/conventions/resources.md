@@ -9,7 +9,7 @@ title: CSS Convention Resources
   CERN, 1991
 - [WWW HyperMedia Browser & Editor](https://worldwideweb.cern.ch/browser/)
   Emulator
-- [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html), 
+- [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
   Emulator (original was developed by Nicola Pellow)
 - [W3C Mission & Principles](w3.org/Consortium/mission.html#principles)
 
@@ -65,7 +65,7 @@ title: CSS Convention Resources
 - [CSS Guidelines](https://cssguidelin.es/)
   by Harry Roberts
 - [Sass Guidelines](https://sass-guidelin.es/)
-  by Hugo 'Kitty' Giraudel
+  by Kitty Giraudel
 - [BEMIT](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
   by Harry Roberts
 - [Atomic OOBEMITSCSS](https://www.sitepoint.com/atomic-oobemitscss/)

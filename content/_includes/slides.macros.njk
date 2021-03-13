@@ -96,6 +96,8 @@
     '--slide-color': slide.color
   } %}
   {% set styles = (autoStyles | merge(styles)) | merge(slide.styles) %}
+  {% set attrs = attrs | merge({'data-ccs-colors': slide.mode}) if slide.mode else attrs %}
+  {% set attrs = attrs | merge(slide.attrs) %}
   <{{ is or 'article'}}
     id="slide-{{ slide.index }}"
     data-slide="{{ slide.name or name }}"

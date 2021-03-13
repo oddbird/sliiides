@@ -1,12 +1,12 @@
 ---
 title: Integrated Documentation
-talk: Integrated **Documentation** 
+talk: Integrated **Documentation**
 date: 2020-05-22
 slides:
 
 # intro ----------------
 
-- pre: So We Built 
+- pre: So We Built
   title: Some **Beautiful Systems**
 
 - pre: I'm Sorry, *But*
@@ -44,7 +44,7 @@ slides:
   title: Best **Practice**
 
 - pre: |
-    *Single* 
+    *Single*
   title: Source of **Truth**
 
 - pre: Potentially *Cross-*
@@ -52,8 +52,8 @@ slides:
     **Application** & **Platform**
 
 - quote: |
-    My job is to make sure 
-    the system is **modular and flexible** enough 
+    My job is to make sure
+    the system is **modular and flexible** enough
     to be used in **any number of unpredictable ways**.
   cite: Mina Markham, [Pantsuit](https://medium.com/git-out-the-vote/pantsuit-the-hillary-clinton-ui-pattern-library-238e9bf06b54)
 
@@ -105,7 +105,7 @@ slides:
 
 # integration ----------------
 
-- pre: Design Systems 
+- pre: Design Systems
   title: Represent **Integration**
   sub: Design **&** Code **&** Process **&** Tools **&** Docs **&** ???
 
@@ -141,7 +141,7 @@ slides:
 - img: patterns/lightning-codex.jpg
   alt: Scribbled out LDS icons with markup
 
-- pre: You are *not* 
+- pre: You are *not*
   title: |
     **MailForce** or **InstaFace**
   sub: (unless you are)
@@ -160,7 +160,7 @@ slides:
 
 # selling the idea ----------------------
 
-- pre: How do you *sell it* 
+- pre: How do you *sell it*
   title: To **Clients** or **Bosses**?
 
 - pre: YMMV
@@ -191,7 +191,7 @@ slides:
   title: |
     **Accessibility**
 
-- pre: Accessibility 
+- pre: Accessibility
   title: Is A **Basic Human Right**
   caption: |
     [UN Convention on the Rights of Persons with Disabilities](https://www.un.org/development/desa/disabilities/convention-on-the-rights-of-persons-with-disabilities/article-9-accessibility.html)
@@ -204,16 +204,16 @@ slides:
 
 - title: (Learn To **Test**)
   md: |
-    - Browser DevTools 
+    - Browser DevTools
     - [Axe](https://www.deque.com/axe/devtools/) DevTools
-    - [VoiceOver](https://www.apple.com/accessibility/mac/vision/) (Mac) 
-    - [NVDA](https://www.nvaccess.org/download/) (PC) 
+    - [VoiceOver](https://www.apple.com/accessibility/mac/vision/) (Mac)
+    - [NVDA](https://www.nvaccess.org/download/) (PC)
 
-- pre: Accessibility is 
+- pre: Accessibility is
   title: For **Everyone**
   sub: Along any number of spectrums
 
-- pre: Provide 
+- pre: Provide
   title: Accessible **Patterns**
 
 - pre: Document
@@ -231,11 +231,11 @@ slides:
 
 - img: docs/pantsuit-audit.jpeg
   alt: |
-    Design patterns from the Hillary campaign, 
+    Design patterns from the Hillary campaign,
     printed on paper, cut apart,
     and labeled with sticky notes
   caption: |
-    Image by 
+    Image by
     [Mina Markham](https://medium.com/git-out-the-vote/pantsuit-the-hillary-clinton-ui-pattern-library-238e9bf06b54)
 
 - img: agile-systems/pnc-buttons.jpg
@@ -273,7 +273,7 @@ slides:
 
 - pre: Avoid
   title: |
-    **Separate** Forks 
+    **Separate** Forks
 
 - pre: Start *Designing*
   title: Look for **Patterns**
@@ -288,7 +288,7 @@ slides:
 - pre: Start With
   title: What **Has Most Reach**
 
-- pre: Start with 
+- pre: Start with
   title: Design **Tokens**
   sub: Board reach, low specificity
 
@@ -317,7 +317,7 @@ slides:
     }
     ```
 
-- title: 👎 Not **Organized** 
+- title: 👎 Not **Organized**
 - title: 👎 Encourages **One-Offs**
 - title: 👎 Difficult to **Automate**
 
@@ -325,7 +325,7 @@ slides:
   title: The **Lazy** Option
 
 - pre: |
-    *Automate* 
+    *Automate*
   title: From **Structured Code**
 
 - md: |
@@ -364,19 +364,19 @@ slides:
   title: Design **Data Types**
 
 - pre: |
-    *Lengths* 
-  title: With **Unit-Math** 
+    *Lengths*
+  title: With **Unit-Math**
   sub: |
     `16px + 12cm`
-  
+
 - pre: |
-    *Colors* 
+    *Colors*
   title: With **Adjustment Functions**
   sub: |
     `color.adjust($color, $lightness: 15%)`
 
 - pre: Pick *One Source*
-  title: And **Export Anywhere** 
+  title: And **Export Anywhere**
 
 - md: |
     ```scss
@@ -393,7 +393,7 @@ slides:
     }' */
     ```
 
-- pre: Salesforce 
+- pre: Salesforce
   title: YAML + **Theo**
 
 - md: |
@@ -412,7 +412,7 @@ slides:
     Salesforce-UX [**Theo**](https://github.com/salesforce-ux/theo)
 
 - pre: Relationships *Limited*
-  title: To **String Interpolation** 
+  title: To **String Interpolation**
 
 - md: |
     ```yml
@@ -429,7 +429,7 @@ slides:
 - pre: Advantage?
   title: More **Generic Syntax**
 
-- pre: Amazon 
+- pre: Amazon
   title: Json + **Style Dictionary**
 
 - pre: Relationships *Limited*
@@ -458,7 +458,7 @@ slides:
     and state (active)
   fit: contain
   caption: |
-    Style Dictionary Recommended 
+    Style Dictionary Recommended
     ["CTI" structure](https://amzn.github.io/style-dictionary/#/properties?id=category-type-item)
 
 - pre: Let *Data*
@@ -482,7 +482,7 @@ slides:
 - section: |
     **Integrate** Tools & Process
 
-- pre: Integrated 
+- pre: Integrated
   title: |
     **Documentation** Generators
 
@@ -490,7 +490,7 @@ slides:
   position: top
   caption: |
     [**SassDoc**](http://sassdoc.com)
-    by [Hugo Giraudel](https://hugogiraudel.com/)
+    by [Kitty Giraudel](https://kittygiraudel.com/)
 
 - md: |
     ```scss/2,6,8
@@ -529,7 +529,7 @@ slides:
 
 - md: |
     ```scss/3
-    /// These colors are rarely used directly, 
+    /// These colors are rarely used directly,
     /// but form the basis of our palette.
     /// @group color
     /// @colors
@@ -562,7 +562,7 @@ slides:
   title: Full **Components**
   sub: Related `html`, `css`, and `js`
 
-- pre: Components 
+- pre: Components
   title: Also **Provide Meaning**
 
 - md: |
@@ -573,7 +573,7 @@ slides:
     </svg>
     ```
 
-- title: | 
+- title: |
     `<`*`icon`* `name="gear" />`
 
 - pre: Built-In
@@ -605,10 +605,10 @@ slides:
 
 - pre: |
     *Herman* is
-  title: | 
+  title: |
     **Sass**-Driven
 
-- pre: Herman *Supports* 
+- pre: Herman *Supports*
   title: |
     **Nunjucks** Examples
   sub: Linked from Sass
