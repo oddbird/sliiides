@@ -4,6 +4,11 @@ talk: |
   **Dynamic CSS**:
   *Layouts & Beyond*
 home: /dynamic-css/
+description: |
+  Don’t let the declarative syntax fool you --
+  CSS is a powerful and dynamic programming language.
+  It’s time to start moving style logic
+  back into the language designed for it.
 tags:
   - talk
   - dynamic css

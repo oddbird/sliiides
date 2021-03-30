@@ -1,0 +1,12 @@
+.light-theme {
+  background: white;
+  color: black;
+}
+
+.dark-theme {
+  background: black;
+  color: white;
+}
+
+.light-theme a { color: purple; }
+.dark-theme a { color: plum; }

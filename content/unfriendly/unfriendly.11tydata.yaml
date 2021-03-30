@@ -2,6 +2,13 @@ layout: slides
 title: User Unfriendly
 talk: User **Unfriendly**
 home: /unfriendly/
+description: |
+  The web is more than a technology platform,
+  it was created with a mission statement.
+  An overview of the philosophy behind the web,
+  human-centered problem-solving,
+  client communication,
+  and user feedback in agile web development.
 tags:
   - user unfriendly
   - talk

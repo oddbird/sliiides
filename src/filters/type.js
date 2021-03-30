@@ -27,6 +27,7 @@ const mdown = markdown({
   linkify: true,
   typographer: true,
 })
+  .disable('code')
   .use(mdMark)
   .use(mdFootnote);
 // .use(markdownItResponsive, imgConf);

@@ -12,17 +12,17 @@
       </li>
 
       <li>
+        <button data-btn="small" data-toggle="grid" aria-pressed="false">
+          Speaker view
+        </button>
+        with notes
+      </li>
+
+      <li>
         <button data-btn="small" data-toggle="follow" aria-pressed="false">
           Follow
         </button>
         position from another tab
-      </li>
-
-      <li>
-        <button data-btn="small" data-toggle="grid" aria-pressed="false">
-          View as grid
-        </button>
-        rather than full-page
       </li>
 
       <li>
@@ -98,35 +98,42 @@
   {% set styles = (autoStyles | merge(styles)) | merge(slide.styles) %}
   {% set attrs = attrs | merge({'data-ccs-colors': slide.mode}) if slide.mode else attrs %}
   {% set attrs = attrs | merge(slide.attrs) %}
-  <{{ is or 'article'}}
-    id="slide-{{ slide.index }}"
-    data-slide="{{ slide.name or name }}"
-    {{ utility.attr_if('class', class) }}
-    {{ utility.show_attrs(attrs) }}
-    {{ utility.style_if(styles) if styles else '' }}
-    >
-
+  {% set class = ['slide', class, attrs.class] | compact | join(' ') %}
+  {% set attrs = attrs | merge({'class': class}) %}
+  <{{ is }} id="slide-{{ slide.index }}">
     <div
-      class="slide-content"
-      {{ utility.attr_if('data-resize', slide.resize) }}>
-      {{ caller() }}
+      data-slide="{{ slide.name or name }}"
+      {{ utility.show_attrs(attrs) }}
+      {{ utility.style_if(styles) if styles else '' }}
+    >
+      <div
+        class="slide-content"
+        {{ utility.attr_if('data-resize', slide.resize) }}>
+        {{ caller() }}
+      </div>
+
+      <footer class="slide-footer">
+        {% if slide.controls %}
+          {{ controls() }}
+        {% elif slide.caption %}
+          <div class="slide-caption">
+            {{ slide.caption | md | safe }}
+          </div>
+        {% else %}
+          <div><!-- a spacer? really? --></div>
+        {% endif %}
+
+        {{ nav(
+          index=slide.index,
+          count=page.data.slides | length
+        ) }}
+      </footer>
     </div>
 
-    <footer class="slide-footer">
-      {% if slide.controls %}
-        {{ controls() }}
-      {% elif slide.caption %}
-        <p class="slide-caption">
-          {{ slide.caption | mdInline | safe }}
-        </p>
-      {% else %}
-        <div> </div>
-      {% endif %}
-
-      {{ nav(
-        index=slide.index,
-        count=page.data.slides | length
-      ) }}
-    </footer>
+    {% if slide.script %}
+      <div class="slide-notes">
+        {{ slide.script | md | safe }}
+      </div>
+    {% endif %}
   </{{ is or 'article'}}>
 {% endmacro %}

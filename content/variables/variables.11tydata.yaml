@@ -2,6 +2,10 @@ layout: slides
 title: When Variables Cascade
 talk: When **Variables Cascade**
 home: /variables/
+description: |
+  The Cascade makes CSS unique as a language –
+  forcing us to revisit even the most common programming feature:
+  the variable.
 tags:
   - variables cascade
   - talk

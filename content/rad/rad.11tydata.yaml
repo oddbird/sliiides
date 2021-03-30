@@ -2,6 +2,11 @@ layout: slides
 title: CSS is Rad
 talk: CSS is **Rad**
 home: /rad/
+description: |
+  The web is designed to work
+  across platforms, devices, languages, and interfaces –
+  but how can we possibly design for that
+  unknown and always-changing canvas?
 tags:
   - css is rad
   - talk

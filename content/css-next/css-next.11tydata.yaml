@@ -1,0 +1,14 @@
+layout: slides
+title: Container Queries & The Future of CSS
+talk: |
+  **Container Queries** _& The Future of CSS_
+home: /css-next/
+description: |
+  New CSS proposals like Container Queries,
+  Cascade Layers, Scoped Styles,
+  and Nesting are all aimed at
+  improving the way we write
+  responsive components and design systems.
+tags:
+  - css-next
+  - talk

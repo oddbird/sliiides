@@ -1,0 +1,15 @@
+body {
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+.light-theme,
+.dark-theme {
+  border: thin solid;
+  margin-top: 1em;
+  padding: 1em;
+}

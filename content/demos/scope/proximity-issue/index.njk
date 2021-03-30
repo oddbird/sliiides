@@ -1,0 +1,20 @@
+---
+demo: scope-proximity-issue
+title: Scope Proximity Issue
+---
+
+<h1>{{ title }}</h1>
+
+<div class="light-theme">
+  <h2>Light Theme</h2>
+  <a href="#">purple</a>
+</div>
+
+<div class="dark-theme">
+  <h2>Dark Theme</h2>
+  <a href="#">plum</a>
+  <div class="light-theme">
+    <h3>Nested Light Theme</h3>
+    <a href="#">also plum???</a>
+  </div>
+</div>
