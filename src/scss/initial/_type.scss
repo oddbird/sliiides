@@ -10,6 +10,8 @@
 /// Horizontal rules also provide spacing between sections.
 /// @group type
 hr {
+  border: medium dotted var(--border);
+  border-width: medium 0 0;
   margin: var(--spacer) 0;
 }
 

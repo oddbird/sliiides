@@ -5,13 +5,7 @@ layout: base
 <main class="page">
   <h1>{{ title }}</h1>
 
-  {% if abstract %}
-  <div class="talk-abstract">
-    {{ abstract | md | safe }}
-  </div>
-  {% endif %}
-
-  {{ content | safe }}
+  {{ content | md | safe }}
 
   {% if index %}
     {% import "events.macros.njk" as events %}

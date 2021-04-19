@@ -3,28 +3,18 @@ layout: page
 title: OddBird Slides
 ---
 
-<h2>Talks:</h2>
-<ul>
-  {% for item in collections.talk | withData('data.index') %}
-    {% set title = item.data.talk or item.data.title %}
-    <li>
-      <a href="{{ item.url }}">
-        {{ title | mdInline | safe }}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+## Talks:
 
-<h2>Workshops:</h2>
-<ul>
-  {% for item in collections.workshop | withData('data.index') %}
-    {% if not item.data.venue %}
-      {% set title = item.data.workshop or item.data.title %}
-      <li>
-        <a href="{{ item.url }}">
-          {{ title | mdInline | safe }}
-        </a>
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>
+{% for item in collections.talk | withData('data.index') -%}
+{%- set title = item.data.talk or item.data.title -%}
+- [{{ title | mdInline | safe }}]({{ item.url }})
+{% endfor %}
+
+## Workshops:
+
+{% for item in collections.workshop | withData('data.index') -%}
+{%- if not item.data.venue -%}
+{%- set title = item.data.workshop or item.data.title -%}
+- [{{ title | mdInline | safe }}]({{ item.url }})
+{% endif -%}
+{%- endfor %}

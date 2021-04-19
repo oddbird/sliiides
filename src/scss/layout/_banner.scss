@@ -8,7 +8,6 @@
   grid-gap: var(--gutter);
   grid-template: 'bread links' auto / 1fr auto;
   padding: var(--half-shim) var(--gutter);
-  scroll-snap-align: start;
 }
 
 [data-nav='external'] {
