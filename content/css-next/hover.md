@@ -1086,6 +1086,7 @@ slides:
     - [Full CQ Explainer](https://github.com/oddbird/css-sandbox/blob/main/src/rwd/query/explainer.md)
     - [CSSWG issue](https://github.com/w3c/csswg-drafts/issues/5796)
     - [TAG Review](https://github.com/w3ctag/design-reviews/issues/592)
+    - [More Articles & Demos »](/css-next/cq-resources/)
   script: |
     I'm recording this in advance,
     so check back.
