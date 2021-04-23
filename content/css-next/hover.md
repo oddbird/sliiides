@@ -1005,7 +1005,7 @@ slides:
 
 - css: |
     .sidebar, main, .grid-item {
-      /* contain: size layout; 8/
+      /* contain: size layout; */
       contain: inline-size layout;
     }
   script: |
