@@ -31,7 +31,8 @@ params:
   next='/contact/thanks/',
   submit='Send',
   name='contact',
-  attrs={}
+  attrs={},
+  url='/'
 ) %}
 <form
   name="{{ name or 'contact' }}"
@@ -70,6 +71,11 @@ params:
   <div data-honey>
     <label>Don't fill out this field:</label>
     <input name="subject" />
+  </div>
+
+  <div hidden>
+    <label>URL:</label>
+    <input name="url" value="{{ url }}" />
   </div>
 
   <div class="form-actions">

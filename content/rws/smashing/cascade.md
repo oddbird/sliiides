@@ -10,8 +10,8 @@ slides:
     For **Applying Styles** \
     to **Elements**
 - quote: |
-    The proposed scheme provides 
-    *a simple mapping* 
+    The proposed scheme provides
+    *a simple mapping*
     **between HTML elements and presentation hints**.
   cite: Håkon Lie
   caption: |
@@ -41,7 +41,7 @@ slides:
   md: |
     ```css
     button {
-      background: rebeccapurple; 
+      background: rebeccapurple;
     }
     ```
     ```html
@@ -59,7 +59,7 @@ slides:
     <form>
       <button>…</button>
     </form>
-    ```  
+    ```
 - title: Element **Types**
   md: |
     ```css
@@ -116,7 +116,7 @@ slides:
     ```css
     button          { background: gray; }
     .action         { background: darkblue; }
-    [type=“submit”] { background: darkgreen; 
+    [type=“submit”] { background: darkgreen;
                       background: var(--submit); }
     #send           { background: maroon; }
     ```
@@ -127,7 +127,7 @@ slides:
 - title: 💥 Conflict!
 - md: |
     ```css
-    [type=“submit”] { background: darkgreen; 
+    [type=“submit”] { background: darkgreen;
                       background: var(--submit); }
     ```
     ```html
@@ -142,7 +142,7 @@ slides:
     Every *Property* \
     of Every *Element* \
     **Must Have** a *Single Value*
-- pre: A *`<button>`* Needs 
+- pre: A *`<button>`* Needs
   title: |
     One **`Background-Color`** \
     & One Text **`Color`** \
@@ -190,11 +190,11 @@ slides:
     ```css
     button          { background: gray; }
     .action         { background: darkblue; }
-    [type=“submit”] { background: darkgreen; 
+    [type=“submit”] { background: darkgreen;
                       background: var(--submit); }
     #send           { background: maroon; }
     ```
-- pre: Each *Selector* has a *Weight* 
+- pre: Each *Selector* has a *Weight*
   title: Based on **How Specific** It Is
 - pre: |
     Inline `style`s are *explicit*
@@ -232,21 +232,21 @@ slides:
     - *`10`* -- Reusable `class`es & `attributes`
     - *`1`* -- Element `type`s
     - *`0`* -- Universal `*`
-    
+
     ```css
     /* 1  +  10  +     10      + 0  == 21 */
     button.action[type=“submit”] * {   …   }
     ```
 - title: |
-    `10`**`*`**`10`**`!=`**`100` 
+    `10`**`*`**`10`**`!=`**`100`
 - title: By That **Logic**...
   md: |
     ```css
-    /* 10 +  10 +  10 +  10 +  10 +  
+    /* 10 +  10 +  10 +  10 +  10 +
        10 +  10 +  10 +  10 +  10  = 100 */
     .class.class.class.class.class
     .class.class.class.class.class {  …  }
-    
+
     /* 100 = 100 */
     #id    {  …  }
 - title: |
@@ -291,7 +291,7 @@ slides:
   alt: Coin-sorter, with empty columns crossed out
 - img: cascade/coins-final.jpg
   alt: Coin-sorter, all but the largest column crossed out
-  
+
 # 5. Authors -------------------------
 - pre: Ideally...
   title: A **Layering System**
@@ -312,14 +312,14 @@ slides:
     - `attr > attr` » Components
     - `ID` » Overrides
 - title: Some **Limitations**
-- title: 👎 Too **Few** Layers 
+- title: 👎 Too **Few** Layers
   sub: Use *combinations*!
   caption: |
     Sorry *BEM*, I disagree...
 - pre: 👎 Only *Classes* & *Attributes*
   title: Are **Customized** AND **Reusable**
 - title: 👎 Selector **Double-Duty**
-  sub: As *hooks* & *weights* 
+  sub: As *hooks* & *weights*
 - title: 👍 <i>It's *Super Clever*</i>
 - pre: 👍 It's *Super Clever*
   title: 👎 But It's **Way Too Clever**
@@ -328,14 +328,14 @@ slides:
 - pre: Anyway...
   title: 🌊 Cascade `>>>` 🎯 **Specificity**
 - quote:
-    Style sheets can be cascaded; 
-    the **user/browser** specifies initial preferences 
+    Style sheets can be cascaded;
+    the **user/browser** specifies initial preferences
     and hands the remaining influence over...
   cite: Håkon Lie
   caption: |
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - quote:
-    ... It provides 
+    ... It provides
     **author** and **reader** with the same notation...
   cite: Håkon Lie
   caption: |
@@ -348,7 +348,7 @@ slides:
   sub: |
     🖥 *User Agent* (Browser),
     👥 *User*,
-    or 
+    or
     🎨 *Author*
 - title: |
     🖥 **User Agent** Styles \
@@ -534,7 +534,7 @@ slides:
   title: |
     **Text** Styles Inherit \
     **Box** Styles Don't
-- pre: 🌊 *Cascade* 
+- pre: 🌊 *Cascade*
   title: Is The Solid **Architecture**
 - pre: 🧬 *Inheritance*
   title: Is **What's Left Open**
@@ -567,7 +567,7 @@ slides:
 - pre: When Frameworks Often
   title: Automate **Source Order**
 - title: 😬
-- title: |  
+- title: |
     **Multiple** Solutions
 - pre: |
     *Authors* Should
@@ -599,11 +599,11 @@ slides:
 - title: <i>¯\\\_*(ツ)*_/¯</i>
 - title: The Cascade is **Important**
 - title: The Cascade is **Useful**
-- pre: The Cascade is 
+- pre: The Cascade is
   title: Not **Going Away**
 - title: Learn To **Use It**
 - pre: |
-    @MiriSuzanne
+    @TerribleMia
   title: |
     **#ResilientWebSystems**
 ---

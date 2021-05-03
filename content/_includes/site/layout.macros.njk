@@ -11,7 +11,7 @@
     <nav data-nav="external" aria-label="external">
       <ul>
         <li>
-          <a href="https://twitter.com/mirisuzanne">@MiriSuzanne</a>
+          <a href="https://twitter.com/TerribleMia">@TerribleMia</a>
         </li>
         <li>
           <a href="https://oddbird.net">OddBird</a>
@@ -21,9 +21,9 @@
   </header>
 {% endmacro %}
 
-{% macro footer(ccs) %}
+{% macro footer(ccs, url) %}
   <footer role="contentinfo">
-    {{ contact.form() }}
+    {{ contact.form(url=url) }}
     {{ colors.form(ccs) }}
   </footer>
 {% endmacro %}

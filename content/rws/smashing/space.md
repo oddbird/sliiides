@@ -8,7 +8,7 @@ slides:
 
 - img: space/tng.jpg
   alt: |
-    USS Enterprise, 
+    USS Enterprise,
     from Star Trek The Next Generation
     opening credits
 - pre: |
@@ -172,7 +172,7 @@ slides:
     Remove those pesky extra divs...
   caption: |
     Full support in modern browsers.
-    Careful 
+    Careful
     [not to remove **semantics**](https://developer.mozilla.org/en-US/docs/Web/CSS/display#display_contents)
 
 - pre: New...
@@ -201,7 +201,7 @@ slides:
     **Inline** Flow-Root...
   sub: Behavior in **parent layout**
 
-- pre: Display-*Inside* 
+- pre: Display-*Inside*
   title: Inline **Flow-Root**
   sub: Context for **child layout**
 
@@ -260,7 +260,7 @@ slides:
   title: Text **Flow** & Box **Stretching**
 - pre: |
     *Block* ↕ Axis
-  title: Text **Wrap** & Box **Stacking** 
+  title: Text **Wrap** & Box **Stacking**
 
 - demo: normal-flow
 
@@ -385,19 +385,19 @@ slides:
 
 - demo: box-align
 
-- pre: Inline Axis 
+- pre: Inline Axis
   title: |
     **justify-***
   sub: |
     `justify`**`-content`** | `justify-`**`items`** | `justify-`**`self`**
 
-- pre: Block Axis 
+- pre: Block Axis
   title: |
     **align-***
   sub: |
     `align`**`-content`** | `align-`**`items`** | `align-`**`self`**
 
-- pre: Shorthand 
+- pre: Shorthand
   title: |
     **place-*** <align> <justify>
   sub: |
@@ -427,7 +427,7 @@ slides:
   sub: |
     **`row-gap`** | **`column-gap`** | **`gap`**
   caption: |
-    **\***[Best browser support](https://developer.mozilla.org/en-US/docs/Web/CSS/gap#Browser_compatibility) 
+    **\***[Best browser support](https://developer.mozilla.org/en-US/docs/Web/CSS/gap#Browser_compatibility)
     in grid layouts with `grid-*` prefix
 
 # order -------------------
@@ -441,7 +441,7 @@ slides:
 
 - pre: |
     !important
-  title: | 
+  title: |
     **Accessibility** Issues
   sub: |
     **`*-reverse`** | **`order`**
@@ -454,7 +454,7 @@ slides:
   cite: |
     [Grid Specification](https://drafts.csswg.org/css-grid/#order-accessibility)
 
-- pre: Use ordering 
+- pre: Use ordering
   title: To **Improve Readability**
   sub: Always check your tab-order...
 
@@ -534,7 +534,7 @@ slides:
 # out ---------------------
 
 - pre: |
-    @MiriSuzanne
+    @TerribleMia
   title: |
     **#ResilientWebSystems**
 ---
