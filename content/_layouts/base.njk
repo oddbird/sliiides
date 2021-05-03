@@ -28,7 +28,7 @@
 
   {{ layout.banner(page, site) }}
   {{ content | safe }}
-  {{ layout.footer(ccs) }}
+  {{ layout.footer(ccs, page.url) }}
 
   <script type="text/javascript" src="{{ assets.js }}scripts.js"></script>
   {% for script in scripts %}

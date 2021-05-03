@@ -110,8 +110,8 @@
 {% endmacro %}
 
 {% macro pen(slide, page) %}
-  {%- set pres %}[present](https://codepen.io/{{ slide.user or 'mirisuzanne' }}/pres/{{ slide.id }}?editors=1100){% endset -%}
-  {%- set raw %}[debug](https://codepen.io/{{ slide.user or 'mirisuzanne' }}/debug/{{ slide.id }}){% endset -%}
+  {%- set pres %}[present](https://codepen.io/{{ slide.user or 'miriamsuzanne' }}/pres/{{ slide.id }}?editors=1100){% endset -%}
+  {%- set raw %}[debug](https://codepen.io/{{ slide.user or 'miriamsuzanne' }}/debug/{{ slide.id }}){% endset -%}
   {%- set links -%}[{{ [pres, raw] | join(' | ') }}]{%- endset -%}
   {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
   {%- set slide = slide | merge({'caption': caption}) -%}

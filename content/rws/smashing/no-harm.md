@@ -19,7 +19,7 @@ slides:
   title: |
     **Cascading Style Sheets**
 - demo: awesome
-- pre: Understand the 
+- pre: Understand the
   title: (wierd) **Mental Model**
 - pre: 1989–1990
   title: |
@@ -62,7 +62,7 @@ slides:
 - img: unfriendly/agnesscott/smart-home.png
   alt: Google Home, Amazon Echo, and Apple HomePod
 - quote: |
-    It is required that HTML be 
+    It is required that HTML be
     **a common language between all platforms**...
   cite: WWW Project
 - title: 👍
@@ -75,12 +75,12 @@ slides:
   alt: The second browser, a text-only terminal
   position: top
   caption: |
-    [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html), 
+    [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
     developed by **Nicola Pellow**
 
 # 2. proposals -------------------------
 - quote: |
-    HTML totally **eliminates any visual creativity** 
+    HTML totally **eliminates any visual creativity**
     that a document’s designer might have.
   cite: Roy Smith, 1993
 - pre: Style *Proposals*…
@@ -89,7 +89,7 @@ slides:
   alt: Mosaic browser
   caption: Mosaic, 1993
 - quote: |
-    The web would have become a **giant fax machine** 
+    The web would have become a **giant fax machine**
     where **pictures of text** would be passed along.
   cite: Håkon Lie
 - img: no-harm/viola.jpg
@@ -99,15 +99,15 @@ slides:
     **ViolaWWW** by **Pei-Yuan Wei**, 1992 (viola.org)
 - md: |
     ```
-    (HEAD,BODY fontSize=normal 
-               BGColor=white 
-               FGColor=black 
-      (H1 fontSize=largest 
-          BGColor=red 
-          FGColor=white) 
-      (H2 fontSize=large) 
+    (HEAD,BODY fontSize=normal
+               BGColor=white
+               FGColor=black
+      (H1 fontSize=largest
+          BGColor=red
+          FGColor=white)
+      (H2 fontSize=large)
       (A FGColor=red)
-      (CMD,KBD,SCREEN,LISTING,EXAMPLE fontFamily=fixed) 
+      (CMD,KBD,SCREEN,LISTING,EXAMPLE fontFamily=fixed)
       (BOLD,EMPH,STRONG fontWeight=bold)
     )
     ```
@@ -117,7 +117,7 @@ slides:
   sub: |
     Robert Raisch, June 1993
 - quote: |
-    [Allow] *browsers* to make 'appropriate' decisions… 
+    [Allow] *browsers* to make 'appropriate' decisions…
     aligned with the **intent of the original author**.
   cite: Robert Raisch, 1993
 - md: |
@@ -134,8 +134,8 @@ slides:
   sub: |
     **`fo`**`(`**`fa`**=**`ti`**`,sp=pr,si=14,we=me …)`
 - quote: |
-    This is *not meant as a font name*, per se. 
-    Rather it is a suggestion of a particular 
+    This is *not meant as a font name*, per se.
+    Rather it is a suggestion of a particular
     **style of character representation**.
   cite: Robert Raisch, 1993
 - title: |
@@ -170,12 +170,12 @@ slides:
 - md: |
     ```html
     <CENTER>This text is centered</CENTER>
-    
+
     <MULTICOL COLS="3" GUTTER="25">
       <P><FONT SIZE="4" COLOR="RED">…</FONT></P>
     </MULTICOL>
     ```
-    
+
 # 3. CSS -------------------------
 - title: |
     **Cascading** ~~HTML~~ **style sheets**
@@ -189,15 +189,15 @@ slides:
   alt: OddBird logo imposed over three children playing Magic The Gathering
   caption: OddBird founders meeting, 1994 (Jonny, Carl, Miriam)
 - quote: |
-    This proposal tries to 
+    This proposal tries to
     **soften the tension** between the *author* and the *reader*.
   cite: Håkon Lie
   caption: |
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - quote: |
-    *The author* often wants to give the documents 
-    a **distinct look and feel**, 
-    the *user* will set *preferences* to make 
+    *The author* often wants to give the documents
+    a **distinct look and feel**,
+    the *user* will set *preferences* to make
     **all documents appear more similar**.
   cite: Håkon Lie
   caption: |
@@ -209,8 +209,8 @@ slides:
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - title: The **Cascade**
 - quote: |
-    **An ordered list (cascade) of style sheets** … 
-    can be referenced from the same document … 
+    **An ordered list (cascade) of style sheets** …
+    can be referenced from the same document …
     **and merged** as they are encountered.
   cite: Håkon Lie
   caption: |
@@ -219,13 +219,13 @@ slides:
     cascade **Origins**
   sub: a *balance of power* between stakeholders
 - quote: |
-    The **user/browser** specifies *initial preferences* 
+    The **user/browser** specifies *initial preferences*
     and **hands the remaining influence over to the document**.
   cite: Håkon Lie
   caption: |
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - quote: |
-    If conflicts arise **the user should have the last word**, 
+    If conflicts arise **the user should have the last word**,
     but one should also allow the author to attach **style hints**.
   cite: Håkon Lie
   caption: |
@@ -237,12 +237,12 @@ slides:
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - md: |
     ## **Weighted** Influence
-    ```js 
+    ```js
     h1.font.size = 16pt 60%
     h1.font.size = 24pt 100%
     ```
 - md: |
-    ```js 
+    ```js
     h1.font.size      = 16pt    60%
     h1.font.size      = 24pt    40% (100%)
     (16*60+24*40)/100 = 19.2pt
@@ -266,43 +266,43 @@ slides:
     ```
 - md: |
     ## Selector **Specificity**
-    ```js 
+    ```js
     (*.)font.family = times
     h1.font.family = helvetica
     ```
 - quote: |
-    The order of the two is irrelevant -- 
+    The order of the two is irrelevant --
     the **more specific statements will override the more general** ones.
   cite: Håkon Lie
   caption: |
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - md: |
     ## **Media ~~Queries~~** Selectors
-    ```js 
+    ```js
     speech.*.weight = 35db
     speech.em.weight = 40db
     ```
 - quote: |
-    Presentation decisions **based on the user's environment**; 
+    Presentation decisions **based on the user's environment**;
     e.g. the *size of the screen* or the *current date*.
   cite: Håkon Lie
   caption: |
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - md: |
     ```
-    AGE > 3d 
-      ? background.color = pale_yellow 
+    AGE > 3d
+      ? background.color = pale_yellow
       : background.color = white
     ```
 - quote: |
-    HTML documents should also be influenced 
+    HTML documents should also be influenced
     by the **relevance of each document** for each individual user.
   cite: Håkon Lie
   caption: |
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 - md: |
     ```
-    RELEVANCE > 80 
+    RELEVANCE > 80
       ? h1.font.size *= 1.5
     ```
 - md: |
@@ -329,9 +329,9 @@ slides:
   cite: World Wide Web Consortium, 1989
   caption: w3.org/Consortium/mission.html#principles
 - pre: It's True...
-  title: | 
+  title: |
     "CSS is **for documents**"
-- title: | 
+- title: |
     "~~CSS~~ ***The Entire Web*** \
     is for documents"
 - img: unfriendly/agnesscott/press.png
@@ -339,7 +339,7 @@ slides:
   caption: |
     "The printing press is just for bibles"
 - quote: |
-    The fact we can **control** a paper page 
+    The fact we can **control** a paper page
     is really **a limitation of that medium**.
   cite: John Allsopp, 2000
   caption: |
@@ -354,17 +354,17 @@ slides:
   title: The **Script** & **Stage Directions**
 - pre: But
   title: Every **Performance** is **Unique**
-- quote:  
-    Do I want to create work in which everyone feels the same, 
+- quote:
+    Do I want to create work in which everyone feels the same,
     or everyone feels differently?
-    ...Something in which there is 
+    ...Something in which there is
     **room for the audience to move around**,
     imagine, and make associations.
   cite: Anne Bogart
   caption: A Director Prepares
 - quote:
-    It takes craft to **set up the circumstances** that are 
-    **simple and yet contain the ambiguities** 
+    It takes craft to **set up the circumstances** that are
+    **simple and yet contain the ambiguities**
     and the incongruity of human experience.
   cite: Anne Bogart
   caption: A Director Prepares
@@ -377,9 +377,9 @@ slides:
   sub: |
     *Sizes*, *Interfaces*, *Preferences*, *Content*, &c...
 - quote: |
-    There are **too many variables to consider.** 
-    The point of CSS is to make it so you don’t have to worry about them all. 
-    **Define some constraints. 
+    There are **too many variables to consider.**
+    The point of CSS is to make it so you don’t have to worry about them all.
+    **Define some constraints.
     Let the language work out the details.**
   cite: Keith J Grant
   caption: |
@@ -389,9 +389,9 @@ slides:
   title: |
     A **Progressive** Enhancement
 - quote:
-    WWW parsers should 
-    **ignore tags** which they do not understand, 
-    and **ignore attributes** which they do not understand 
+    WWW parsers should
+    **ignore tags** which they do not understand,
+    and **ignore attributes** which they do not understand
     of tags which they do understand.
   cite: WWW Project
   caption: Both *forward* & *backward* compatible
@@ -452,7 +452,7 @@ slides:
     ```
 - md: |
     ```css
-    .warn { 
+    .warn {
       font-size: 16px;
       color: red;
     }
@@ -479,13 +479,13 @@ slides:
   fit: contain
 - demo: normal-flow
 - quote: |
-    CSS is **unlike anything else**… 
-    designed for the realities 
+    CSS is **unlike anything else**…
+    designed for the realities
     of a **flexible, multilingual, multi-device** web.
   cite: Rachel Andrew, 2018
   caption: |
     [The Way We Talk About CSS](https://rachelandrew.co.uk/archives/2018/10/04/the-way-we-talk-about-css/)
-- pre: A *Design Tool* 
+- pre: A *Design Tool*
   title: |
     For **Unknown Content** \
     On An **Unknown Canvas**
@@ -493,7 +493,7 @@ slides:
     *CSS* is
   title: Downright **Radical**
 - pre: |
-    @MiriSuzanne
+    @TerribleMia
   title: |
     **#ResilientWebSystems**
 ---

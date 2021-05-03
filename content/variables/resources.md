@@ -31,6 +31,6 @@ title: CSS Variable Resources
 - [Using Custom Property “Stacks” to Tame the Cascade](https://css-tricks.com/using-custom-property-stacks-to-tame-the-cascade/)
 - [More CSS Charts, with Grid & Custom Properties ](https://css-tricks.com/css-charts-grid-custom-properties/)
 - [Very Extremely Practical CSS Art](https://css-tricks.com/very-extremely-practical-css-art/)
-- [Invalid at Computed Value Time](https://twitter.com/MiriSuzanne/status/1369055587837771776)
+- [Invalid at Computed Value Time](https://twitter.com/TerribleMia/status/1369055587837771776)
 - [Dynamic CSS](https://www.oddbird.net/talks/dynamic-css/) (talk)
 - [Cascading Color Systems](https://www.oddbird.net/cascading-colors/)
