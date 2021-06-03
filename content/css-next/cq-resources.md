@@ -33,14 +33,23 @@ but remember that the final design is still likely to change.
   by **Rachel Andrew**
 - [Container Queries: a Quick Start Guide](https://www.oddbird.net/2021/04/05/containerqueries/)
   by **David Herron**
-- [Container Queries are actually coming](https://piccalil.li/blog/container-queries-are-actually-coming)
-  by **Andy Bell**
+- [A Primer On CSS Container Queries](https://www.smashingmagazine.com/2021/05/complete-guide-css-container-queries/)
 - [Say Hello To CSS Container Queries](https://ishadeed.com/article/say-hello-to-css-container-queries/)
   by **Ahmad Shadeed**
   ([annotated on CSS Tricks](https://css-tricks.com/say-hello-to-css-container-queries/)
   by **Robin Rendle**)
+- [CSS Container Queries For Designers](https://ishadeed.com/article/container-queries-for-designers/)
+  by **Ahmad Shadeed**
+- [Container Queries in Web Components](https://mxb.dev/blog/container-queries-web-components/)
+  by **Max Böck**
+- [Container Queries are actually coming](https://piccalil.li/blog/container-queries-are-actually-coming)
+  by **Andy Bell**
 - [CSS Container Queries: A First Look + Demo](https://www.bram.us/2021/03/28/css-container-queries-a-first-look-and-demo/)
   by **Bramus Van Damme**
+- [Next Gen CSS: @container](https://css-tricks.com/next-gen-css-container/)
+  by **Una Kravets**
+- [CSS Container Queries: Use-Cases And Migration Strategies](https://www.smashingmagazine.com/2021/05/css-container-queries-use-cases-migration-strategies/)
+  by **Adrian Bece**
 
 ## Demos
 
