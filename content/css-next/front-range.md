@@ -1,14 +1,11 @@
 ---
 venue: Front Range Front-End
 date: 2021-06-03
+script: |
+  I'm here to talk about the future of CSS,
+  but in order to understand where we're going —
 slides:
 # Cascade Intro ---------
-- pre: Container Queries
-  title: |
-    & **The Future of CSS**
-  script: |
-    I'm here to talk about the future of CSS,
-    but in order to understand where we're going —
 - pre: The _Present of CSS_
   script: |
     we need to understand where we are –
@@ -592,16 +589,6 @@ slides:
     Or we can actually nest the layer rules.
 
 - title: |
-    **Unlayered** Styles Win
-  script: |
-    Of course,
-    we don't have to put all our styles in a layer.
-    Un-layered styles will work the same way they always have,
-    and will always belong to an implied
-    "highest layer"
-    above all the others.
-
-- title: |
     More Cascade **Control**
   script: |
     This gives us a lot more control
@@ -617,6 +604,35 @@ slides:
     Hopefully allowing us to replace
     all our specificity & importance hacks
     with more clearly defined patterns.
+
+- pre: |
+    _Unlayered_ styles
+  title: |
+    Default **Lowest Priority**
+  script: |
+    Of course,
+    we don't have to put all our styles in a layer --
+    and for the sake of progressive enhancement,
+    we likely want to start adding layers slowly.
+
+    Un-layered styles will work the same way they always have,
+    and belong to an implied "base layer"
+    below all the others.
+
+- pre: Should that default
+  title: Be **Adjustable**?
+  caption: |
+    [CSSWG issue for ordering unlayered styles](https://github.com/w3c/csswg-drafts/issues/6323)
+  script: |
+    This is actually a recent change --
+    we used to have unlatered styles at the top --
+    but we think making them a base helps
+    match expectations & improve the upgrade path.
+
+    But there is also discussion now
+    about making it adjustable.
+    You can check out the CSSWG issue
+    if you're interested in that conversation.
 
 # Scope ----------------
 - section: |
@@ -855,47 +871,13 @@ slides:
     And that brings us to the real reason we're here.
     Container Queries.
 
-- img: csswg/mq-cards.jpg
-  alt: |
-    @media (width > 45em) -
-    diagram of two different card layouts
-    on either side of a media-query breakpoint
-  fit: contain
-  background: white
-  caption: Change card layout at a media-query breakpoint
+- pen: Media vs Container
+  id: xxqYjeL
   script: |
-    People have been asking for this feature
-    since Media Queries were implemented
-    more than 10 years ago.
-    Media Queries allow us
-    to change the layout of a component
-    when the viewport is above or below a particular size --
-
-- img: csswg/mq-cards-broken.jpg
-  alt: |
-    (viewport width > 45em) -
-    cards both using large layout,
-    but one is in a small sidebar container
-  fit: contain
-  background: white
-  caption: Card layouts based on viewport size, not container
-  script: |
-    But if we put that same component
-    inside different-size containers...
-    That's not what we want.
-
-- img: csswg/cq-cards.jpg
-  alt: |
-    (container width > 45em) -
-    cards each using the appropriate layout
-    for the container it is in
-  fit: contain
-  background: white
-  caption: Card layouts based on container size
-  script: |
-    Ideally, each component
-    should be able to
-    respond to the container it's in --
+    - Media queries let us respond to viewport
+    - Same element in multiple containers,
+      viewport isn't useful
+    - Respond to containers instead
 
 - img: csswg/cq-nested.jpg
   alt: |
@@ -909,6 +891,41 @@ slides:
   script: |
     No matter how those containers are nested.
 
+- title: Layout **Loops**
+  sub: CSS _Context_ vs _Content_
+  script: |
+    But trying to measure a "container" in CSS,
+    and then make changes based on that measurement,
+    poses a bit of a paradox.
+
+- pen: Rad
+  id: BaWrzqd
+  script: |
+    One of the coolest responsive features in CSS,
+    which we don't talk about nearly enough,
+    is the way we calculate layout
+    based on both context and content.
+    Add more content,
+    and a container will try to grow,
+    but it might also be constrained by context,
+    or explicit sizing.
+
+    That's very cool,
+    but if you add container queries,
+    it becomes an infinite loop:
+    as the container gets larger, we make the content smaller,
+    which makes the container smaller,
+    which makes the content larger.
+
+- pre: 2010-2020
+  title: 🚧 Laying **Foundations** 🚧
+  script: |
+    So for a long time,
+    this seemed impossible to implement.
+    But behind the scenes,
+    a lot of people
+    have been laying the groundwork in browsers.
+
 - title: 2020 **Proposals**
   md: |
     - David Baron:
@@ -920,16 +937,18 @@ slides:
   caption: |
     Different tradeoffs, worth pursuing both
   script: |
-    At first this seemed impossible,
-    but there's been a lot of people over the years,
-    laying the groundwork to make it happen --
-    and last year two proposals emerged,
+    Last year two proposals emerged,
     showing different ways we might pull this off.
     Both are interesting,
     but David Baron's approach has the most momentum right now,
     and I've been working on it
     to flesh out some of the details,
     and start writing a specification.
+
+- section: Defining **Containers**
+  script: |
+    The first thing we need to do
+    is define our containers --
 
 - img: csswg/cq-nested-containers.jpg
   alt: |
@@ -938,77 +957,114 @@ slides:
   fit: contain
   background: white
   script: |
-    This proposal has two parts:
-    the containers, and the queries.
-    So the first thing we need to do
-    is define our containers.
-    And make this feature possible,
-    without creating infinite loops,
-    containers need to be... contained.
+    Anything we want to be able to measure.
 
-- pre: CSS _layout_
-  title: |
-    **Context** & **Content**
+- title: No **Content Sizing**
   script: |
-    One of the coolest responsive features in CSS,
-    which we don't talk about nearly enough,
-    is the way we calculate layout
-    based on both context and content.
-    Add more content,
-    and a container with try to grow,
-    but only as much as the context allows.
-    That's very cool,
-    but if you add container queries,
-    it becomes an infinite loop.
+    In order to avoid any layout loops,
+    we need to turn off content-based sizing.
+    Our containers need to be sized
+    without reference to anything inside it.
 
-- pre: 1. Establishing **Containers**
-  css: |
+- css: |
     .container {
-      contain: size layout;
+      contain: size layout style;
     }
   script: |
-    So we have a way to turn that off,
-    using the `contain` property.
+    We already have a property for this!
+    It's called `contain`,
+    and allows us to "contain" various types of things.
+
     Size containment turns off content-based sizing,
-    so our containers need an explicit
-    or context-based size.
+    layout containment is kinda like a clearfix --
+    wrapping around floats and margins --
+    and style containment keeps list-counters
+    from leaking out.
+
+    And we're going to need all three of these
+    for our container queries work.
 
 - pre: 2D size containment
   title: Is **Too Restrictive**
   caption: |
     Need a flexible dimension ("Be afraid of heights")
   script: |
-    That would be real limiting
-    if we always had to contain both
-    height & width.
+    But size-containment is…
+    bad in most cases.
+    It's just not possible to build all our containers
+    with explicit widths and heights!
+    We usually need one axis to be fluid,
+    so that extra content has somewhere to go.
 
-- pre: 1D size containment
+- pre: We need
   title: |
-    `contain: `_`inline-size`_
+    **Inline Size** Containment
   caption: |
     See the
     [CSSWG issue for single-axis containment](https://github.com/w3c/csswg-drafts/issues/1031)
   script: |
-    But most layouts work by containing the `width`,
+    Most layouts work by containing the `width`,
     or the inline-dimension,
     and allowing the `height` to grow or shrink
-    with content.
-    So we're adding an option to make that explicit.
-    Contain inline-size.
+    with the content.
+    So we're adding an option to make
+    single-axis containment possible.
+
+- css: |
+    .container {
+      contain: inline-size;
+    }
+  script: |
+    Contain `inline-size`.
+
+    We're not sure if we can also allow
+    a `block-size` values here.
+    That needs some more experimenting.
 
 - css: |
     .sidebar, main, .grid-item {
-      /* contain: size layout style; */
       contain: inline-size layout style;
     }
   script: |
-    In our current proposal,
+    In our initial proposal,
     applying the appropriate containment --
     layout and 1d or 2d size --
     creates a container.
 
-- pre: 2. **Querying** Containers
-  css: |
+    That's how the Chrome prototype currently works,
+    but you can see it's _a lot_ to remember,
+    and it's not obvious what's going on.
+
+- css: |
+    .sidebar, main, .grid-item {
+      container: inline;
+    }
+  caption: |
+    [CSSWG discussion of new syntax](https://github.com/w3c/csswg-drafts/issues/6174)
+  script: |
+    So we're working on a simpler syntax here.
+
+    Instead of specifying all the containment required,
+    we just say what type of container we want --
+    or _what we want to query_.
+    In this case we want to query the inline size.
+    Browsers can take that,
+    and apply the right containment
+    in the background.
+
+    This syntax is still very much in development,
+    so it could change a lot.
+    There's some concern around having
+    a `container` property
+    that is so similar to the `contain` property.
+
+- section: |
+    **Querying** Containers
+  script: |
+    Once we have containers,
+    we can begin to query them!
+
+- css: |
     @container (min-width: 40em) {
       .card { /* ... */ }
       h2 { /* ... */ }
@@ -1017,11 +1073,54 @@ slides:
     Each element queries the
     _nearest ancestor container_
   script: |
-    Now we can write queries,
-    and they look exactly like media-queries,
+    A container-query
+    looks exactly like a media-query,
     but with at-container instead of at-media.
     And each element will query
     the size of it's nearest ancestor container.
+
+    That's another important limitation
+    to make sure there are no loops.
+    Container's can't query themselves.
+
+- html: |
+    <div class="container">
+      <div class="container">
+        <div class="container">
+          We can nest containers!
+        </div>
+      </div>
+    </div>
+  script: |
+    We can have containers inside of containers --
+
+- css: |
+    .container { container: inline; }
+
+    @container (width > 30em) {
+      .container { padding: 2em; }
+    }
+  script: |
+    And we can change containers
+    inside a container query.
+    But each container will respond
+    to the size of its parent container.
+
+- pre:
+    Chrome **Prototype**
+  md: |
+    1. Download/Update [Chrome Canary](https://www.google.com/chrome/canary/)
+    2. Go to `chrome://flags` in the URL bar
+    3. Search for "CSS Container Queries" & enable it
+    4. You'll need to restart after turning it on
+  caption: |
+    [Codepen Demos](https://codepen.io/collection/XQrgJo)
+  script: |
+    Chrome already has a prototype,
+    and you can start playing with it
+    behind a feature flag.
+    I've started collecting codepen demos
+    to help you get started.
 
 - pen: Container Vs Media Queries
   id: NWRJpQo
@@ -1058,40 +1157,63 @@ slides:
     The outer div establishes a container,
     and the inner article can query it.
 
-- pen: Interactive CQ Blinds
-  id: gOgNQYm
-  caption: |
-    Based on
-    [CSS Interactive Container Query Blinds](https://codepen.io/jh3y/pen/LYxKjKX)
-    by Jhey Tompkins
-    (Safari Only)
+- pen: Container Query Bookstore
+  user: mxbck
+  id: XWMrMOp
+  script: |
+    Max Böck has created this bookstore demo
+    with self-contained web components.
+    Each component host element is a container,
+    and everything inside the component
+    adjusts based on available size.
+
+- pen: Container Query Blinds v2
+  id: qBrEMEe
+  user: jh3y
   script: |
     Of course, we can also get creative!
-    Jhey Tompkins inspired these interactive blinds
+    Jhey Tompkins made these interactive blinds
     that get smaller as the container gets bigger.
     Because CSS doesn't have to be practical
     to be awesome.
 
-- pre:
-    Chrome **Prototype**
-  md: |
-    1. Download/Update [Chrome Canary](https://www.google.com/chrome/canary/)
-    2. Go to `chrome://flags` in the URL bar
-    3. Search for "CSS Container Queries" & enable it
-    4. You'll need to restart after turning it on
+- pre: Migration path
+  title: Using **@supports**
+
+- css: |
+    @container (width > 30em) { /* CQ support */ }
+
+    /* works for now… */
+    @supports not (contain: inline-size) {
+      @media (width > 40em) { /* no CQ support */ }
+    }
+
+- css: |
+    /* actual syntax TBD */
+    @supports not (container: inline) {
+      @media (width > 40em) { /* no CQ support */ }
+    }
+
+- pre: More to do...
+  title: Container **Units**
   caption: |
-    [Codepen Demos](https://codepen.io/collection/XQrgJo)
-  script: |
-    Chrome already has a prototype,
-    and you can start playing with it
-    behind a feature flag.
-    I've started collecting codepen demos
-    to help you get started.
+    [CSSWG issue for container units](https://github.com/w3c/csswg-drafts/issues/5888)
+
+- pre: More to do...
+  title: Non-size **Queries**
+  caption: |
+    [CSSWG issue for other query ideas](https://github.com/w3c/csswg-drafts/issues/5989)
+
+- pre: More to do...
+  title: |
+    **Named** Containers
+  caption: |
+    [CSSWG issue for named containers](https://github.com/w3c/csswg-drafts/issues/6176)
 
 - title: CQ Proposal **Resources**
   md: |
     - [Full CQ Explainer](https://github.com/oddbird/css-sandbox/blob/main/src/rwd/query/explainer.md)
-    - [CSSWG issue](https://github.com/w3c/csswg-drafts/issues/5796)
+    - [CSSWG project](https://github.com/w3c/csswg-drafts/projects/18)
     - [TAG Review](https://github.com/w3ctag/design-reviews/issues/592)
     - [More Articles & Demos »](/css-next/cq-resources/)
   script: |
@@ -1125,22 +1247,8 @@ slides:
   title: Styles **Reusable**
   script: |
     and reusable styles.
-    Building components that are inherently responsive --
+    Building components that are inherently responsive.
 
-- face: jensimmons.jpg
-  pre: |
-    @jensimmons
-  title: |
-    **Jen** Simmons
-  md: |
-    [Everything You Know About Web Design Just Changed](https://youtu.be/jBwBACbRuGY)
-  script: |
-    What Jen Simmons calls
-    "Intrinsic Web Design" --
-    not forcing everything to be an exact percentage
-    on a 12-column grid,
-    but allowing for different components
-    to manage their own intrinsic sizing.
 - pre: Modular CSS
   title: |
     **Responsive Components**

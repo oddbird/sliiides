@@ -320,7 +320,7 @@ slides:
 
     /* actual syntax TBD */
     @supports not (container: inline) {
-      @container (width > 40em) { /* no CQ support */ }
+      @media (width > 40em) { /* no CQ support */ }
     }
 
 - pre: More to do...
