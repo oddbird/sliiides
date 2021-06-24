@@ -2,6 +2,10 @@
 @use '../config/fonts';
 @use 'sass:math';
 
+[data-body='slides'] {
+  scroll-snap-align: start;
+}
+
 [data-slides] {
   display: grid;
   grid-area: banner / main / main;
@@ -61,7 +65,7 @@
   display: grid;
   grid-area: content;
   justify-content: var(--justify, safe center);
-  max-width: 100vw;
+  max-width: 100%;
   overflow: auto;
   padding: var(--padding, var(--gutter));
   resize: var(--resize, none);

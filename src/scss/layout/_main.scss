@@ -1,11 +1,11 @@
 html {
   overflow-y: auto;
-  scroll-snap-type: block;
+  scroll-snap-type: block proximity;
 }
 
 [data-body] {
   display: grid;
-  grid-template: 'banner' auto 'main' 1fr 'footer' auto / 100vw;
+  grid-template: 'banner' auto 'main' 1fr 'footer' auto / 100%;
   min-height: 100vh;
 }
 
