@@ -1,6 +1,6 @@
 ---
-venue: Front Range Front-End
-date: 2021-06-03
+venue: CSS Cafe
+date: 2021-06-24
 script: |
   I'm here to talk about the future of CSS,
   but in order to understand where we're going —
@@ -56,8 +56,8 @@ slides:
     When Sir Tim
     and the team at CERN
     released the first
-    hypermedia browser
-    It was designed for the NeXT machine,
+    hypermedia browser,
+    it was designed for the NeXT machine,
     with a fancy graphic interface
 - img: process/ibm-pc.jpg
   alt: Old IBM desktop
@@ -133,25 +133,25 @@ slides:
     These are the primary "cascade origins" --
     each one representing a
     different set of needs and concerns,
-    different perspectives,
-    sometimes in conflict.
 
 - pre: The _Cascade_
   title: Resolves **Merge Conflicts**
   script: |
-    The rules of cascade & inheritance
-    describe how to merge all three,
-    and resolve any conflicts.
+    But these different perspectives,
+    can sometimes be in conflict.
+    So the rules of cascade & inheritance
+    describe how to merge all three origins,
+    and resolve those conflicts.
 
 - md: |
     1. 🎨 **Author** (Document)
     2. 👥 **User** Preferences
     3. 🖥 **User Agent** (Browser)
   script: |
-    By default
-    user preferences override the browser defaults,
+    In most cases,
+    the user preferences will override the browser defaults,
     and (for better or worse)
-    we're allowed to override everyone.
+    we're allowed to override both of them.
 
 - quote: |
     If conflicts arise **the user should have the last word**,
@@ -178,14 +178,16 @@ slides:
     6. 🖥 User Agent Defaults
   script: |
     Creating _important origins_
-    that cascade in reverse order:
-    Important author styles aren't that special --
-    that's us in the middle --
-    but users can override us when they need to,
+    that cascade in reverse order.
+    Important author styles aren't that special.
+    That's us in the middle,
+    with our normal and important styles side-by-side.
+    But users can override us when they need to,
     and the browser finally decides
     what's out of bounds,
     what's possible on this device,
-    and what features are supported in what ways.
+    what features are supported,
+    and so on.
 
 - pre: 2. Style*Sheets*
   title: Make Styles **Reusable**
@@ -254,7 +256,7 @@ slides:
     [type=“submit”] { background: darkgreen; }
     #send           { background: maroon; }
   script: |
-    And selectors create another potential conflict
+    But selectors create another potential conflict
     for the cascade to resolve.
     Since we can use multiple different selectors
     to target the same element --
@@ -266,10 +268,19 @@ slides:
     that approximates the desired goal
   script: |
     The cascade needs to determine a winner,
-    using a clever heuristic called specificity --
-    based on how narrowly a selector has been targeted.
-    Again, each selector type
-    represents a different goal.
+    so it uses a clever heuristic --
+    an educated guess --
+    called specificity.
+
+- md: |
+    - `*` **(universal)**
+    - `type`
+    - `.class` & `[attr]`
+    - `#ID`s **(single-use)**
+  script: |
+    We assume that each selector type is meant to
+    represent a different goal or perspective,
+    based on how narrowly that selector has been targeted.
 
 - pre: |
     universal/type »
@@ -285,7 +296,7 @@ slides:
     Classes and attributes
     allow us to describe
     higher-priority patterns,
-    and make up the majority of our styles --
+    that make up the majority of our styles --
 - pre: |
     ID/style »
   title: Singular **Overrides**
@@ -299,15 +310,28 @@ slides:
     3. *Element* `type`s
     4. *Universal* `*`
   script: |
-    One ID will always override any number of attributes,
-    and on down the list.
-    It's not perfect,
-    but it's an approximation
-    of the layers in our code.
+    We can combine these selectors in various ways,
+    but their specificity is always compared
+    one "layer" at a time.
+    Selectors with an ID will always override
+    selectors without an ID,
+    and so-on down the list.
 
-- title: We Have A 💥**Problem**💥
+- img: patterns/itcss-layers.png
+  fit: contain
+  background: white
+  caption: |
+    [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
+    CSS (ITCSS), by Harry Roberts
   script: |
-    Until things get complicated...
+    This is a rough approximation
+    of the layers in our code --
+    moving from global abstractions
+    to narrowly targeted components and overrides. --
+
+- title: Heuristics Can 💥**Fail**💥
+  script: |
+    But it's not perfect.
 
 - title: Especially "**At Scale**"
   script: |
@@ -347,7 +371,7 @@ slides:
     3. ~~*Element* `type`s~~
     4. ~~*Universal* `*`~~
   script: |
-    And out of all these selectors,
+    And out of all these specificity layers,
     there's only one that we can
     both _customize_ **and** _reuse_.
     Classes & attributes.
@@ -377,9 +401,7 @@ slides:
     [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
     CSS (ITCSS), by Harry Roberts
   script: |
-    matches carefully crafted layers of _intent_ --
-    building up from global abstractions
-    to components and overrides.
+    matches carefully crafted layers of _intent_,
 
 - title: ❗**important**
   sub: A balance of power
@@ -403,9 +425,6 @@ slides:
   script: |
     So that brings us to our first new feature:
     Cascade Layers.
-    Jen Simmons and I suggested this at the end of 2019,
-    it was approved by the CSS Working Group last February,
-    and I expect browsers to start implementing it this year.
 
 - img: patterns/itcss-layers.png
   fit: contain
@@ -414,11 +433,14 @@ slides:
     [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
     CSS (ITCSS), by Harry Roberts
   script: |
-    Very similar to CSS origins,
-    we're again creating layers
-    that represent different perspectives,
-    from different parts of a system,
-    and potentially different teams on a project.
+    This will allow us to create our own
+    custom layers of the cascade,
+    that more explicitly represent
+    the different parts of a system --
+    and potentially different teams on a project,
+    or even third-party code.
+    You can think of these as
+    customizable _layers of specificity_ --
 
 - title: Stacked in **Layers**
   md: |
@@ -427,9 +449,8 @@ slides:
     3. Frameworks?
     4. Resets?
   script: |
-    But we get to define these layers ourselves,
-    as authors --
-    for things like resets, defaults,
+    Or like our own custom CSS Origins --
+    but for things like resets, defaults,
     frameworks, themes, components,
     utilities --
     anything we want,
@@ -437,19 +458,17 @@ slides:
 
 - md: |
     1. ❗**Important** Resets
-    3. ❗**Important** Themes
-    4. ❗**Important** Components
-    5. Components
-    6. Themes
-    8. Resets
+    2. ❗**Important** Themes
+    3. ❗**Important** Components
+    4. Components
+    5. Themes
+    6. Resets
   script: |
-    And the `important` flag works as intended,
+    And the `important` flag works as intended.
+    Inverting the layers
     when it becomes necessary for a lower layer
     to insist on something,
     and punch above it's weight.
-    But we're not actually adding new origins here,
-    so it may be better to think of them as
-    customizable _layers of specificity_.
 
 - css: |
     @import url(headings.css) layer(default);
@@ -485,9 +504,12 @@ slides:
     @layer components { /* highest */ }
   script: |
     Layers stack in the order they were first defined,
-    with the highest layer taking precedence,
+    with the first layer at the bottom,
+    and the last layer at the top.
+    The highest layer will win conflicts,
     no matter what specificity is used
     for the selectors inside.
+
     Specificity only matters _inside_ each layer.
 
 - css: |
@@ -498,23 +520,26 @@ slides:
     }
 
     @layer override {
-      .my-menu-item {
+      .menu-item {
         background: lightcyan;
       }
     }
   script: |
-    In this case, the override layer wins
-    even though the selector inside
-    has a lower specificity.
+    So this single `menu-item` class wins over
+    the combined `menu`, `dropdown`, and `item` classes,
+    because the `override` layer is defined
+    after the `framework` layer.
+    This makes it simple to override a tool like bootstrap,
+    no matter how they write their selectors.
 
 - css: |
     @layer default { /* … */ }
     @layer theme { /* … */ }
-    @layer components { /* … */ }
+
+    /* still a lower layer than "theme" styles */
     @layer default { /* … */ }
-    @layer components { /* … */ }
   script: |
-    But we don't need to keep all our styles in that order.
+    But we don't need to keep all our styles in that same order.
     Once a layer has been established,
     we can add to it from anywhere in our code.
     The priority is based on when the layer name
@@ -529,9 +554,15 @@ slides:
       * { box-sizing: border-box; }
     }
   script: |
-    We can even use the at-layer rule with _only_ a name
-    to establish our order up front,
-    so we don't have to worry about the actual code order --
+    We can even use the at-layer rule without any styles,
+    just a name,
+    to establish our order up front.
+    After that,
+    we load the code in any order,
+    and it will just work.
+
+    That's especially important if we're using CSS-in-JS,
+    where styles might load in any order.
 
 - css: |
     @layer default, theme, components;
@@ -586,7 +617,8 @@ slides:
       }
     }
   script: |
-    Or we can actually nest the layer rules.
+    Or we can actually nest the layer rules --
+    it works the same way.
 
 - title: |
     More Cascade **Control**
@@ -597,11 +629,12 @@ slides:
     on selector specificity
     and code-order to determine
     what takes precedence.
+    We have control over the cascade!
 
 - title: |
     Fewer **Hacks**
   script: |
-    Hopefully allowing us to replace
+    Hopefully that allows us to replace
     all our specificity & importance hacks
     with more clearly defined patterns.
 
@@ -611,7 +644,7 @@ slides:
     Default **Lowest Priority**
   script: |
     Of course,
-    we don't have to put all our styles in a layer --
+    we don't have to put all our styles into these layers --
     and for the sake of progressive enhancement,
     we likely want to start adding layers slowly.
 
@@ -631,7 +664,7 @@ slides:
 
     But there is also discussion now
     about making it adjustable.
-    You can check out the CSSWG issue
+    You can check out the issue thread
     if you're interested in that conversation.
 
 # Scope ----------------
@@ -749,17 +782,17 @@ slides:
     is designed for _isolated DOM widgets_
   script: |
     But the Shadow-DOM is designed
-    for more highly-isolated widgets.
-    This creates a 1-to-1 relationship,
-    where boundaries are defined in the DOM,
-    each component has a single scope,
+    around highly-isolated widgets.
+    Boundaries are defined in the DOM,
+    so that each element has a single scope,
     and styles are isolated from getting in or out.
+    Scopes are never allowed to overlap at all.
 
 - pre: Build-tools
   title: Provide **Scoped Styles**
   sub: BEM, CSS Modules, Vue, JSX, Stylable, etc
   script: |
-    While encapsulation can be useful,
+    While that kind of encapsulation is useful sometimes,
     it's very different from the lighter-touch
     "scope" that we get from existing
     build-tools and conventions --
@@ -775,14 +808,15 @@ slides:
     is designed for _a unified system_
   script: |
     Where scopes reference the DOM,
-    but they are able to overlap,
+    but they're more fluid --
+    able to overlap,
     and integrate more smoothly
     with global design systems.
-    Different styles can be given
-    different or overlapping boundaries,
-    while global styles continue to apply globally.
-    This provides us with a much lower-impact alternative,
-    where scopes are defined in CSS,
+    Different scopes can have different boundaries,
+    and global styles continue to apply globally.
+
+    This provides us with a much lower-impact alternative.
+    Scopes are defined in CSS,
     and can be re-used across components,
     or overlap & cascade together.
 
@@ -863,6 +897,8 @@ slides:
     feedback is welcome,
     and Chrome plans to prototype this soon,
     for more testing.
+
+    But for now, this one is entirely theoretical.
 
 # Container Queries ----------------
 - section: |
@@ -945,7 +981,7 @@ slides:
     to flesh out some of the details,
     and start writing a specification.
 
-- section: Defining **Containers**
+- title: Defining **Containers**
   script: |
     The first thing we need to do
     is define our containers --
@@ -957,12 +993,14 @@ slides:
   fit: contain
   background: white
   script: |
-    Anything we want to be able to measure.
+    Any element we want to measure,
+    query, and respond to.
 
 - title: No **Content Sizing**
   script: |
     In order to avoid any layout loops,
-    we need to turn off content-based sizing.
+    we need to turn off content-based sizing
+    on those elements.
     Our containers need to be sized
     without reference to anything inside it.
 
@@ -991,10 +1029,15 @@ slides:
   script: |
     But size-containment is…
     bad in most cases.
-    It's just not possible to build all our containers
-    with explicit widths and heights!
-    We usually need one axis to be fluid,
-    so that extra content has somewhere to go.
+    It's just not possible to build all our layouts
+    with explicit width and height!
+
+- pen: Rad
+  id: BaWrzqd
+  script: |
+    We need one axis to be fluid,
+    and respond to content,
+    so that we don't create accidental overflow.
 
 - pre: We need
   title: |
@@ -1003,10 +1046,11 @@ slides:
     See the
     [CSSWG issue for single-axis containment](https://github.com/w3c/csswg-drafts/issues/1031)
   script: |
-    Most layouts work by containing the `width`,
+    And usually we want to contain the `width`,
     or the inline-dimension,
-    and allowing the `height` to grow or shrink
+    and allow the `height` to grow or shrink
     with the content.
+    That's pretty standard web-layout best practice.
     So we're adding an option to make
     single-axis containment possible.
 
@@ -1017,33 +1061,33 @@ slides:
   script: |
     Contain `inline-size`.
 
-    We're not sure if we can also allow
-    a `block-size` values here.
+- css: |
+    .container {
+      contain: block-size;
+    }
+  script: |
+    We're not sure if we can also support
+    a `block-size` value here.
     That needs some more experimenting.
+    There are weird issues
+    with the way percentages work.
 
 - css: |
     .sidebar, main, .grid-item {
       contain: inline-size layout style;
     }
   script: |
-    In our initial proposal,
-    applying the appropriate containment --
-    layout and 1d or 2d size --
-    creates a container.
-
-    That's how the Chrome prototype currently works,
-    but you can see it's _a lot_ to remember,
-    and it's not obvious what's going on.
+    Don't worry, you don't need to
+    memorize and write out all these values.
+    The browser will figure that out for you.
 
 - css: |
     .sidebar, main, .grid-item {
-      container: inline;
+      container-type: inline-size;
     }
   caption: |
     [CSSWG discussion of new syntax](https://github.com/w3c/csswg-drafts/issues/6174)
   script: |
-    So we're working on a simpler syntax here.
-
     Instead of specifying all the containment required,
     we just say what type of container we want --
     or _what we want to query_.
@@ -1052,13 +1096,21 @@ slides:
     and apply the right containment
     in the background.
 
-    This syntax is still very much in development,
-    so it could change a lot.
-    There's some concern around having
-    a `container` property
-    that is so similar to the `contain` property.
+- pre: |
+    _Warning_!
+  title: |
+    Not a **Stable Spec** Yet
+  caption: |
+    [Editor's Draft](https://drafts.csswg.org/css-contain-3/)
+  script: |
+    This changed recently,
+    so some articles and demos
+    might still use the old syntax.
 
-- section: |
+    And the spec is still in active development,
+    so it could change again.
+
+- title: |
     **Querying** Containers
   script: |
     Once we have containers,
@@ -1079,9 +1131,8 @@ slides:
     And each element will query
     the size of it's nearest ancestor container.
 
-    That's another important limitation
-    to make sure there are no loops.
     Container's can't query themselves.
+    That's ensures there are no loops.
 
 - html: |
     <div class="container">
@@ -1092,19 +1143,45 @@ slides:
       </div>
     </div>
   script: |
-    We can have containers inside of containers --
+    But we can nest containers
+    as much as we need to --
 
 - css: |
-    .container { container: inline; }
+    .container { container-type: inline-size; }
 
     @container (width > 30em) {
       .container { padding: 2em; }
     }
   script: |
-    And we can change containers
-    inside a container query.
-    But each container will respond
-    to the size of its parent container.
+    And each container can respond
+    to the one above it.
+
+- css: |
+    .sidebar {
+      container-type: inline-size;
+      container-name: sidebar;
+    }
+
+    @container sidebar (width > 30em) {
+      .container { padding: 2em; }
+    }
+  caption: |
+    [CSSWG issue for named containers](https://github.com/w3c/csswg-drafts/issues/6176)
+  script: |
+    If you don't want to rely on the nearest container,
+    you can also give containers names,
+    and only query containers with a specific name.
+
+- css: |
+    .sidebar { container-type: inline-size; }
+
+    @container type(inline-size) (width > 30em) {
+      .container { padding: 2em; }
+    }
+  caption: |
+    [CSSWG issue for type queries](https://github.com/w3c/csswg-drafts/issues/6393)
+  script: |
+    Or only query a specific container type.
 
 - pre:
     Chrome **Prototype**
@@ -1177,38 +1254,74 @@ slides:
     Because CSS doesn't have to be practical
     to be awesome.
 
-- pre: Migration path
-  title: Using **@supports**
-
-- css: |
-    @container (width > 30em) { /* CQ support */ }
-
-    /* works for now… */
-    @supports not (contain: inline-size) {
-      @media (width > 40em) { /* no CQ support */ }
-    }
-
-- css: |
-    /* actual syntax TBD */
-    @supports not (container: inline) {
-      @media (width > 40em) { /* no CQ support */ }
-    }
+- pen: Container Holds Water
+  id: RwpeOKv
+  script: |
+    Stephanie Eckles joked that my containers don't hold water,
+    so I made this demo to prove her wrong.
 
 - pre: More to do...
   title: Container **Units**
   caption: |
     [CSSWG issue for container units](https://github.com/w3c/csswg-drafts/issues/5888)
+  script: |
+    We're also working on container-relative units,
+    similar to vw, vh, vmin, vmax,
+    but a percentage of the container size
+    rather than the viewport.
 
 - pre: More to do...
   title: Non-size **Queries**
   caption: |
     [CSSWG issue for other query ideas](https://github.com/w3c/csswg-drafts/issues/5989)
+  script: |
+    And we're working on queries
+    that aren't about the container size.
 
-- pre: More to do...
-  title: |
-    **Named** Containers
+- css: |
+    @container property(--colors == invert) { … }
   caption: |
-    [CSSWG issue for named containers](https://github.com/w3c/csswg-drafts/issues/6176)
+    [CSSWG issue for style queries](https://github.com/w3c/csswg-drafts/issues/6396)
+  script: |
+    We might be able to query the actual value
+    of a property on the container,
+    and change internal styles based on that property.
+
+- css: |
+    @container (is-stuck) { … }
+  caption: |
+    [CSSWG issue for state queries](https://github.com/w3c/csswg-drafts/issues/6402)
+  script: |
+    Or check if our container is position-sticky,
+    and currently in a "stuck" state.
+
+    Both of these _should be possible_,
+    but we haven't worked out all the details yet.
+
+- title: Coming **Soon**
+  sub: with a polyfill
+  script: |
+    All of this could be available in Chrome & Edge
+    by the end of the year.
+    Firefox and Safari have both expressed interest,
+    but I imagine they'll wait for a stable spec before implementing.
+
+- title: |
+    **Migration** Path
+  script: |
+    There's also a polyfill being developed,
+    which would make this all work on older browsers,
+    using a bit of JavaScript.
+
+- css: |
+    @container (width > 30em) { /* CQ support */ }
+
+    @supports not (container-type: inline-size) {
+      @media (width > 40em) { /* no CQ support */ }
+    }
+  script: |
+    Or we can use the at-supports rule,
+    to create fallbacks natively in CSS.
 
 - title: CQ Proposal **Resources**
   md: |
@@ -1216,6 +1329,9 @@ slides:
     - [CSSWG project](https://github.com/w3c/csswg-drafts/projects/18)
     - [TAG Review](https://github.com/w3ctag/design-reviews/issues/592)
     - [More Articles & Demos »](/css-next/cq-resources/)
+  script: |
+    I'll share the link to my slides,
+    so you can check for the latest resources.
 
 # outro
 
