@@ -1,11 +1,14 @@
 /* resizing */
-h1 {
+.container, h1 {
+  overflow: auto;
+  resize: both;
+}
+
+h1, code {
   overflow: hidden;
-  /* resize: both; */
 }
 
 code {
-  overflow: hidden;
   /* resize: both; */
   /* display: inline-block; */
 }

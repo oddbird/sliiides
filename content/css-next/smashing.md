@@ -1,5 +1,4 @@
 ---
-draft: true
 talk: |
   **Container Queries** \
   _& The Future of CSS_
@@ -656,6 +655,15 @@ slides:
     and belong to an implied "base layer"
     below all the others.
 
+- title: Possible to **Polyfill**
+  sub: Do we also need `@supports (layers)` conditional?
+  script: |
+    We should be able to polyfill layers
+    with existing specificity tricks,
+    to make it work on old browsers if needed.
+    We could also consider adding an at-supports
+    feature test if that seems useful.
+
 # Scope ----------------
 - section: |
     **Scoped** Styles
@@ -879,6 +887,15 @@ slides:
   script: |
     There has also been talk about adding
     some form of lower-boundary or donut selector syntax.
+
+- css: |
+    @scope (.media) to (.content) {
+      img { border: red; }
+    }
+
+    /* as a selector, without proximity rules? */
+    img:in(.media / .content) { border: red; }
+  script: |
     That could be useful for some cases,
     but wouldn't have the same power
     to handle proximity relationships
@@ -896,7 +913,8 @@ slides:
     and Chrome plans to prototype this soon,
     for more testing.
 
-    But for now, this one is entirely theoretical.
+    But for now,
+    this one is still theoretical.
 
 # Container Queries ----------------
 - section: |
@@ -1041,22 +1059,42 @@ slides:
     **Inline Size** Containment
   caption: |
     See the
-    [CSSWG issue for single-axis containment](https://github.com/w3c/csswg-drafts/issues/1031)
+    [Issues with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
   script: |
     And usually we want to contain the `width`,
     or the inline-dimension,
     and allow the `height` to grow or shrink
     with the content.
     That's pretty standard web-layout best practice.
-    So we're adding an option to make
-    single-axis containment possible.
 
 - css: |
     .container {
       contain: inline-size;
     }
+  caption: |
+    See the
+    [Issues with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
   script: |
+    So we're adding an option to make
+    single-axis containment possible.
     Contain `inline-size`.
+    This isn't easy,
+    and it's not totally solved, either.
+    You can find more details
+    in the linked issue.
+
+- img: css-next/dragons.jpg
+  position: bottom
+  title: ⚠️ Dragons
+  caption: |
+    See the
+    [Issues with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
+  script: |
+    There are absolutely dragons lurking here,
+    but we still have hope that it's possible.
+    The current prototype side-steps these issues,
+    in order to show the most common behavior --
+    it's a proof of concept, not a finished product.
 
 - css: |
     .container {
@@ -1064,10 +1102,11 @@ slides:
     }
   script: |
     We're not sure if we can also support
-    a `block-size` value here.
-    That needs some more experimenting.
-    There are weird issues
-    with the way percentages work.
+    a `block-size` value.
+    That would raise even more problems,
+    but we'll work on it.
+    Again, this works in the prototype
+    by side-stepping the issues.
 
 - css: |
     .sidebar, main, .grid-item {
@@ -1281,7 +1320,7 @@ slides:
     and change internal styles based on that property.
 
 - css: |
-    @container (is-stuck) { … }
+    @container state(is-stuck) { … }
   caption: |
     [CSSWG issue for state queries](https://github.com/w3c/csswg-drafts/issues/6402)
   script: |
@@ -1294,14 +1333,11 @@ slides:
 - title: Coming **Soon**
   sub: with a _polyfill_
   script: |
-    Much of this could be available in Chrome & Edge
-    by the end of the year.
-    Firefox and Safari have both expressed interest,
-    but I imagine they'll wait for a stable spec before implementing.
-
-    There's also a polyfill being developed,
-    which would make this all work on older browsers,
-    using a bit of JavaScript.
+    If we can solve the inline containment issues,
+    this could start rolling out in browsers
+    by the end of the year,
+    and Jonathan Neal is already working on a JavaScript polyfill
+    to make it backwards compatible.
 
 - css: |
     @container (width > 30em) { /* CQ support */ }
@@ -1310,8 +1346,9 @@ slides:
       @media (width > 40em) { /* no CQ support */ }
     }
   script: |
-    Or we can use the at-supports rule,
+    We can also use the at-supports rule,
     to create fallbacks natively in CSS.
+    This is a great opportunity for progressive enhancement.
 
 - title: CQ Proposal **Resources**
   md: |
@@ -1349,12 +1386,29 @@ slides:
   title: Styles **Reusable**
   script: |
     and reusable styles.
-    Building components that are inherently responsive.
+    Building components that are inherently responsive --
 
-- pre: Modular CSS
+- face: jensimmons.jpg
+  pre: |
+    @jensimmons
   title: |
-    **Responsive Components**
-  script:
+    **Jen** Simmons
+  md: |
+    [Everything You Know About Web Design Just Changed](https://youtu.be/jBwBACbRuGY)
+  script: |
+    What Jen Simmons calls
+    "Intrinsic Web Design" --
+    not forcing everything to be an exact percentage
+    on a 12-column grid --
+    but allowing for different components
+    to manage their own intrinsic sizing.
+    Sometimes fluid, sometimes fixed,
+    but always responsive to the overall needs of the page.
+
+- title: |
+    **Intrinsic** Web Design
+  sub: building _responsive components_ in CSS
+  script: |
     There's already been
     a lot of progress in this space,
     with tools like grid & flexbox & aspect-ratios --
