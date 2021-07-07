@@ -2,14 +2,16 @@
 {% import "embed.macros.njk" as embed %}
 
 {% macro title(
-  page
+  page,
+  slide=none
 ) %}
+  {% set slide = slide or {
+    'index': 0,
+    'controls': true,
+    'script': page.data.script
+  } %}
   {% call slides.base(
-    slide={
-      'index': 0,
-      'controls': true,
-      'script': page.data.script
-     },
+    slide=slide,
     name='event-title',
     page=page,
     is='header'
@@ -71,4 +73,12 @@
       </h2>
     {% endcall %}
   {% endcall %}
+{% endmacro %}
+
+{% macro restart(slide, page) %}
+  {{ title(page, slide) }}
+{% endmacro %}
+
+{% macro coda(slide, page) %}
+  {{ end(page) }}
 {% endmacro %}

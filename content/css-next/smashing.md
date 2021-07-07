@@ -4,10 +4,28 @@ talk: |
   _& The Future of CSS_
 venue: Smashing CSSummer
 date: 2021-07-08
-script: |
-  I'm here to talk about the future of CSS,
-  but in order to understand where we're going —
 slides:
+
+- md: |
+    1. Go to `chrome://flags` in [Chrome Canary](https://www.google.com/chrome/canary/)
+    2. Enable "CSS Container Queries" & restart
+
+    ```css
+    main, aside {
+      container-type: inline-size;
+    }
+
+    @container (min-width: 30em) { /* … */ }
+    ```
+  caption: |
+    [Example](https://codepen.io/miriamsuzanne/pen/NWjNoGO?editors=1100)
+
+- from: auto
+  use: restart
+  script: |
+    I'm here to talk about the future of CSS,
+    but in order to understand where we're going —
+
 # Cascade Intro ---------
 - pre: The _Present of CSS_
   script: |
