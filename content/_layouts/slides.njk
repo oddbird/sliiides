@@ -2,6 +2,9 @@
 layout: base
 scripts:
   - slides.js
+eleventyComputed:
+  title: |
+    {{ venue }}: {{ talk_title or talk }}
 ---
 
 {% import "slides/auto.macros.njk" as auto %}
