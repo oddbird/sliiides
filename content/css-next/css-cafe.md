@@ -907,8 +907,7 @@ slides:
     And that brings us to the real reason we're here.
     Container Queries.
 
-- pen: Media vs Container
-  id: xxqYjeL
+- pen: media-v-container
   script: |
     - Media queries let us respond to viewport
     - Same element in multiple containers,
@@ -934,8 +933,7 @@ slides:
     and then make changes based on that measurement,
     poses a bit of a paradox.
 
-- pen: Rad
-  id: BaWrzqd
+- pen: css-rad
   script: |
     One of the coolest responsive features in CSS,
     which we don't talk about nearly enough,
@@ -1032,8 +1030,7 @@ slides:
     It's just not possible to build all our layouts
     with explicit width and height!
 
-- pen: Rad
-  id: BaWrzqd
+- pen: css-rad
   script: |
     We need one axis to be fluid,
     and respond to content,
@@ -1210,9 +1207,7 @@ slides:
     but the container queries
     depend on the size of the container.
 
-- pen: container query demo with blockquotes
-  id: YzpywrZ
-  user: dvdherron
+- pen: cq-quotes
   script: |
     My coworker David Herron,
     made this one showing
@@ -1220,8 +1215,7 @@ slides:
     with three different designs
     based on the size of the container.
 
-- pen: Flexbox cards, with Container Queries
-  id: mdRVMbp
+- pen: cq-flex
   script: |
     In some cases,
     like inside flexbox or grid,
@@ -1234,9 +1228,7 @@ slides:
     The outer div establishes a container,
     and the inner article can query it.
 
-- pen: Container Query Bookstore
-  user: mxbck
-  id: XWMrMOp
+- pen: cq-books
   script: |
     Max Böck has created this bookstore demo
     with self-contained web components.
@@ -1244,9 +1236,7 @@ slides:
     and everything inside the component
     adjusts based on available size.
 
-- pen: Container Query Blinds v2
-  id: qBrEMEe
-  user: jh3y
+- pen: cq-blinds
   script: |
     Of course, we can also get creative!
     Jhey Tompkins made these interactive blinds
@@ -1254,8 +1244,7 @@ slides:
     Because CSS doesn't have to be practical
     to be awesome.
 
-- pen: Container Holds Water
-  id: RwpeOKv
+- pen: cq-water
   script: |
     Stephanie Eckles joked that my containers don't hold water,
     so I made this demo to prove her wrong.

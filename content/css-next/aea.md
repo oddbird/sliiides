@@ -882,8 +882,7 @@ slides:
 
     Since we have a prototype now, we should check it out, right?
 
-- pen: OMG, Layers
-  id: poweapY
+- pen: layers-support
   script: |
     Layers are meant to help with overall style architecture,
     which makes it hard to capture a real use-case
@@ -925,8 +924,7 @@ slides:
     always overrides the button theme property.
     Well now we can do that same thing with layers...
 
-- pen: Button layers
-  id: rNwmMrK
+- pen: layers-btn
   script: |
     [demo]
 
@@ -1289,8 +1287,8 @@ slides:
     And that brings us to the real reason we're here.
     Container Queries.
 
-- pen: Media vs Container
-  id: xxqYjeL
+- pen: media-v-container
+  print: media-v-container-break
   script: |
     - Media queries let us respond to viewport
     - Same element in multiple containers,
@@ -1413,8 +1411,7 @@ slides:
     It's just not possible to build all our layouts
     with explicit width and height!
 
-- pen: Rad
-  id: BaWrzqd
+- pen: css-rad
   script: |
     We need one axis to be fluid,
     and respond to content,
@@ -1601,14 +1598,11 @@ slides:
     I've started collecting codepen demos
     to help you get started.
 
-- pen: Media vs Container
-  id: xxqYjeL
+- pen: media-v-container
   script: |
     But why don't I just show you?
 
-- pen: container query demo with blockquotes
-  id: YzpywrZ
-  user: dvdherron
+- pen: cq-quotes
   script: |
     My coworker David Herron,
     made this demo showing
@@ -1616,8 +1610,7 @@ slides:
     with three different designs
     based on the size of the container.
 
-- pen: Flexbox cards, with Container Queries
-  id: mdRVMbp
+- pen: cq-flex
   script: |
     In some cases,
     like inside flexbox or grid,
@@ -1630,9 +1623,7 @@ slides:
     The outer div establishes a container,
     and the inner article can query it.
 
-- pen: Container Query Bookstore
-  user: mxbck
-  id: XWMrMOp
+- pen: cq-books
   script: |
     Max Böck has created this bookstore demo
     with self-contained web components.
@@ -1640,9 +1631,7 @@ slides:
     and everything inside the component
     adjusts based on available size.
 
-- pen: Responsive Icon Demo
-  user: una
-  id: NWgxXGV
+- pen: cq-icons
   script: |
     Una Kravets combines a number of different
     named containers to create this responsive card,
@@ -1653,9 +1642,7 @@ slides:
     but look higher up in the DOM
     to measure whatever container is most relevant.
 
-- pen: Container Query Blinds v2
-  id: qBrEMEe
-  user: jh3y
+- pen: cq-blinds
   script: |
     Of course, we can also get creative!
     Jhey Tompkins made these interactive blinds
@@ -1663,8 +1650,7 @@ slides:
     Because CSS doesn't have to be practical
     to be awesome.
 
-- pen: Container Holds Water
-  id: RwpeOKv
+- pen: cq-water
   script: |
     Stephanie Eckles joked that my containers don't hold water,
     so I made this demo to prove her wrong.
@@ -1711,15 +1697,12 @@ slides:
     feel free to jump in and make suggestions
     on the github issue.
 
-- pen: Basic Container Units
-  id: MWopXRW
+- pen: cq-units-basic
   script: |
     - respond to nearest relevant container (which might be root)
     - don't need to be inside `@container`
 
-- pen: Container Units
-  id: jOwmOZE
-  user: scottkellum
+- pen: cq-units-nike
   script: |
     [demo]
     … Ok, back to past-past Miriam in three, two …

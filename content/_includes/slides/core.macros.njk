@@ -110,15 +110,41 @@
 {% endmacro %}
 
 {% macro pen(slide, page) %}
-  {%- set pres %}[present](https://codepen.io/{{ slide.user or 'miriamsuzanne' }}/pres/{{ slide.id }}?editors=1100){% endset -%}
-  {%- set raw %}[debug](https://codepen.io/{{ slide.user or 'miriamsuzanne' }}/debug/{{ slide.id }}){% endset -%}
+  {%- set title = slide.pen -%}
+
+  {%- if slide.pen and not slide.id -%}
+    {%- set found = page.data.pens | withData('slug', slide.pen) | first -%}
+    {%- set title = found.pen or title -%}
+    {%- set merge = found | merge(slide) if found else none -%}
+    {%- set slide = merge or slide -%}
+  {%- endif -%}
+
+  {%- set user = slide.user or 'miriamsuzanne' -%}
+  {%- set print = slide.print or ['https://codepen.io/', user, '/pen/', slide.id, '/image/large.png'] | join -%}
+
+  {%- if not ('://' in print) -%}
+    {%- set printFile = slide.slug if (print == 'slug') else print -%}
+    {%- set printFile = printFile if ('.' in printFile) else [printFile, '.jpg'] | join -%}
+    {%- set printPath = [page.data.assets.images, 'pens/', printFile] | join if printFile else none -%}
+    {%- set print = printPath or print -%}
+  {%- endif -%}
+
+  {%- set printStyle = {'--print': ['url("', print, '")'] | join('') } -%}
+
+  {%- set pres %}[present](https://codepen.io/{{ user }}/pres/{{ slide.id }}?editors=1100){% endset -%}
+  {%- set raw %}[debug](https://codepen.io/{{ user }}/debug/{{ slide.id }}){% endset -%}
   {%- set links -%}[{{ [pres, raw] | join(' | ') }}]{%- endset -%}
   {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
   {%- set slide = slide | merge({'caption': caption}) -%}
-  {% call slides.base(slide, 'iframe codepen', page) %}
+  {% call slides.base(
+    slide=slide,
+    name='iframe codepen',
+    page=page,
+    styles=printStyle
+  ) %}
     {{ embed.codepen(
       id=slide.id,
-      title=slide.pen,
+      title=title,
       edit=false if slide.noedit else true,
       height=slide.height or 500,
       theme=slide.theme or '39098',

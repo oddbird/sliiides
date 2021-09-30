@@ -67,11 +67,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter('elide', type.elide);
 
   eleventyConfig.addFilter('yaml', yaml.safeLoad);
-  eleventyConfig.addFilter('slideData', (slide, index, page) => {
-    slide.index = index;
-    slide.page = page;
-    return slide;
-  });
 
   // shortcodes
   eleventyConfig.addPairedShortcode('md', type.md);

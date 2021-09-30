@@ -15,7 +15,7 @@
   collections
 ) %}
   {% for slide in page.data.slides %}
-    {% set slide = slide | slideData(loop.index, page) %}
+    {% set slide = slide | merge({'index': loop.index}) %}
     {% set source = get[slide.from] if slide.from else none %}
     {% if source and source[slide.use] %}
       {{ source[slide.use](slide, page) }}

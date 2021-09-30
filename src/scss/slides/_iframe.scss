@@ -10,3 +10,20 @@
     width: 100%;
   }
 }
+
+[data-slide~='codepen'] {
+  .cp_embed_wrapper {
+    display: contents;
+
+    @media print {
+      display: none;
+    }
+  }
+
+  .slide-content {
+    background-image: var(--print);
+    background-size: 100% auto;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+}

@@ -1034,9 +1034,7 @@ slides:
     but the container queries
     depend on the size of the container.
 
-- pen: container query demo with blockquotes
-  id: YzpywrZ
-  user: dvdherron
+- pen: cq-quotes
   script: |
     My coworker David Herron,
     made this one showing
@@ -1044,8 +1042,7 @@ slides:
     with three different designs
     based on the size of the container.
 
-- pen: Flexbox cards, with Container Queries
-  id: mdRVMbp
+- pen: cq-flex
   script: |
     In some cases,
     like inside flexbox or grid,
