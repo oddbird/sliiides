@@ -808,7 +808,11 @@ slides:
 - pre: |
     _Unlayered_ styles
   title: |
-    Default **Lowest Priority**
+    ~~Default Lowest Priority~~ \
+    Default **Highest Priority**
+  caption: |
+    ⚠️ Changed 2021/10/06
+    [Issue #6284](https://github.com/w3c/csswg-drafts/issues/6284#issuecomment-937262197)
   script: |
     Of course,
     we don't have to put all our styles into these layers --
@@ -1656,11 +1660,13 @@ slides:
     so I made this demo to prove her wrong.
 
 - pre: More to do...
-  title: Container **Units**
+  title: Container Query **Units**
   sub: |
-    `qw` | `qh` | `qi` | `qb` | `qmin` | `qmax`
+    ~~`qw` | `qh` | `qi` | `qb` | `qmin` | `qmax`~~ \
+    `cqw` | `cqh` | `cqi` | `cqb` | `cqmin` | `cqmax`
   caption: |
-    [CSSWG issue for container units](https://github.com/w3c/csswg-drafts/issues/5888)
+    ⚠️ Resolved 2021/10/06
+    [Issue #5888](https://github.com/w3c/csswg-drafts/issues/5888#issuecomment-937291693)
   script: |
     We're also working on container-relative units,
     similar to vw, vh, vmin, vmax,
@@ -1681,10 +1687,11 @@ slides:
   script: |
     Query units are now also supported in the Chrome prototype!
 
-- pre: Why `Q`?
+- pre: Why `CQ`?
   title: Because _`CH`_ **Already Exists**
   caption: |
-    [CSSWG issue for container units](https://github.com/w3c/csswg-drafts/issues/5888)
+    ⚠️ Resolved 2021/10/06
+    [Issue #5888](https://github.com/w3c/csswg-drafts/issues/5888#issuecomment-937291693)
   script: |
     You might also be asking why we went with `q` instead
     of, maybe, `c` for `container`.
@@ -1718,9 +1725,11 @@ slides:
     that aren't about the container size.
 
 - css: |
-    @container property(--colors == invert) { … }
+    @container style(--colors: invert) { … }
   caption: |
-    [CSSWG issue for style queries](https://github.com/w3c/csswg-drafts/issues/6396)
+    ⚠️ Resolved 2021/10/06
+    [Issue #6396](https://github.com/w3c/csswg-drafts/issues/6396#issuecomment-937299667)
+
   script: |
     We might be able to query the actual value
     of a property on the container,
