@@ -863,8 +863,15 @@ slides:
       » `about:config` \
       » `layout.css.cascade-layers.enabled`
     - **Chrome Canary**: \
-      » [run-time (command line) flag](https://www.chromium.org/developers/how-tos/run-chromium-with-flags) \
-      » `--enable-blink-features=CSSCascadeLayers`
+      » `chrome://flags` \
+      » `Enable CSS Cascade Layers`
+    - **Safari Technology Preview**: \
+      » `Develop`/`Experimental Features` (menu) \
+      » `CSS Cascade Layers` \
+      » (#133 has unlayered styles reversed, likely fixed in #134)
+  caption: |
+    ⚠️ Changed 2021/10/05
+    [Issue #6284](https://github.com/w3c/csswg-drafts/issues/6284#issuecomment-937262197)
   script: |
     So:
     did I say Chrome & Safari are working on implementations?
@@ -887,6 +894,9 @@ slides:
     Since we have a prototype now, we should check it out, right?
 
 - pen: layers-support
+  caption: |
+    ⚠️ Changed 2021/10/06
+    [Issue #6284](https://github.com/w3c/csswg-drafts/issues/6284#issuecomment-937262197)
   script: |
     Layers are meant to help with overall style architecture,
     which makes it hard to capture a real use-case
