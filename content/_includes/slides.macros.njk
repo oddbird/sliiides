@@ -115,9 +115,10 @@
       <footer class="slide-footer">
         {% if slide.controls %}
           {{ controls() }}
-        {% elif slide.caption %}
+        {% elif slide.caption or slide.demoLinks %}
           <div class="slide-caption">
-            {{ slide.caption | md | safe }}
+            {{ slide.caption | mdInline | safe }}
+            <span class="demo-links">{{ slide.demoLinks | mdInline | safe }}</span>
           </div>
         {% else %}
           <div><!-- a spacer? really? --></div>

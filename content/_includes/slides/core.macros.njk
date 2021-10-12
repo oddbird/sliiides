@@ -109,7 +109,7 @@
   {% endcall %}
 {% endmacro %}
 
-{% macro pen(slide, page) %}
+{% macro codepen(slide, page) %}
   {%- set title = slide.pen -%}
 
   {%- if slide.pen and not slide.id -%}
@@ -134,10 +134,8 @@
   {%- set pres %}[present](https://codepen.io/{{ user }}/pres/{{ slide.id }}?editors=1100){% endset -%}
   {%- set raw %}[debug](https://codepen.io/{{ user }}/debug/{{ slide.id }}){% endset -%}
   {%- set links -%}[{{ [pres, raw] | join(' | ') }}]{%- endset -%}
-  {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
-  {%- set slide = slide | merge({'caption': caption}) -%}
   {% call slides.base(
-    slide=slide,
+    slide=slide | set('demoLinks', links),
     name='iframe codepen',
     page=page,
     styles=printStyle
@@ -196,7 +194,7 @@
   {% elif slide.quote %}
     {{ quote(slide, page) }}
   {% elif slide.pen %}
-    {{ pen(slide, page) }}
+    {{ codepen(slide, page) }}
   {% elif slide.caniuse %}
     {{ caniuse(slide, page) }}
   {% elif slide.face %}

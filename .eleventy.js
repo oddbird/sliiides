@@ -34,6 +34,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter('merge', _.merge);
   eleventyConfig.addFilter('group', _.groupBy);
   eleventyConfig.addFilter('compact', _.compact);
+  eleventyConfig.addFilter('set', _.set);
 
   eleventyConfig.addFilter('min', (array) => Math.min(...array));
   eleventyConfig.addFilter('max', (array) => Math.max(...array));

@@ -860,14 +860,11 @@ slides:
     [CodePen collection of layer demos](https://codepen.io/collection/BNjmma)
   md: |
     - **Firefox Nightly**: \
-      » `about:config` \
-      » `layout.css.cascade-layers.enabled`
+      » `about:config` » `layout.css.cascade-layers.enabled`
     - **Chrome Canary**: \
-      » `chrome://flags` \
-      » `Enable CSS Cascade Layers`
+      » `chrome://flags` » `Enable CSS Cascade Layers`
     - **Safari Technology Preview**: \
-      » `Develop`/`Experimental Features` (menu) \
-      » `CSS Cascade Layers` \
+      » `Develop`/`Experimental Features` (menu) » `CSS Cascade Layers` \
       » (#133 has unlayered styles reversed, likely fixed in #134)
   caption: |
     ⚠️ Changed 2021/10/05
