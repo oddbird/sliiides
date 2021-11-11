@@ -40,3 +40,22 @@ caption: |
     page=page
   ) }}
 {% endmacro %}
+
+{% macro flipped(slide, page) %}
+{% set slideBase %}
+img: patterns/un-itcss-metrics.png
+alt: |
+  Harry Robberts Inverted Triangle,
+  but it's been flipped over,
+  so now it's just a normal triangle.
+fit: contain
+background: white
+caption: |
+  ~~Inverted~~ **Normal Triangle**
+  by [~~Harry Roberts~~](https://twitter.com/csswizardry) ~~Maslow~~ **Miriam**
+{% endset %}
+  {{ core.img(
+    slide=slideBase | yaml | merge(slide),
+    page=page
+  ) }}
+{% endmacro %}
