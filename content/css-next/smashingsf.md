@@ -131,7 +131,10 @@ slides:
     a      {  color: teal;    }
     .rad   {  color: violet;  }
     [href] {  color: orange;  }
-
+- title: |
+    on every _html element_, \
+    every _css property_ \
+    must have **exactly one value**
 - img: css-next/thunderdome-words.jpg
   alt: |
     Tina Turner as Aunty Entity
@@ -182,6 +185,16 @@ slides:
     [WWW HyperMedia Browser](https://worldwideweb.cern.ch/browser/)
     & *Editor*
 
+- img: process/ibm-pc.jpg
+  alt: Old IBM desktop
+  position: top
+- img: no-harm/line-mode.jpg
+  alt: The second browser, a text-only terminal
+  position: top
+  caption: |
+    [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
+    developed by **Nicola Pellow**
+
 - face: mia-89.jpg
   alt: 7 year old Miriam with her hands on her knees
   pre: |
@@ -195,15 +208,11 @@ slides:
     Hand-made choose-your-own-adventure book called
     The Mystery of the Missing Art Box
 
-- img: process/ibm-pc.jpg
-  alt: Old IBM desktop
-  position: top
-- img: no-harm/line-mode.jpg
-  alt: The second browser, a text-only terminal
-  position: top
-  caption: |
-    [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
-    developed by **Nicola Pellow**
+- img: rad/sward.jpg
+  alt: |
+    Hand-made book called
+    The Sward
+  caption: I couldn't afford *copy editing*...
 
 - quote: |
     Web **for all**. Web **on everything**.
@@ -224,19 +233,6 @@ slides:
 - img: unfriendly/agnesscott/smart-home.png
   alt: Google Home, Amazon Echo, and Apple HomePod
 
-- img: css-next/smashsf/kate.jpg
-  alt: |
-    Kate Kalcevich on stage,
-    with a slide of many illustrated faces,
-    that says Accessibility is a Team Sport -
-    with red scribbles overtop saying
-    The Entire Web
-  fit: contain
-  caption: |
-    Kate Kalcevich
-    (photo stolen & cropped from
-    [Kevin Lozandier](https://twitter.com/KevinLozandier/status/1539325916748206081))
-
 - title: Everyone has **Input**
   md: |
     - 🖥 **User Agent** (Browser)
@@ -249,6 +245,19 @@ slides:
     across _operating systems_, _interfaces_,
     _writing-modes_, & _languages_...
   cite: me
+
+- img: css-next/smashsf/kate.jpg
+  alt: |
+    Kate Kalcevich on stage,
+    with a slide of many illustrated faces,
+    that says Accessibility is a Team Sport -
+    with red scribbles overtop saying
+    The Entire Web
+  fit: contain
+  caption: |
+    Kate Kalcevich
+    (photo stolen & cropped from
+    [Kevin Lozandier](https://twitter.com/KevinLozandier/status/1539325916748206081))
 
 # not like print
 - img: css-next/smashsf/sidesaddle-indd.jpg
@@ -321,7 +330,7 @@ slides:
     subtitled Use the Cascade
   position: top
   caption: https://www.w3.org/TR/css-cascade-5/
-
+- title: What's a **Cascade**??
 - img: css-next/specifishity.jpg
   alt: |
     CSS SpeciFISHity,
@@ -339,7 +348,8 @@ slides:
     with the law
     'Two styles enter, one style leaves'
     in bold text
-  caption: https://www.w3.org/TR/css-cascade-5/
+  caption: |
+    Put Tina Turner in the browser, you cowards
 - title: |
     every _css property_ \
     on every _html element_ \
@@ -514,8 +524,8 @@ slides:
       border-width: thin;
       border-style: none;
     }
-  cation: |
-    Firefox user-agent styles (`resource://gre-resources/html.css`)
+  caption: |
+    Default user-agent styles (Firefox -> `resource://gre-resources/html.css`)
 
 - css: |
     [hidden] {
@@ -617,18 +627,6 @@ slides:
     }
 
 - md: |
-    1. Overrides
-    2. Components
-    3. Objects
-    4. Elements
-    5. Generic
-    6. Tools
-    7. Settings
-    {reversed}
-  caption: |
-    Any layers we want!
-
-- md: |
     1. Utilities
     2. Components
     3. Themes
@@ -638,6 +636,18 @@ slides:
   caption: |
     Any layers we want!
 
+- md: |
+    1. Overrides
+    2. Components
+    3. Objects
+    4. Elements
+    5. Generic
+    6. Tools
+    7. Settings
+    {reversed}
+  caption: |
+    As many layers as we want!
+
 - css: |
     @layer settings { … }
     @layer tools { … }
@@ -646,6 +656,16 @@ slides:
     @layer objects { … }
     @layer components { … }
     @layer overrides { … }
+
+- md: |
+    1. `@layer `**`settings`**` { … }`
+    2. `@layer `**`tools`**` { … }`
+    3. `@layer `**`generic`**` { … }`
+    4. `@layer `**`elements`**` { … }`
+    5. `@layer `**`objects`**` { … }`
+    6. `@layer `**`components`**` { … }`
+    7. `@layer `**`overrides`**` { … }`
+    {reversed}
   caption: |
     Layers stack as they are introduced
 
@@ -679,6 +699,17 @@ slides:
 
 - title: |
     _Specificity_ is **Contained**
+
+- css: |
+    @layer framework {
+      #menu .dropdown .item:hover {
+        background: whitesmoke;
+      }
+
+      .menu-item {
+        background: lightcyan;
+      }
+    }
 
 - css: |
     @layer framework {
@@ -802,6 +833,9 @@ slides:
 
 - title:  More Cascade **Control**
 - title: Fewer **Hacks**
+
+- pre: Don't let _assumptions_
+  title: Boss You Around
 
 - title: |
     _Complete Guide_ to CSS Cascade Layers
