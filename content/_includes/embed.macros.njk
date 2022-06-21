@@ -298,8 +298,9 @@ params:
 {%- endmacro %}
 
 {% macro face(path, alt, name) %}
+  {% set fullpath = path if ('/' in path) else ('_people/' + path) %}
   {{ img(
-    src='_people/' + path,
+    src=fullpath,
     alt=alt or ['Headshot of', name | removeMd ] | join(' ') ,
     sizes='quote',
     attrs={'class': 'u-photo'}

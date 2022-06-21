@@ -4,6 +4,7 @@ const _ = require('lodash');
 const markdown = require('markdown-it');
 const mdFootnote = require('markdown-it-footnote');
 const mdMark = require('markdown-it-mark');
+const markdownItAttrs = require('@gerhobbelt/markdown-it-attrs');
 const removeMd = require('remove-markdown');
 const striptags = require('striptags');
 const truncate = require('truncate-html');
@@ -29,6 +30,7 @@ const mdown = markdown({
 })
   .disable('code')
   .use(mdMark)
+  .use(markdownItAttrs)
   .use(mdFootnote);
 // .use(markdownItResponsive, imgConf);
 

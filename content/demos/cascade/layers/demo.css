@@ -1,0 +1,61 @@
+.controls {
+  font-size: 0.75em;
+}
+
+.document {
+  display: grid;
+  border: thin solid silver;
+  box-shadow: 0 0 0.2em silver;
+  grid-template-rows: auto 1fr;
+  padding: 1em;
+}
+
+.inner {
+  --spacer: calc(2em + 1vw);
+  --angle: clamp(75%, 60ch, 100% - var(--spacer));
+  display: flex;
+  flex-direction: var(--dir, column);
+  gap: 0.2em;
+}
+
+[data-sort='itcss'] .inner {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    var(--angle, 2em) 100%,
+    0 100%
+  );
+}
+
+[data-sort='weight'] .inner {
+  --dir: column-reverse;
+  clip-path: polygon(
+    0 0,
+    var(--angle, 2em) 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+[data-layer] {
+  --h: calc(var(--order) * 90deg);
+  align-items: center;
+  background-color: hsl(var(--h) var(--s, 50%) 85%);
+  color: hsl(var(--h) 10% 5%);
+  display: flex;
+  flex: auto;
+  padding: 0.25em 0.5em;
+  padding-inline-end: calc(100% - var(--angle));
+  gap: 0.5em;
+  order: var(--sort, initial);
+}
+
+[data-sort='itcss'] [data-layer],
+[data-sort='weight'] [data-layer] {
+  --sort: var(--order);
+}
+
+[data-layer]::before {
+  content: var(--order-string) '.' var(--i-of);
+  font-size: 0.8em;
+}

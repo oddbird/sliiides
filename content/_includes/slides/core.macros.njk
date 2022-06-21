@@ -53,6 +53,25 @@
   {% endcall %}
 {% endmacro %}
 
+{% macro twoup(slide, page) %}
+  {% call slides.base(slide, 'img twoup', page, styles) %}
+    {% for img in slide.twoup %}
+      {% set imgStyle = {
+        '--img-position': img.position,
+        '--img-fit': img.fit
+      } %}
+      {% set styles = slide.style | merge(imgStyle) %}
+      {% set placeholder = ['https://placeimg.com/640/480/', img.src or 'any', '?s=', slide.index] | join %}
+
+      {{ embed.img(
+        src=img.src if ('.' in img.src) else placeholder,
+        alt=img.alt,
+        attrs={'style': imgStyle}
+      ) }}
+    {% endfor %}
+  {% endcall %}
+{% endmacro %}
+
 {% macro person(slide, page) %}
   {% set imgStyle = {
     '--img-position': slide.position,
@@ -115,7 +134,7 @@
   {%- if slide.pen and not slide.id -%}
     {%- set found = page.data.pens | withData('slug', slide.pen) | first -%}
     {%- set title = found.pen or title -%}
-    {%- set merge = found | merge(slide) if found else none -%}
+    {%- set merge = {} | merge(found, slide) if found else none -%}
     {%- set slide = merge or slide -%}
   {%- endif -%}
 
@@ -181,6 +200,8 @@
     {{ demo(slide, page, collections) }}
   {% elif slide.img %}
     {{ img(slide, page) }}
+  {% elif slide.twoup %}
+    {{ twoup(slide, page) }}
   {% elif slide.code %}
     {{ code.block(slide, page) }}
   {% elif slide.html %}

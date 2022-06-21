@@ -3,7 +3,7 @@
 
 {% macro logo(slide, page) %}
   {% call slides.base(slide, 'intro-logo', page) %}
-    {{ embed.svg('logos/oddbird') }}
+    {{ embed.svg(['logos', slide.logo or 'oddbird'] | join('/')) }}
   {% endcall %}
 {% endmacro %}
 

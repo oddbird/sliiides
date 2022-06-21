@@ -1,0 +1,108 @@
+---
+title: The Cascade as a Funnel
+demo: cascade-funnel
+---
+
+<h2>The <strong>Cascade</strong></h2>
+
+<div class='cascade-list'>
+  <details data-cat='origin' class='has-import'>
+    <summary>Origin & Importance</summary>
+    <div class="cat-content">
+      <ol layer-list='combined'>
+        <li>↔️ CSS Transitions</li>
+
+        <li data-side='important'>🖥 User Agent (Browser)</li>
+        <li data-side='important'>👥 User (Preferences)</li>
+        <li data-side='important'>🎨 Author (Site)</li>
+
+        <li>🔁 CSS Animations</li>
+
+        <li data-side='normal'>🎨 Author (Site)</li>
+        <li data-side='normal'>👥 User (Preferences)</li>
+        <li data-side='normal'>🖥 User Agent (Browser)</li>
+      </ol>
+    </div>
+  </details>
+
+  <details data-cat='context' class='has-import'>
+    <summary>(Shadow) Context</summary>
+    <div class="cat-content">
+      <strong class='label' data-side='important'>important</strong>
+      <ol layer-list='important'>
+        <li>🫥 Shadow DOM</li>
+        <li>☀️ Host (Light) DOM</li>
+      </ol>
+      <strong class='label' data-side='normal'>normal</strong>
+      <ol layer-list='normal'>
+        <li>☀️ Host (Light) DOM</li>
+        <li>🫥 Shadow DOM</li>
+      </ol>
+    </div>
+  </details>
+
+  <details data-cat='style' class='has-import'>
+    <summary>Element-Attached Styles</summary>
+    <div class="cat-content">
+      <strong class='label' data-side='important'>important</strong>
+      <ol layer-list='important'>
+        <li>Inline Styles</li>
+        <li>Selectors</li>
+      </ol>
+      <strong class='label' data-side='normal'>normal</strong>
+      <ol layer-list='normal'>
+        <li>Inline Styles</li>
+        <li>Selectors</li>
+      </ol>
+    </div>
+  </details>
+
+  <details data-cat='layers' class='has-import'>
+    <summary>Cascade Layers <em>(new!)</em></summary>
+    <div class="cat-content">
+      <strong class='label' data-side='important'>important</strong>
+      <ol layer-list='important'>
+        <li><i>» first-layer</i></li>
+        <li><i>» …</i></li>
+        <li><i>» last-layer</i></li>
+        <li><i>un-layered styles</i></li>
+      </ol>
+      <strong class='label' data-side='normal'>normal</strong>
+      <ol layer-list='normal'>
+        <li><i>un-layered styles</i></li>
+        <li><i>» last-layer</i></li>
+        <li><i>» …</i></li>
+        <li><i>» first-layer</i></li>
+      </ol>
+    </div>
+  </details>
+
+  <details data-cat='specificity'>
+    <summary>Selector Specificity</summary>
+    <div class="cat-content">
+      <ol layer-list='combined'>
+        <li><code>#id</code></li>
+        <li>
+          <code>.class</code> |
+          <code>:pseudo-class</code> |
+          <code>[attribute]</code>
+        </li>
+        <li>
+          <code>element</code> |
+          <code>::pseudo-element</code>
+        </li>
+        <li>
+          <code>*</code> |
+          <code>:where()</code>
+        </li>
+      </ol>
+    </div>
+  </details>
+
+  <details data-cat='order'>
+    <summary>Order of Appearance</summary>
+    <div class="cat-content">
+      <p>Last style wins!</p>
+    </div>
+  </details>
+</div>

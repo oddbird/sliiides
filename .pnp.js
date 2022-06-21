@@ -50,6 +50,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.9.6"
       ],
       [
+        "@gerhobbelt/markdown-it-attrs",
+        "npm:4.1.0-24"
+      ],
+      [
         "@gerhobbelt/markdown-it-responsive",
         "npm:0.1.1-3"
       ],
@@ -258,6 +262,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@11ty/eleventy-plugin-syntaxhighlight", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:3.0.1"],
             ["@babel/core", "npm:7.9.6"],
             ["@babel/preset-env", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.9.6"],
+            ["@gerhobbelt/markdown-it-attrs", "npm:4.1.0-24"],
             ["@gerhobbelt/markdown-it-responsive", "npm:0.1.1-3"],
             ["@rollup/plugin-commonjs", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:11.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.1.3"],
@@ -1586,6 +1591,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/helper-validator-identifier", "npm:7.9.5"],
             ["lodash", "npm:4.17.15"],
             ["to-fast-properties", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@gerhobbelt/markdown-it-attrs", [
+        ["npm:4.1.0-24", {
+          "packageLocation": "./.yarn/cache/@gerhobbelt-markdown-it-attrs-npm-4.1.0-24-601f0ce747-2.zip/node_modules/@gerhobbelt/markdown-it-attrs/",
+          "packageDependencies": [
+            ["@gerhobbelt/markdown-it-attrs", "npm:4.1.0-24"]
           ],
           "linkType": "HARD",
         }]
@@ -14335,6 +14349,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@11ty/eleventy-plugin-syntaxhighlight", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:3.0.1"],
             ["@babel/core", "npm:7.9.6"],
             ["@babel/preset-env", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.9.6"],
+            ["@gerhobbelt/markdown-it-attrs", "npm:4.1.0-24"],
             ["@gerhobbelt/markdown-it-responsive", "npm:0.1.1-3"],
             ["@rollup/plugin-commonjs", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:11.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.1.3"],

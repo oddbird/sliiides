@@ -20,3 +20,29 @@
     }
   }
 }
+
+[data-slide~='twoup'] {
+  .slide-content {
+    flex-direction: row;
+    gap: var(--shim);
+  }
+
+  img {
+    clip-path: polygon(
+      var(--tl, 0 0),
+      var(--tr, 100% 0),
+      var(--br, 100% 100%),
+      var(--bl, 0 100%)
+    );
+  }
+
+  img:not(:first-child) {
+    margin-inline-start: calc(var(--gutter) * -1);
+    --tl: var(--double-gutter) 0;
+  }
+
+  img:not(:last-child) {
+    margin-inline-end: calc(var(--gutter) * -1);
+    --br: calc(100% - var(--double-gutter)) 100%;
+  }
+}

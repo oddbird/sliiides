@@ -1,0 +1,72 @@
+---
+title: Cascade Layers
+demo: layer-sort
+layers:
+  - reset
+  - components
+  - utilities
+---
+
+{% set all = layers | concat(['unlayered']) %}
+
+<header>
+  <h1>Sorting Cascade Layers</h1>
+
+  <div class="controls">
+    <button data-set="source" aria-pressed="true">🔀 Original</button>
+    <button data-set="itcss">🔽 Sorted</button>
+    <button data-set="weight">🔼 Weighted</button>
+  </div>
+</header>
+
+<section class="document">
+  <h2><code>@layer {{ layers | join(', ') }};</code></h2>
+  <div class="inner">
+  {% for i in range(1, 10) %}
+    {% set imp = i < 4 %}
+    {% set layer = layers | random if imp else all | random %}
+    <div data-layer="{{ layer }}">
+      {% if layer == 'unlayered' %}
+        <code>/* unlayered … */</code>
+      {% elif imp %}
+        <code>@import url(vendor-{{ i }}.css) layer({{ layer }})</code>
+      {% else %}
+        <code>@layer {{ layer }} { … }</code>
+      {% endif %}
+    </div>
+  {% endfor %}
+  </div>
+</section>
+
+<style>
+  {% for layer in all %}
+    [data-layer='{{ layer }}'] {
+      counter-increment: {{ layer }};
+      --i-of: counter({{ layer }});
+      --order: {{ loop.index }};
+      --order-string: '{{ loop.index }}';
+      {% if layer == 'unlayered' -%}
+        --s: 0%;
+      {%- endif %}
+    }
+  {% endfor %}
+</style>
+
+<script>
+const doc = document.querySelector('.document');
+const btns = document.querySelectorAll('[data-set]');
+
+const btnPress = (btn) => {
+  doc.setAttribute('data-sort', btn.dataset.set);
+
+  btns.forEach((e) => {
+    e.dataset.set === btn.dataset.set
+      ? e.setAttribute('aria-pressed', 'true')
+      : e.setAttribute('aria-pressed', 'false');
+  });
+}
+
+btns.forEach((btn) => {
+  btn.addEventListener('click', () => btnPress(btn));
+});
+</script>

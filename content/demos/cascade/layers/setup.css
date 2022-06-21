@@ -1,0 +1,45 @@
+html {
+  font-size: clamp(1em, 1em + 1.5vw, 1.75em);
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+h1 {
+  font-size: medium;
+}
+
+h2 {
+  font-size: inherit;
+}
+
+header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+button {
+  background: plum;
+  border: thin solid mediumvioletred;
+  cursor: pointer;
+  border-radius: 0.25em;
+}
+
+button:hover,
+button:focus,
+button:active {
+  border-color: rebeccapurple;
+}
+
+
+button[aria-pressed='true'] {
+  background: mediumvioletred;
+  border-color: rebeccapurple;
+  color: white;
+}

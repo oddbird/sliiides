@@ -1,0 +1,45 @@
+html {
+  height: 100%;
+  background-color: #eee;
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: #222;
+    color: white;
+  }
+}
+
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+h2 {
+  font-size: medium
+}
+
+ol, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}

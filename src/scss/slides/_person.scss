@@ -3,6 +3,7 @@
   --justify: stretch;
   --padding: 0;
   --width: 100%;
+  --list-padding--default: var(--double-gutter);
 
   .slide-content {
     display: grid;

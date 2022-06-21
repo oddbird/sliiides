@@ -1,11 +1,17 @@
 html {
   background: white;
   font-family: avenir, roboto, helvetica, sans-serif;
-  font-size: calc(1em + 1.5vw);
+  font-size: clamp(1em, 1em + 1.5vw, 2em);
 }
 
 body {
   padding: 1em;
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+header {
+  margin-block-end: 1em;
 }
 
 h1 {
@@ -15,6 +21,8 @@ h1 {
 
 h2 {
   font-size: 1.25rem;
+  margin: 0;
+  padding: 0.2em 2em;
 }
 
 a:hover,

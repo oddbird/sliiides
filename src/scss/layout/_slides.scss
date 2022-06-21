@@ -117,7 +117,12 @@
   white-space: nowrap;
 
   [data-present='true'] & {
-    display: none;
+    opacity: var(--nav-opacity, 0.125);
+  }
+
+  &:hover,
+  &:focus-within {
+    --nav-opacity: 1;
   }
 }
 
