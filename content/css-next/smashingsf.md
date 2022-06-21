@@ -43,20 +43,18 @@ slides:
 - pre: 1. _CSS_ describes
   title: Reusable **Objects**
 
-- img: rad/indesign-gotl.jpg
+- img: css-next/smashsf/sidesaddle-indd.jpg
   alt: |
     InDesign book-cover layout
-    for Gods On The Lam
-    by Christopher David Rosales --
-    with a collage of pop fiction imagery
-    and scribbles
-- img: rad/book-gotl.jpg
+    for Riding SideSaddle,
+    my novel in a box
+- img: css-next/smashsf/sidesaddle-box.jpg
   alt: |
-    Published copy of
-    Gods On The Lam
-    by Christopher David Rosales,
-    held in my hand
-- img: css-next/book-gotl-click.jpg
+    Final novel-in-a-box,
+    Riding SideSaddle
+  caption: |
+    Living my childhood dream, RidingSidesaddle.com
+- img: css-next/smashsf/sidesaddle-box-click.jpg
   alt: |
     Same photo,
     but with a badly overlaid cursor pointer
@@ -120,12 +118,19 @@ slides:
   sub: |
     2008 [**CSS Systems**](http://www.slideshare.net/nataliedowne/css-systems-presentation)
 
+- img: css-next/smashsf/shubhie.jpg
+  alt: |
+    Shubhie Panicker on stage
+    with a slide about Systems Thinking
+  caption: Shubhie Panicker
+
+- title: Selectors Can **Conflict**
+
 - css: |
     /* <a href="#" class="rad">…</a> */
     a      {  color: teal;    }
     .rad   {  color: violet;  }
     [href] {  color: orange;  }
-  caption: When selectors **disagree**
 
 - img: css-next/thunderdome-words.jpg
   alt: |
@@ -176,6 +181,20 @@ slides:
   caption: |
     [WWW HyperMedia Browser](https://worldwideweb.cern.ch/browser/)
     & *Editor*
+
+- face: mia-89.jpg
+  alt: 7 year old Miriam with her hands on her knees
+  pre: |
+    1989
+  title: The **Artist** (it me)
+  md: |
+    *Not paying attention*
+
+- img: rad/mystery.jpg
+  alt: |
+    Hand-made choose-your-own-adventure book called
+    The Mystery of the Missing Art Box
+
 - img: process/ibm-pc.jpg
   alt: Old IBM desktop
   position: top
@@ -205,6 +224,19 @@ slides:
 - img: unfriendly/agnesscott/smart-home.png
   alt: Google Home, Amazon Echo, and Apple HomePod
 
+- img: css-next/smashsf/kate.jpg
+  alt: |
+    Kate Kalcevich on stage,
+    with a slide of many illustrated faces,
+    that says Accessibility is a Team Sport -
+    with red scribbles overtop saying
+    The Entire Web
+  fit: contain
+  caption: |
+    Kate Kalcevich
+    (photo stolen & cropped from
+    [Kevin Lozandier](https://twitter.com/KevinLozandier/status/1539325916748206081))
+
 - title: Everyone has **Input**
   md: |
     - 🖥 **User Agent** (Browser)
@@ -219,8 +251,11 @@ slides:
   cite: me
 
 # not like print
-- img: rad/indesign-gotl.jpg
-  alt: InDesign book-cover layout
+- img: css-next/smashsf/sidesaddle-indd.jpg
+  alt: |
+    InDesign book-cover layout
+    for Riding Sidesaddle,
+    my novel in a box
 - quote: |
     The fact we can **control** a paper page
     is really **a limitation of that medium**.
@@ -768,10 +803,18 @@ slides:
 - title:  More Cascade **Control**
 - title: Fewer **Hacks**
 
-- title: Cascade Layer **Resources**
-  md: |
-    - [Complete Guide to CSS Cascade Layers](https://css-tricks.com/css-cascade-layers/)
-    - [PostCSS Polyfill](https://www.npmjs.com/package/@csstools/postcss-cascade-layers)
+- title: |
+    _Complete Guide_ to CSS Cascade Layers
+  sub: https://css-tricks.com/css-cascade-layers/
+
+- img: css-next/layers-polyfill.jpg
+  alt:
+    OddBird article,
+    Cascade Layers – There’s a Polyfill for That!
+    by Sana Javed on June 21, 2022
+  position: top
+  caption: |
+    https://www.oddbird.net/2022/06/21/cascade-layers-polyfill/
 
 # Scope ----------------
 - section: |
@@ -863,6 +906,9 @@ slides:
 
 - pen: Scope proximity demo
   id: wvyBNXP
+
+- pen: Visualizing scope
+  id: XWZwvWj
 
 - pre: prototype…
   title: Now in **Chrome Canary**
@@ -959,9 +1005,15 @@ slides:
     See the
     [Issues with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
 
-- img: css-next/dragons.jpg
-  position: bottom
-  title: ⚠️ Dragons
+- img: css-next/smashsf/robin.jpg
+  alt: |
+    Robin Marx on stage,
+    with a slide that says
+    Here Be Dragons
+    about http3,
+    but scribbled text makes it about
+    Single-axis containment
+  fit: contain
   caption: |
     See the
     [Issues with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
@@ -1142,9 +1194,9 @@ slides:
     - Media queries
 
 - title: |
-    **Flexbox** & **Grids** & …
+    **Flexbox** & (**Sub**)**Grids** & …
   sub: |
-    subgrid, `min-`/`max-content`, `fit-content`, `minmax()`, `clamp()`, etc…
+    `min-`/`max-content`, `fit-content`, `minmax()`, `clamp()`, etc…
 
 - face: jensimmons.jpg
   pre: |
