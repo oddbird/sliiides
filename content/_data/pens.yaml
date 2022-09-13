@@ -42,7 +42,14 @@
 
 - pen: Responsive Icon Demo (Una Kravets)
   id: RwQmmrw
+  user: una
   slug: cq-icons
+  print: slug
+
+- pen: Style query demos/explainers (Una Kravets)
+  id: abqKvXW
+  user: una
+  slug: cq-style
   print: slug
 
 - pen: Container Holds Water
