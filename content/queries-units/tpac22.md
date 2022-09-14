@@ -1,5 +1,4 @@
 ---
-draft: true
 venue: TPAC Developer Meetup
 date: 2022-09-13
 proposal: &proposal
