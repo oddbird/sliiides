@@ -148,6 +148,9 @@ slides:
   fit: contain
   background: white
 
+- pre: 2010-2020
+  title: 🚧 Laying **Foundations** 🚧
+
 - title: 2020 **Proposals**
   md: |
     - David Baron:
@@ -200,34 +203,35 @@ slides:
 - pre: Step 1...
   title: Define **Containers**
 
-- title: Too **Complicated**
+- pre: Too _complicated_
   css: |
     .container {
       contain: inline-size layout style;
     }
 
-- title: More **Declarative**
+- pre: More _declarative_
   css: |
     .container {
       container-type: inline-size;
     }
-
-- title: No **Default Container**
-
-- css: |
-    html {
-      container-type: inline-size;
-    }
+  caption: |
+    Other options: `size` | `normal`
 
 - title: Some **Caveats**
   md: |
     - Inline size not intrinsic
-    - Nested subgrids can't contribute
-    - Nested counters contained
+    - Subgrids can't contribute track sizing
+    - Counters contained
 
 - pre: Step 2...
   title: |
     **Query** The Containers
+
+- pre: There's _no default container_...
+  css: |
+    html {
+      container-type: inline-size;
+    }
 
 - css: |
     @media (min-width: 40em) {
@@ -240,39 +244,39 @@ slides:
       h2 { /* ... */ }
     }
 
-- pre: Respond to
+- pre: Each _matched element_
+  title: Queries **Nearest Ancestor**
+  sub: with the appropriate _`container-type`_
+
+- pre: Relative units
   title: |
-    Actual **Font Size**
-  caption: |
-    Computed `em` on container, not default browser `em`
+    Resolved **By Container**
+  sub: |
+    _Computed_ font size
 
-- css: |
-    .container { container-type: inline-size; }
-
-    @container (width > 30em) {
-      .container { padding: 2em; }
-    }
-  caption: |
-    Each element queries the
-    _nearest appropriate ancestor_
+- pre: No _self-query_,
+  title: |
+    **Nesting** Containers
 
 - pen: Enter the 36 Chambers
   id: poamBMw
 
 - title: |
-    **Naming** Containers
+    **Name** Containers
+  caption: |
+    Recommended!
 
-- title: |
-    **Classes** of Containers
-  css: |
+- css: |
     .sidebar {
       container-name: sidebar layout;
     }
+  caption: |
+    Any number of names
 
 - title: Query **Named Containers**
   css: |
-    @container layout (width > 30em) {
-      .container { padding: 2em; }
+    @container layout (min-width: 30em) {
+      .card { padding: 2em; }
     }
 
 - title: Finding **Containers**
@@ -289,8 +293,9 @@ slides:
     }
 
 # Demos
-- pen: cq-blinds
+- pen: media-v-container
 - pen: cq-quotes
+- pen: cq-blinds
 - pen: cq-icons
 
 - title: Grid **Tracks** & **Flex** Sizing?
@@ -319,6 +324,9 @@ slides:
 - pen: cq-units-nike
 
 # browser support
+- title: 😭 It's ~~**Impossible**~~
+- title: 🥳 It's **Shipping**
+
 - img: queries-units/2-weeks-2-browsers.jpg
   alt: |
     2 weeks 2 browser engines
@@ -326,10 +334,11 @@ slides:
     over a 2 fast 2 furious poster
     with three cars trailing neon streaks
   caption: |
-    Chrome 105 & Safari 16
+    Chrome/Edge 105 & Safari 16
 
-- title: Container Query **Polyfill**
-  sub: https://github.com/GoogleChromeLabs/container-query-polyfill
+- title: There's a **Polyfill**
+  sub: |
+    [GoogleChromeLabs/container-query-polyfill](https://github.com/GoogleChromeLabs/container-query-polyfill)
 
 - css: |
     @container (min-width: 30em) { /* CQ support */ }
@@ -339,10 +348,6 @@ slides:
     }
 
 # more
-- title: Non-size **Queries**
-  caption: |
-    [CSSWG issue for other query ideas](https://github.com/w3c/csswg-drafts/issues/5989)
-
 - title: |
     **Style** Queries
   css: |
@@ -363,6 +368,12 @@ slides:
 - pen: Style query button themes
   id: abGBNNx
 
+- pre: Other
+  title: |
+    **Questions** for Containers?
+  caption: |
+    [CSSWG issue for other query ideas](https://github.com/w3c/csswg-drafts/issues/5989)
+
 - title: |
     **State** Queries (**???**)
   css: |
@@ -370,4 +381,9 @@ slides:
   caption: |
     [CSSWG issue for state queries](https://github.com/w3c/csswg-drafts/issues/6402)
 
+- quote: |
+    Our medium is not done.
+    Our medium is still
+    **going through radical changes**.
+  cite: Jen Simmons, *Designing with Grid*
 ---
