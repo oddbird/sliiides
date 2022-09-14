@@ -7,56 +7,6 @@ proposal: &proposal
   caption: |
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 slides:
-- pre: CSS exists
-  title: For **Two Reasons**
-
-# Reusable Web
-- pre: 1. _CSS_ styles
-  title: Reusable **Objects**
-
-- html: |
-    <P><FONT SIZE="4" COLOR="BLUE">…</FONT></P>
-    <P><FONT SIZE="4" COLOR="BLUE">…</FONT></P>
-    <P><FONT SIZE="4" COLOR="BLUE">…</FONT></P>
-    <P><FONT SIZE="4" COLOR="BLUE">…</FONT></P>
-    <P><FONT SIZE="4" COLOR="BLUE">…</FONT></P>
-
-- img: css-next/mia-bw.jpg
-  alt: |
-    Miriam looking surprised and offended,
-    in black and white,
-    with the word OLD and an arrow
-    pointing at her face
-
-- title: CSS **Selectors**
-  css: |
-    p {
-      color: blue;
-    }
-
-- pre: Combine them
-  title: To **Compose Objects**
-
-- title: |
-    Design **Systems** & \
-    **Component** Libraries
-
-# Responsive Web
-- pre: 2. _CSS_ styles
-  title: |
-    **Respond** to Context
-
-- title: |
-    `@media` _`min-width`_
-
-- title: |
-    `@media` _`hover`_
-
-- pre: |
-    `@media`
-  title: |
-    _`prefers-reduced-motion`_
-
 - img: no-harm/www-browser.jpg
   alt: The first world wide website & graphic browser
   position: top
@@ -76,11 +26,8 @@ slides:
 
 - face: mia-89.jpg
   alt: 7 year old Miriam with her hands on her knees
-  pre: |
-    1989
-  title: Young Miriam
-  md: |
-    *Not paying attention*
+  title: Blissful **Ignorance**
+
 - quote: |
     Web **for all**. Web **on everything**.
   cite: W3C [Mission Statement](w3.org/Consortium/mission.html#principles)
@@ -103,7 +50,7 @@ slides:
 - quote: |
     We're designing _unknown content_
     with _unknown collaborators_
-    on an _infinite and unknowable canvas_,
+    on an **infinite and unknowable canvas**,
     across _operating systems_, _interfaces_,
     _writing-modes_, & _languages_...
   cite: me
@@ -117,28 +64,12 @@ slides:
   caption: |
     Partial support in [Safari 3](https://caniuse.com/css-mediaqueries), 2008
 
-- title: |
-    **Container** Queries?
-  sub: please, please, please
+- pre: Explicitly
+  title: |
+    **Measure** & **Adapt**
 
-- quote: |
-    ## **Never Gonna Happen**
-  cite: All The Browsers
-
-- demo: normal-flow
-  caption: |
-    CSS _Context_ vs _Content_
-
-- img: css-next/rwd.jpg
-  alt: |
-    A List Apart:
-    Responsive Web Design
-    by Ethan Marcotte (May 25, 2010)
-  caption: |
-    [Responsive Web Design](https://alistapart.com/article/responsive-web-design/)
-    by **Ethan Marcotte**, 2010
-
-- title: |
+- pre: Ethan Marcotte...
+  title: |
     **Responsive** Web Design™️
   md: |
     - Fluid (%-based) Grids
@@ -147,6 +78,21 @@ slides:
   caption: |
     An evolution of the
     already-responsive web…
+
+- title: |
+    **Container** Queries?
+  sub: please? if we promise to be good?
+
+- pen: media-v-container
+  print: media-v-container-break
+
+- quote: |
+    ## **Never Gonna Happen**
+  cite: All The Browsers
+
+- demo: normal-flow
+  caption: |
+    CSS _Context_ vs _Content_
 
 # Intrinsic Web Design
 - pre: Fast-forward
@@ -172,9 +118,9 @@ slides:
     [Everything You Know About Web Design Just Changed](https://youtu.be/jBwBACbRuGY)
 
 - md: |
-    1. **Fluid** & **Fixed**
-    2. Stages of **Squishiness**
-    3. Truly **Two-Dimensional** Layouts
+    1. Truly **Two-Dimensional** Layouts
+    2. Combine **Fluid** & **Fixed**
+    3. Stages of **Squishiness**
     4. **Nested** Contexts
     5. **Expand** & **Contract** Content
     6. Media Queries, **As Needed**
@@ -189,32 +135,10 @@ slides:
     [Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
 
 - md: |
-    1. ## **Nested** Contexts
-    2. ## **Expand** & **Contract** Content
+    4. ## **Nested** Contexts _???_
+    5. ## **Expand** & **Contract** Content _???_
 
 # Container Queries
-- pen: media-v-container
-  print: media-v-container-break
-
-- img: csswg/cq-nested.jpg
-  alt: |
-    Nested grid-item containers
-    inside the main container,
-    also use small card layout
-  fit: contain
-  background: white
-
-- pre: 2010s-2020s
-  title: 🚧 Laying **Foundations** 🚧
-  sub: browser features, polyfills, etc
-
-- pre: CSS Containment
-  title: |
-    Size, Style, Paint, Etc
-  caption: |
-    Avoid internal impacts
-    on external elements...
-
 - img: queries-units/cq-nested-containers.jpg
   alt: |
     An outline of nested containers,
@@ -224,44 +148,44 @@ slides:
   fit: contain
   background: white
 
-- css: |
-    .container {
-      contain: size layout style;
-    }
-
-- pre: 2D size containment
-  title: Is **Too Restrictive**
+- title: 2020 **Proposals**
+  md: |
+    - David Baron:
+      [`@container`](https://github.com/dbaron/container-queries-implementability) \
+      _limited by containment_
+    - Brian Kardell:
+      [`switch()`](https://bkardell.com/blog/AllThemSwitches.html) \
+      _limited to paint_
   caption: |
-    Need a flexible dimension ("Be afraid of heights")
+    Different tradeoffs, worth pursuing both
+
+- title: |
+    @**Container**
+
+- title: CSS **Containment**
+  sub: |
+    Size, Layout, Style, Paint, &c
+  caption: |
+    Avoid internal impacts
+    on external elements...
+
+- pre: Size _containment_
+  title: Removes **Intrinsic Sizing**
 
 - pen: css-rad
 
-- pre: We need
-  title: |
-    **Single Axis** Containment
+- img: css-next/dragons.jpg
+  position: bottom
+  title: ⚠️ Dragons
   caption: |
     See the
     [Issues with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
-
-- pen: |
-    💥 Inline Containment Error - Auto-sized BFCs effected by floats
-  id: mdmJRxW
-
-- img: css-next/zeno.jpg
-  alt: |
-    Zeno half way between a Greek temple and a tree,
-    the remainder of his path is marked with
-    increasingly small half-way measures,
-    each with a sundial below it.
-
-- title: Saved By **Floats**
-  sub: Solved by [Ian Kilpatrick](https://github.com/w3c/csswg-drafts/issues/6426#issuecomment-941205671)
 
 - title: |
     `contain: `**`inline-size`**`;`
   caption: |
-    See the
-    [Issues with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
+    Thanks to **Ian Kilpatrick**
+
 - title: |
     ~~`contain: `**`block-size`**`;`~~ \
   caption: |
@@ -269,43 +193,58 @@ slides:
     [Issues with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
 
 - quote: |
-    ## **Let's Do This**
-  cite: All The Browsers
+    **Ship it.** 🐿
+  cite: All the browsers
 
-- img: queries-units/2-weeks-2-browsers.jpg
-  alt: |
-    2 weeks 2 browser engines
-    scribbled in red
-    over a 2 fast 2 furious poster
-    with three cars trailing neon streaks
-  caption: |
-    Chrome 105 & Safari 16
-
-- title: Defining **Containers**
+# Containers
+- pre: Step 1...
+  title: Define **Containers**
 
 - title: Too **Complicated**
   css: |
-    .sidebar, main, .grid-item {
+    .container {
       contain: inline-size layout style;
     }
 
 - title: More **Declarative**
   css: |
-    .sidebar, main, .grid-item {
+    .container {
       container-type: inline-size;
     }
 
-- title: |
-    **Querying** Containers
+- title: No **Default Container**
 
+- css: |
+    html {
+      container-type: inline-size;
+    }
+
+- title: Some **Caveats**
+  md: |
+    - Inline size not intrinsic
+    - Nested subgrids can't contribute
+    - Nested counters contained
+
+- pre: Step 2...
+  title: |
+    **Query** The Containers
+
+- css: |
+    @media (min-width: 40em) {
+      .card { /* ... */ }
+      h2 { /* ... */ }
+    }
 - css: |
     @container (min-width: 40em) {
       .card { /* ... */ }
       h2 { /* ... */ }
     }
+
+- pre: Respond to
+  title: |
+    Actual **Font Size**
   caption: |
-    Each element queries the
-    _nearest appropriate ancestor_
+    Computed `em` on container, not default browser `em`
 
 - css: |
     .container { container-type: inline-size; }
@@ -323,25 +262,11 @@ slides:
 - title: |
     **Naming** Containers
 
-- css: |
-    .sidebar {
-      container-type: inline-size;
-      container-name: sidebar;
-    }
-
-- css: |
-    .sidebar {
-      container-type: inline-size;
-      container-name: sidebar layout;
-    }
-
-- pre: Container names
-  title: Like **Classes** Not **ID**s
-
-- title: Shorthand (**Names First**)
+- title: |
+    **Classes** of Containers
   css: |
     .sidebar {
-      container: sidebar layout / inline-size;
+      container-name: sidebar layout;
     }
 
 - title: Query **Named Containers**
@@ -357,6 +282,13 @@ slides:
        - Any required _container name_
        - Any required _container types_
 
+- title: Shorthand (**Names First**)
+  css: |
+    .sidebar {
+      container: sidebar layout / inline-size;
+    }
+
+# Demos
 - pen: cq-blinds
 - pen: cq-quotes
 - pen: cq-icons
@@ -375,34 +307,38 @@ slides:
 - pen: cq-flex
 - pen: cq-books
 
-- caniuse: css-container-queries
+# container units
+- title: Container Query **Units**
+  sub: |
+    `cqw` | `cqh` | `cqi` | `cqb` | `cqmin` | `cqmax`
+
+- pre: Default _container_
+  title: The **Small Viewport**
+
+- pen: cq-units-basic
+- pen: cq-units-nike
+
+# browser support
+- img: queries-units/2-weeks-2-browsers.jpg
+  alt: |
+    2 weeks 2 browser engines
+    scribbled in red
+    over a 2 fast 2 furious poster
+    with three cars trailing neon streaks
   caption: |
-    [Codepen Demos](https://codepen.io/collection/XQrgJo)
+    Chrome 105 & Safari 16
 
 - title: Container Query **Polyfill**
   sub: https://github.com/GoogleChromeLabs/container-query-polyfill
 
 - css: |
-    @container (width > 30em) { /* CQ support */ }
+    @container (min-width: 30em) { /* CQ support */ }
 
-    @supports not (container-type: inline-size) {
-      @media (width > 40em) { /* no CQ support */ }
+    @supports not (container: name) {
+      /* no CQ support */
     }
 
-- title: Container Query **Units**
-  sub: |
-    `cqw` | `cqh` | `cqi` | `cqb` | `cqmin` | `cqmax`
-
-- pre: Why `cq*`?
-  title: Because _`ch`_ **Already Exists**
-
-- pen: cq-units-basic
-- pen: cq-units-nike
-
-- caniuse: css-container-query-units
-
-- title: More **To Come**
-
+# more
 - title: Non-size **Queries**
   caption: |
     [CSSWG issue for other query ideas](https://github.com/w3c/csswg-drafts/issues/5989)
@@ -412,9 +348,20 @@ slides:
   css: |
     @container style(--colors: invert) { … }
   caption: |
-    In the spec, but not implemented yet
+    Already specified, but not shipped
 
-- pen: cq-style
+- css: |
+    blockquote, em { font-style: italic; }
+
+    @container style(font-style: italic) {
+      em { background-color: pink; }
+    }
+
+- title: Chrome **Prototype**
+  sub: Currently only _custom properties_
+
+- pen: Style query button themes
+  id: abGBNNx
 
 - title: |
     **State** Queries (**???**)
