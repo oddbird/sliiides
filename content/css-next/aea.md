@@ -1,4 +1,5 @@
 ---
+title: Styling the Intrinsic Web
 talk: Styling the **Intrinsic Web**
 venue: An Event Apart Fall Summit
 date: 2021-10-11

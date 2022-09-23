@@ -2,19 +2,61 @@
 layout: page
 title: OddBird Slides
 ---
+{% import "utility.macros.njk" as utility %}
 
-## Talks:
+<section data-events="talks">
+<h2>Talks:</h2>
 
-{% for item in collections.talk | withData('data.index') -%}
-{%- set title = item.data.talk or item.data.title -%}
-- [{{ title | mdInline | safe }}]({{ item.url }})
+{% for talk in collections.talks -%}
+<article class="event">
+  <time datetime="{{ talk.start | getDate('iso') }}">
+    {{- talk.start | getDate('range') -}}
+  </time>
+  {%- if talk.start != talk.end -%}
+    {{- '--' | mdInline | safe -}}
+    <time datetime="{{ talk.end | getDate('iso') }}">
+      {{- talk.end | getDate('range') -}}
+    </time>
+  {% endif %}
+
+  <h3>
+    {{ utility.link_if(
+      talk.title,
+      talk.home.url
+    )}}
+  </h3>
+
+  {% if talk.aka %}
+    {% set comma = joiner() %}
+    <p>(aka
+      {%- for item in talk.aka -%}
+        {{- comma() }}
+        {{ utility.link_if(
+          item,
+          talk.home.url
+        ) -}}
+      {%- endfor -%}
+    )</p>
+  {% endif %}
+</article>
 {% endfor %}
+</section>
 
-## Workshops:
+
+<section data-events="talks">
+<h2>Workshops:</h2>
 
 {% for item in collections.workshop | withData('data.index') -%}
 {%- if not item.data.venue -%}
 {%- set title = item.data.workshop or item.data.title -%}
-- [{{ title | mdInline | safe }}]({{ item.url }})
+<article class="event">
+  <h3>
+    {{ utility.link_if(
+      title | mdInline | safe,
+      item.url
+    )}}
+  </h3>
+</article>
 {% endif -%}
 {%- endfor %}
+</section>

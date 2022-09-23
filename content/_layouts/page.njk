@@ -2,28 +2,32 @@
 layout: base
 ---
 
+{%- import "events.macros.njk" as events -%}
+{%- set tags = tags or [] -%}
+{%- set talk_list = index and ('talk' in tags) -%}
+{%- set ws_list = index and ('workshop' in tags) -%}
+{%- set talkData = collections.talks | findPage('title', title) if talk_list else none -%}
+
 <main class="page">
   <h1>{{ title }}</h1>
+  {% if talkData.aka -%}
+    {%- set comma = joiner() -%}
+    <p>(aka {% for item in talkData.aka %}{{ comma() }} <em>{{ item }}</em>{% endfor %})</p>
+  {%- endif %}
 
   {{ content | md | safe }}
 
-  {% if index %}
-    {% import "events.macros.njk" as events %}
-    {% set tags = tags or [] %}
+  {% if talk_list %}
+    {{ events.talks(talkData.decks | getVisible) }}
+  {% endif %}
 
-    {% if ('talk' in tags) %}
-      {% set pages = collections[index] | withData('data.venue', venue) | getVisible %}
-      {{ events.talks(pages) }}
-    {% endif %}
-
-    {% if ('workshop' in tags) %}
-      {% if venue %}
-        {% set pages = collections[index] | withData('data.venue', venue) | withData('data.talk') | getVisible %}
-        {{ events.workshop_talks(pages) }}
-      {% else %}
-        {% set pages = collections[index] | withData('data.venue', venue) | withData('data.index') | getVisible %}
-        {{ events.workshop_venues(pages) }}
-      {% endif %}
+  {% if ws_list %}
+    {% if venue %}
+      {% set pages = collections[index] | withData('data.venue', venue) | withData('data.talk') | getVisible %}
+      {{ events.workshop_talks(pages) }}
+    {% else %}
+      {% set pages = collections[index] | withData('data.venue', venue) | withData('data.index') | getVisible %}
+      {{ events.workshop_venues(pages) }}
     {% endif %}
   {% endif %}
 </main>

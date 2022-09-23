@@ -1,0 +1,144 @@
+{% import "slides.macros.njk" as slides %}
+{% import "embed.macros.njk" as embed %}
+
+{% macro img(slide, page) %}
+  {% set styles = {
+    '--img-position': slide.position,
+    '--img-fit': slide.fit
+  } %}
+  {% set placeholder = ['https://placeimg.com/640/480/', slide.img or 'any', '?s=', slide.index] | join %}
+  {% call slides.base(slide, 'img', page, styles) %}
+    {{ embed.img(
+      src=slide.img if ('.' in slide.img) else placeholder,
+      alt=slide.alt
+    ) }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro demo(slide, page, collections) %}
+  {%- set demoUrl = slide.demo if ('://' in slide.demo) else none -%}
+  {%- set demoPage = false if demoUrl else collections.all | findPage('data.demo', slide.demo) -%}
+  {%- set demoUrl = demoPage.url if demoPage else demoUrl -%}
+  {%- set demoTitle = demoPage.data.title if demoPage else slide.title -%}
+  {%- set pres %}[[permalink]({{ demoUrl }})]{% endset -%}
+  {%- set caption = [slide.caption or demoTitle, pres] | join(' ') -%}
+  {%- set slide = slide | merge({'caption': caption}) -%}
+  {% set styles = {
+    '--frame-zoom': slide.zoom
+  } %}
+  {% call slides.base(slide, 'iframe demo', page, styles) %}
+    {{ embed.iframe(
+      src=demoUrl,
+      title=demoTitle,
+      width=slide.width or 560,
+      height=slide.height or 315
+    ) }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro twoup(slide, page) %}
+  {% call slides.base(slide, 'img twoup', page) %}
+    {% for img in slide.twoup %}
+      {% set imgStyle = {
+        '--img-position': img.position,
+        '--img-fit': img.fit
+      } %}
+      {% set placeholder = ['https://placeimg.com/640/480/', img.src or 'any', '?s=', slide.index] | join %}
+
+      {{ embed.img(
+        src=img.src if ('.' in img.src) else placeholder,
+        alt=img.alt,
+        attrs={'style': imgStyle}
+      ) }}
+    {% endfor %}
+  {% endcall %}
+{% endmacro %}
+
+{% macro person(slide, page) %}
+  {% set styles = {
+    '--img-position': slide.position,
+    '--img-fit': slide.fit
+  } %}
+  {% call slides.base(slide, 'person', page, styles, class='h-card') %}
+    {{ embed.face(slide.face, slide.alt, slide.title) | safe }}
+    <div class="person">
+      {{ slides.title(slide, 'p-name') }}
+      {% if slide.md %}
+      <div class="md">
+        {{ slide.md | md | safe }}
+      </div>
+      {% endif %}
+    </div>
+  {% endcall %}
+{% endmacro %}
+
+{% macro quote(slide, page) %}
+  {% set face = embed.face(slide.face, slide.alt, slide.cite) if slide.face else none %}
+  {% set quote = embed.blockquote(slide.quote, slide.cite, slide.source) %}
+  {% call slides.base(slide, 'quote', page) %}
+    {% if face %}
+      {{ embed.media_block(
+        media=face,
+        name='quote',
+        content=quote
+      ) | safe }}
+    {% else %}
+      {{ quote | safe }}
+    {% endif %}
+  {% endcall %}
+{% endmacro %}
+
+{% macro codepen(slide, page) %}
+  {%- set title = slide.pen -%}
+
+  {%- if slide.pen and not slide.id -%}
+    {%- set found = page.data.pens | withData('slug', slide.pen) | first -%}
+    {%- set title = found.pen or title -%}
+    {%- set merge = {} | merge(found, slide) if found else none -%}
+    {%- set slide = merge or slide -%}
+  {%- endif -%}
+
+  {%- set user = slide.user or 'miriamsuzanne' -%}
+  {%- set print = slide.print or ['https://codepen.io/', user, '/pen/', slide.id, '/image/large.png'] | join -%}
+
+  {%- if not ('://' in print) -%}
+    {%- set printFile = slide.slug if (print == 'slug') else print -%}
+    {%- set printFile = printFile if ('.' in printFile) else [printFile, '.jpg'] | join -%}
+    {%- set printPath = [page.data.assets.images, 'pens/', printFile] | join if printFile else none -%}
+    {%- set print = printPath or print -%}
+  {%- endif -%}
+
+  {%- set printStyle = {'--print': ['url("', print, '")'] | join('') } -%}
+
+  {%- set pres %}[present](https://codepen.io/{{ user }}/pres/{{ slide.id }}?editors=1100){% endset -%}
+  {%- set raw %}[debug](https://codepen.io/{{ user }}/debug/{{ slide.id }}){% endset -%}
+  {%- set links -%}[{{ [pres, raw] | join(' | ') }}]{%- endset -%}
+  {% call slides.base(
+    slide=slide | set('demoLinks', links),
+    name='iframe codepen',
+    page=page,
+    styles=printStyle
+  ) %}
+    {{ embed.codepen(
+      id=slide.id,
+      title=title,
+      edit=false if slide.noedit else true,
+      height=slide.height or 500,
+      theme=slide.theme or '39098',
+      tab=slide.tab or 'result',
+      preview=slide.preview
+    ) }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro caniuse(slide, page) %}
+  {%- set links -%}[[{{ slide.caniuse }} on caniuse](https://caniuse.com/#feat={{ slide.caniuse }})]{%- endset -%}
+  {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
+  {%- set slide = slide | merge({'caption': caption}) -%}
+  {% call slides.base(slide, 'img caniuse', page) %}
+    {{ embed.caniuse(
+      feature=slide.caniuse,
+      periods=slide.periods
+    ) }}
+  {% endcall %}
+{% endmacro %}

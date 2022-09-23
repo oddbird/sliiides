@@ -1,4 +1,5 @@
 ---
+title: Styling the Intrinsic Web
 talk: Styling the **Intrinsic Web**
 venue: SmashingConf SF 2022
 date: 2022-06-21

@@ -1,4 +1,4 @@
-{% import "slides/core.macros.njk" as core %}
+{% import "slides/embed.macros.njk" as embed %}
 
 {% macro main(slide, page) %}
 {% set slideBase %}
@@ -15,7 +15,7 @@ caption: |
   by [**Harry Roberts**](https://twitter.com/csswizardry)
 {% endset %}
 
-  {{ core.img(
+  {{ embed.img(
     slide=slideBase | yaml | merge(slide),
     page=page
   ) }}
@@ -35,7 +35,7 @@ caption: |
   by [**Harry Roberts**](https://twitter.com/csswizardry)
 {% endset %}
 
-  {{ core.img(
+  {{ embed.img(
     slide=slideBase | yaml | merge(slide),
     page=page
   ) }}
@@ -54,7 +54,7 @@ caption: |
   ~~Inverted~~ **Normal Triangle**
   by [~~Harry Roberts~~](https://twitter.com/csswizardry) ~~Maslow~~ **Miriam**
 {% endset %}
-  {{ core.img(
+  {{ embed.img(
     slide=slideBase | yaml | merge(slide),
     page=page
   ) }}

@@ -1,0 +1,18 @@
+layout: slides
+title: Cascading Layers of !mportance
+talk: |
+  Cascading **Layers of !mportance**
+home: /layers/
+description: |
+  Cascade Layers have the potential to fundamentally change
+  how we write styles.
+  This is a deep-dive into the cascade,
+  where Cascade Layers fit,
+  how `!important` actually works,
+  and how it will change our tools & conventions.
+  We'll also look at what's coming
+  over the next few years
+  with `@scope` and proximity.
+tags:
+  - layers
+  - talk

@@ -9,9 +9,6 @@
   h1,
   h2 {
     @include patterns.fancy-text;
-  }
-
-  h1 {
     margin-bottom: var(--newline);
   }
 
@@ -29,15 +26,21 @@
   font-size: var(--xsmall);
   list-style: none;
 
-  h2 {
-    margin: 0;
-  }
-
   ul {
     font-size: 1rem;
   }
+}
 
-  .event {
-    margin-bottom: var(--newline);
+.event {
+  margin-bottom: var(--double-gutter);
+
+  h2,
+  h3 {
+    @include patterns.fancy-text;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
   }
 }

@@ -95,7 +95,7 @@
     '--slide-background': slide.background,
     '--slide-color': slide.color
   } %}
-  {% set styles = (autoStyles | merge(styles)) | merge(slide.styles) %}
+  {% set styles = (autoStyles | merge(styles)) | merge(slide.style) %}
   {% set attrs = attrs | merge({'data-ccs-colors': slide.mode}) if slide.mode else attrs %}
   {% set attrs = attrs | merge(slide.attrs) %}
   {% set class = ['slide', class, attrs.class] | compact | join(' ') %}

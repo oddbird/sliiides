@@ -4,10 +4,18 @@
   --padding: 0;
   --width: 100%;
 
+  .slide-content {
+    background: white;
+    color: black;
+  }
+
   iframe {
-    height: 100%;
+    --frame-size: calc(100% / var(--frame-zoom, 1));
+    height: var(--frame-size, 100%);
     margin: 0;
-    width: 100%;
+    width: var(--frame-size, 100%);
+    transform-origin: 0 0;
+    transform: scale(var(--frame-zoom, 1));
   }
 }
 

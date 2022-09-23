@@ -30,6 +30,37 @@ module.exports = (eleventyConfig) => {
     });
   }
 
+  eleventyConfig.addCollection('talks', (collectionApi) => {
+    const groups = collectionApi
+      .getFilteredByTag('talk')
+      .filter((item) => item.data.index)
+      .map((home) => {
+        const decks = collectionApi
+          .getFilteredByTags('talk', home.data.index)
+          .filter((page) => page.data.slides);
+
+        const aka = _.uniq(decks.map((page) => page.data.title)).filter(
+          (title) => title !== home.data.title,
+        );
+
+        const dates = decks
+          .map((page) => page.date)
+          .sort()
+          .reverse();
+
+        return {
+          home,
+          decks,
+          aka: aka.length > 0 ? aka : null,
+          title: home.data.title,
+          start: dates[0],
+          end: dates[dates.length - 1],
+        };
+      });
+
+    return _.sortBy(groups, ['end']).reverse();
+  });
+
   // filters
   eleventyConfig.addFilter('merge', _.merge);
   eleventyConfig.addFilter('group', _.groupBy);

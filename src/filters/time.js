@@ -49,7 +49,7 @@ const formatDate = (date, format) => {
   const yyyy = date.getUTCFullYear();
   const md = `${M} ${d}`;
   const iso = `${yyyy}-${mm}-${dd}`;
-  const range = `${M} ${yyyy}`;
+  const range = `${MM} ${yyyy}`;
 
   const formats = {
     dd,
