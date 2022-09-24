@@ -141,7 +141,7 @@ slides:
   caption: |
     Early _Tailwind_ prototype
 
-- demo: http://info.cern.ch/hypertext/WWW/MarkUp/HTMLConstraints.html
+- demo: https://web.archive.org/web/2022/http://info.cern.ch/hypertext/WWW/MarkUp/HTMLConstraints.html
   zoom: 2
   caption: info.cern.ch/hypertext/WWW/TheProject.html
 
