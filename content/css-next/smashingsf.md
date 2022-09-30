@@ -217,7 +217,7 @@ slides:
 
 - quote: |
     Web **for all**. Web **on everything**.
-  cite: W3C [Mission Statement](w3.org/Consortium/mission.html#principles)
+  cite: W3C [Mission Statement](https://w3.org/Consortium/mission.html#principles)
 
 - img: no-harm/4k.jpg
   alt: Modern desktops

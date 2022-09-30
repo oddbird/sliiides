@@ -98,7 +98,7 @@ slides:
     designed to work on any terminal with an internet connection.
 - quote: |
     Web **for all**. Web **on everything**.
-  cite: W3C [Mission Statement](w3.org/Consortium/mission.html#principles)
+  cite: W3C [Mission Statement](https://w3.org/Consortium/mission.html#principles)
   script: |
     This becomes the _mission statement_ of the web --
     web for all, web on everything.

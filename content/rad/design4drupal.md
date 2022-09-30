@@ -1,11 +1,11 @@
 ---
-venue: Design 4 Drupal 
+venue: Design 4 Drupal
 date: 2020-09-09
 proposal: &proposal
   cite: Håkon Lie
   caption: |
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
-quote: 
+quote:
   text: |
     Let the web **fail beautifully**
 slides:
@@ -29,12 +29,12 @@ slides:
 
 - img: rad/mystery.jpg
   alt: |
-    Hand-made choose-your-own-adventure book called 
+    Hand-made choose-your-own-adventure book called
     The Mystery of the Missing Art Box
 
 - img: rad/sward.jpg
   alt: |
-    Hand-made book called 
+    Hand-made book called
     The Sward
   caption: I couldn't afford *copy editing*...
 
@@ -51,14 +51,14 @@ slides:
 
 - face: bogart.jpg
   title: Anne **Bogart**
-  md: | 
+  md: |
     Theater **Viewpoints**\*
   caption: |
     \* Like *The Elements of Design*
     but for theater
 
-- quote:  
-    ...in which there is 
+- quote:
+    ...in which there is
     **room for the audience to move around**,
     imagine, and make associations.
   cite: Anne Bogart
@@ -115,8 +115,8 @@ slides:
 - pre: |
     *1989*
   title: |
-    The 
-    [**WorldWideWeb**](http://info.cern.ch/hypertext/WWW/TheProject.html) 
+    The
+    [**WorldWideWeb**](http://info.cern.ch/hypertext/WWW/TheProject.html)
     Project
 
 - img: no-harm/www-browser.jpg
@@ -126,12 +126,12 @@ slides:
     [WWW HyperMedia Browser](https://worldwideweb.cern.ch/browser/)
     & *Editor*
 - quote: |
-    It is required that HTML be 
+    It is required that HTML be
     **a common language between all platforms**...
   cite: WWW Project
 - quote: |
     Web **for all**. Web **on everything**.
-  cite: W3C [Mission Statement](w3.org/Consortium/mission.html#principles)
+  cite: W3C [Mission Statement](https://w3.org/Consortium/mission.html#principles)
 - img: no-harm/cern-next.jpg
   alt: NeXT computer with a worn-out sticker
   caption: The original NeXT server
@@ -142,7 +142,7 @@ slides:
   alt: The second browser, a text-only terminal
   position: top
   caption: |
-    [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html), 
+    [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
     developed by **Nicola Pellow**
 - quote: |
     ...This implies no device-specific markup,
@@ -170,16 +170,16 @@ slides:
 - img: unfriendly/braille.jpg
   alt: Braille keyboard and headphones
 - pre: Compatible
-  title: | 
+  title: |
     **Forward** & **Backward** & **Sideways**
 - quote:
-    WWW parsers should 
-    **ignore tags** which they do not understand, 
-    and **ignore attributes** which they do not understand 
+    WWW parsers should
+    **ignore tags** which they do not understand,
+    and **ignore attributes** which they do not understand
     of tags which they do understand.
   cite: WWW Project
 - quote: |
-    There are **too many variables to consider.** 
+    There are **too many variables to consider.**
   cite: Keith J Grant
   caption: |
     [Resilient, Declarative, Contextual](https://keithjgrant.com/posts/2018/06/resilient-declarative-contextual/)
@@ -193,7 +193,7 @@ slides:
 - pre: Browser *differences*
   title: Are a **Feature**, Not a Bug
 - quote: |
-    The fact we can **control** a paper page 
+    The fact we can **control** a paper page
     is really **a limitation of that medium**.
   cite: John Allsopp, 2000
   caption: |
@@ -205,7 +205,7 @@ slides:
     **Fonts** & **Colors** are *Great*
   sub: For both *authors* & *users*
 - quote: |
-    HTML totally **eliminates any visual creativity** 
+    HTML totally **eliminates any visual creativity**
     that a document’s designer might have.
   cite: Roy Smith, 1993
 - img: no-harm/mosaic.jpg
@@ -213,7 +213,7 @@ slides:
   fit: contain
   caption: Mosaic, 1993 (Marc Andreessen)
 - quote: |
-    The web would have become a **giant fax machine** 
+    The web would have become a **giant fax machine**
     where **pictures of text** would be passed along.
   cite: Håkon Lie
 - pre: Style *Proposals*…
@@ -229,21 +229,21 @@ slides:
     **ViolaWWW** by **Pei-Yuan Wei**, 1993 (viola.org)
 - md: |
     ```
-    (HEAD,BODY fontSize=normal 
-               BGColor=white 
-               FGColor=black 
-      (H1 fontSize=largest 
-          BGColor=red 
-          FGColor=white) 
-      (H2 fontSize=large) 
+    (HEAD,BODY fontSize=normal
+               BGColor=white
+               FGColor=black
+      (H1 fontSize=largest
+          BGColor=red
+          FGColor=white)
+      (H2 fontSize=large)
       (A FGColor=red)
-      (CMD,KBD,SCREEN,LISTING,EXAMPLE fontFamily=fixed) 
+      (CMD,KBD,SCREEN,LISTING,EXAMPLE fontFamily=fixed)
       (BOLD,EMPH,STRONG fontWeight=bold)
     )
     ```
 - quote: |
     Note that properties are **inherited down the tree**, unless overridden...
-    [This] helps to keep the description short, 
+    [This] helps to keep the description short,
     as **lots of information can be derived by the context** in the
     tree structure.
   cite: Pei-Yuan Wei
@@ -268,8 +268,8 @@ slides:
   sub: |
     **`fo`**`(`**`fa`**=**`ti`**`,sp=pr,si=14,we=me …)`
 - quote: |
-    This is **not meant as a font name**, per se. 
-    Rather *it is a suggestion* of a particular 
+    This is **not meant as a font name**, per se.
+    Rather *it is a suggestion* of a particular
     style of character representation.
   cite: Robert Raisch, 1993
 - title: |
@@ -277,7 +277,7 @@ slides:
   sub: |
     **`fo`**`(fa=ti,sp=pr,`**`si`**`=`**`14`**`,we=me …)`
 - quote: |
-    A ["general"] UNIT takes on 
+    A ["general"] UNIT takes on
     **different interpretation depending on the context**.
 - quote: |
     Styles are **suggestions** or **hints** about behavior, not rules...
@@ -286,7 +286,7 @@ slides:
     A set of **HINTS** or **SUGGESTIONS** to the renderer which might be used...
   cite: Robert Raisch, 1993
 - quote: |
-    [Allow] **browsers to make 'appropriate' decisions**… 
+    [Allow] **browsers to make 'appropriate' decisions**…
     aligned with the *intent* of the original author.
   cite: Robert Raisch, 1993
 - img: no-harm/netscape.jpg
@@ -296,7 +296,7 @@ slides:
 - md: |
     ```html
     <CENTER>This text is centered</CENTER>
-    
+
     <MULTICOL COLS="3" GUTTER="25">
       <P><FONT SIZE="4" COLOR="RED">…</FONT></P>
     </MULTICOL>
@@ -325,13 +325,13 @@ slides:
     Provide **hints** that the browser **may or may not use**.
   <<: *proposal
 - quote: |
-    This proposal tries to 
+    This proposal tries to
     **soften the tension** between the *author* and the *reader*.
   <<: *proposal
 - quote: |
-    *The author* often wants to give the documents 
-    a **distinct look and feel**, 
-    the *user* will set *preferences* to make 
+    *The author* often wants to give the documents
+    a **distinct look and feel**,
+    the *user* will set *preferences* to make
     **all documents appear more similar**.
   <<: *proposal
 - quote: |
@@ -343,31 +343,31 @@ slides:
 - title: The 🌊 **Cascade**
   sub: A *list of stylesheets*
 - quote: |
-    The **user/browser** specifies *initial preferences* 
+    The **user/browser** specifies *initial preferences*
     and **hands the remaining influence over** to the document.
   <<: *proposal
 - quote: |
-    If conflicts arise **the user should have the last word**, 
+    If conflicts arise **the user should have the last word**,
     but one should also allow the author to attach **style hints**.
   cite: Håkon Lie
   <<: *proposal
 - md: |
     ## **Weighted** Influence
-    ```js 
+    ```js
     h1.font.size = 16pt 60%     [user]
     h1.font.size = 24pt 100%    [author]
                  = ???
     ```
 - md: |
     ## **Weighted** Influence
-    ```js 
+    ```js
     h1.font.size      = 16pt    60%
     h1.font.size      = 24pt    40% (100%)
     (16*60+24*40)/100 = 19.2pt
     ```
 - demo: weighted-styles
 - md: |
-    ```css 
+    ```css
     h1 { font-size: 16pt; }             [0%]
     h1 { font-size: 24pt !important; }  [100%]
     ```
@@ -425,7 +425,7 @@ slides:
     3. 🖥 **User Agent**
 
 - quote: |
-    If conflicts arise **the user should have the last word**, 
+    If conflicts arise **the user should have the last word**,
     but one should also allow the author to attach **style hints**.
   cite: Håkon Lie
   <<: *proposal
@@ -455,19 +455,19 @@ slides:
 
 - title: Media **Queries**
 - md: |
-    ```js 
+    ```js
     speech.*.weight = 35db
     speech.em.weight = 40db
     ```
 - md: |
     ```
-    AGE > 3d 
-      ? background.color = pale_yellow 
+    AGE > 3d
+      ? background.color = pale_yellow
       : background.color = white
     ```
 - md: |
     ```
-    RELEVANCE > 80 
+    RELEVANCE > 80
       ? h1.font.size *= 1.5
     ```
 - md: |
@@ -485,13 +485,13 @@ slides:
 
 - pre: Designed to
   title: Be **Resilient**
-- pre: Designed to 
+- pre: Designed to
   title: |
     **Fail** Beautifully
 - quote:
-    WWW parsers should 
-    **ignore tags** which they do not understand, 
-    and **ignore attributes** which they do not understand 
+    WWW parsers should
+    **ignore tags** which they do not understand,
+    and **ignore attributes** which they do not understand
     of tags which they do understand.
   cite: WWW Project
 - md: |
@@ -516,7 +516,7 @@ slides:
     It's **Quantum CSS**!
     It's Magic!
   cite: |
-    Jen Simmons, 
+    Jen Simmons,
     [Intro to Resilient CSS](https://www.youtube.com/watch?v=u00FY9vADfQ)
 - pre: Browser Support
   title: is **Non-Binary**
@@ -534,9 +534,9 @@ slides:
 - img: dynamic-css/devices.jpg
   alt: A zillion different devices of all sizes (original)
 - quote: |
-    There are **too many variables to consider**... 
-    The point of CSS is to make it so 
-    **you don’t have to worry about them all**. 
+    There are **too many variables to consider**...
+    The point of CSS is to make it so
+    **you don’t have to worry about them all**.
   cite: Keith J Grant
   caption: |
     [Resilient, Declarative, Contextual](https://keithjgrant.com/posts/2018/06/resilient-declarative-contextual/)
@@ -547,14 +547,14 @@ slides:
   sub: |
     `font-family: `*`Consolas`*`, `*`Menlo`*`, `*`'Courier New'`*`, `*`monospace`*`;`
 
-- pre: So *how* do we 
+- pre: So *how* do we
   title: Code For **Resilience**?
 
 - section: |
     Trust **The Flow**
 
 - quote: |
-    Define some constraints. 
+    Define some constraints.
     **Let the language work out the details.**
   cite: Keith J Grant
   caption: |
@@ -654,8 +654,8 @@ slides:
     The **Impossible**
 
 - quote: |
-    *Graphic design* of **unknown content** 
-    on an **infinite and unknown canvas**, 
+    *Graphic design* of **unknown content**
+    on an **infinite and unknown canvas**,
     across **operating systems, interfaces, & languages**...
   cite: Me, on twitter...
 
@@ -669,19 +669,19 @@ slides:
 
 - img: rad/mystery.jpg
   alt: |
-    Hand-made choose-your-own-adventure book called 
+    Hand-made choose-your-own-adventure book called
     The Mystery of the Missing Art Box
 
 - quote:
-    It takes craft to **set up the circumstances** that are 
-    **simple and yet contain the ambiguities** 
+    It takes craft to **set up the circumstances** that are
+    **simple and yet contain the ambiguities**
     and the incongruity of human experience.
   cite: Anne Bogart
   caption: A Director Prepares
 
 - pre: Embrace
   title: |
-    **Quantum** Browser Support 
+    **Quantum** Browser Support
 - pre: Let the web
   title: |
     Fail **Beautifully**
@@ -694,8 +694,8 @@ slides:
     **User-Centered** Designs
 
 - quote: |
-    CSS is **unlike anything else**… 
-    designed for the realities 
+    CSS is **unlike anything else**…
+    designed for the realities
     of a **flexible, multilingual, multi-device** web.
   cite: Rachel Andrew
   caption: |
@@ -711,7 +711,7 @@ slides:
     - [Resilient, Declarative, Contextual][rdc] by *Keith J. Grant*
     - [Resilient Web Design][rwd] by *Jeremy Keith*
     - [The CSS Saga][saga] by *Håkon Lie* & *Bert Bos*
-    
+
     [weird]: https://oddbird.net/2019/10/03/css-is-weird/
     [unfriendly]: https://www.oddbird.net/talks/user-unfriendly/
     [talk]: https://rachelandrew.co.uk/archives/2018/10/04/the-way-we-talk-about-css/

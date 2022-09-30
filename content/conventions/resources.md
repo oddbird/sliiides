@@ -11,7 +11,7 @@ title: CSS Convention Resources
   Emulator
 - [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
   Emulator (original was developed by Nicola Pellow)
-- [W3C Mission & Principles](w3.org/Consortium/mission.html#principles)
+- [W3C Mission & Principles](https://w3.org/Consortium/mission.html#principles)
 
 ## CSS & The Cascade:
 
