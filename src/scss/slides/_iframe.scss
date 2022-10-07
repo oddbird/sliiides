@@ -16,6 +16,12 @@
     width: var(--frame-size, 100%);
     transform-origin: 0 0;
     transform: scale(var(--frame-zoom, 1));
+
+    @media print {
+      height: 100%;
+      width: 100%;
+      transform: none;
+    }
   }
 }
 

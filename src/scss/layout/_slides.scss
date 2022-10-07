@@ -36,6 +36,12 @@
       outline-offset: var(--shim);
     }
   }
+
+  @media print {
+    contain: layout size paint;
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 .slide {
@@ -74,6 +80,10 @@
   svg,
   video {
     width: var(--img-width, var(--media-width, 100%));
+  }
+
+  hr {
+    margin-block: var(--gutter);
   }
 }
 

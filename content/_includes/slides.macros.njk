@@ -86,7 +86,6 @@
   name,
   page,
   styles=none,
-  is='article',
   class=none,
   attrs={}
 ) %}
@@ -100,7 +99,8 @@
   {% set attrs = attrs | merge(slide.attrs) %}
   {% set class = ['slide', class, attrs.class] | compact | join(' ') %}
   {% set attrs = attrs | merge({'class': class}) %}
-  <{{ is }} id="slide-{{ slide.index }}">
+  {% set el = slide.is or 'article' %}
+  <{{ el }} id="slide-{{ slide.index }}">
     <div
       data-slide="{{ slide.name or name }}"
       {{ utility.show_attrs(attrs) }}
@@ -136,5 +136,5 @@
         {{ slide.script | md | safe }}
       </div>
     {% endif %}
-  </{{ is or 'article'}}>
+  </{{ el }}>
 {% endmacro %}

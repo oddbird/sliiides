@@ -13,7 +13,7 @@ eleventyComputed:
 {% set page = collections.all | getPage(page.url) %}
 
 <main data-slides="{{ page.data.slides | length }}">
-  {{ auto.title(page) }}
+  {{ auto.start(none, page) }}
   {{ show.slides(page, collections) }}
-  {{ auto.end(page) }}
+  {{ auto.end(none, page) }}
 </main>

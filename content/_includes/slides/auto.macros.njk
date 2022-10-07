@@ -1,20 +1,18 @@
 {% import "slides.macros.njk" as slides %}
 {% import "embed.macros.njk" as embed %}
 
-{% macro title(
-  page,
-  slide=none
-) %}
-  {% set slide = slide or {
+{% macro start(slide, page) %}
+  {% set auto = {
     'index': 0,
     'controls': true,
-    'script': page.data.script
+    'script': page.data.script,
+    'is': none if slide else 'header'
   } %}
+  {% set slide = auto | merge(slide or {}) %}
   {% call slides.base(
     slide=slide,
     name='event-title',
-    page=page,
-    is='header'
+    page=page
   ) %}
     <h1>
       {{ page.data.talk | mdInline | safe }}
@@ -43,14 +41,16 @@
   {% endcall %}
 {% endmacro %}
 
-{% macro end(page) %}
+{% macro end(slide, page) %}
+  {% set auto = {
+    'index': page.data.slides | length + 1,
+    'is': none if slide else 'footer'
+  } %}
+  {% set slide = auto | merge(slide or {}) %}
   {% call slides.base(
-    slide={
-      'index': page.data.slides | length + 1
-     },
+    slide,
     name='closer',
-    page=page,
-    is='footer'
+    page=page
   ) %}
     {% if page.data.quote %}
       {{ embed.blockquote(
@@ -73,12 +73,4 @@
       </h2>
     {% endcall %}
   {% endcall %}
-{% endmacro %}
-
-{% macro restart(slide, page) %}
-  {{ title(page, slide) }}
-{% endmacro %}
-
-{% macro coda(slide, page) %}
-  {{ end(page) }}
 {% endmacro %}

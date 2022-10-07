@@ -21,7 +21,7 @@ slides:
     [Example](https://codepen.io/miriamsuzanne/pen/NWjNoGO?editors=1100)
 
 - from: auto
-  use: restart
+  use: start
   script: |
     I'm here to talk about the future of CSS,
     but in order to understand where we're going —

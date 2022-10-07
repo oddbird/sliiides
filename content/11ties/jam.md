@@ -74,7 +74,7 @@ slides:
 - lang: yaml
   code: |
     - from: itcss
-      use: flipped
+      use: un_metrics
   script: |
     Whenever I need something more complex,
     or a slide that I want to re-use,
@@ -82,7 +82,7 @@ slides:
     and then add it to my yaml:
     from (include file) use (macro name).
 - from: itcss
-  use: flipped
+  use: un_metrics
   script: |
     Like this slide where I take
     Harry Roberts inverted triangle,

@@ -10,8 +10,6 @@ slides:
 
 # cascade history ----------------
 
-- todo: Cascade History
-
 - img: conventions/systems-cascade.jpg
   alt: |
     Product label for Cascade,
@@ -68,6 +66,9 @@ slides:
   cite: |
     W3C Mission, [Design Principles](https://w3.org/Consortium/mission.html#principles)
 
+- img: process/ibm-pc.jpg
+  alt: Old IBM desktop
+  position: top
 - img: no-harm/4k.jpg
   alt: Modern desktops
 - img: dynamic-css/devices.jpg
@@ -81,7 +82,7 @@ slides:
 - img: queries-units/web-everything.jpg
   alt: |
     A gray office covered in cobwebs,
-    and a gettyImages watermark.
+    and a Getty Images watermark.
 - img: layers/ford-cobweb.jpg
   alt: |
     Indiana Jones
@@ -103,8 +104,14 @@ slides:
     **control over fonts or colors**.
   cite: WWW Project
 
+- pre: Web _Design_
+  title: Will **Never Happen**
+
+- from: auto
+  use: end
+
 - pre: Not a
-  title: Lack of **Styles**
+  title: Lack of **Design**
 
 - img: no-harm/line-mode.jpg
   alt: The second browser, a text-only terminal
@@ -114,7 +121,7 @@ slides:
 
 - pre: A lack of
   title: |
-    Style **Control**
+    Design **Control**
 
 - img: css-next/smashsf/sidesaddle-indd.jpg
   alt: |
@@ -145,88 +152,99 @@ slides:
     Final novel-in-a-box,
     Riding SideSaddle
 
-- pre: Don't
-  title: Reinvent **PDF**'s
+- pre: The _Goal_…
+  title: A Web That **Adapts**
 
 - quote: |
     The web would have become a **giant fax machine**
     where **pictures of text** would be passed along.
   cite: Håkon Lie
 
-- pre: Content
-  title: Often **Changes**
+- pre: |
+    `@media`
+  title: |
+    _`min-width`_
+  caption: Viewport dimensions
 
 - quote: |
     Web **for all**. Web **on everything**.
   cite: |
     W3C Mission, [Design Principles](https://w3.org/Consortium/mission.html#principles)
 
-- pre: Styles
-  title: Must be **Responsive**
-
-- pre: |
-    `@media`
-  title: |
-    _`min-width`_
-
 - pre: |
     `@media`
   title: |
     _`prefers-reduced-motion`_
+  caption: User needs & preferences
 
 - pre: |
     `@media`
   title: |
     _`hover`_
+  caption: Device interfaces
 
 - pre: |
     `@supports`
   title: |
     _`container-type: inline-size`_
+  caption: Browser capabilities over time
 
 - pre: Styles
-  title: Must be **Collaborative**
+  title: Must be **Responsive**
 
-- pre: Browsers
-  title: Provide **Defaults**
+- title: …And **Collaborative**
+
+- img: layers/not-alone.jpg
+  alt: |
+    We're Not Alone
+    (in big block letters, in space)
+- img: layers/not-alone-browsers.jpg
+  alt: |
+    Same We're Not Alone,
+    with browser logos on top
+- img: layers/not-alone-users.jpg
+  alt: |
+    Same We're Not Alone,
+    with browser logos
+    and a guy in construction clothes
+    carrying a laptop
+- img: layers/not-alone-et.jpg
+  alt: |
+    Same We're Not Alone,
+    with browser logos,
+    a guy in construction clothes
+    carrying a laptop,
+    and ET
 
 - quote: |
-    The **author** (or publisher)
-    often wants to give the documents a
-    _distinct look and feel_...
+    This proposal tries to
+    **soften the tension**
+    between the _author_ and the _reader_.
   <<: *proposal
-  caption: branding, etc
-- quote: |
-    ...the **user**
-    will _set preferences_
-    to make all documents appear more similar.
-  <<: *proposal
-  caption: light/dark/contrast modes, font-sizes, etc
 
 - quote: |
-    We're designing _unknown content_
+    The **user/browser** specifies _initial preferences_
+    and **hands the remaining influence over** to the document.
+  <<: *proposal
+
+- quote: |
+    We're designing _dynamic content_
     with _unknown collaborators_
     on an _infinite and unknowable canvas_,
     across _operating systems_, _interfaces_,
     _writing-modes_, & _languages_...
   cite: me
 
-- quote: |
-    There are **too many variables to consider.**
-  cite: Keith J Grant
+- img: css-next/smashsf/sidesaddle-indd.jpg
+  alt: |
+    InDesign book-cover layout
+    for Riding SideSaddle
   caption: |
-    [Resilient, Declarative, Contextual](https://keithjgrant.com/posts/2018/06/resilient-declarative-contextual/)
-
-- quote: |
-    **Define some constraints**.
-    Let the language work out the details.
-  cite: Keith J Grant
-  caption: |
-    [Resilient, Declarative, Contextual](https://keithjgrant.com/posts/2018/06/resilient-declarative-contextual/)
+    What you see is not what I will get
 
 - quote:
     Provide **hints** that _the browser may or may not use_.
-  <<: *proposal
+  cite: Håkon Lie
 
 - title: CSS **Declarations**
   css: |
@@ -249,6 +267,7 @@ slides:
 
 - quote: |
     An ordered list (**cascade**) of _style sheets_.
+    Referenced from _the same document_.
   <<: *proposal
 
 - title: |
@@ -273,9 +292,21 @@ slides:
     For every _css property_ \
     We need **exactly one value**
 
-- title: |
-    **Cascade** _filters out_ \
-    **Inheritance** _fills in_
+- pre: Rules for…
+  title: |
+    **Cascading** filters out \
+    **Inheritance** fills in
+
+- img: conventions/systems-cascade.jpg
+  alt: |
+    Product label for Cascade,
+    with sheeting action for virtually spotless dishes -
+    subtitled 'Use the Cascade'
+  position: top
+  caption: |
+    Slide from Natalie Downe's 2008
+    [**CSS Systems**](http://www.slideshare.net/nataliedowne/css-systems-presentation)
+    talk
 
 - img: css-next/thunderdome-words.jpg
   alt: |
@@ -301,64 +332,101 @@ slides:
     and an arrow pointing at those coins
     that says 'move on'
   fit: contain
-
-- pre: |
-    _Cascade_ defines
-  title: |
-    **Layers** of (style) **!mportance**
+- img: css-next/coins.jpg
+  alt: |
+    Mechanical coin sorter on a table,
+    with a ramp at the top
+    and a small-to-large series of slots
+  fit: contain
+  caption: |
+    (but this time using _different metrics_)
 
 - demo: cascade-funnel
 
 # origins and importance ----------------
 
-- title: |
-    **Origins** & **Importance**
-
 - pre: Origins...
   title: |
     **Who Requested** The Style?
 
+- img: layers/not-alone-et.jpg
+  alt: |
+    Same We're Not Alone,
+    with browser logos,
+    a guy in construction clothes
+    carrying a laptop,
+    and ET
+
 - pre: Importance...
   title: |
-    How Much **Do They Care**?
+    **How Much** Do They **Care**?
 
 - quote: |
-    ...tries to
-    **soften the tension**
-    between the *author* and the *reader*.
-  <<: *proposal
-
-- quote: |
-    The **user/browser** specifies _initial preferences_
-    and **hands the remaining influence over** to the document.
+    The **user/browser** specifies _initial preferences_…
   <<: *proposal
 
 - title: |
-    🖥 **User Agent** Defaults
-  sub: |
-    _Browser_ styles for a readable default
+    🖥 **Browser** Defaults
+
+- pre: Officially…
+  title: |
+    🖥 **User Agent** Styles
+  caption: |
+    Collected by
+    [Jens Oliver Meiert](https://meiert.com/en/blog/user-agent-style-sheets/)
+
+- css: |
+    body { margin: 8px; }
+    a:link { color: blue; }
+    div, section, article, p, ol, ul /* etc */ {
+      display: block;
+    }
+    h1, h2, h3, h4 /* etc */ {
+      font-weight: bold;
+      font-size: something big I dunno;
+    }
+
+- demo: https://w3.org/People/howcome/p/cascade.html
+- img: layers/proposal-no-defaults.jpg
+  fit: 100%
+  alt: |
+    One big block of text
+    with no white-space
+    or line breaks
+  caption: |
+    `* { all: initial; }`
 
 - title: |
     👥 **User** Styles
-  sub: Desired *preferences*
+  sub: Establish desired *preferences*
   caption: These days rarely CSS, but *treated the same*
 
+- img: layers/user-preferences.jpg
+  fit: contain
+  alt: |
+    Language and appearance preferences in Firefox
+    include light/dark mode,
+    colors, fonts, and zoom level
+
 - title: 🎨 **Author** Styles
-  sub: That's us…
 
 - title: Cascade 🗺 **Origins**
   md: |
     1. 🖥 **User Agent** (goes first)
-    2. 👥 **User**
-    3. 🎨 **Author** (most power)
+    2. 👥 **User** (override browser)
+    3. 🎨 **Author** (most powerful)
+
+- img: layers/vader.jpg
+  alt: |
+    Darth Vader
+    choking a rebel soldier
+    as storm troopers watch
 
 - quote: |
-    If conflicts arise **the user should have the last word**,
-    but one should also allow the author to attach **style hints**.
-  cite: Håkon Lie
+    If conflicts arise **the user should have the last word**…
   <<: *proposal
 
-- pre: The *Real Reason* For
+- pre: Why we have…
   title: ❗**importance**
 
 - twoup:
@@ -371,7 +439,7 @@ slides:
 
 - md: |
     1. ❗🎨 Author **Important** (goes first)
-    2. ❗👥 User **Important**
+    2. ❗👥 User **Important** (override authors)
     3. ❗🖥 User Agent **Important** (most power)
 
 - md: |
@@ -382,14 +450,22 @@ slides:
     5. ==❗👥 User **Important**==
     6. ==❗🖥 User Agent **Important**==
 
+- img: layers/balance-force.jpg
+  alt: |
+    Kylo Ren and Rey
+    standing in front of an entire star war
+    with spaceships and lasers
+    and AT-AT walkers
+
 - demo: cascade-funnel
   caption: Same with **Shadow Contexts**
 
-- title: 👎🏼 **Override** Styles
-  sub: in the _current_ layer
+- pre: The _purpose_ of…
+  title: ❗**importance**
 
-- title: 👍🏼 **Protect** Styles
-  sub: from _more powerful_ layers
+- title: 👎🏼 Authors **Override** Styles
+
+- title: 👍🏼 Users **Protect** Styles
 
 - title: Often **Isolated**
   md: |
@@ -422,16 +498,46 @@ slides:
 
 # specificity ----------------
 
+- demo: cascade-funnel
+  caption: |
+    Often confused with
+    other aspects of _the cascade_
+
 - pre: (out of order...)
   title: CSS **Selectors** & **Specificity**
 
-- md: |
-    - `*` **(universal)**
-    - `type`
-    - `.class` & `[attr]`
-    - `#ID`s **(single-use)**
-  caption: |
-    [heuristic](https://en.wikipedia.org/wiki/Heuristic):
+- title: |
+    Dealing With **Selectors**
+  css: |
+    .this-is a.selector {
+      /* declarations: here; */
+    }
+
+- title: How **Specific**?
+
+- img: layers/select-all.jpg
+  fit: contain
+  background: black
+  alt: |
+    AEA Denver website
+    with an hotpink dashed outline
+    around every element on the page
+- img: layers/select-logo.jpg
+  fit: contain
+  background: black
+  alt: |
+    AEA Denver website
+    with an hotpink dashed outline
+    around only the logo
+
+- title: |
+    More **Specific** Styles \
+    _Likely_ \
+    More **Important**
+
+- title: |
+    [Heuristic](https://en.wikipedia.org/wiki/Heuristic)
+  sub: |
     a practical assumption
     that approximates the goal
 
@@ -444,104 +550,56 @@ slides:
   title: Common **Patterns**
 
 - pre: |
-    ID/style »
+    IDs »
   title: Singular **Overrides**
 
-- md: |
-    1. *Unique* `#ID`s
-    2. *Reusable* `.class`es & `[attributes]`
-    3. *Element* `type`s
-    4. *Universal* `*`
-    {reversed}
+- title: Four **layers**
+  md: |
+    1. *Universal* `*` (go first)
+    2. *Element* `type`s
+    3. *Reusable* `.class`es & `[attributes]`
+    4. *Unique* `#ID`s (most power)
 
-- img: patterns/itcss-layers.png
-  alt: |
-    A triangle pointing down,
-    with labeled layers from top —
-    settings, tools, generic,
-    elements, objects, components,
-    overrides
-  fit: contain
-  background: white
-  caption: |
-    [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
-    CSS (ITCSS), by Harry Roberts
+- from: itcss
+  use: main
+- from: itcss
+  use: layers
+- from: itcss
+  use: graph
 
-- img: css-next/un-itcss-layers.png
-  alt: |
-    Same triangle flipped vertically,
-    with all the labels rotated
-    and numbered 1-7 from bottom to top
-  fit: contain
-  background: white
-  caption: |
-    **Un-Inverted Triangle** CSS,
-    by Miriam _(totally original!)_
-
-- face: harryroberts.jpg
-  title: |
-    **Harry** Roberts
-  sub: |
-    [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
-    CSS (ITCSS)
-
-- title: Heuristics Can **Fail**
-- title: Especially "**At Scale**"
+- title: Heuristics Are **Assumptions**
+- title: Assumptions **Often Fail**
+  sub: Especially "**At Scale**"
 
 - css: |
-    table[rules]:not([rules=""])> tr > td,
-    table[rules]:not([rules=""])> * > tr > td,
-    table[rules]:not([rules=""])> tr > th,
-    table[rules]:not([rules=""])> * > tr > th,
-    table[rules]:not([rules=""])> td,
-    table[rules]:not([rules=""])> th
-    {
-      border-width: thin;
-      border-style: none;
+    /* …default table styles… */
+    table[rules=cols i] > tfoot > tr > td,
+    table[rules=cols i] > tfoot > tr > th,
+    table[rules=all i] > tfoot > tr > td,
+    table[rules=all i] > tfoot > tr > th {
+      border-color: black;
     }
   caption: |
-    Default user-agent styles (Firefox -> `resource://gre-resources/html.css`)
+    [html.spec.whatwg.org](https://html.spec.whatwg.org/multipage/rendering.html#tables-2)
 
 - css: |
     [hidden] {
       display: none !important;
     }
 
-- md: |
-    1. ~~*Unique* `#ID`s~~
-    2. ==*Reusable* `.class`es & `[attributes]`==
-    3. ~~*Element* `type`s~~
-    4. ~~*Universal* `*`~~
+- title: One **Flexible** Layer
+  md: |
+    1. ~~*Universal* `*`~~
+    2. ~~*Element* `type`s~~
+    3. ==*Reusable* `.class`es & `[attributes]`==
+    4. ~~*Unique* `#ID`s~~
 
 - css: |
     .block .element.modifier { /* 3 */ }
     .block__element--modifier { /* 1 */ }
 
-- img: patterns/un-itcss-metrics.png
-  alt: |
-    Triangle with
-    the horizontal edge labeled 'reach',
-    and the vertical edges
-    labeled 'specificity' and 'explicitness'
-  fit: contain
-  background: white
-  caption: |
-    [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
-    CSS (ITCSS), by Harry Roberts
-
-- img: css-next/un-itcss-layers.png
-  alt: |
-    triangle
-    with labeled layers from
-    wide base to narrow point —
-    settings, tools, generic,
-    elements, objects, components,
-    overrides
-  fit: contain
-  background: white
-  caption: |
-    [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
-    CSS (ITCSS), by Harry Roberts
+- from: itcss
+  use: graph
 
 - title: ❗**important**
 
@@ -554,75 +612,13 @@ slides:
 
 # Layers ----------------
 
-- section: |
+- title: |
     Cascade **Layers**
   caption: |
     [Working Draft](https://www.w3.org/TR/css-cascade-5/)
 
-- img: css-next/un-itcss-layers.png
-  alt: |
-    triangle
-    with labeled layers from
-    wide base to narrow point —
-    settings, tools, generic,
-    elements, objects, components,
-    overrides
-  fit: contain
-  background: white
-  caption: |
-    [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
-    CSS (ITCSS), by Harry Roberts
-
-- title: |
-    **Layers** of _Specificity_
-
-- pre: |
-    **`@layer`**` { … }`
-
-- pre: |
-    `@layer `_`<layer-name>`_` { … }`
-
-- css: |
-    @layer generic {
-      audio[controls] { display: block; }
-      [hidden] { display: none !important; }
-    }
-
-- pre: |
-    `@input url(…) `_`layer(<name>)`_`;`
-
-- css: |
-    @import url(reset.css) layer(reset);
-
-- css: |
-    @import url(reset.css) layer(reset);
-
-    @layer generic {
-      audio[controls] { display: block; }
-      [hidden] { display: none !important; }
-    }
-
-- md: |
-    1. Utilities
-    2. Components
-    3. Themes
-    4. Frameworks
-    5. Resets
-    {reversed}
-  caption: |
-    Any layers we want!
-
-- md: |
-    1. Overrides
-    2. Components
-    3. Objects
-    4. Elements
-    5. Generic
-    6. Tools
-    7. Settings
-    {reversed}
-  caption: |
-    As many layers as we want!
+- from: itcss
+  use: layers
 
 - css: |
     @layer settings { … }
@@ -633,6 +629,21 @@ slides:
     @layer components { … }
     @layer overrides { … }
 
+- title: |
+    **Layers** of _Specificity_
+
+- pre: |
+    **`@layer`**` { … }`
+
+- pre: |
+    `@layer `**`<name>`**` { … }`
+
+- css: |
+    @layer reset {
+      audio[controls] { display: block; }
+      [hidden] { display: none !important; }
+    }
+
 - md: |
     1. `@layer `**`settings`**` { … }`
     2. `@layer `**`tools`**` { … }`
@@ -641,45 +652,25 @@ slides:
     5. `@layer `**`objects`**` { … }`
     6. `@layer `**`components`**` { … }`
     7. `@layer `**`overrides`**` { … }`
-    {reversed}
   caption: |
-    Layers stack as they are introduced
+    As many layers as we want!
 
-- img: patterns/itcss-layers.png
-  alt: |
-    inverted triangle
-    with labeled layers from
-    wide top to narrow downward point —
-    settings, tools, generic,
-    elements, objects, components,
-    overrides
-  fit: contain
-  background: white
+- md: |
+    1. `@layer `**`Utilities`**` { … }`
+    2. `@layer `**`Components`**` { … }`
+    3. `@layer `**`Themes`**` { … }`
+    4. `@layer `**`Frameworks`**` { … }`
+    5. `@layer `**`Resets`**` { … }`
   caption: |
-    [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
-    CSS (ITCSS), by Harry Roberts
-
-- img: css-next/un-itcss-layers.png
-  alt: |
-    triangle
-    with labeled layers from
-    wide base to narrow point —
-    settings, tools, generic,
-    elements, objects, components,
-    overrides
-  fit: contain
-  background: white
-  caption: |
-    [**Inverted Triangle**](http://technotif.com/manage-large-css-projects-with-itcss/)
-    CSS (ITCSS), by Harry Roberts
+    Any names that we want!
 
 - title: |
     _Specificity_ is **Contained**
 
 - css: |
     @layer framework {
-      #menu .dropdown .item:hover {
-        background: whitesmoke;
+      #menu .dropdown .menu-item {
+        background: whitesmoke; /* ✅ specificity! */
       }
 
       .menu-item {
@@ -689,47 +680,54 @@ slides:
 
 - css: |
     @layer framework {
-      #menu .dropdown .item:hover {
+      #menu .dropdown .menu-item {
         background: whitesmoke;
       }
     }
-
     @layer override {
       .menu-item {
-        background: lightcyan;
+        background: lightcyan; /* ✅ layer! */
       }
     }
 
-- title: |
-    Add to **Existing Layers**
+- css: |
+    @layer reset { /* least powerful */ }
+    @layer default { /* … */ }
+    @layer theme { /* … */ }
+    @layer components { /* more powerful */ }
+  caption: |
+    Stack in the order they're introduced
+
+- pre: Repeated _Layer Names_
+  title: |
+    Are **Combined**
 
 - css: |
     @layer generic {
       audio[controls] { display: block; }
     }
 
-    @layer generic {
-      [hidden] { display: none !important; }
-    }
-
-- css: |
-    @layer generic {
-      audio[controls] { display: block; }
-      [hidden] { display: none !important; }
-    }
-
-- css: |
-    @layer default { … }
-    @layer theme { … }
+    @layer theme { /* … */ }
 
     /* still a lower layer than "theme" styles */
-    @layer default { … }
-
-- title: |
-    Establish **layer Order**
+    @layer generic {
+      [hidden] { display: none !important; }
+    }
 
 - css: |
-    @layer generic, elements, objects, components, overrides;
+    @layer generic {
+      audio[controls] { display: block; }
+      [hidden] { display: none !important; }
+    }
+
+    @layer theme { /* … */ }
+
+- title: |
+    Explicit **Layer Order**
+  sub: Define it once, at the start
+
+- pre: |
+    `@layer `**`<name>`**`, `**`<name>`**`, `**`<etc>`**`;`
 
 - css: |
     /* establish layer order */
@@ -746,81 +744,20 @@ slides:
   title: |
     Default **Highest Priority**
 
-- demo: layer-sort
-
+- title: Not **Adding** ❗️importance
 - title: |
-    **Nesting** Layers
+    **Managing** ❗️importance
 
-- css: |
-    @layer tools {
-      @layer custom { … }
-    }
-
-    /* access nested layers */
-    @layer tools.custom { … }
-
-- css: |
-    @layer components {
-      @layer defaults, structures, themes, utilities;
-    }
-
-- css: |
-    /* tools.css */
-    @layer theme { … }
-    @layer components { … }
-
-- css: |
-    @import url(tools.css) layer(tools);
-
-    @layer tools.theme { … }
-    @layer tools.custom { … }
-
-- pre: Never again…
-  title: Struggle with **Frameworks**
-
-- css: |
-    @import url(bootstrap.css) layer(bootstrap);
-
-    @layer bootstrap.my-overrides {
-      /* anything here will override bootstrap */
-    }
-
-- title: Use **Inside Components**
-
-- pen: layers-btn
-- caniuse: css-cascade-layers
+- demo: layer-sort
 
 - title:  More Cascade **Control**
 - title: Fewer **Hacks**
 
-- pre: Don't let _heuristics_
-  title: Boss You Around
-
-- title: |
-    ❗️Important Layers **Reverse**
-  sub: (exactly like origins)
-
-- md: |
-    1. Resets
-    2. Themes
-    3. Components
-
-- md: |
-    1. Resets
-    2. Themes
-    3. Components
-    4. ==❗**Important** Components==
-    5. ==❗**Important** Themes==
-    6. ==❗**Important** Resets==
-
-- pre: if we need to…
+- pre: Language _Heuristics_
   title: |
-    _Override_ `->` **Layers** \
-    _Protect_ `->` **Importance**
+    Don't **Boss Us Around**
 
-- title: |
-    _Complete Guide_ to CSS Cascade Layers
-  sub: https://css-tricks.com/css-cascade-layers/
+- caniuse: css-cascade-layers
 
 - img: css-next/layers-polyfill.jpg
   alt:
@@ -831,15 +768,514 @@ slides:
   caption: |
     https://www.oddbird.net/2022/06/21/cascade-layers-polyfill/
 
+# Recommendations
 
+- pre: Start with
+  title: A **Layer Order**
 
+- css: |
+    /* add as the first styles */
+    @layer reset, framework, components, utilities;
+  caption: |
+    Start simple, and append as needed…
 
-- todo: closer
+- html: |
+    <style>/* keep this before linked styles */
+    @layer reset, framework, components, utilities;
+    </style>
+    <link rel="stylesheet" href="…">
+    <link rel="stylesheet" href="…">
+  caption: |
+    Can live in the HTML, if that keeps it central
 
-- quote: |
-    It _works_ and it _doesn't work_ **at the same time**.
-    It's **Quantum CSS**!
-  cite: |
-    Jen Simmons,
-    [Intro to Resilient CSS](https://www.youtube.com/watch?v=u00FY9vADfQ)
+- pre: Then _Layer_
+  title: |
+    **Third-Party**\* Tools
+  sub: |
+    *Including inter-org dependencies
+
+- pre: Clearly define…
+  title: Each **Tool's Priority**
+
+- pre: Clearly define…
+  title: Tool-Specific **Overrides**
+
+- css: |
+    @import url(bootstrap.css) layer(bootstrap);
+
+    @layer bs-overrides {
+      /* anything here will override bootstrap */
+    }
+
+- pre: Then _Layer_
+  title: Overall **Architecture**
+
+- pre: Working from
+  title: |
+    **Lowest** to **Highest**
+
+- from: itcss
+  use: graph
+- img: layers/chart-part-1.jpg
+  fit: contain
+  background: white
+- img: layers/chart-part-2.jpg
+  fit: contain
+  background: white
+- img: layers/chart-part-3.jpg
+  fit: contain
+  background: white
+- img: layers/chart-layers.jpg
+  fit: contain
+  background: white
+
+- pre: At _OddBird_
+  title: Already **Sass Partials**
+- md: |
+    - reset/remedy
+    - initial
+    - patterns
+    - components
+    - utilities
+  caption: |
+    With slight variations between projects
+
+- css: |
+    @layer reset,
+           initial,
+           patterns,
+           components,
+           utilities;
+
+- scss: |
+    @use 'reset';
+    @use 'initial';
+    @use 'patterns';
+    /* etc... */
+  caption: How the main file _looked, before_
+
+- title: Can't **Layer @use**
+  scss: |
+    /* ❌ */ @use 'patterns' layer(patterns);
+    /* ❌ */ @layer { @use 'patterns'; }
+
+- pre: Can…
+  title: |
+    **Load CSS** From Modules
+
+- pre: |
+    `meta.load-css(`_`<partial>`_`)`
+  caption: Our chosen path forward…
+
+- scss: |
+    /* How it was without layers */
+
+    @use 'reset';
+    @use 'initial';
+    @use 'patterns';
+    /* etc... */
+  caption: Use the `sass:meta` module
+
+- scss: |
+    @use 'sass:meta';
+
+    @include meta.load-css('reset');
+    @include meta.load-css('initial');
+    @include meta.load-css('patterns');
+    /* etc... */
+  caption: Use `load-css()` to collate the partials
+
+- scss: |
+    @use 'sass:meta';
+
+    @layer reset { @include meta.load-css('reset'); }
+    @layer initial { @include meta.load-css('initial'); }
+    @layer patterns { @include meta.load-css('patterns'); }
+    /* etc... */
+  caption: Wrap each loading mixin with a layer
+
+- title: Other **Options**
+  sub: a bit more verbose
+
+- title: Inside **Partials**
+  scss: |
+    /* patterns.scss */
+    @mixin css {
+      /* all our css is nested */
+    }
+
+- title: Using **Partials**
+  scss: |
+    @use 'patterns';
+
+    @layer patterns {
+      @include patterns.css();
+    }
+
+- title: Inside **Partials**
+  scss: |
+    /* patterns.scss */
+    @layer patterns {
+      /* all our css is nested */
+    }
+
+- title: Using **Partials**
+  scss: |
+    @use 'patterns';
+
+- title: |
+    Single File **Components**
+
+- html: |
+    /* Vue example */
+    <template>…</template>
+    <script>…</script>
+
+    <style lang='scss'>
+    @layer components {
+      /* all our component styles */
+    }
+    </style>
+
+- pre: For _flexibility…_
+  title: Layer **Everything**
+
+- pre: Use _unlayered_ for
+  title: |
+    **Prototyping** & **DeBugging**
+
+- title: |
+    **Nesting** Layers
+
+- css: |
+    @layer components {
+      @layer state { … }
+    }
+
+    /* access nested layers */
+    @layer components.state { … }
+
+- css: |
+    /* tools.css */
+    @layer theme { … }
+    @layer components { … }
+
+- css: |
+    @import url(tools.css) layer(tools);
+
+    @layer tools.theme { … }
+    @layer tools.components { … }
+
+- css: |
+    @import url(tools.css) layer(tools);
+
+    @layer tools.theme { … }
+    @layer tools.components { … }
+    @layer tools.custom { … }
+
+- css: |
+    @import url(bootstrap.css) layer(bootstrap.external);
+
+    @layer bootstrap.local {
+      /* anything here will override bootstrap */
+    }
+
+- css: |
+    @layer components {
+      @layer defaults, themes, state;
+    }
+
+- pre: As useful,
+  title: Layer **Inside Components**
+
+- pen: layers-btn
+
+- pre: Use _layers_
+  title: To **Provide Clarity**
+- pre: Use _layers_
+  title: To **Convey Architecture**
+- pre: Use _layers_
+  title: To Describe **Intent**
+
+- pre: Not Just…
+  title: |
+    'This is **!mportant**'
+
+- pre: |
+    (layers _lower importance_ by default)
+
+- pre: |
+    X Overrides Y \
+    **Because** \
+    _'Components'_ Override _'Defaults'_
+
+- pre: As long as
+  title: The **Intent is Clear**
+
+- pre: There's
+  title: |
+    **No Harm** Layering
+
+- pre: Not an
+  title: |
+    **All-Or-Nothing** Grenade
+
+- pre: Encourages
+  title: |
+    **Nuanced** & **Explicit** Priorities
+
+- pre: Also _Not_
+  title: The **Only Tool**
+
+- css: |
+    [id="example"] {
+      /* ID selector, class specificity */
+    }
+- css: |
+    :where(#example) {
+      /* ID selector, zero specificity */
+    }
+
+- pre: Still use
+  title: |
+    **❗️mportant** As Intended
+
+- title: |
+    👎🏼 **Override** Styles \
+    In **Previous Code**
+  sub: (often in _lower_ layers)
+
+- title: |
+    👍🏼 **Protect** Styles \
+    From **Future Code**
+  sub: (often in _higher_ layers)
+
+- pre: Like _Origins_,
+  title: |
+    ❗️mportant Layers **Reverse**
+
+- md: |
+    1. Resets
+    2. Themes
+    3. Components
+
+- title: |
+    **❗️mportant**
+
+- md: |
+    1. Resets
+    2. Themes
+    3. Components
+    4. ==**❗mportant** Components==
+    5. ==**❗mportant** Themes==
+    6. ==**❗mportant** Resets==
+
+- title: |
+    _Override_ `->` **Layers** \
+    _Protect_ `->` **Importance**
+
+- pre: |
+    _Complete Guide_ to
+  title: CSS **Cascade Layers**
+  sub: https://css-tricks.com/css-cascade-layers/
+
+- caniuse: css-cascade-layers
+
+# Scope ----------------
+
+- title: Also **Coming Soon**…
+
+- title: |
+    **Scoped** Styles
+
+- pre: 1. Avoid
+  title: |
+    **Naming** Conflicts
+  sub: (across _large teams_ & _projects_)
+
+- pre: 2. By
+  title: Expressing **Membership**
+  sub: (through _lower boundaries_ & _proximity_)
+
+- title: Scope **Proximity**
+
+- css: |
+    .light-theme a { color: purple; }
+    .dark-theme a { color: plum; }
+  caption: |
+    DOM _Proximity_
+
+- demo: scope-proximity-issue
+
+- pre: |
+    _`@scope`_` (`_`<root>`_`) { /*…*/ }`
+  caption: |
+    [Scope spec](https://www.w3.org/TR/css-cascade-6/)
+
+- css: |
+    @scope (.light-theme) {
+      a { /* similar to simple nesting… */ }
+    }
+    @scope (.dark-theme) {
+      a { /* but the _closer_ scope root wins… */ }
+    }
+  caption: |
+    [Scope spec](https://www.w3.org/TR/css-cascade-6/)
+
+- pen: Scope proximity demo
+  id: wvyBNXP
+
+- title: Scope **Boundaries**
+
+- css: |
+    .title { /* global */ }
+    .post .title { /* nested */ }
+
+    .post__title { /* BEM */ }
+  caption: |
+    _Membership_ is distinct from _ancestry_
+
+- img: layers/scope-donut.jpg
+  alt: Media component with contents that are out of scope
+  fit: contain
+  background: white
+  caption: |
+    A "donut scope" with
+    _lower boundaries_
+
+- img: csswg/components.jpg
+  alt: wireframe of a site, with multiple nested components
+  fit: contain
+  background: '#e5e5e5'
+  caption: |
+    A "donut scope" with
+    _lower boundaries_
+
+- pre: Build-tools
+  title: Provide **Scoped Styles**
+  sub: BEM, CSS Modules, Vue, JSX, Stylable, etc
+
+- css: |
+    .post__title { /* BEM */ }
+    .title[data-JKGHJ] { /* Vue */ }
+  caption: |
+    Maintain uniqueness
+
+- pre: |
+    _`@scope`_` (<root>)`_` to (<boundary>)`_` {…}`
+  caption: |
+    [Scope spec](https://www.w3.org/TR/css-cascade-6/)
+
+- css: |
+    @scope (.media) to (.content) {
+      img { /* only images that are "in scope" */ }
+    }
+  caption: |
+    [Scope spec](https://www.w3.org/TR/css-cascade-6/)
+
+- pen: Visualizing scope
+  id: XWZwvWj
+
+- pen: Scope boundary demo
+  id: ZErXZVY
+
+- title: Nested **&lt;style&gt;** Scopes
+- html: |
+    <article>
+      <style scope="style">
+        p { color: green; } 
+      </style>
+      <p>This paragraph will be green.</p>
+    </article>
+
+    <p>This paragraph won't!</p>
+  caption: |
+    ❌ This won't work (yet)
+- html: |
+    <article>
+      <style>
+        @scope {
+          p { color: green; } 
+        }
+      </style>
+      <p>This paragraph will be green.</p>
+    </article>
+
+    <p>This paragraph won't!</p>
+  caption: |
+    ✅ This works
+
+- pre: Different from
+  title: Shadow-DOM **Encapsulation**
+
+- img: csswg/widget.jpg
+  fit: contain
+  alt: |
+    Diagram shows a widget with solid boundaries,
+    which cannot be penetrated
+    in either direction
+    (global styles can't get in, widget styles can't get out)
+  background: white
+  caption: |
+    **Encapsulation**
+    is designed for _isolated DOM widgets_
+
+- img: csswg/scoped.jpg
+  alt: |
+    Diagram shows a component with porous boundaries,
+    all styles can penetrate, or establish their own lower boundaries
+  fit: contain
+  background: white
+  caption: |
+    **Scope**
+    is designed for _a unified system_
+
+- pre: prototype…
+  title: Now in **Chrome Canary**
+
+- img: css-next/layers-scope.webp
+  alt: |
+    A grid of overlapping
+    'scope' columns (buttons, cards, logins)
+    and 'layer' rows
+    (default, theme, component).
+    Each scope crosses all layers,
+    and each layer crosses all scopes.
+  fit: contain
+  background: white
+
+# Outro
+
+- title: Don't **Fear The Cascade**
+
+- pre: The Cascade is
+  title: Our **Most Powerful Tool**
+
+- title: Core To **CHSS**
+- title: |
+    **CSS**?
+- title: |
+    **Cascading** Style Sheets?
+- title: |
+    **CSS**❗️
+
+- pre: The _cascade_ is
+  title: |
+    Getting **Major Upgrades**
+
+- pre: The _cascade_
+  title: |
+    Expresses **Layers of Priority**
+
+- pre: The _cascade_
+  title: |
+    Facilitates **Collaboration**
+
+- img: layers/not-alone-et.jpg
+  alt: |
+    Same We're Not Alone,
+    with browser logos,
+    a guy in construction clothes
+    carrying a laptop,
+    and ET
 ---
