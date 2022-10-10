@@ -1,5 +1,4 @@
 ---
-draft: true
 venue: An Event Apart, Denver
 date: 2022-10-11
 proposal: &proposal
@@ -10,26 +9,18 @@ slides:
 
 # cascade history ----------------
 
-- img: conventions/systems-cascade.jpg
-  alt: |
-    Product label for Cascade,
-    with sheeting action for virtually spotless dishes -
-    subtitled 'Use the Cascade'
-  position: top
-  caption: |
-    Slide from Natalie Downe's 2008
-    [**CSS Systems**](http://www.slideshare.net/nataliedowne/css-systems-presentation)
-    talk
-
 - title: The '**C**' in...
 - title: |
     **`CHSS`**
-  caption: https://w3.org/People/howcome/p/cascade.html
+  <<: *proposal
 
-- demo: https://w3.org/People/howcome/p/cascade.html
-  zoom: 2
-  caption: |
-    *Håkon Lie*, October 1994 🥳 **28 years**
+- img: layers/cascade-proposal.jpg
+  alt: |
+    Cascading HTML style sheets -- a proposal,
+    Håkon W Lie, 10 Oct 1994
+  position: top
+  background: white
+  <<: *proposal
 
 - img: layers/back-to-the-future.jpg
   alt: |
@@ -89,8 +80,12 @@ slides:
     covered in cobwebs,
     looking frustrated.
 
-- demo: https://web.archive.org/web/2022/http://info.cern.ch/hypertext/WWW/MarkUp/HTMLConstraints.html
-  zoom: 2
+- img: layers/html-constraints.jpg
+  alt: |
+    info.cern.ch
+    HTML Design Constraints, screenshot
+  position: top
+  background: white
   caption: info.cern.ch/hypertext/WWW/TheProject.html
 
 - quote: |
@@ -155,21 +150,11 @@ slides:
 - pre: The _Goal_…
   title: A Web That **Adapts**
 
-- quote: |
-    The web would have become a **giant fax machine**
-    where **pictures of text** would be passed along.
-  cite: Håkon Lie
-
 - pre: |
     `@media`
   title: |
     _`min-width`_
   caption: Viewport dimensions
-
-- quote: |
-    Web **for all**. Web **on everything**.
-  cite: |
-    W3C Mission, [Design Principles](https://w3.org/Consortium/mission.html#principles)
 
 - pre: |
     `@media`
@@ -188,6 +173,8 @@ slides:
   title: |
     _`container-type: inline-size`_
   caption: Browser capabilities over time
+
+- todo: New Content Animation???
 
 - pre: Styles
   title: Must be **Responsive**
@@ -217,17 +204,6 @@ slides:
     and ET
 
 - quote: |
-    This proposal tries to
-    **soften the tension**
-    between the _author_ and the _reader_.
-  <<: *proposal
-
-- quote: |
-    The **user/browser** specifies _initial preferences_
-    and **hands the remaining influence over** to the document.
-  <<: *proposal
-
-- quote: |
     We're designing _dynamic content_
     with _unknown collaborators_
     on an _infinite and unknowable canvas_,
@@ -241,6 +217,45 @@ slides:
     for Riding SideSaddle
   caption: |
     What you see is not what I will get
+
+- quote: |
+    HTML totally **eliminates any visual creativity**
+    that a document’s designer might have.
+  cite: Roy Smith, 1993
+
+- img: no-harm/mosaic.jpg
+  alt: Mosaic browser
+  position: top
+  caption: Mosaic, 1993
+
+- quote: |
+    The web would have become a **giant fax machine**
+    where **pictures of text** would be passed along.
+  cite: Håkon Lie
+
+
+- pre: 1993-1994
+  title: |
+    [w3.org/Style/History/](https://w3.org/Style/History/)
+
+- img: layers/cascade-proposal.jpg
+  alt: |
+    Cascading HTML style sheets -- a proposal,
+    Håkon W Lie, 10 Oct 1994
+  position: top
+  background: white
+  <<: *proposal
+
+- quote: |
+    This proposal tries to
+    **soften the tension**
+    between the _author_ and the _reader_.
+  <<: *proposal
+
+- quote: |
+    The **user/browser** specifies _initial preferences_
+    and **hands the remaining influence over** to the document.
+  <<: *proposal
 
 - quote:
     Provide **hints** that _the browser may or may not use_.
@@ -386,7 +401,14 @@ slides:
       font-size: something big I dunno;
     }
 
-- demo: https://w3.org/People/howcome/p/cascade.html
+- img: layers/cascade-proposal.jpg
+  alt: |
+    Cascading HTML style sheets -- a proposal,
+    Håkon W Lie, 10 Oct 1994
+  position: top
+  background: white
+  <<: *proposal
+
 - img: layers/proposal-no-defaults.jpg
   fit: 100%
   alt: |
@@ -407,7 +429,15 @@ slides:
     Language and appearance preferences in Firefox
     include light/dark mode,
     colors, fonts, and zoom level
-
+- img: layers/preferences-important.jpg
+  fit: contain
+  alt: |
+    In the font preferences dialogue,
+    a default-checked option:
+    Allow pages to choose their own fonts,
+    instead of your selections above
+  caption: |
+    Un-check for `!important` behavior
 - title: 🎨 **Author** Styles
 
 - title: Cascade 🗺 **Origins**
@@ -531,15 +561,15 @@ slides:
     around only the logo
 
 - title: |
-    More **Specific** Styles \
-    _Likely_ \
-    More **Important**
-
-- title: |
     [Heuristic](https://en.wikipedia.org/wiki/Heuristic)
   sub: |
     a practical assumption
     that approximates the goal
+
+- title: |
+    More **Specific** Styles \
+    _Likely_ \
+    More **Important**
 
 - pre: |
     universal/type »
@@ -644,6 +674,9 @@ slides:
       [hidden] { display: none !important; }
     }
 
+- pre: |
+    `@import url(…) `_`layer(<name>)`_`;`
+
 - md: |
     1. `@layer `**`settings`**` { … }`
     2. `@layer `**`tools`**` { … }`
@@ -663,6 +696,15 @@ slides:
     5. `@layer `**`Resets`**` { … }`
   caption: |
     Any names that we want!
+
+- css: |
+    @layer reset { /* least powerful */ }
+    @layer default { /* … */ }
+    @layer theme { /* … */ }
+    @layer components { /* more powerful */ }
+    /* unlayered styles: most powerful */
+  caption: |
+    Stack in the order they're introduced
 
 - title: |
     _Specificity_ is **Contained**
@@ -691,16 +733,18 @@ slides:
     }
 
 - css: |
-    @layer reset { /* least powerful */ }
-    @layer default { /* … */ }
-    @layer theme { /* … */ }
-    @layer components { /* more powerful */ }
-  caption: |
-    Stack in the order they're introduced
+    @layer one { … }
+    @layer two { … }
+    @layer one { … }
+    @layer three { … }
+    @layer one { … }
 
-- pre: Repeated _Layer Names_
+- pre: Repeated _Layers_
   title: |
-    Are **Combined**
+    Are **Grouped**
+- pre: Groups
+  title: |
+    Stack **In Order**
 
 - css: |
     @layer generic {
@@ -739,23 +783,113 @@ slides:
     @layer one { … }
     @layer two { … }
 
-- pre: |
-    _Unlayered_ styles
-  title: |
-    Default **Highest Priority**
-
-- title: Not **Adding** ❗️importance
-- title: |
-    **Managing** ❗️importance
-
 - demo: layer-sort
 
-- title:  More Cascade **Control**
-- title: Fewer **Hacks**
+- title: |
+    **Nesting** Layers
+
+- css: |
+    @layer components {
+      @layer state { … }
+    }
+
+    /* access nested layers */
+    @layer components.state { … }
+
+- css: |
+    /* system.css */
+    @layer theme { … }
+    @layer components { … }
+
+- css: |
+    @import url(system.css) layer(system);
+
+    @layer system.theme { … }
+    @layer system.components { … }
+
+- css: |
+    @import url(system.css) layer(system);
+
+    @layer system.theme { … }
+    @layer system.components { … }
+    @layer system.custom { … }
+
+- css: |
+    @import url(bootstrap.css) layer(bootstrap.theirs);
+
+    @layer bootstrap.ours {
+      /* anything here will override bootstrap */
+    }
+
+- css: |
+    @layer components {
+      @layer defaults, themes, state;
+    }
+
+- title: Not **Escalating** ❗️importance
+- title: |
+    **Managing** Priorities
+
+- img: layers/orrery-specificity.jpg
+  alt: |
+    Clockwork orrery,
+    with a scribbled arrow
+    pointing to the earth tilt gears
+    labeled 'specificity'
+  position: top
 
 - pre: Language _Heuristics_
   title: |
     Don't **Boss Us Around**
+- title:  More **Cascade Control**
+- title: Fewer **Specificity Hacks**
+- title: Less **❗️mportance**
+
+- pre: Like _Origins_,
+  title: |
+    ❗️mportant Layers **Reverse**
+
+- md: |
+    1. Resets
+    2. Themes
+    3. Components
+
+- title: |
+    **`!important`**
+
+- md: |
+    1. Resets
+    2. Themes
+    3. Components
+    4. ==**❗mportant** Components==
+    5. ==**❗mportant** Themes==
+    6. ==**❗mportant** Resets==
+
+- img: layers/balance-force.jpg
+  alt: |
+    Kylo Ren and Rey
+    standing in front of an entire star war
+    with spaceships and lasers
+    and AT-AT walkers
+
+- title: |
+    **Protect** Styles
+  sub: From _future layers_
+
+- css: |
+    @layer reset {
+      audio[controls] { display: block; }
+      [hidden] { display: none !important; }
+    }
+
+- title: |
+    _Prioritize_ `->` **Layers** \
+    _Protect_ `->` **Importance**
+
+# Recommendations
+
+- title: Getting **Started**
+  sub: my _recommendations_, your milage may vary
 
 - caniuse: css-cascade-layers
 
@@ -768,7 +902,10 @@ slides:
   caption: |
     https://www.oddbird.net/2022/06/21/cascade-layers-polyfill/
 
-# Recommendations
+- pre: |
+    _Complete Guide_ to
+  title: CSS **Cascade Layers**
+  sub: https://css-tricks.com/css-cascade-layers/
 
 - pre: Start with
   title: A **Layer Order**
@@ -831,7 +968,10 @@ slides:
 
 - pre: At _OddBird_
   title: Already **Sass Partials**
+
 - md: |
+    ## Proto-Layer **Folders**:
+
     - reset/remedy
     - initial
     - patterns
@@ -847,55 +987,14 @@ slides:
            components,
            utilities;
 
-- scss: |
-    @use 'reset';
-    @use 'initial';
-    @use 'patterns';
-    /* etc... */
-  caption: How the main file _looked, before_
+- title: Layer The **Partials**
 
-- title: Can't **Layer @use**
+- title: Inside **Partials**
   scss: |
-    /* ❌ */ @use 'patterns' layer(patterns);
-    /* ❌ */ @layer { @use 'patterns'; }
-
-- pre: Can…
-  title: |
-    **Load CSS** From Modules
-
-- pre: |
-    `meta.load-css(`_`<partial>`_`)`
-  caption: Our chosen path forward…
-
-- scss: |
-    /* How it was without layers */
-
-    @use 'reset';
-    @use 'initial';
-    @use 'patterns';
-    /* etc... */
-  caption: Use the `sass:meta` module
-
-- scss: |
-    @use 'sass:meta';
-
-    @include meta.load-css('reset');
-    @include meta.load-css('initial');
-    @include meta.load-css('patterns');
-    /* etc... */
-  caption: Use `load-css()` to collate the partials
-
-- scss: |
-    @use 'sass:meta';
-
-    @layer reset { @include meta.load-css('reset'); }
-    @layer initial { @include meta.load-css('initial'); }
-    @layer patterns { @include meta.load-css('patterns'); }
-    /* etc... */
-  caption: Wrap each loading mixin with a layer
-
-- title: Other **Options**
-  sub: a bit more verbose
+    /* patterns.scss */
+    @layer patterns {
+      /* all our css is nested */
+    }
 
 - title: Inside **Partials**
   scss: |
@@ -912,16 +1011,20 @@ slides:
       @include patterns.css();
     }
 
-- title: Inside **Partials**
+- title: Can't **Layer @use**
   scss: |
-    /* patterns.scss */
-    @layer patterns {
-      /* all our css is nested */
-    }
+    /* ⚠️ */ @import 'patterns' layer(patterns);
+    /* ❌ */ @use 'patterns' layer(patterns);
+    /* ❌ */ @layer { @use 'patterns'; }
 
-- title: Using **Partials**
-  scss: |
-    @use 'patterns';
+- scss: |
+    @use 'sass:meta';
+
+    @layer reset { @include meta.load-css('reset'); }
+    @layer initial { @include meta.load-css('initial'); }
+    @layer patterns { @include meta.load-css('patterns'); }
+    /* etc... */
+  caption: Wrap each loading mixin with a layer
 
 - title: |
     Single File **Components**
@@ -944,49 +1047,11 @@ slides:
   title: |
     **Prototyping** & **DeBugging**
 
-- title: |
-    **Nesting** Layers
-
-- css: |
-    @layer components {
-      @layer state { … }
-    }
-
-    /* access nested layers */
-    @layer components.state { … }
-
-- css: |
-    /* tools.css */
-    @layer theme { … }
-    @layer components { … }
-
-- css: |
-    @import url(tools.css) layer(tools);
-
-    @layer tools.theme { … }
-    @layer tools.components { … }
-
-- css: |
-    @import url(tools.css) layer(tools);
-
-    @layer tools.theme { … }
-    @layer tools.components { … }
-    @layer tools.custom { … }
-
-- css: |
-    @import url(bootstrap.css) layer(bootstrap.external);
-
-    @layer bootstrap.local {
-      /* anything here will override bootstrap */
-    }
-
-- css: |
-    @layer components {
-      @layer defaults, themes, state;
-    }
-
 - pre: As useful,
   title: Layer **Inside Components**
+
+- title: |
+    **Nested** Sub-Layers
 
 - pen: layers-btn
 
@@ -1050,36 +1115,16 @@ slides:
     From **Future Code**
   sub: (often in _higher_ layers)
 
-- pre: Like _Origins_,
-  title: |
-    ❗️mportant Layers **Reverse**
-
-- md: |
-    1. Resets
-    2. Themes
-    3. Components
-
-- title: |
-    **❗️mportant**
-
-- md: |
-    1. Resets
-    2. Themes
-    3. Components
-    4. ==**❗mportant** Components==
-    5. ==**❗mportant** Themes==
-    6. ==**❗mportant** Resets==
-
-- title: |
-    _Override_ `->` **Layers** \
-    _Protect_ `->` **Importance**
-
-- pre: |
-    _Complete Guide_ to
-  title: CSS **Cascade Layers**
-  sub: https://css-tricks.com/css-cascade-layers/
-
-- caniuse: css-cascade-layers
+- img: css-next/layers-scope.webp
+  alt: |
+    A grid of overlapping
+    'scope' columns (buttons, cards, logins)
+    and 'layer' rows
+    (default, theme, component).
+    Each scope crosses all layers,
+    and each layer crosses all scopes.
+  fit: contain
+  background: white
 
 # Scope ----------------
 
@@ -1232,17 +1277,6 @@ slides:
 
 - pre: prototype…
   title: Now in **Chrome Canary**
-
-- img: css-next/layers-scope.webp
-  alt: |
-    A grid of overlapping
-    'scope' columns (buttons, cards, logins)
-    and 'layer' rows
-    (default, theme, component).
-    Each scope crosses all layers,
-    and each layer crosses all scopes.
-  fit: contain
-  background: white
 
 # Outro
 

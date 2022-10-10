@@ -41,10 +41,7 @@ layers:
 <style>
   {% for layer in all %}
     [data-layer='{{ layer }}'] {
-      counter-increment: {{ layer }};
-      --i-of: counter({{ layer }});
       --order: {{ loop.index }};
-      --order-string: '{{ loop.index }}';
       {% if layer == 'unlayered' -%}
         --s: 0%;
       {%- endif %}

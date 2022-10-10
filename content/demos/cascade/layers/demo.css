@@ -54,8 +54,3 @@
 [data-sort='weight'] [data-layer] {
   --sort: var(--order);
 }
-
-[data-layer]::before {
-  content: var(--order-string) '.' var(--i-of);
-  font-size: 0.8em;
-}

@@ -192,7 +192,7 @@ slides:
     }
 
 - pre: |
-    `@input url(…) `_`layer(<name>)`_`;`
+    `@import url(…) `_`layer(<name>)`_`;`
 
 - css: |
     @import url(reset.css) layer(reset);
