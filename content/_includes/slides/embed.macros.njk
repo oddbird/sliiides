@@ -15,6 +15,19 @@
   {% endcall %}
 {% endmacro %}
 
+{% macro svg(slide, page) %}
+  {% set styles = {
+    '--img-position': slide.position,
+    '--img-fit': slide.fit
+  } %}
+  {% call slides.base(slide, 'img svg', page, styles) %}
+    {{ embed.svg(
+      path=slide.svg,
+      alt=slide.alt
+    ) }}
+  {% endcall %}
+{% endmacro %}
+
 {% macro demo(slide, page, collections) %}
   {%- set demoUrl = slide.demo if ('://' in slide.demo) else none -%}
   {%- set demoPage = false if demoUrl else collections.all | findPage('data.demo', slide.demo) -%}

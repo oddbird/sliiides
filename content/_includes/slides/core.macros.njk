@@ -57,6 +57,8 @@
     {{ embed.demo(slide, page, collections) }}
   {% elif slide.img %}
     {{ embed.img(slide, page) }}
+  {% elif slide.svg %}
+    {{ embed.svg(slide, page) }}
   {% elif slide.twoup %}
     {{ embed.twoup(slide, page) }}
   {% elif slide.code %}

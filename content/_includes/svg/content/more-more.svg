@@ -1,0 +1,126 @@
+<svg
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 1920 1080"
+	width="1920"
+	height="1080"
+  aria-hidden="true"
+  focusable="false"
+	id="more-more"
+>
+  <style>
+		#more-more { fill: var(--slide-background, var(--bg, white)); }
+		#more-more circle, path { fill: gray; }
+		#more-more path:first-child { fill: whitesmoke }
+		#more-more path + path { opacity: 0.8; }
+		#more-more g {
+			--delay: calc(var(--i) * 150ms);
+			transform-origin: 50%;
+			animation: var(--slide-animation-active, new 300ms var(--delay) 1 both ease-in);
+			animation-play-state: var(--slide-play, paused);
+		}
+		@keyframes new {
+			from {
+				opacity: 0;
+				scale: 0.8;
+			}
+			80% {
+				opacity: 1;
+				scale: 1.1;
+			}
+			to {
+				scale: 1;
+			}
+		}
+  </style>
+  <g style="--i: 0">
+    <path class="st0" d="M555.5 43.5h810v319h-810z"/>
+    <circle class="st1" cx="672.4" cy="150.33" r="68.48"/>
+    <path class="st1" d="M772.9 91.08h272.4v33.86H772.9z"/>
+    <path class="st2" d="M772.9 140.17h514.02v21.55H772.9zm0 38.32h479.39v21.55H772.9zm0 38.32h533.25v21.55H772.9zm0 38.32h494.78v21.55H772.9zm0 38.32h330.11V315H772.9z"/>
+  </g>
+  <g style="--i: 1">
+    <path class="st0" d="M555.5 377.5h810v319h-810z"/>
+    <circle class="st1" cx="672.4" cy="484.33" r="68.48"/>
+    <path class="st1" d="M772.9 425.08h272.4v33.86H772.9z"/>
+    <path class="st2" d="M772.9 474.17h514.02v21.55H772.9zm0 38.32h479.39v21.55H772.9zm0 38.32h533.25v21.55H772.9zm0 38.32h494.78v21.55H772.9zm0 38.32h330.11V649H772.9z"/>
+  </g>
+  <g style="--i: 2">
+    <path class="st0" d="M555.5 709.5h810v319h-810z"/>
+    <circle class="st1" cx="672.4" cy="816.33" r="68.48"/>
+    <path class="st1" d="M772.9 757.08h272.4v33.86H772.9z"/>
+    <path class="st2" d="M772.9 806.17h514.02v21.55H772.9zm0 76.64h533.25v21.55H772.9zm0 38.32h494.78v21.55H772.9zm0 38.32h330.11V981H772.9z"/>
+  </g>
+  <g style="--i: 3">
+    <path class="st0" d="M94.4 121.29h810v319h-810z"/>
+    <circle class="st1" cx="211.31" cy="228.12" r="68.48"/>
+    <path class="st1" d="M311.8 168.87h272.4v33.86H311.8z"/>
+    <path class="st2" d="M311.8 217.97h514.02v21.55H311.8zm0 38.32h479.39v21.55H311.8zm0 38.32h533.25v21.55H311.8zm0 38.32h494.78v21.55H311.8zm0 38.32h330.11v21.55H311.8z"/>
+  </g>
+  <g style="--i: 4">
+    <path class="st0" d="M622.4 499.29h810v319h-810z"/>
+    <circle class="st1" cx="739.31" cy="606.12" r="68.48"/>
+    <path class="st1" d="M839.8 546.87h272.4v33.86H839.8z"/>
+    <path class="st2" d="M839.8 595.97h514.02v21.55H839.8zm0 38.32h479.39v21.55H839.8zm0 38.32h533.25v21.55H839.8zm0 38.32h494.78v21.55H839.8zm0 38.32h330.11v21.55H839.8z"/>
+  </g>
+  <g style="--i: 5">
+    <path class="st0" d="M1041.4 213.29h810v319h-810z"/>
+    <circle class="st1" cx="1158.31" cy="320.12" r="68.48"/>
+    <path class="st1" d="M1258.8 260.87h272.4v33.86h-272.4z"/>
+    <path class="st2" d="M1258.8 309.97h514.02v21.55H1258.8zm0 38.32h479.39v21.55H1258.8zm0 38.32h533.25v21.55H1258.8zm0 38.32h494.78v21.55H1258.8zm0 38.32h330.11v21.55H1258.8z"/>
+  </g>
+  <g style="--i: 6">
+    <path class="st0" d="M1020.4 670.29h810v319h-810z"/>
+    <circle class="st1" cx="1137.31" cy="777.12" r="68.48"/>
+    <path class="st1" d="M1237.8 717.87h272.4v33.86h-272.4z"/>
+    <path class="st2" d="M1237.8 766.97h514.02v21.55H1237.8zm0 38.32h479.39v21.55H1237.8zm0 38.32h533.25v21.55H1237.8zm0 38.32h494.78v21.55H1237.8zm0 38.32h330.11v21.55H1237.8z"/>
+  </g>
+  <g style="--i: 7">
+    <path class="st0" d="M103.4 591.29h810v319h-810z"/>
+    <circle class="st1" cx="220.31" cy="698.12" r="68.48"/>
+    <path class="st1" d="M320.8 638.87h272.4v33.86H320.8z"/>
+    <path class="st2" d="M320.8 687.97h514.02v21.55H320.8zm0 38.32h479.39v21.55H320.8zm0 38.32h533.25v21.55H320.8zm0 38.32h494.78v21.55H320.8zm0 38.32h330.11v21.55H320.8z"/>
+  </g>
+  <g style="--i: 8">
+    <path class="st0" d="M415.4 247.29h810v319h-810z"/>
+    <circle class="st1" cx="532.31" cy="354.12" r="68.48"/>
+    <path class="st1" d="M632.8 294.87h272.4v33.86H632.8z"/>
+    <path class="st2" d="M632.8 343.97h514.02v21.55H632.8zm0 38.32h479.39v21.55H632.8zm0 38.32h533.25v21.55H632.8zm0 38.32h494.78v21.55H632.8zm0 38.32h330.11v21.55H632.8z"/>
+  </g>
+  <g style="--i: 9">
+    <path class="st0" d="M947.4 401.29h810v319h-810z"/>
+    <circle class="st1" cx="1064.31" cy="508.12" r="68.48"/>
+    <path class="st1" d="M1164.8 448.87h272.4v33.86h-272.4z"/>
+    <path class="st2" d="M1164.8 497.97h514.02v21.55H1164.8zm0 38.32h479.39v21.55H1164.8zm0 38.32h533.25v21.55H1164.8zm0 38.32h494.78v21.55H1164.8zm0 38.32h330.11v21.55H1164.8z"/>
+  </g>
+  <g style="--i: 10">
+    <path class="st0" d="M192.4 476.29h810v319h-810z"/>
+    <circle class="st1" cx="309.31" cy="583.12" r="68.48"/>
+    <path class="st1" d="M409.8 523.87h272.4v33.86H409.8z"/>
+    <path class="st2" d="M409.8 572.97h514.02v21.55H409.8zm0 38.32h479.39v21.55H409.8zm0 38.32h533.25v21.55H409.8zm0 38.32h494.78v21.55H409.8zm0 38.32h330.11v21.55H409.8z"/>
+  </g>
+  <g style="--i: 11">
+    <path class="st0" d="M314.4 656.29h810v319h-810z"/>
+    <circle class="st1" cx="431.31" cy="763.12" r="68.48"/>
+    <path class="st1" d="M531.8 703.87h272.4v33.86H531.8z"/>
+    <path class="st2" d="M531.8 752.97h514.02v21.55H531.8zm0 38.32h479.39v21.55H531.8zm0 38.32h533.25v21.55H531.8zm0 38.32h494.78v21.55H531.8zm0 38.32h330.11v21.55H531.8z"/>
+  </g>
+  <g style="--i: 12">
+    <path class="st0" d="M889.4 109.29h810v319h-810z"/>
+    <circle class="st1" cx="1006.31" cy="216.12" r="68.48"/>
+    <path class="st1" d="M1106.8 156.87h272.4v33.86h-272.4z"/>
+    <path class="st2" d="M1106.8 205.97h514.02v21.55H1106.8zm0 38.32h479.39v21.55H1106.8zm0 38.32h533.25v21.55H1106.8zm0 38.32h494.78v21.55H1106.8zm0 38.32h330.11v21.55H1106.8z"/>
+  </g>
+  <g style="--i: 13">
+    <path class="st0" d="M265.81 225.32H1421v454.95H265.81z"/>
+    <circle class="st1" cx="432.53" cy="377.68" r="97.67"/>
+    <path class="st1" d="M575.85 293.18h388.48v48.29H575.85z"/>
+    <path class="st2" d="M575.85 363.19h733.07v30.73H575.85zm0 54.65h683.69v30.73H575.85zm0 54.65h760.51v30.73H575.85zm0 54.65h705.64v30.73H575.85zm0 54.66h470.79v30.73H575.85z"/>
+  </g>
+  <g style="--i: 14">
+    <path class="st0" d="M216.81 339.56H1838v638.47H216.81z"/>
+    <circle class="st1" cx="450.78" cy="553.38" r="137.07"/>
+    <path class="st1" d="M651.93 434.79h545.2v67.76h-545.2z"/>
+    <path class="st2" d="M651.93 533.05h1028.79v43.12H651.93zm0 76.69h959.48v43.12H651.93zm0 76.7h1067.29v43.12H651.93zm0 76.7h990.29v43.12H651.93zm0 76.69h660.7v43.12h-660.7z"/>
+  </g>
+</svg>

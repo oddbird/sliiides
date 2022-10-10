@@ -174,7 +174,8 @@ slides:
     _`container-type: inline-size`_
   caption: Browser capabilities over time
 
-- todo: New Content Animation???
+- svg: svg/content/more-more
+  alt: Animation of twitter-like posts appearing
 
 - pre: Styles
   title: Must be **Responsive**

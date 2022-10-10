@@ -37,6 +37,17 @@
     }
   }
 
+  // optionally restart animations in the next slide
+  &:target + & {
+    --slide-animation-active: none;
+  }
+
+  // optionally play animations when slide is active
+  &:target {
+    --slide-animation-active: initial;
+    --slide-play: running;
+  }
+
   @media print {
     contain: layout size paint;
     height: 100vh;
