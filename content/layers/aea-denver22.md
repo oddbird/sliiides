@@ -934,9 +934,9 @@ slides:
   caption: |
     Can live in the HTML, if that keeps it central
 
-- pre: Then _Layer_
+- pre: Then
   title: |
-    **Third-Party**\* Tools
+    Layer **Dependencies**
   sub: |
     *Including inter-org dependencies
 
@@ -952,6 +952,9 @@ slides:
     @layer bootstrap.overrides {
       /* anything here will override bootstrap */
     }
+
+- pre: As you go
+  title: Update **Layer Order**
 
 - pre: Then _Layer_
   title: Overall **Architecture**
@@ -996,6 +999,11 @@ slides:
     **Nested** Sub-Layers
 
 - pen: layers-btn
+
+- pre: Also for
+  title: Design **Systems**
+- pre: Also for
+  title: WordPress **Themes**
 
 - pre: Use _layers_
   title: To **Provide Clarity**
@@ -1150,6 +1158,12 @@ slides:
   caption: |
     A "donut scope" with
     _lower boundaries_
+
+- img: layers/aea-chris.jpg
+  alt: |
+    Chris Coyier on stage,
+    with a slide about CSS Modules
+    scoping styles
 
 - pre: Build-tools
   title: Provide **Scoped Styles**
