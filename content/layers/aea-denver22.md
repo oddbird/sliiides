@@ -11,7 +11,7 @@ slides:
 
 - title: The '**C**' in...
 - title: |
-    **`CHSS`**
+    C**H**SS
   <<: *proposal
 
 - img: layers/cascade-proposal.jpg
@@ -219,6 +219,14 @@ slides:
   caption: |
     What you see is not what I will get
 
+- img: layers/aea-jason.jpg
+  alt: |
+    Jason Grigsby on stage at AEA Denver,
+    with a slide that shows outlines
+    of a phone, tablet, and desktop
+    with the headline
+    'And forget all of the resolutions in between'
+
 - quote: |
     HTML totally **eliminates any visual creativity**
     that a document’s designer might have.
@@ -233,7 +241,6 @@ slides:
     The web would have become a **giant fax machine**
     where **pictures of text** would be passed along.
   cite: Håkon Lie
-
 
 - pre: 1993-1994
   title: |
@@ -261,6 +268,12 @@ slides:
 - quote:
     Provide **hints** that _the browser may or may not use_.
   cite: Håkon Lie
+
+- img: no-harm/line-mode.jpg
+  alt: The second browser, a text-only terminal
+  position: top
+  caption: |
+    (demo Lynx in terminal?)
 
 - title: CSS **Declarations**
   css: |
@@ -648,6 +661,17 @@ slides:
   caption: |
     [Working Draft](https://www.w3.org/TR/css-cascade-5/)
 
+- caniuse: css-cascade-layers
+
+- img: css-next/layers-polyfill.jpg
+  alt:
+    OddBird article,
+    Cascade Layers – There’s a Polyfill for That!
+    by Sana Javed on June 21, 2022
+  position: top
+  caption: |
+    https://www.oddbird.net/2022/06/21/cascade-layers-polyfill/
+
 - from: itcss
   use: layers
 
@@ -892,22 +916,6 @@ slides:
 - title: Getting **Started**
   sub: my _recommendations_, your milage may vary
 
-- caniuse: css-cascade-layers
-
-- img: css-next/layers-polyfill.jpg
-  alt:
-    OddBird article,
-    Cascade Layers – There’s a Polyfill for That!
-    by Sana Javed on June 21, 2022
-  position: top
-  caption: |
-    https://www.oddbird.net/2022/06/21/cascade-layers-polyfill/
-
-- pre: |
-    _Complete Guide_ to
-  title: CSS **Cascade Layers**
-  sub: https://css-tricks.com/css-cascade-layers/
-
 - pre: Start with
   title: A **Layer Order**
 
@@ -939,9 +947,9 @@ slides:
   title: Tool-Specific **Overrides**
 
 - css: |
-    @import url(bootstrap.css) layer(bootstrap);
+    @import url(bootstrap.css) layer(bootstrap.vendor);
 
-    @layer bs-overrides {
+    @layer bootstrap.overrides {
       /* anything here will override bootstrap */
     }
 
@@ -967,86 +975,19 @@ slides:
   fit: contain
   background: white
 
-- pre: At _OddBird_
-  title: Already **Sass Partials**
-
-- md: |
-    ## Proto-Layer **Folders**:
-
-    - reset/remedy
-    - initial
-    - patterns
-    - components
-    - utilities
-  caption: |
-    With slight variations between projects
-
-- css: |
-    @layer reset,
-           initial,
-           patterns,
-           components,
-           utilities;
-
-- title: Layer The **Partials**
-
-- title: Inside **Partials**
-  scss: |
-    /* patterns.scss */
-    @layer patterns {
-      /* all our css is nested */
-    }
-
-- title: Inside **Partials**
-  scss: |
-    /* patterns.scss */
-    @mixin css {
-      /* all our css is nested */
-    }
-
-- title: Using **Partials**
-  scss: |
-    @use 'patterns';
-
-    @layer patterns {
-      @include patterns.css();
-    }
-
-- title: Can't **Layer @use**
-  scss: |
-    /* ⚠️ */ @import 'patterns' layer(patterns);
-    /* ❌ */ @use 'patterns' layer(patterns);
-    /* ❌ */ @layer { @use 'patterns'; }
-
-- scss: |
-    @use 'sass:meta';
-
-    @layer reset { @include meta.load-css('reset'); }
-    @layer initial { @include meta.load-css('initial'); }
-    @layer patterns { @include meta.load-css('patterns'); }
-    /* etc... */
-  caption: Wrap each loading mixin with a layer
-
 - title: |
-    Single File **Components**
+    Single File **Components**?
 
 - html: |
     /* Vue example */
     <template>…</template>
     <script>…</script>
 
-    <style lang='scss'>
+    <style>
     @layer components {
       /* all our component styles */
     }
     </style>
-
-- pre: For _flexibility…_
-  title: Layer **Everything**
-
-- pre: Use _unlayered_ for
-  title: |
-    **Prototyping** & **DeBugging**
 
 - pre: As useful,
   title: Layer **Inside Components**
@@ -1093,6 +1034,9 @@ slides:
 - pre: Also _Not_
   title: The **Only Tool**
 
+- pre: Learn to
+  title: Use **Selectors**
+
 - css: |
     [id="example"] {
       /* ID selector, class specificity */
@@ -1102,7 +1046,7 @@ slides:
       /* ID selector, zero specificity */
     }
 
-- pre: Still use
+- pre: Re-learn
   title: |
     **❗️mportant** As Intended
 
@@ -1115,6 +1059,16 @@ slides:
     👍🏼 **Protect** Styles \
     From **Future Code**
   sub: (often in _higher_ layers)
+
+- pre: For _flexibility…_
+  title: Layer **Everything**
+
+- pre: Use _unlayered_ for
+  title: |
+    **Prototyping** & **DeBugging**
+
+- pre: But _not_
+  title: Every **Individual** Thing
 
 - img: css-next/layers-scope.webp
   alt: |
@@ -1228,7 +1182,7 @@ slides:
 - title: Nested **&lt;style&gt;** Scopes
 - html: |
     <article>
-      <style scope="style">
+      <style scoped>
         p { color: green; } 
       </style>
       <p>This paragraph will be green.</p>
@@ -1276,8 +1230,30 @@ slides:
     **Scope**
     is designed for _a unified system_
 
+- title: |
+    **Broad-Reaching** Scopes \
+    _&&_ \
+    **Narrow** Component Scopes
+
+- pre: Maybe Develop
+  title: Scoping **Conventions**?
+
+- css: |
+    @scope ([data-scope='media']) to ([data-scope]) {
+      /* Stop scopes from overlapping? */
+    }
+
+- pre: Still some
+  title: |
+    **Details** to Work Out
+  caption: |
+    https://css.oddbird.net/scope/
+
 - pre: prototype…
-  title: Now in **Chrome Canary**
+  title: Now in **Chromium Canary**
+  sub: |
+    `about://flags` - _experimental web platform features_
+  caption: (Chrome or Edge Canary)
 
 # Outro
 
@@ -1313,4 +1289,23 @@ slides:
     a guy in construction clothes
     carrying a laptop,
     and ET
+
+- img: layers/vader.jpg
+  alt: |
+    Darth Vader
+    choking a rebel soldier
+    as storm troopers watch
+
+- quote: |
+    A Jedi uses the [Cascade]
+    for _knowledge and defense_,
+    **never for attack**.
+  cite: Yoda (almost)
+  face: layers/yoda.jpg
+  alt: Yoda leans on a walking stick among leaves
+
+- pre: |
+    _Complete Guide_ to
+  title: CSS **Cascade Layers**
+  sub: https://css-tricks.com/css-cascade-layers/
 ---

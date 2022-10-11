@@ -9,16 +9,16 @@
 	id="more-more"
 >
   <style>
-		#more-more { fill: var(--slide-background, var(--bg, white)); }
-		#more-more circle, path { fill: gray; }
-		#more-more path:first-child { fill: whitesmoke }
-		#more-more path + path { opacity: 0.8; }
-		#more-more g {
-			--delay: calc(var(--i) * 150ms);
-			transform-origin: 50%;
-			animation: var(--slide-animation-active, new 300ms var(--delay) 1 both ease-in);
-			animation-play-state: var(--slide-play, paused);
-		}
+    #more-more { fill: var(--slide-background, var(--bg, white)); }
+    #more-more circle, #more-more path { fill: gray; }
+    #more-more path:first-child { fill: whitesmoke }
+    #more-more path + path { opacity: 0.8; }
+    #more-more g {
+      --delay: calc(var(--i) * 150ms);
+      transform-origin: 50%;
+      animation: var(--slide-animation-active, new 300ms var(--delay) 1 both ease-in);
+      animation-play-state: var(--slide-play, paused);
+    }
 		@keyframes new {
 			from {
 				opacity: 0;

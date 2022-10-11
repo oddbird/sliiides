@@ -33,4 +33,9 @@
     padding: var(--gutter);
     position: relative;
   }
+
+  blockquote {
+    margin: 0;
+    margin-inline-start: var(--shim);
+  }
 }

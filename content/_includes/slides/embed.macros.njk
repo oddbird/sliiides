@@ -71,7 +71,7 @@
   {% set styles = {
     '--img-position': slide.position,
     '--img-fit': slide.fit
-  } %}
+  } | merge(slide.styles) %}
   {% call slides.base(slide, 'person', page, styles, class='h-card') %}
     {{ embed.face(slide.face, slide.alt, slide.title) | safe }}
     <div class="person">
@@ -86,15 +86,18 @@
 {% endmacro %}
 
 {% macro quote(slide, page) %}
-  {% set face = embed.face(slide.face, slide.alt, slide.cite) if slide.face else none %}
+  {% set styles = {
+    '--img-position': slide.position,
+    '--img-fit': slide.fit
+  } | merge(slide.styles) if slide.face else slide.styles %}
   {% set quote = embed.blockquote(slide.quote, slide.cite, slide.source) %}
-  {% call slides.base(slide, 'quote', page) %}
-    {% if face %}
-      {{ embed.media_block(
-        media=face,
-        name='quote',
-        content=quote
-      ) | safe }}
+  {% set type = 'person' if slide.face else 'quote' %}
+  {% call slides.base(slide, type, page, styles) %}
+    {% if slide.face %}
+      {{ embed.face(slide.face, slide.alt, slide.cite) }}
+      <div class="person">
+        {{ quote | safe }}
+      </div>
     {% else %}
       {{ quote | safe }}
     {% endif %}
