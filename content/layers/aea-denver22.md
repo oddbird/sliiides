@@ -654,6 +654,20 @@ slides:
 
 - title: 😩🤬😩
 
+- quote:
+    If only this _horse_
+    was a little _faster_…
+  cite: me
+
+- img: layers/aea-rachel.jpg
+  alt: |
+    Rachel Andrews on stage
+    talking about new web features
+  caption: |
+    Photo by
+    [Scott Jehl](https://tweetdeck.twitter.com/scottjehl/status/1579570601781755904/photo/1)
+    (cropped by me)
+
 # Layers ----------------
 
 - title: |
