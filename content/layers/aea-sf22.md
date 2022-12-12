@@ -1376,17 +1376,14 @@ slides:
     Expresses **Intent**
 - pre: The _cascade_
   title: |
-    Expresses **Layers of Priority**
+    Balances **Priorities**
 
-- pre: The _cascade_
-  title: |
-    Facilitates **Collaboration**
-
-- img: layers/vader.jpg
+- img: layers/orrery.jpg
   alt: |
-    Darth Vader
-    choking a rebel soldier
-    as storm troopers watch
+    Clockwork orrery,
+    with planets circling the sun,
+    and the earth off to one side
+  position: top
 
 - img: layers/not-alone-et.jpg
   alt: |
@@ -1396,6 +1393,12 @@ slides:
     carrying a laptop,
     and ET
 
+- img: layers/vader.jpg
+  alt: |
+    Darth Vader
+    choking a rebel soldier
+    as storm troopers watch
+
 - quote: |
     A Jedi uses the [Cascade]
     for _knowledge and defense_,
@@ -1403,9 +1406,4 @@ slides:
   cite: Yoda (almost)
   face: layers/yoda.jpg
   alt: Yoda leans on a walking stick among leaves
-
-- pre: |
-    _Complete Guide_ to
-  title: CSS **Cascade Layers**
-  sub: https://css-tricks.com/css-cascade-layers/
 ---

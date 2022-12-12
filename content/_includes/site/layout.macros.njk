@@ -11,7 +11,10 @@
     <nav data-nav="external" aria-label="external">
       <ul>
         <li>
-          <a href="https://twitter.com/TerribleMia">@TerribleMia</a>
+          {%- set social = page.data.mia.social -%}
+          <a href="https://{{ social.server }}/@{{ social.user }}">
+            @{{ social.user }}@{{ social.server }}
+          </a>
         </li>
         <li>
           <a href="https://oddbird.net">OddBird</a>
