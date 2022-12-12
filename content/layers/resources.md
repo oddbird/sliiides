@@ -28,10 +28,14 @@ title: Cascading Resources
 - [Layers Process Notes](https://css.oddbird.net/layers/)
 - [Layers Specification](https://www.w3.org/TR/css-cascade-5/)
 - [Complete Guide to Cascade Layers](https://css-tricks.com/css-cascade-layers/)
-- [The Future of CSS: Cascade Layers (CSS @layer)](https://www.bram.us/2021/09/15/the-future-of-css-cascade-layers-css-at-layer/)
-  by **Bramus Van Damme**
+- [Day 37: cascade layers](https://www.matuzo.at/blog/2022/100daysof-day37/)
+  by **Manuel Matuzovic**
+- [Cascade layers are coming to your browser](https://developer.chrome.com/blog/cascade-layers/)
+  by **Una Kravets**
 - [Getting Started With CSS Cascade Layers](https://www.smashingmagazine.com/2022/01/introduction-css-cascade-layers/)
   by **Stephanie Eckles**
+- [The Future of CSS: Cascade Layers (CSS @layer)](https://www.bram.us/2021/09/15/the-future-of-css-cascade-layers-css-at-layer/)
+  by **Bramus Van Damme**
 - [Cascade Layers - There's a Polyfill for That!](https://www.oddbird.net/2022/06/21/cascade-layers-polyfill/)
   by **Sana Javed**
 - [Layers CodePen collection](https://codepen.io/collection/BNjmma)
