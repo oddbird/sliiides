@@ -132,6 +132,14 @@ slides:
     [WWW HyperMedia Browser](https://worldwideweb.cern.ch/browser/)
     & *Editor*
 
+- img: layers/aea-control.jpg
+  alt: |
+    Jeremy Keith on stage
+    next to a slide that says
+    Control in the center,
+    with Imperative and Declarative
+    above and below
+
 - pre: A lack of
   title: |
     Design **Control**
@@ -491,6 +499,12 @@ slides:
   sub: Establish desired *preferences*
   caption: These days rarely CSS, but *treated the same*
 
+- img: layers/aea-user-styles.jpg
+  alt: |
+    Jeremy Keith on stage
+    next to a slide that says
+    User Stylesheets
+
 - img: layers/user-preferences.jpg
   fit: contain
   alt: |
@@ -546,6 +560,18 @@ slides:
 
 - pre: Why we have…
   title: ❗**importance**
+
+- img: layers/aea-influence.jpg
+  alt: |
+    Jeremy Keith on stage
+    next to a slide that says
+    h1.font.size = 24pt 100%
+    h2.font.size = 20pt 40%
+
+- title: Simplified **Influence**
+  css: |
+    h1 { font-size: 24pt !important; } /* 100% */
+    h2 { font-size: 20pt; } /* 0% */
 
 - twoup:
     - src: css-next/good-spock.jpg
