@@ -63,13 +63,13 @@
       media=embed.svg('logos/oddbird'),
       name='closer-detail'
     ) %}
+      <p class="pre">
+        {%- set social = page.data.mia.social -%}
+        <a href="https://{{ social.server }}/@{{ social.user }}">
+          @{{ social.user }}@{{ social.server }}
+        </a>
+      </p>
       <h2>
-        <span class="pre">
-          {%- set social = page.data.mia.social -%}
-          <a href="https://{{ social.server }}/@{{ social.user }}">
-            @{{ social.user }}@{{ social.server }}
-          </a>
-        </span>
         <strong class="byline h-card">
           {{ page.data.author or page.data.mia.name }}
         </strong>

@@ -23,12 +23,7 @@
 }
 
 [data-events] {
-  font-size: var(--xsmall);
   list-style: none;
-
-  ul {
-    font-size: 1rem;
-  }
 }
 
 .event {
@@ -37,10 +32,15 @@
   h2,
   h3 {
     @include patterns.fancy-text;
+  }
+
+  h2,
+  h3,
+  p {
     margin: 0;
   }
 
   p {
-    margin: 0;
+    font-size: var(--small);
   }
 }

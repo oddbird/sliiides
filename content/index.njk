@@ -7,17 +7,19 @@ title: OddBird Slides
 <section data-events="talks">
 <h2>Talks:</h2>
 
-{% for talk in collections.talks -%}
+{% for talk in collections.talks | sortPages -%}
 <article class="event">
+  <p>
   <time datetime="{{ talk.start | getDate('iso') }}">
     {{- talk.start | getDate('range') -}}
   </time>
   {%- if talk.start != talk.end -%}
-    {{- '--' | mdInline | safe -}}
+    {{- '–' -}}
     <time datetime="{{ talk.end | getDate('iso') }}">
       {{- talk.end | getDate('range') -}}
     </time>
   {% endif %}
+  </p>
 
   <h3>
     {{ utility.link_if(

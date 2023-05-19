@@ -15,13 +15,14 @@
   [data-view='grid'] & {
     grid-gap: var(--double-gutter);
     grid-auto-rows: auto;
-    grid-template-columns: repeat(auto-fit, minmax(var(--page), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-page), 1fr));
     padding: var(--spacer) var(--gutter);
     place-content: safe center;
   }
 }
 
 [id^='slide'] {
+  container: slide / inline-size;
   display: grid;
   grid-template: 'slide' 1fr 'script' auto / 100%;
   scroll-snap-align: start;
@@ -49,7 +50,7 @@
   }
 
   @media print {
-    contain: layout size paint;
+    contain: size;
     height: 100vh;
     overflow: hidden;
   }
@@ -60,6 +61,7 @@
   border-top: thin solid var(--border);
   color: var(--slide-color, var(--text));
   display: grid;
+  font-size: min(0.25rem + 2cqi, 3cqi);
   grid-area: slide;
   grid-template: 'content' 1fr 'footer' auto / var(--width, 1fr);
 

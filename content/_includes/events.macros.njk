@@ -3,11 +3,13 @@
 {% macro talks(pages) %}
 {% if pages | length > 0 %}
   <section data-events='talks'>
-  {% for event in pages | sort(true, false, 'date') %}
+  {% for event in pages | sortPages %}
     <article class="event">
-      <time>
-        {{ event.date | getDate('short') }}
-      </time>
+      <p>
+        <time>
+          {{ event.date | getDate('short') }}
+        </time>
+      </p>
       <h2>
         {{ utility.link_if(
           event.data.venue,
@@ -25,7 +27,7 @@
 {% macro workshop_talks(pages) %}
 {% if pages | length > 0 %}
   <section data-events='workshop-talks'>
-    {% for date, events in pages | sort(false, false, 'date') | groupby('date') %}
+    {% for date, events in pages | sortPages | groupby('date') %}
       <article class="workshop">
         <h2>
           {{ date | getDate('short') }}

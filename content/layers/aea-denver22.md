@@ -19,6 +19,7 @@ slides:
     Cascading HTML style sheets -- a proposal,
     Håkon W Lie, 10 Oct 1994
   position: top
+  fit: contain
   background: white
   <<: *proposal
 
@@ -85,6 +86,7 @@ slides:
     info.cern.ch
     HTML Design Constraints, screenshot
   position: top
+  fit: contain
   background: white
   caption: info.cern.ch/hypertext/WWW/TheProject.html
 
@@ -251,6 +253,7 @@ slides:
     Cascading HTML style sheets -- a proposal,
     Håkon W Lie, 10 Oct 1994
   position: top
+  fit: contain
   background: white
   <<: *proposal
 
@@ -420,6 +423,7 @@ slides:
     Cascading HTML style sheets -- a proposal,
     Håkon W Lie, 10 Oct 1994
   position: top
+  fit: contain
   background: white
   <<: *proposal
 

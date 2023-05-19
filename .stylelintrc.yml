@@ -18,10 +18,6 @@ rules:
   prettier/prettier: true
 
   at-rule-no-unknown: null
-  property-no-unknown:
-    - true
-    - ignoreProperties:
-        - '/^.*\.\$.*/'
   scss/at-rule-no-unknown:
     - true
     - ignoreAtRules:
@@ -47,3 +43,9 @@ rules:
   selector-no-vendor-prefix: true
   shorthand-property-no-redundant-values: true
   value-no-vendor-prefix: true
+
+  # container queries trigger these
+  unit-no-unknown: null
+  no-empty-source: null
+  property-no-unknown: null
+  function-calc-no-invalid: null

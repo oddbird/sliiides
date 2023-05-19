@@ -4,7 +4,7 @@
   @include tools.z-index('banner');
   background: var(--overlay);
   display: grid;
-  font-size: var(--xsmall);
+  font-size: var(--small);
   grid-gap: var(--gutter);
   grid-template: 'bread links' auto / 1fr auto;
   padding: var(--half-shim) var(--gutter);

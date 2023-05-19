@@ -14,11 +14,6 @@ html {
   }
 }
 
-[data-view='grid'] {
-  --rem: 1em;
-  --scale: 0.25vw;
-}
-
 [data-smooth] {
   @media screen and (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;

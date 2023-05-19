@@ -8,15 +8,11 @@
 {% endmacro %}
 
 {% macro oddbird(slide, page) %}
-  {%- set caption -%}
-    Established in <strong>2008</strong> by three odd siblings
-  {%- endset -%}
-  {%- set slide = slide | merge({'caption': caption}) -%}
-  {% call slides.base(slide, 'intro-oddbird', page) %}
-    {{ embed.svg('svg/oddbird') }}
-    <h2><strong>OddBird</strong> <i>Consulting</i></h2>
-    <p>Custom Apps, Design Systems, Training, & Refactors</p>
-  {% endcall %}
+  {%- set slide = slide | merge({
+    'caption': 'Custom Web Apps & Design Systems',
+    'logo': 'oddbird'
+  }) -%}
+  {{ logo(slide, page) }}
 {% endmacro %}
 
 {% macro oss(slide, page) %}

@@ -22,12 +22,12 @@ $ratios: (
 /// @sizes {text}
 /// @group config-scale
 $font-sizes: (
-  'small': max(16px, 0.75rem),
-  'xsmall': max(14px, 0.5rem),
-  'rem': calc(1.25em + 1.25vw),
-  'medium': 1.25rem,
-  'large': calc(1.25rem + var(--scale)),
-  'xlarge': calc(1.5rem + var(--scale) * 2),
+  'small': max(16px, 0.75em),
+  'xsmall': max(14px, 0.5em),
+  'rem': calc(1.25em + 0.5cqi),
+  'medium': 1.25em,
+  'large': max(1.25em, 0.5em + 2cqi),
+  'xlarge': max(1.25em, 0.5em + 4cqi),
   'h1': '#xlarge',
   'h2': '#xlarge',
   'h3': '#large',
@@ -48,7 +48,6 @@ $font-sizes: (
 /// @sizes {ruler}
 /// @group config-scale
 $spacing-sizes: (
-  'scale': 1vw,
   'gutter': 0.75rem,
   'newline': '#gutter',
   'gutter-plus': calc(var(--gutter) * 1.5),
@@ -94,10 +93,10 @@ $theme-sizes: (
 /// @sizes {output-only}
 /// @group config-scale
 $page-sizes: (
-  'grid-item': 12rem,
-  'min-page': 22rem,
-  'page': 30rem,
-  'wide-page': 38rem,
+  'grid-item': 12em,
+  'min-page': 30ch,
+  'page': 60ch,
+  'wide-page': 70ch,
   'wide-break': 56em,
 );
 

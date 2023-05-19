@@ -207,6 +207,8 @@ params:
 const findPage = (collection, keys, value) =>
   collection.find((page) => hasData(page, keys, value));
 
+const sortPages = (collection) => collection.sort((a, b) => a.date - b.date);
+
 module.exports = {
   isPublic,
   isVisible,
@@ -220,4 +222,5 @@ module.exports = {
   getData,
   findData,
   withData,
+  sortPages,
 };

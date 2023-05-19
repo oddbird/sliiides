@@ -62,6 +62,11 @@ tt {
   }
 }
 
+code,
+code[class*='language-'] {
+  font-size: var(--code);
+}
+
 mark {
   background: var(--callout);
   color: var(--text);

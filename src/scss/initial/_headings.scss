@@ -37,20 +37,14 @@ h2 {
     @include fonts.var('extra');
   }
 
-  .pre,
   i,
   code,
   em {
     @include fonts.var('light');
   }
 
-  .pre,
   i {
     @include fonts.var('italic');
-  }
-
-  .pre {
-    display: block;
   }
 }
 
@@ -65,12 +59,18 @@ h2 {
 h3 {
   @include fonts.var('bold' 'fun');
   font-size: var(--h3);
-
-  &.pre {
-    @include fonts.var('light' 'italic');
-  }
 }
 
 h4 {
   font-size: var(--h4);
+}
+
+.pre {
+  @include fonts.var('light' 'italic');
+  display: block;
+  margin: 0;
+
+  + * {
+    margin-top: 0;
+  }
 }

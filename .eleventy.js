@@ -43,10 +43,7 @@ module.exports = (eleventyConfig) => {
           (title) => title !== home.data.title,
         );
 
-        const dates = decks
-          .map((page) => page.date)
-          .sort()
-          .reverse();
+        const dates = decks.map((page) => page.date).sort((a, b) => a - b);
 
         return {
           home,
@@ -91,6 +88,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter('getData', pages.getData);
   eleventyConfig.addFilter('findData', pages.findData);
   eleventyConfig.addFilter('withData', pages.withData);
+  eleventyConfig.addFilter('sortPages', pages.sortPages);
 
   eleventyConfig.addFilter('typogr', type.typogr);
   eleventyConfig.addFilter('md', type.md);

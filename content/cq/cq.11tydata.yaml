@@ -1,0 +1,17 @@
+layout: slides
+title: CSS Containers. What Do They Know?
+talk: |
+  **CSS Containers**. What Do They Know?
+home: /cq/
+description: |
+  How did Container Queries go
+  from ‘impossible’ to ‘shipping’
+  after so many years?
+  How do we use them,
+  and what hidden powers do they have?
+  What are CSS containers,
+  and what queries can they respond to?
+  Let’s find out!
+tags:
+  - cq
+  - talk

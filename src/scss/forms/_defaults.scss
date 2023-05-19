@@ -10,7 +10,7 @@ textarea {
 /// @group forms
 select {
   font: inherit;
-  font-size: var(--xsmall);
+  font-size: var(--small);
   width: 100%;
 }
 
@@ -23,6 +23,6 @@ fieldset {
 
 /// @group forms
 legend {
-  font-size: var(--xsmall);
+  font-size: var(--small);
   padding: 0 var(--shim);
 }
