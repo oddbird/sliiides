@@ -140,6 +140,14 @@ slides:
     They would cause **infinite layout loops**.
   cite: Browsers, A Paraphrase (circa 2020)
 
+- quote: >
+    Would you like
+    some **very flexible boxes**
+    instead?
+    You can center them
+    if you want.
+  cite: Browsers
+
 - pen: flexbox
   id: LYgqwyp
 - pen: Grid auto-fit
@@ -220,6 +228,26 @@ slides:
     autocorrect, and autocomplete
 - caniuse: css-container-queries
 
+- img: queries-units/2-weeks-2-browsers.jpg
+  alt: |
+    2 weeks 2 browser engines
+    scribbled in red
+    over a 2 fast 2 furious poster
+    with three cars trailing neon streaks
+  caption: |
+    **August/September 2022** -- Chrome/Edge 105 & Safari 16
+
+- title: There's a **Polyfill**
+  sub: |
+    [GoogleChromeLabs/container-query-polyfill](https://github.com/GoogleChromeLabs/container-query-polyfill)
+
+- css: |
+    @container (min-width: 30em) { /* CQ support */ }
+
+    @supports not (container: name) {
+      /* no CQ support */
+    }
+
 - css: |
     @media (min-width: 40em) {
       .card { /* ... */ }
@@ -240,6 +268,22 @@ slides:
       h2 { /* ... */ }
     }
   caption: Query named containers
+
+- css: |
+    @container (inline-size: 40em) {
+      .card { /* ... */ }
+      h2 { /* ... */ }
+    }
+  caption: Logical dimensions
+- css: |
+    @container (20em > inline-size > 40em) {
+      .card { /* ... */ }
+      h2 { /* ... */ }
+    }
+  caption: >
+    [Range queries](https://caniuse.com/css-media-range-syntax)
+    (also in `@media` now!)
+
 - pen: media-v-container
   print: media-v-container-break
 
@@ -277,6 +321,11 @@ slides:
   cite: W3C [Mission Statement](https://w3.org/Consortium/mission.html#principles)
 - img: dynamic-css/devices.jpg
   alt: A zillion different devices of all sizes (original)
+- img: css-next/spider-man-web.jpg
+  alt: |
+    Spider man crawling towards you
+    with webs everywhere
+
 - quote: |
     There are **too many variables to consider.**
   cite: Keith J Grant
@@ -305,12 +354,12 @@ slides:
 - pre: We can't _style_
   title: The Container **Being Queried**
 
-- pre: Or _any of__
+- pre: Or _anything about_
   title: The Container's **Context**
 
 - pre: For
   title: >
-    **Size**/**Layout** Queries…
+    **Size**-Related Queries…
 
 - pre: We Need to
   title: |
@@ -328,7 +377,7 @@ slides:
   title: Removes **Intrinsic Sizing**
 
 - pre: Also need to
-  title: Contain **`Layout`** & **`Style`**
+  title: Contain **Layout** & **Style**
 
 - pen: Understanding containment
   id: oNaVvad
@@ -346,11 +395,7 @@ slides:
     [Thoughts on an implementable path forward for Container Queries](https://github.com/dbaron/container-queries-implementability),
     by **David Baron**
 
-- pre: Provide an
-  title: >
-    **Extrinsic** Inline-Size
-
-- pre: Only
+- pre: Only _contain_ and
   title: Measure the **Inline-Size**
 
 - pre: Maintain the
@@ -361,7 +406,7 @@ slides:
 - pen: Containing Size
   id: OJBqJmy
 
-- pre: Use _`size`_
+- pre: Use _`size`_ containment
   title: With **Overflowing Containers**
   sub: (like the `html` element)
 
@@ -374,6 +419,7 @@ slides:
 
 - pre: Only some
   title: Elements Are **Containers**
+  sub: (We can't measure _everything_)
 
 - pre: We create them
   title: >
@@ -409,18 +455,23 @@ slides:
     }
   caption: shorthand - `names / types`
 
+- pre: Names can be
+  title: >
+    Like **Classes** or **IDs**
+  sub: (shared or unique -- establish conventions!)
+
 - css: |
     @container (min-width: 40em) {
-      .conditional-styles { /* … */ }
+      .conditional { /* … */ }
     }
 
 - css: |
     @container layout (min-width: 40em) {
-      .conditional-styles { /* … */ }
+      .conditional { /* … */ }
     }
 
     @container root (min-width: 40em) {
-      .conditional-styles { /* … */ }
+      .conditional { /* … */ }
     }
 
 - title: Finding **Containers**
@@ -437,14 +488,16 @@ slides:
   title: Can't **Self-Query**
   sub: (That would introduce loops!)
 
-- pre: Containers
-  title: Can **Query Other Containers**
+- pre: Containers can
+  title: Query **Other Containers**
 
 - pen: Enter the 36 Chambers
   id: poamBMw
 
 - pre: Always
   title: Measuring an **Ancestor**
+  sub: (can't change what you measure!)
+
 - pre: Always
   title: Measuring an **Element**
 
@@ -548,7 +601,10 @@ slides:
 - title: No **Containment** Required
 - pre: All _Elements_
   title: Are **Style Containers**
-  sub: (can still add container names as needed)
+
+- pre: Always
+  title: Queries **Direct Parent**
+  sub: Unless you query a specific `container-name`
 
 - pen: Light/Dark Style Queries
   id: wvXvxmv
@@ -561,6 +617,9 @@ slides:
 
 - pen: Queries on pseudo-classes
   id: vYjMjGd
+
+- pen: Style Queries & Computed Values
+  id: WNamboz
 
 - caniuse: css-container-queries-style
 
