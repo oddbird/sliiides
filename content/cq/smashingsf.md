@@ -139,8 +139,11 @@ slides:
     **will never be possible on the web**.
     They would cause **infinite layout loops**.
   cite: Browsers, A Paraphrase (circa 2020)
-- todo: flexbox
-- todo: grid auto-fit/fill
+
+- pen: flexbox
+  id: LYgqwyp
+- pen: Grid auto-fit
+  id: xxyMvdx
 
 - face: jensimmons.jpg
   pre: |
@@ -179,8 +182,10 @@ slides:
   fit: contain
   background: white
 
-- todo: flexbox
-- todo: grid auto-fit/fill
+- pen: flexbox
+  id: LYgqwyp
+- pen: Grid auto-fit
+  id: xxyMvdx
 
 # cqs are here!
 - title: We're Not In **2020** Any More
@@ -286,7 +291,10 @@ slides:
   title: Defined by **Content**
 - title: 😎 **F**ing Cool Feature
   sub: (enables **flexbox** and **grid** layouts)
-- todo: recursion demo?
+
+- title: 🤯 Layout **Loops**
+  sub: >
+    💥 Size » Query Change » Resize 💥
 
 - title: For **Queries** to Work…
 
@@ -319,8 +327,14 @@ slides:
 - pre: Size _containment_
   title: Removes **Intrinsic Sizing**
 
+- pre: Also need to
+  title: Contain **`Layout`** & **`Style`**
+
+- pen: Understanding containment
+  id: oNaVvad
+
 - pre: Size _containment_
-  title: Is **Too Restrictive**
+  title: Is **Often Too Restrictive**
   caption: |
     Need a flexible dimension ("Be afraid of heights")
 
@@ -344,19 +358,15 @@ slides:
     **Intrinsic** Block-Size
   sub: so content has somewhere to _flow_
 
-- todo: size containment demo
-  caption: block els default 100% width
+- pen: Containing Size
+  id: OJBqJmy
+
+- pre: Use _`size`_
+  title: With **Overflowing Containers**
+  sub: (like the `html` element)
 
 - title: >
     ~~`contain: block-size`~~
-
-- pre: Also need to
-  title: Contain **`Layout`** & **`Style`**
-
-- todo: contain style
-  caption: List counters
-- todo: contain layout
-  caption: Stacking context & containing block (fixed position)
 
 # creating containers
 - pre: Since…
@@ -466,10 +476,6 @@ slides:
       height: 100%; /* extrinsic size */
     }
 
-- pre: Use _size_
-  title: With **Overflowing Containers**
-  sub: (like the `html` element)
-
 - css: |
     @media (min-width: 40em) {
       .card { /* … */ }
@@ -503,3 +509,111 @@ slides:
 
 - pen: Size queries, relative/var units
   id: QWZYOrM
+
+- pre: also…
+  title: Container Query **Units**
+  sub: |
+    `cqw` | `cqh` | `cqi` | `cqb` | `cqmin` | `cqmax`
+
+- pen: Container Queries, multiple articles
+  id: mdRdXJR
+  caption: we don't have to do it by hand
+
+- pen: cq-units-basic
+- pen: cq-units-nike
+
+- pre: Default _unit container_
+  title: The **Small Viewport**
+
+- img: cqs/bramus-viewports.png
+  alt: |
+    On an example phone,
+    the large viewport fills the full screen
+    with all browser chrome hidden -
+    the small viewport fills the remaining space
+    when top and bottom browser chrome are visible
+  fit: contain
+  caption: |
+    [The Large, Small, and Dynamic Viewports](https://www.bram.us/2021/07/08/the-large-small-and-dynamic-viewports/)
+    by **Bramus Van Damme**
+
+- pre: That's not…
+  title: All Containers **Know**!
+
+- title: |
+    **Style** Queries
+  css: |
+    @container style(--colors: invert) { … }
+
+- title: No **Containment** Required
+- pre: All _Elements_
+  title: Are **Style Containers**
+  sub: (can still add container names as needed)
+
+- pen: Light/Dark Style Queries
+  id: wvXvxmv
+
+- pen: Style query button themes
+  id: abGBNNx
+
+- pen: Web component style query parameters
+  id: abKVaoo
+
+- pen: Queries on pseudo-classes
+  id: vYjMjGd
+
+- caniuse: css-container-queries-style
+
+- pen: Font-style queries
+  id: YzJBobX
+- pen: List outdent with style queries
+  id: LYrOgwM
+
+- pre: Other _Questions_
+  title: |
+    For CSS **Containers**?
+  caption: |
+    [CSSWG issue for other query ideas](https://github.com/w3c/csswg-drafts/issues/5989)
+
+- title: |
+    **State** Queries (**???**)
+  caption: |
+    [CSSWG issue for state queries](https://github.com/w3c/csswg-drafts/issues/6402)
+
+- title: >
+    **???**
+  css: |
+    @container state(is-stuck) { … }
+    @container state(is-snapped) { … }
+    @container state(is-overflowing) { … }
+
+- img: cqs/thinker.jpg
+  alt: |
+    Statue of The Thinker
+    with a scribbled thought bubble asking:
+    do containers know stuff?
+  caption: Photo by [Avery Evans](https://unsplash.com/@averye457?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash
+
+- title: |
+    **Yes**.
+
+- title: |
+    Things **Containers Know**:
+  md: |
+    1. Their **Size** (if contained)
+    2. **Custom Property** Values
+    3. **Relative** Values (like `em`)
+    4. Maybe **Some States**?? (tbd)
+
+- quote: |
+    Our medium is not done.
+    Our medium is still
+    **going through radical changes**.
+  cite: Jen Simmons, *Designing with Grid*
+
+- img: cqs/smashing/enterprise-d2.jpg
+  alt: |
+    USS Enterprise D
+    from Star Trek TNG
+    taking us into the future
+  caption: Going Boldly?
