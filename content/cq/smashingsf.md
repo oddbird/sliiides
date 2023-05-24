@@ -1,5 +1,4 @@
 ---
-draft: true
 venue: SmashingConf SF
 date: 2023-05-24
 proposal: &proposal
