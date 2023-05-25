@@ -46,7 +46,15 @@ export default function () {
       case 'ArrowRight':
         move(1);
         break;
+      case 'PageDown':
+        event.preventDefault();
+        move(1);
+        break;
       case 'ArrowLeft':
+        move(-1);
+        break;
+      case 'PageUp':
+        event.preventDefault();
         move(-1);
         break;
       default:
