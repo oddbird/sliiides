@@ -28,6 +28,15 @@
   {% endcall %}
 {% endmacro %}
 
+{% macro video(slide, page) %}
+  {% call slides.base(slide, 'video iframe', page, styles) %}
+    {{ embed.iframe(
+      src=slide.video,
+      title=slide.title
+    ) }}
+  {% endcall %}
+{% endmacro %}
+
 {% macro demo(slide, page, collections) %}
   {%- set demoUrl = slide.demo if ('://' in slide.demo) else none -%}
   {%- set demoPage = false if demoUrl else collections.all | findPage('data.demo', slide.demo) -%}
@@ -126,9 +135,9 @@
 
   {%- set printStyle = {'--print': ['url("', print, '")'] | join('') } -%}
 
-  {%- set pres %}[present](https://codepen.io/{{ user }}/pres/{{ slide.id }}?editors=1100){% endset -%}
-  {%- set raw %}[debug](https://codepen.io/{{ user }}/debug/{{ slide.id }}){% endset -%}
-  {%- set links -%}[{{ [pres, raw] | join(' | ') }}]{%- endset -%}
+  {%- set pres %}<a href="https://codepen.io/{{ user }}/pres/{{ slide.id }}?editors=1100" target="_blank">present</a>{% endset -%}
+  {%- set raw %}<a href="https://codepen.io/{{ user }}/debug/{{ slide.id }}" target="_blank">debug</a>{% endset -%}
+  {%- set links -%}[{{ [pres, raw] | join(' | ') | safe }}]{%- endset -%}
   {% call slides.base(
     slide=slide | set('demoLinks', links),
     name='iframe codepen',

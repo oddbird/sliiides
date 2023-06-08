@@ -22,6 +22,11 @@
   slug: media-v-container
   print: slug
 
+- pen: Media vs Container (Live Demo)
+  id: wvQvjZV
+  slug: media-v-container-live
+  print: slug
+
 - pen: Flexbox cards, with Container Queries
   id: mdRVMbp
   slug: cq-flex

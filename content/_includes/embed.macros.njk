@@ -363,12 +363,7 @@ params:
     'mozallowfullscreen': true,
     'allowfullscreen': true
   } -%}
-  {%- set content %}<iframe {{ utility.show_attrs(attrs) }}></iframe>{% endset -%}
-  {%- if ratio -%}
-    {{- ratio(width, height, span, content) | safe -}}
-  {%- else -%}
-    {{ content | safe }}
-  {%- endif -%}
+  <iframe {{ utility.show_attrs(attrs) }}></iframe>
 {% endmacro %}
 
 {# @docs

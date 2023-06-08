@@ -55,6 +55,8 @@
 {% macro find(slide, page, collections) %}
   {% if slide.demo %}
     {{ embed.demo(slide, page, collections) }}
+  {% elif slide.video %}
+    {{ embed.video(slide, page) }}
   {% elif slide.img %}
     {{ embed.img(slide, page) }}
   {% elif slide.svg %}
