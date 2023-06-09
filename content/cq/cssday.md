@@ -5,42 +5,6 @@ proposal: &proposal
   cite: Håkon Lie
   caption: |
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
-options:
-- css: |
-    @media (min-width: 40em) {
-      .card { /* ... */ }
-      h2 { /* ... */ }
-    }
-  caption: Take a media query
-
-- css: |
-    @container (min-width: 40em) {
-      .card { /* ... */ }
-      h2 { /* ... */ }
-    }
-  caption: Query a container instead
-
-- css: |
-    @container named-container (min-width: 40em) {
-      .card { /* ... */ }
-      h2 { /* ... */ }
-    }
-  caption: Query named containers
-
-- css: |
-    @container (inline-size: 40em) {
-      .card { /* ... */ }
-      h2 { /* ... */ }
-    }
-  caption: Logical dimensions
-- css: |
-    @container (20em > inline-size > 40em) {
-      .card { /* ... */ }
-      h2 { /* ... */ }
-    }
-  caption: >
-    [Range queries](https://caniuse.com/css-media-range-syntax)
-    (also in `@media` now!)
 
 slides:
 
@@ -92,6 +56,14 @@ slides:
   background: white
   caption: |
     Containers can be nested
+- img: css-next/rwd.jpg
+  alt: |
+    A List Apart:
+    Responsive Web Design
+    by Ethan Marcotte (May 25, 2010)
+  caption: |
+    [Responsive Web Design](https://alistapart.com/article/responsive-web-design/)
+    by **Ethan Marcotte**, 2010
 - img: cqs/selector-queries.jpg
   alt: |
     Github page for an Initial demo commit
@@ -179,6 +151,13 @@ slides:
   id: xxyMvdx
   caption: 2017, **Grid**
 
+- title: |
+    **Intrinsic** Web Design
+  sub: |
+    The _responsive web_ keeps evolving…
+  caption: |
+    [Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
+
 - face: jensimmons.jpg
   pre: |
     @jensimmons
@@ -186,6 +165,15 @@ slides:
     **Jen** Simmons
   md: |
     [Everything You Know About Web Design Just Changed](https://youtu.be/jBwBACbRuGY)
+
+- pre: >
+    _Responsive_ Web Design
+  title: Forces Everything **Fluid**
+  sub: Using `%` for everything
+- pre: >
+    _Intrinsic_ Web Design
+  title: Combines **Fluid** & **Fixed**
+  sub: Using _intrinsic_ size of elements
 
 - md: |
     1. Truly **Two-Dimensional** Layouts
@@ -207,16 +195,9 @@ slides:
 - pen: Grid auto-fit
   id: xxyMvdx
 
-- title: |
-    **Intrinsic** Web Design
-  sub: |
-    The _responsive web_ keeps evolving…
-  caption: |
-    [Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
-
 - md: |
-    4. ## **Nested** Contexts _???_
-    5. ## **Expand** & **Contract** Content _???_
+    1. ## **Nested** Contexts _???_
+    2. ## **Expand** & **Contract** Content _???_
 - img: queries-units/cq-nested-containers.jpg
   alt: |
     An outline of nested containers,
@@ -384,8 +365,21 @@ slides:
     [Thoughts on an implementable path forward for Container Queries](https://github.com/dbaron/container-queries-implementability),
     by **David Baron**
 
+- pen: >
+    💥 Inline Containment Error, Auto-sized BFCs effected by floats
+  id: mdmJRxW
+  caption: >
+    [Ancestor Layout Loops with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
+
+- title: >
+    ~~`contain: block-size`~~
+
 - pre: We can _only_
   title: Measure The **Axis We Contain**
+
+- sub: To query _height_...
+  title: >
+    `contain:` _`size`_
 
 - pre: Use _`size`_ containment
   title: With **Overflowing Containers**
@@ -393,15 +387,6 @@ slides:
 
 - pen: Containing Size
   id: OJBqJmy
-
-- title: >
-    ~~`contain: block-size`~~
-
-- pen: >
-    💥 Inline Containment Error, Auto-sized BFCs effected by floats
-  id: mdmJRxW
-  caption: >
-    [Ancestor Layout Loops with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
 
 - pre: Also need to
   title: Contain **Layout** & **Style**
@@ -413,11 +398,7 @@ slides:
 - pre: Since…
   title: Containment is **Invasive**
 
-- pre: Only some
-  title: Elements Are **Containers**
-  sub: (We can't measure _everything_)
-
-- pre: We create them
+- pre: We create _containers_
   title: >
     **Explicitly** and **Carefully**
 
@@ -447,33 +428,38 @@ slides:
 - css: |
     @media (min-width: 40em) {
       .card { /* … */ }
+      h2 { /* ... */ }
     }
 
 - css: |
     @container (min-width: 40em) {
       .card { /* … */ }
+      h2 { /* ... */ }
     }
 
 - css: |
     @container (width > 40em) {
       .card { /* … */ }
+      h2 { /* ... */ }
     }
 
-- title: Why **Bother**?
+- css: |
+    @container (inline-size > 40em) {
+      .card { /* ... */ }
+      h2 { /* ... */ }
+    }
+  caption: Logical dimensions
 
-- img: cqs/cssday/manuel.jpg
-  alt: >
-    A beer and laptop
-    on a small table
-    in front of some bikes
-    with a canal in the back,
-    slide visible on the computer says:
-    That's not how I wrote CSS
-    3 years ago
-- img: cqs/cssday/manuel-spoiler.jpg
-  alt: >
-    Same image from previous slide,
-    but covered by a spoiler alert
+- css: |
+    @container (20em > inline-size > 40em) {
+      .card { /* ... */ }
+      h2 { /* ... */ }
+    }
+  caption: >
+    [Range queries](https://caniuse.com/css-media-range-syntax)
+    (also in `@media` now!)
+
+- title: Why **Bother** on **Root**?
 
 - pre: >
     _Container_ Queries
@@ -723,13 +709,6 @@ slides:
 - title: |
     **Yes**.
 
-- img: cqs/container-yeah.jpg
-  position: top
-  alt: |
-    Yellow shipping container
-    with a red hand-written speech bubble:
-    I'm contained, AMA
-
 - title: |
     Things **Containers Know**:
   md: |
@@ -743,3 +722,24 @@ slides:
     The thinker
     with a red scribbled thought bubble:
     WTF?!
+
+- img: cqs/cssday/manuel.jpg
+  alt: >
+    A beer and laptop
+    on a small table
+    in front of some bikes
+    with a canal in the back,
+    slide visible on the computer says:
+    That's not how I wrote CSS
+    3 years ago
+- img: cqs/cssday/manuel-spoiler.jpg
+  alt: >
+    Same image from previous slide,
+    but covered by a spoiler alert
+
+- img: cqs/container-yeah.jpg
+  position: top
+  alt: |
+    Yellow shipping container
+    with a red hand-written speech bubble:
+    I'm contained, AMA
