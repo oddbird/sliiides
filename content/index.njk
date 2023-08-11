@@ -48,17 +48,22 @@ title: OddBird Slides
 <section data-events="talks">
 <h2>Workshops:</h2>
 
-{% for item in collections.workshop | withData('data.index') -%}
-{%- if not item.data.venue -%}
-{%- set title = item.data.workshop or item.data.title -%}
+{% for item in collections.workshop | withData('data.index') | reverse -%}
 <article class="event">
+  <p>
+    <time datetime="{{ item.date | getDate('iso') }}">
+      {{- item.date | getDate('range') -}}
+    </time>
+    at
+    <strong>{{ item.data.venue }}</strong>
+  </p>
+
   <h3>
     {{ utility.link_if(
-      title | mdInline | safe,
+      item.data.workshop,
       item.url
     )}}
   </h3>
 </article>
-{% endif -%}
 {%- endfor %}
 </section>

@@ -1,0 +1,8 @@
+layout: slides
+workshop: Resilient Web Systems
+venue: Smashing Online
+home: /rws/smashing/
+permalink: "/rws/smashing/{{ page.fileSlug }}/index.html"
+tags:
+  - workshop
+  - smashing online 2020
