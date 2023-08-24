@@ -2,9 +2,9 @@
   display: grid;
   grid-gap: 0.125em;
   grid-template-columns:
-    repeat(5, 1fr)
+    repeat(6, 1fr)
     auto
-    repeat(5, 1fr)
+    repeat(6, 1fr)
   ;
   justify-content: center;
 }
@@ -32,26 +32,6 @@
 
 [open] {
   --bgi-a: 1;
-}
-
-[data-cat='context'] {
-  --i: 1;
-}
-
-[data-cat='style'] {
-  --i: 2;
-}
-
-[data-cat='layers'] {
-  --i: 3;
-}
-
-[data-cat='specificity'] {
-  --i: 4;
-}
-
-[data-cat='order'] {
-  --i: 5;
 }
 
 summary {

@@ -21,10 +21,10 @@ _the cascade of styles_.
 
 - 9:00 am – Doors open, Registration
 - 9:30 am – Introduction & Kick-off
-- 11:00 am – Coffee Break
+- 11:00 am – 15m Coffee Break
 - 1:00 pm – Lunch
 - 2:00 pm – Afternoon Session
-- 3:30 pm – Coffee Break
+- 3:30 pm – 15m Coffee Break
 - 5:30 pm – The End
 
 ---

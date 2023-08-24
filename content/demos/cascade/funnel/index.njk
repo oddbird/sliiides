@@ -6,7 +6,7 @@ demo: cascade-funnel
 <h2>The <strong>Cascade</strong></h2>
 
 <div class='cascade-list'>
-  <details data-cat='origin' class='has-import'>
+  <details style='--i: 0' data-cat='origin' class='has-import'>
     <summary>Origin & Importance</summary>
     <div class="cat-content">
       <ol layer-list='combined'>
@@ -25,7 +25,7 @@ demo: cascade-funnel
     </div>
   </details>
 
-  <details data-cat='context' class='has-import'>
+  <details style='--i: 1' data-cat='context' class='has-import'>
     <summary>(Shadow) Context</summary>
     <div class="cat-content">
       <strong class='label' data-side='important'>important</strong>
@@ -41,7 +41,7 @@ demo: cascade-funnel
     </div>
   </details>
 
-  <details data-cat='style' class='has-import'>
+  <details style='--i: 2' data-cat='style' class='has-import'>
     <summary>Element-Attached Styles</summary>
     <div class="cat-content">
       <strong class='label' data-side='important'>important</strong>
@@ -57,7 +57,7 @@ demo: cascade-funnel
     </div>
   </details>
 
-  <details data-cat='layers' class='has-import'>
+  <details style='--i: 3' data-cat='layers' class='has-import'>
     <summary>Cascade Layers <em>(new!)</em></summary>
     <div class="cat-content">
       <strong class='label' data-side='important'>important</strong>
@@ -77,7 +77,7 @@ demo: cascade-funnel
     </div>
   </details>
 
-  <details data-cat='specificity'>
+  <details style='--i: 4' data-cat='specificity'>
     <summary>Selector Specificity</summary>
     <div class="cat-content">
       <ol layer-list='combined'>
@@ -99,7 +99,14 @@ demo: cascade-funnel
     </div>
   </details>
 
-  <details data-cat='order'>
+  <details style='--i: 5' data-cat='scope'>
+    <summary>Scope Proximity <em>(proposed)</em></summary>
+    <div class="cat-content">
+      <p>Nearest scope root (in the DOM) wins</p>
+    </div>
+  </details>
+
+  <details style='--i: 6' data-cat='order'>
     <summary>Order of Appearance</summary>
     <div class="cat-content">
       <p>Last style wins!</p>

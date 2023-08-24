@@ -32,7 +32,7 @@
         <h2>
           {{ date | getDate('short') }}
         </h2>
-        <ul>
+        <ol>
           {% for event in events %}
             <li>
               {{ utility.link_if(
@@ -41,7 +41,7 @@
               ) }}
             </li>
           {% endfor %}
-        </ul>
+        </ol>
       </article>
     {% endfor %}
   </section>
