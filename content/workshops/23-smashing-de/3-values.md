@@ -1,6 +1,6 @@
 ---
 draft: true
-talk: Resilient Styles
+talk: Value Resolution & Custom Properties
 date: 2023-09-06
 slides:
 

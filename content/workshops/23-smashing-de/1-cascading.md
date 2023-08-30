@@ -321,17 +321,6 @@ slides:
     **Cascading** filters out \
     **Inheritance** fills in
 
-- img: conventions/systems-cascade.jpg
-  alt: |
-    Product label for Cascade,
-    with sheeting action for virtually spotless dishes -
-    subtitled 'Use the Cascade'
-  position: top
-  caption: |
-    Slide from Natalie Downe's 2008
-    [**CSS Systems**](http://www.slideshare.net/nataliedowne/css-systems-presentation)
-    talk
-
 - img: css-next/thunderdome-words.jpg
   alt: |
     Tina Turner as Aunty Entity
@@ -348,6 +337,16 @@ slides:
     with a ramp at the top
     and a small-to-large series of slots
   fit: contain
+- md: |
+    1. Is it marked as `!important`?
+    2. Who requested the style?
+    3. Does it come from the shadow DOM?
+    4. Is it an inline style?
+    5. What cascade layer is it in? (new)
+    6. What is the **selector specificity**?
+    7. How close is the scope root? (proposed)
+    8. Which comes last?
+
 - img: css-next/coins-exclusive.jpg
   alt: |
     Same coin sorter,
@@ -939,32 +938,17 @@ slides:
 
 # Recommendations
 
-- title: Getting **Started**
-  sub: my _recommendations_, your milage may vary
-
-- pre: Start with
-  title: A **Layer Order**
-
-- css: |
-    /* add as the first styles */
-    @layer reset, framework, components, utilities;
-  caption: |
-    Start simple, and append as needed…
-
-- html: |
-    <style>/* keep this before linked styles */
-    @layer reset, framework, components, utilities;
-    </style>
-    <link rel="stylesheet" href="…">
-    <link rel="stylesheet" href="…">
-  caption: |
-    Can live in the HTML, if that keeps it central
-
-- pre: Then
+- pre: Layers are great for…
   title: |
-    Layer **Dependencies**
+    Managing **Architecture**
   sub: |
-    *Including inter-org dependencies
+    (We'll cover this in detail later)
+
+- pre: Layers are great for…
+  title: |
+    Managing **Dependencies**
+  sub: |
+    Including inter-org dependencies
 
 - pre: Clearly define…
   title: Each **Tool's Priority**
@@ -979,50 +963,9 @@ slides:
       /* anything here will override bootstrap */
     }
 
-- pre: As you go
-  title: Update **Layer Order**
-
-- pre: Then _Layer_
-  title: Overall **Architecture**
-
-- pre: Working from
-  title: |
-    **Lowest** to **Highest**
-
-- from: itcss
-  use: graph
-- img: layers/chart-part-1.jpg
-  fit: contain
-  background: white
-- img: layers/chart-part-2.jpg
-  fit: contain
-  background: white
-- img: layers/chart-part-3.jpg
-  fit: contain
-  background: white
-- img: layers/chart-layers.jpg
-  fit: contain
-  background: white
-
-- title: |
-    Single File **Components**?
-
-- html: |
-    /* Vue example */
-    <template>…</template>
-    <script>…</script>
-
-    <style>
-    @layer components {
-      /* all our component styles */
-    }
-    </style>
-
-- pre: As useful,
-  title: Layer **Inside Components**
-
-- title: |
-    **Nested** Sub-Layers
+- pre: Layers are great for…
+  title: >
+    **Overlapping** Concerns
 
 - pen: layers-btn
 
@@ -1069,7 +1012,7 @@ slides:
   title: The **Only Tool**
 
 - pre: Learn to
-  title: Use **Selectors**
+  title: Use **More Selectors**
 
 - css: |
     [id="example"] {
@@ -1117,6 +1060,7 @@ slides:
 
 - pre: Remember…
   title: Unlayered Styles **Win**
+  sub: This can be surprising
 - pre: Bad for
   title: >
     **Progressive** Enhancement

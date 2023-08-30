@@ -7,4 +7,5 @@ html {
   beep: boop;
   color: white;
   color: color(display-p3 0.9975 0.7295 0.8147);
+  color: fake;
 }

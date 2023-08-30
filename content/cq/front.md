@@ -1,5 +1,4 @@
 ---
-draft: true
 venue: Front Conference
 date: 2023-08-31
 proposal: &proposal
@@ -105,11 +104,16 @@ slides:
     from behind the shrubbery
   caption: Photo by [Avery Evans](https://unsplash.com/@averye457?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash
 
+- img: cqs/please-dont.jpg
+  alt: |
+    Please don't feed the animals
+    hand-painted sign,
+    scribbled over to say:
+    please don't query the containers
+  fit: contain
+
 - quote: >
     Containers **don't know anything**.
-  cite: Browsers
-- quote: >
-    It's **not gonna happen**!
   cite: Browsers
 - quote: >
     **Stop asking**!
@@ -120,33 +124,136 @@ slides:
     They would cause **infinite layout loops**.
   cite: Browsers, A Paraphrase (circa 2020)
 
-- img: cqs/please-dont.jpg
+- title: They're **Not Wrong**
+
+- img: layers/back-to-the-future.jpg
   alt: |
-    Please don't feed the animals
-    hand-painted sign,
-    scribbled over to say:
-    please don't query the containers
-  fit: contain
+    Back to the future
+    flaming tire tracks between
+    Doc and Marty's legs,
+    as they look back in surprise.
+  caption: >
+    Back to 1990, early web
 
-- quote: >
-    Would you like
-    some **very flexible boxes**
-    instead?
-  cite: Browsers
+- img: no-harm/www-browser.jpg
+  alt: The first world wide website & graphic browser
+  position: top
+  caption: |
+    1990 [WWW HyperMedia Browser](https://worldwideweb.cern.ch/browser/)
+    & *Editor*
+- img: layers/www-browser-zoom-next.jpg
+  alt: Zoom in on NEXT logo in top right corner of the browser
+  position: top right
+  caption: |
+    Built for the NEXT machine
 
+- img: process/ibm-pc.jpg
+  alt: Old IBM desktop
+  position: top
+- img: no-harm/line-mode.jpg
+  alt: The second browser, a text-only terminal
+  position: top
+  caption: |
+    [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
+    developed by **Nicola Pellow**
+- quote: |
+    Web **for all**. Web **on everything**.
+  cite: W3C [Mission Statement](https://w3.org/Consortium/mission.html#principles)
+- img: dynamic-css/devices.jpg
+  alt: A zillion different devices of all sizes (original)
+- img: css-next/spider-man-web.jpg
+  alt: |
+    Spider man crawling towards you
+    with webs everywhere
+
+- img: css-next/smashsf/sidesaddle-indd.jpg
+  alt: |
+    InDesign book-cover layout
+    for Riding SideSaddle,
+    my novel in a box
+
+- img: css-next/smashsf/sidesaddle-box.jpg
+  alt: |
+    Final novel-in-a-box,
+    Riding SideSaddle
+
+- img: css-next/smashsf/sidesaddle-box-click.jpg
+  alt: |
+    Same photo,
+    but with a badly overlaid cursor pointer
+    and three big scribbled red question marks
+
+- img: css-next/smashsf/sidesaddle-box.jpg
+  alt: |
+    Final novel-in-a-box,
+    Riding SideSaddle
+
+- quote: |
+    The fact we can **control** a paper page
+    is really **a limitation of that medium**.
+  cite: John Allsopp, 2000
+  caption: |
+    [A Dao of Web Design](http://alistapart.com/article/dao)
+
+- pre: Web _Design_
+  title: Needs to **Adapt**…
+
+- pre: |
+    `@media`
+  title: |
+    _`min-width`_
+  caption: Viewport dimensions
+
+- pre: |
+    `@media`
+  title: |
+    _`prefers-reduced-motion`_
+  caption: User needs & preferences
+
+- pre: |
+    `@media`
+  title: |
+    _`hover`_
+  caption: Device interfaces
+
+- pre: |
+    `@supports`
+  title: |
+    _`container-type: inline-size`_
+  caption: Browser capabilities over time
+
+- svg: svg/content/more-more
+  alt: Animation of twitter-like posts appearing
+
+- quote: |
+    We're designing _dynamic content_
+    with _unknown collaborators_
+    on an _infinite and unknowable canvas_,
+    across _operating systems_, _interfaces_,
+    _writing-modes_, & _languages_...
+  cite: me
+
+- demo: normal-flow
+  caption: AKA "Block Layout"
+- pre: Every _box_ has
+  title: An **Intrinsic Size**
+  sub: defined by **content**
+- pre: Some _boxes_ have
+  title: An **Extrinsic Size**
+  sub: defined by **containers**/attributes/etc
+
+- title: 🤯 Makes Queries **Recursive**
+  sub: >
+    💥 Size » Query » Change » Resize 💥
+- title: 😎 **F**ing Cool Feature
+- pen: Awesome Editable
+  id: KKbzJZV/ad9083cecfbac3943e3d886c020cab22
 - pen: flexbox
   id: LYgqwyp
   caption: 2012, **Flexbox**
 - pen: Grid auto-fit
   id: xxyMvdx
   caption: 2017, **Grid**
-
-- title: |
-    **Intrinsic** Web Design
-  sub: |
-    The _responsive web_ keeps evolving…
-  caption: |
-    [Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
 
 - face: jensimmons.jpg
   pre: |
@@ -156,14 +263,21 @@ slides:
   md: |
     [Everything You Know About Web Design Just Changed](https://youtu.be/jBwBACbRuGY)
 
+- title: |
+    **Intrinsic** Web Design
+  sub: |
+    The _responsive web_ keeps evolving…
+  caption: |
+    [Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
+
 - pre: >
     _Responsive_ Web Design
   title: Forces Everything **Fluid**
-  sub: Using `%` for everything
+  sub: 2010s -- Using `%` for everything
 - pre: >
     _Intrinsic_ Web Design
   title: Combines **Fluid** & **Fixed**
-  sub: Using _intrinsic_ size of elements
+  sub: 2020s -- Using _intrinsic_ size of elements
 
 - md: |
     1. Truly **Two-Dimensional** Layouts
@@ -175,19 +289,9 @@ slides:
   caption: |
     [Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
 
-- title: >
-    Media Queries are **Obsolete**!\*
-  sub: >
-    (\* in some situations)
-
-- pen: flexbox
-  id: LYgqwyp
-- pen: Grid auto-fit
-  id: xxyMvdx
-
 - md: |
-    1. ## **Nested** Contexts _???_
-    2. ## **Expand** & **Contract** Content _???_
+    5. ## **Nested** Contexts _???_
+    6. ## **Expand** & **Contract** Content _???_
 - img: queries-units/cq-nested-containers.jpg
   alt: |
     An outline of nested containers,
@@ -196,9 +300,16 @@ slides:
     which has smaller nested grid-items.
   fit: contain
   background: white
+- img: cqs/cat-box-query.jpg
+  position: top
+  alt: |
+    cat in a box, thinking
+    'OMG I have so many questions for this damn box'
+  caption: Photo by [Sahand Babali](https://unsplash.com/@sahandbabali?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash
 
 # cqs are here!
 - title: We're Not In **2020** Any More
+- title: This is **The Future** Now
 - img: cqs/flying-jetsons.jpg
   alt: >
     The Jetsons in their cartoon flying car
@@ -251,75 +362,35 @@ slides:
 
 - pen: media-v-container-live
 
+- title: Progressive **Enhancement**...
+  css: |
+    /* explicit fallbacks, rarely needed */
+    @supports not (container: name) { /* … */ }
+
+- title: There's a **Polyfill**
+  sub: |
+    [GoogleChromeLabs/container-query-polyfill](https://github.com/GoogleChromeLabs/container-query-polyfill)
+
 # limitations
 - img: cqs/thinker-how.jpg
   alt: |
     The thinker
     with a red scribbled thought bubble:
     how?!
-- pre: >
-    CQ _Fact Check_:
-  title: ✅ **Possible** on The Web
-- pre: >
-    CQ _Fact Check_:
-  title: 🧐 **Infinite** layout Loops?
-- pre: In order to understand…
-  title: >
-    **How** Container Queries Work
-- pre: We need to understand…
-  title: Why They **Shouldn't** Work
-- img: no-harm/www-browser.jpg
-  alt: The first world wide website & graphic browser
-  position: top
-  caption: |
-    1990 [WWW HyperMedia Browser](https://worldwideweb.cern.ch/browser/)
-    & *Editor*
 
-- img: process/ibm-pc.jpg
-  alt: Old IBM desktop
-  position: top
-- img: no-harm/line-mode.jpg
-  alt: The second browser, a text-only terminal
-  position: top
-  caption: |
-    [Line Mode Browser](http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
-    developed by **Nicola Pellow**
-- quote: |
-    Web **for all**. Web **on everything**.
-  cite: W3C [Mission Statement](https://w3.org/Consortium/mission.html#principles)
-- img: dynamic-css/devices.jpg
-  alt: A zillion different devices of all sizes (original)
-- img: css-next/spider-man-web.jpg
-  alt: |
-    Spider man crawling towards you
-    with webs everywhere
+- pre: What about the
+  title: 🧐 **infinite** layout loops?
 
-- demo: normal-flow
-- pre: Every _box_ has
-  title: An **Intrinsic Size**
-  sub: defined by **content**
-- pre: Some _boxes_ have
-  title: An **Extrinsic Size**
-  sub: defined by **containers**/attributes/etc
-
-- title: 😎 **F**ing Cool Feature
-  sub: (enables **flexbox** and **grid** layouts)
-
-- title: 🤯 Makes Queries **Recursive**
-  sub: >
-    💥 Size » Query Change » Resize 💥
+- title: Well… **yeah**
+  sub: (*some restrictions apply)
 
 - title: For **Queries** to Work…
 
 - pre: We can't _change_
-  title: |
-    What We **Want To Measure**
-
-- pre: We can't _style_
   title: The Container **Being Queried**
 
-- pre: Or _anything about_
-  title: The Container's **Context**
+- title: |
+    Directly or **Indirectly**
 
 - pre: For
   title: >
@@ -328,11 +399,10 @@ slides:
 - pre: We Need to
   title: |
     **Turn Off** Intrinsic Sizing
-  sub: (at least partially)
 
 - title: CSS **Containment**
   sub: |
-    Size, Layout, Style, Paint, &c
+    contain: _size_ | _layout_ | _style_ | _paint_;
   caption: |
     Avoid internal impacts
     on external elements...
@@ -343,30 +413,20 @@ slides:
 - pen: css-rad
 
 - title: >
-    `contain:` _`inline-size`_
+    👍🏼 **Inline-Only** Containment
   caption: |
     [Thoughts on an implementable path forward for Container Queries](https://github.com/dbaron/container-queries-implementability),
     by **David Baron**
 
-- pen: >
-    💥 Inline Containment Error, Auto-sized BFCs effected by floats
-  id: mdmJRxW
-  caption: >
-    [Ancestor Layout Loops with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
-
 - title: >
-    ~~`contain: block-size`~~
+    👎🏼 ~~**Block-Only** Containment~~
 
 - pre: We can _only_
   title: Measure The **Axis We Contain**
 
-- sub: To query _height_...
-  title: >
-    `contain:` _`size`_
 
-- pre: Use _`size`_ containment
+- pre: Use _`size`_ containers
   title: With **Overflowing Containers**
-  sub: (like the `html` element)
 
 - pen: Containing Size
   id: OJBqJmy
@@ -381,32 +441,22 @@ slides:
 - pre: Since…
   title: Containment is **Invasive**
 
-- pre: We create _containers_
+- pre: We create
   title: >
-    **Explicitly** and **Carefully**
+    **Explicit** Containers
 
 - md: |
     ~~**`contain`**`: inline-size layout style;`~~
+
+    ```css
+    container-type: inline-size;
+    ```
 
 - css: |
     .element-to-query {
       container-type: inline-size; /* or size */
     }
   caption: Applies size, layout, and style containment
-
-- pre: For legacy reasons...
-  title: No **Default Containers**
-  caption:
-    (we shouldn't rely on
-    [body style propagation](https://blog.jim-nielsen.com/2021/propagating-up-in-css/))
-
-- caption: >
-    HTML **Overflows** (safe for `size` containment)
-  css: |
-    html {
-      container-type: size;
-      height: 100%; /* viewport height */
-    }
 
 - css: |
     @media (min-width: 40em) {
@@ -442,46 +492,19 @@ slides:
     [Range queries](https://caniuse.com/css-media-range-syntax)
     (also in `@media` now!)
 
-- title: Why **Bother** on **Root**?
-
-- pre: >
-    _Container_ Queries
-  title:
-    Measure **Actual Styles**
-- pre: >
-    _Computed_ Values
-  title:
-    On the **Container Element**
-
-- pen: Size queries, relative/var units
-  id: QWZYOrM
-
-- title: Progressive **Enhancement**...
-
-- css: |
-    @container (min-width: 30em) { /* CQ support */ }
-
-    @supports not (container: name) {
-      /* no CQ support */
-    }
-
-- title: There's a **Polyfill**
-  sub: |
-    [GoogleChromeLabs/container-query-polyfill](https://github.com/GoogleChromeLabs/container-query-polyfill)
-
 - pre: Also Recommended…
   title: >
     **Name** Your Containers
 
 - css: |
-    html {
-      container-type: size;
-      container-name: layout root;
+    main {
+      container-type: inline-size;
+      container-name: layout main;
     }
 
 - css: |
-    html {
-      container: layout root / size;
+    main {
+      container: layout main / inline-size;
     }
   caption: shorthand - `names / types`
 
@@ -495,7 +518,7 @@ slides:
       .conditional { /* … */ }
     }
 
-    @container root (min-width: 40em) {
+    @container main (min-width: 40em) {
       .conditional { /* … */ }
     }
 
@@ -513,6 +536,10 @@ slides:
   title: Can't **Self-Query**
   sub: (That would introduce loops!)
 
+- pre: Always
+  title: Measuring an **Ancestor**
+  sub: (can't change what you measure!)
+
 - pre: Containers can
   title: Query **Other Containers**
 
@@ -520,11 +547,19 @@ slides:
   id: poamBMw
 
 - pre: Always
-  title: Measuring an **Ancestor**
-  sub: (can't change what you measure!)
-
-- pre: Always
   title: Measuring an **Element**
+
+- pre: >
+    Bonus! _Container_ Queries
+  title:
+    Measure **Actual Styles**
+- pre: >
+    Bonus! _Computed_ Values
+  title:
+    On the **Container Element**
+
+- pen: Size queries, relative/var units
+  id: QWZYOrM
 
 - title: Grid **Tracks** & **Flex** Sizing?
   sub: No element to measure...
@@ -538,14 +573,30 @@ slides:
 - pen: cq-flex
 - pen: cq-books
 
+- pre: For legacy reasons...
+  title: No **Default Containers**
+  caption:
+    (we shouldn't rely on
+    [body style propagation](https://blog.jim-nielsen.com/2021/propagating-up-in-css/))
+
+- css: |
+    /* extrinsic size, from the viewport */
+    html, body { block-size: 100%; }
+    /* root container */
+    html { container: root / size; }
+    /* body as scroller */
+    body { overflow: auto; }
+  caption: >
+    [Can We Query the Root Element?](https://www.oddbird.net/2023/07/05/contain-root/)
+
+- pre: Root Containers, not great…
+  title: We're **Working On It**
+  caption: https://github.com/w3c/csswg-drafts/issues/9003
+
 - pre: also…
   title: Container Query **Units**
   sub: |
     `cqw` | `cqh` | `cqi` | `cqb` | `cqmin` | `cqmax`
-
-- pen: Container Queries, multiple articles
-  id: mdRdXJR
-  caption: we don't have to do it by hand
 
 - pen: cq-units-basic
 - pen: cq-units-nike
@@ -580,7 +631,6 @@ slides:
     (see dev tools)
 
 - pen: cq-blinds
-- pen: cq-water
 
 - img: cqs/container-more.jpg
   alt: |
@@ -612,9 +662,6 @@ slides:
     \* for now _\*\*_ \
     \*\* but maybe forever?
 
-- title: >
-    _¯\\\_(ツ)\_/¯_
-
 - title: No **Containment** Required
 - pre: All _Elements_
   title: Are **Style Containers**
@@ -639,17 +686,6 @@ slides:
     by **Manuel Matuzovic**
 - caniuse: css-container-queries-style
 
-- pen: Font-style queries
-  id: YzJBobX
-- pen: List outdent with style queries
-  id: LYrOgwM
-
-- pre: Other _Questions_
-  title: |
-    For CSS **Containers**?
-  caption: |
-    [CSSWG issue for other query ideas](https://github.com/w3c/csswg-drafts/issues/5989)
-
 - title: |
     **State** Queries (**???**)
   caption: |
@@ -662,6 +698,11 @@ slides:
     @container state(snapped) { … }
     @container state(overflowing) { … }
 
+- pen: Sticky Header State Query!
+  id: GRPZeKV
+  caption: >
+    [Chrome Explainer](https://lilles.github.io/explainers/state_container_queries.html)
+
 - img: cqs/thinker.jpg
   alt: |
     Statue of The Thinker
@@ -672,6 +713,13 @@ slides:
 - title: |
     **Yes**.
 
+- img: cqs/container-yeah.jpg
+  position: top
+  alt: |
+    Yellow shipping container
+    with a red hand-written speech bubble:
+    I'm contained, AMA
+
 - title: |
     Things **Containers Know**:
   md: |
@@ -680,15 +728,8 @@ slides:
     3. **Relative** Values (like `em`)
     4. Maybe **Some States**?? (tbd)
 
-- img: cqs/thinker-wtf.jpg
+- img: cqs/please-do.jpg
+  fit: contain
   alt: |
-    The thinker
-    with a red scribbled thought bubble:
-    WTF?!
-
-- img: cqs/container-yeah.jpg
-  position: top
-  alt: |
-    Yellow shipping container
-    with a red hand-written speech bubble:
-    I'm contained, AMA
+    Please do query the containers
+    now actually, thanks!
