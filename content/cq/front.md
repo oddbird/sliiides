@@ -422,7 +422,7 @@ slides:
     labels are replaced
     with the words 'context' and 'content'
   caption: Thanks for the slide, Brad
-- img: cqs/front/brad-two-way.jpg
+- img: cqs/front/brad-context.jpg
   alt: >
     Photo with two circles,
     and arrow from 'context'
