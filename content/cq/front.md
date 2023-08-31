@@ -245,12 +245,23 @@ slides:
   title: An **Extrinsic Size**
   sub: defined by **containers**/attributes/etc
 
-- title: 🤯 Makes Queries **Recursive**
-  sub: >
-    💥 Size » Query » Change » Resize 💥
+- img: cqs/front/brad-two-way.jpg
+  alt: >
+    Photo of Brad Frost slide
+    with two circles,
+    and arrows going both ways between them -
+    labels are replaced
+    with the words 'context' and 'content'
+  caption: Thanks for the slide, Brad
+
 - title: 😎 **F**ing Cool Feature
 - pen: Awesome Editable
   id: KKbzJZV/ad9083cecfbac3943e3d886c020cab22
+
+- title: 🤯 Makes Queries **Recursive**
+  sub: >
+    💥 Size » Query » Change » Resize 💥
+
 - pen: flexbox
   id: LYgqwyp
   caption: 2012, **Flexbox**
@@ -402,6 +413,21 @@ slides:
 - pre: We Need to
   title: |
     **Turn Off** Intrinsic Sizing
+
+- img: cqs/front/brad-two-way.jpg
+  alt: >
+    Photo of Brad Frost slide
+    with two circles,
+    and arrows going both ways between them -
+    labels are replaced
+    with the words 'context' and 'content'
+  caption: Thanks for the slide, Brad
+- img: cqs/front/brad-two-way.jpg
+  alt: >
+    Photo with two circles,
+    and arrow from 'context'
+    overlapping 'content' circle
+  caption: Thanks for the slide, Brad
 
 - title: CSS **Containment**
   sub: |
