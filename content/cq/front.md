@@ -118,6 +118,9 @@ slides:
 - quote: >
     **Stop asking**!
   cite: Browsers
+- img: cqs/front/perpetual.jpeg
+  fit: contain
+  caption: Perpetual motion clock, for Vasilis
 - quote: >
     Container queries
     **will never be possible on the web**.
