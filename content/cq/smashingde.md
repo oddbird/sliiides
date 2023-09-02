@@ -663,7 +663,23 @@ slides:
 - pen: cq-units-nike
   caption: Scott Kellum
 
-- todo: Val Head demo
+- pen: Container Query Units - illo
+  id: ExLvGLx/149e26f641af0039256518d6723d12a0
+  user: valhead
+
+- css: |
+    @keyframes slide {
+      0% {translate: calc(0cqi - 100%);}
+      100% {translate: calc(100cqi);}
+    }
+
+- img: cqs/translate-x.png
+  alt: >
+    off-left (0cqi - 100%)
+    to off-right (100cqi)
+    and left-edge (0cqi)
+    to right-edge (100cqi - 100%)
+  caption: Using the `translate` transform…
 
 - pre: Default _unit container_
   title: The **Small Viewport**
