@@ -253,9 +253,11 @@ slides:
 - title: >
     **Intrinsic** Sizing
   md: |
-    - Content sizes
-    - `width` or `height` of
-      `min-content`, `max-content`, etc
+    -
+    - `auto`
+    - `min-content`
+    - `max-content`
+    - `fit-content`
 
 - img: cqs/extrinsic.png
   alt: >
@@ -448,31 +450,71 @@ slides:
 
 - pen: css-rad
 
-- pre: Also need to
-  title: Contain **Layout** & **Style**
+- img: cqs/flowing.png
+  alt: >
+    Two circles labeled context and content,
+    with arrows going both ways
 
-- pen: Understanding containment
-  id: oNaVvad
+- img: cqs/one-way.png
+  alt: >
+    Context and content circles,
+    with content scribbled over
+
+- img: cqs/all-context.png
+  alt: >
+    Glitchy context circles and arrows
+    covering the whole page
+
+- title: 😱🙅🏻‍♀️
 
 - title: >
-    👍🏼 **Inline-Only** Containment
+    **Inline-Only** Containment **?!?**
   caption: |
     [Thoughts on an implementable path forward for Container Queries](https://github.com/dbaron/container-queries-implementability),
     by **David Baron**
 
+- pre: Most _web layouts_…
+  title: Define **Explicit Inline Size**
+  sub: e.g. grid systems
+
+- pre: Most _web layouts_…
+  title: Keep **Implicit Block Size**
+  sub: somewhere for the content to go
+
+- pre: >
+    Inline-axis containment
+  title: |
+    Technically Still **A Loop**
+  caption: >
+    [Ancestor Layout Loops with Single-Axis Containment](https://github.com/w3c/csswg-drafts/issues/6426)
+
+- pen: >
+    💥 Inline Containment Error, Auto-sized BFCs effected by floats
+  id: mdmJRxW
+
+- title: >
+    👍🏼 **Inline-Only** Containment 🥳
+  sub: (what loop? If you don't tell anyone, I won't)
+
 - title: >
     👎🏼 ~~**Block-Only** Containment~~
+  sub: (ok, that's too many loops)
 
 - pre: We can _only_
   title: Measure The **Axis We Contain**
 
-- pre: Use _`size`_ containers
-  title: With **Overflowing Containers**
+- pre: Use _`inline-size`_
+  title: For **Most Containers**
+
+- pre: Use _`size`_
+  title: For **Scroll Containers**
 
 - pen: Containing Size
   id: OJBqJmy
 
-# creating containers
+- pre: Also need to
+  title: Contain **Layout** & **Style**
+
 - pre: Since…
   title: Containment is **Invasive**
 
@@ -486,6 +528,11 @@ slides:
     ```css
     container-type: inline-size;
     ```
+
+- pen: Understanding containment
+  id: oNaVvad
+
+# creating containers
 
 - css: |
     .element-to-query {

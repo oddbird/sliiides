@@ -396,7 +396,7 @@ slides:
   cite: WWW Project
   caption: Both *forward* & *backward* compatible
 - md: |
-    ## Ignored **Decalarations**
+    ## Ignored **Declarations**
     ```css
     body {
       /* Browser default `display: block` */

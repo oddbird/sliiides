@@ -19,6 +19,7 @@ tbody {
 body {
   display: grid;
   min-height: 100vh;
+  max-width: unset;
 }
 
 table {

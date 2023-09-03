@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0.5em;
+}
+
+head {
+  display: block;
+}
+
+.viewports {
+  display: grid;
+  list-style: none;
+  place-items: start;
+  margin: 0;
+  padding: 0;
+}
+
+.view {
+  --ho: ((1 - (var(--w) / var(--h))) * 100deg);
+  --hue: calc(120deg + var(--ho));
+  --a: calc(0.1 + ((var(--c) / 10000) / 2));
+  background: hsl(var(--hue) 100% 80% / var(--a));
+  border: thin solid hsl(0deg 0% 0% / 0.25);
+  grid-area: 1 / 1;
+  width: calc(var(--w) * 0.25px);
+  aspect-ratio: var(--w) / var(--h);
+  z-index: var(--c);
+}
+
+.view:hover ~ .view {
+  display: none;
+}
+
+span:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

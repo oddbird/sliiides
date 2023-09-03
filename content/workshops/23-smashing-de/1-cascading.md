@@ -31,6 +31,10 @@ slides:
     as they look back in surprise.
   caption: '1989'
 
+# origins of the web
+
+- section: A **World Wide** Web
+
 - img: no-harm/www-browser.jpg
   alt: The first world wide website & graphic browser
   position: top right
@@ -120,6 +124,11 @@ slides:
   title: |
     Design **Control**
 
+- title: A **Radical** Shift
+- img: unfriendly/agnesscott/press.png
+  alt: Gutenberg Press
+  caption: What's the mission of the printing press? (~1440)
+
 - img: css-next/smashsf/sidesaddle-indd.jpg
   alt: |
     InDesign book-cover layout
@@ -149,8 +158,11 @@ slides:
     Final novel-in-a-box,
     Riding SideSaddle
 
-- pre: The _Goal_…
-  title: A Web That **Adapts**
+# Contextual
+
+- pre: Web styles…
+  title: Must Be **Contextual**
+  sub: Responsive to constant _change_
 
 - pre: |
     `@media`
@@ -179,10 +191,8 @@ slides:
 - svg: svg/content/more-more
   alt: Animation of twitter-like posts appearing
 
-- pre: Styles
-  title: Must be **Responsive**
-
-- title: …And **Collaborative**
+- title: Not just **Responsive**…
+- title: …Also **Collaborative**
 
 - img: layers/not-alone.jpg
   alt: |
@@ -206,6 +216,146 @@ slides:
     carrying a laptop,
     and ET
 
+# Resilient
+
+- pre: Web styles…
+  title: Must Be **Resilient**
+
+- img: no-harm/www-browser.jpg
+  alt: The first world wide website & graphic browser
+  position: top right
+  caption: |
+    [WWW HyperMedia Browser](https://worldwideweb.cern.ch/browser/)
+    & *Editor*
+
+- img: no-harm/line-mode.jpg
+  alt: The second browser, a text-only terminal
+  position: top
+
+- quote:
+    WWW parsers should
+    **ignore tags** which they do not understand,
+    and **ignore attributes** which they do not understand
+    of tags which they do understand.
+  cite: WWW Project
+  caption: Both *forward* & *backward* compatible
+
+- pre: The web is _designed for_
+  title: >
+    **Progressive** Enhancement
+
+- quote:
+    Provide **hints** that _the browser may or may not use_.
+  cite: Håkon Lie
+
+- pre: CSS _Declaration_
+  title: >
+    **`property`**`:` **value**`;`
+
+
+- title: |
+    **`display`**`:` **grid**`;`
+
+- pre: Browsers Can
+  title: >
+    **Ignore** Declarations
+  css: |
+    body {
+      /* Browser default `display: block` */
+      display: flex;
+      display: grid;
+    }
+
+- pre: Browser Support
+  title: is **Non-Binary**
+  caption: |
+    [CanIUse](https://caniuse.com/) » [**MayIUse**](https://mayiuse.org/)
+
+- quote: |
+    **You can use it and not use it at the same time**,
+    because *it works and it doesn't work at the same time*.
+    It's **Quantum CSS**!
+    It's Magic!
+  cite: |
+    Jen Simmons,
+    [Intro to Resilient CSS](https://www.youtube.com/watch?v=u00FY9vADfQ)
+
+- title: Font **Stacks**
+  sub: |
+    `font-family: `*`Consolas`*`, `*`Menlo`*`, `*`'Courier New'`*`, `*`monospace`*`;`
+
+- title: |
+    **`@Supports`** `{ … }`
+
+- pre: We *Already*
+  title: |
+    **Know How** To Do This
+
+- img: rad/car-seat.jpg
+  alt: Woman adjusting a car seat
+  position: bottom
+
+- pre: 2010...
+  title: |
+    **Responsive** Web Design**™️**
+
+- pre: Not _Re-Writing_
+  title: For **Every Viewport**
+
+- pre: Providing
+  title: >
+    Progressive **Layers** of Style
+  sub: e.g. _Mobile First_
+
+# Declarative
+
+- pre: Browsers need
+  title: To **Understand Priorities**
+
+- pre: We _provide_
+  title: The **Meaning** & **Intent**
+
+- pre: Web styles…
+  title: Must Be **Declarative**
+
+- title: |
+    **`<h1>`**`Main header`**`</h1>`** \
+  sub: |
+    **`<p>`**`a paragraph`**`</p>`** \
+  caption: |
+    [Understanding why Semantic HTML is Important](https://medium.com/@mandy.michael/understanding-why-semantic-html-is-important-as-told-by-typescript-bd71ad41e6c4),
+    by Mandy Michael
+
+- title: |
+    `16px `**`!=`**` 1em`
+
+- title: |
+    `flexbox `**`!=`**` grid`
+
+- title: |
+    Convey **Different Intent**
+
+- quote: |
+    There are **too many variables to consider.**
+    The point of CSS is to make it so you don’t have to worry about them all.
+    **Define some constraints.
+    Let the language work out the details.**
+  cite: Keith J Grant
+  caption: |
+    [Resilient, Declarative, Contextual](https://keithjgrant.com/posts/2018/06/resilient-declarative-contextual/)
+
+- pen: css-rad
+
+- quote: |
+    CSS is **unlike anything else**…
+    designed for the realities
+    of a **flexible, multilingual, multi-device** web.
+  cite: Rachel Andrew, 2018
+  caption: |
+    [The Way We Talk About CSS](https://rachelandrew.co.uk/archives/2018/10/04/the-way-we-talk-about-css/)
+
+# Solving the Problem
+
 - quote: |
     We're designing _dynamic content_
     with _unknown collaborators_
@@ -214,12 +364,8 @@ slides:
     _writing-modes_, & _languages_...
   cite: me
 
-- img: css-next/smashsf/sidesaddle-indd.jpg
-  alt: |
-    InDesign book-cover layout
-    for Riding SideSaddle
-  caption: |
-    What you see is not what I will get
+- pre: It's _difficult_
+  title: But Also **Essential**
 
 - quote: |
     HTML totally **eliminates any visual creativity**
@@ -249,43 +395,55 @@ slides:
   background: white
   <<: *proposal
 
-- quote: |
-    This proposal tries to
-    **soften the tension**
-    between the _author_ and the _reader_.
-  <<: *proposal
+- img: no-harm/netscape.jpg
+  alt: Netscape Handbook online tutorial
+  caption: Netscape Navigator, 1994
+  fit: contain
+- md: |
+    ```html
+    <CENTER>This text is centered</CENTER>
 
-- quote: |
-    The **user/browser** specifies _initial preferences_
-    and **hands the remaining influence over** to the document.
-  <<: *proposal
-
-- quote:
-    Provide **hints** that _the browser may or may not use_.
-  cite: Håkon Lie
-
-- img: no-harm/line-mode.jpg
-  alt: The second browser, a text-only terminal
-  position: top
-  caption: |
-    (demo Lynx in terminal?)
-
-- title: CSS **Declarations**
-  css: |
-    property: value;
-
-- title: |
-    _`color`_`:` **blue**`;`
+    <MULTICOL COLS="3" GUTTER="25">
+      <P><FONT SIZE="4" COLOR="RED">…</FONT></P>
+    </MULTICOL>
+    ```
 
 - md: |
     ```html
-    <button style='color: blue'>…</button>
-    ```
-    ```css
-    button { color: violet; }
+    <p><font color="red"> … </font><p>
+    <p><font color="red"> … </font><p>
+    <p><font color="red"> … </font><p>
+    <p><font color="red"> … </font><p>
+    <p><font color="red"> … </font><p>
+    <p><font color="red"> … </font><p>
     ```
 
-- html: |
+- quote: |
+    A simple mapping
+    **between HTML elements and presentation hints**.
+  <<: *proposal
+
+- title: CSS **Declarations**
+  sub: provide the _presentation hints_
+
+- title: |
+    **`color`**`:` **`red`**`;`
+
+- title: CSS **Selectors**
+  sub: provide the _mapping_
+
+- md: |
+    ```css
+    p { color: red; }
+    ```
+    ```html
+    <p> … </p>
+    <p> … </p>
+    <p> … </p>
+    ```
+
+- title: Entire **Style Sheets**
+  html: |
     <link rel="stylesheet" href="so-many-hints.css">
     <style>...</style>
 
@@ -304,17 +462,26 @@ slides:
     button { color: violet; }
     ```
 
+- pre: For Browsers...
+  title: |
+    Every *Property* \
+    on Every *Element* \
+    **Must Have** a *Single Value*
+
 - title: |
-    **Multiple** or **Unknown** ⁉️
+    🤯⁉️
   css: |
     color: teal;
     color: violet;
     color: oklch(79.269% 0.171 70.67);
+    color: not-real;
 
-- title: |
-    On every _html element_, \
-    For every _css property_ \
-    We need **exactly one value**
+# The Cascade
+
+- section: The **Cascade**
+
+- pre: The 🌊 **Cascade**
+  title: Resolves 💥 **Conflicts**
 
 - pre: Rules for…
   title: |
@@ -380,12 +547,26 @@ slides:
     carrying a laptop,
     and ET
 
+- quote: |
+    This proposal tries to
+    **soften the tension**
+    between the _author_ and the _reader_.
+  <<: *proposal
+
+- quote: |
+    *The author* often wants to give the documents
+    a **distinct look and feel**,
+    the *user* will set *preferences* to make
+    **all documents appear more similar**.
+  <<: *proposal
+
 - pre: Importance...
   title: |
     **How Much** Do They **Care**?
 
 - quote: |
-    The **user/browser** specifies _initial preferences_…
+    The **user/browser** specifies _initial preferences_
+    and **hands the remaining influence over** to the document.
   <<: *proposal
 
 - title: |
@@ -426,6 +607,28 @@ slides:
     or line breaks
   caption: |
     `* { all: initial; }`
+
+- pre: >
+    _Initial_ Values are…
+  title: Defined by **Specification**
+- pre: >
+    _Initial_ Values are…
+  title: Specific to **Each Property**
+- pre: >
+    _Initial_ Values are…
+  title: The Same On **All Elements**
+
+- title: >
+    `margin:` **`0`**
+  sub: (even on paragraphs)
+
+- title: >
+    `color:` **`canvasText`**
+  sub: (even on links)
+
+- title: >
+    `display:` **`inline`**
+  sub: (even on divs)
 
 - title: |
     👥 **User** Styles
@@ -474,7 +677,7 @@ slides:
     - src: css-next/evil-spock.jpg
       alt: Spock with a goatee
   caption: |
-    !mportant _mirror universe_
+    !important _mirror universe_
 
 - md: |
     1. ❗🎨 Author **Important** (goes first)
@@ -496,9 +699,6 @@ slides:
     with spaceships and lasers
     and AT-AT walkers
 
-- demo: cascade-funnel
-  caption: Same with **Shadow Contexts**
-
 - pre: The _purpose_ of…
   title: ❗**importance**
 
@@ -507,6 +707,9 @@ slides:
 
 - title: 👍🏼 Users **Protect** Styles
   sub: because legibility is _important_
+
+- demo: cascade-funnel
+  caption: Same throughout the Cascade
 
 - title: Often **Isolated**
   md: |
@@ -542,7 +745,24 @@ slides:
 - demo: cascade-funnel
 
 - title: (Shadow) **Context**
-  md: |
+
+- title: For **Custom Elements**
+  sub: (we won't cover this in detail)
+
+- title: Hidden **Element Structure**
+- title: Including **Default Styles**
+
+- pre: Like a custom
+  title: >
+    **User Agent** Extension
+
+- pre: Shadow styles
+  title: Default **Low Priority**
+
+- pre: Again…
+  title: Importance is **Defensive**
+
+- md: |
     - For _normal_ styles,
       **light > shadow**
     - For _important_ styles,
@@ -551,8 +771,9 @@ slides:
 - pen: Important Shadow Context
   id: RwjRrEE
 
-- pre: Again…
-  title: Importance is **Defensive**
+- pre: >
+    Web 'Components'
+  title: Are Not **Site Components**
 
 - demo: cascade-funnel
 
@@ -582,7 +803,14 @@ slides:
       /* declarations: here; */
     }
 
-- title: How **Specific**?
+- css: |
+    button          { background: gray; }
+    .action         { background: darkblue; }
+    [type=“submit”] { background: darkgreen; }
+    #send           { background: maroon; }
+
+- pre: Each *Selector* has a *Weight*
+  title: Based on **How Specific** It Is
 
 - img: layers/select-all.jpg
   fit: contain
@@ -628,6 +856,36 @@ slides:
     2. *Element* `type`s (`p`, `ul`, `body`, etc)
     3. *Reusable* `.class`es & `[attributes]`
     4. *Unique* `#ID`s (most power)
+
+- pre: Like *Versioning*…
+  title: |
+    v3.**10**.1 **`>`** v3.**9**.12
+- pre: Like *Versioning*…
+  title: |
+    (ID)`.`(Class/Attr)`.`(Element)
+  caption: |
+    semantic versions: (major)`.`(minor)`.`(patch)
+- css: |
+    #contact-form .actions button[type='submit']:active { }
+- css: |
+    /* Specificity 1.3.1 - 1 ID, 3 Attrs, 1 Element */
+    #contact-form .actions button[type='submit']:active { }
+- pre: Often written with _commas_…
+  title: |
+    Specificity of [**1,3,1**]
+
+- pre: Compare _from the left_
+  title: |
+    **1**,0,2 `vs` **0**,3,2 `vs` **0**,2,3
+- pre: Compare _from the left_
+  title: |
+    **1,0,2** ~~`vs` 0,3,2 `vs` 0,2,3~~
+- pre: Move on _when tied_
+  title: |
+    **0**,3,2 `vs` **0**,2,3
+- pre: Move on _when tied_
+  title: |
+    0,**3**,2 ~~`vs` 0,**2**,3~~
 
 - from: itcss
   use: main
@@ -687,15 +945,11 @@ slides:
     [Working Draft](https://www.w3.org/TR/css-cascade-5/)
 
 - caniuse: css-cascade-layers
-
-- img: css-next/layers-polyfill.jpg
-  alt:
-    OddBird article,
-    Cascade Layers – There’s a Polyfill for That!
-    by Sana Javed on June 21, 2022
-  position: top
   caption: |
-    https://www.oddbird.net/2022/06/21/cascade-layers-polyfill/
+    There's also
+    [a polyfill](https://www.oddbird.net/2022/06/21/cascade-layers-polyfill/)
+
+- demo: cascade-funnel
 
 - from: itcss
   use: layers
@@ -880,24 +1134,15 @@ slides:
 - title: |
     **Managing** Priorities
 
-- img: layers/orrery-specificity.jpg
-  alt: |
-    Clockwork orrery,
-    with a scribbled arrow
-    pointing to the earth tilt gears
-    labeled 'specificity'
-  position: top
+- pen: layers-btn
 
-- pre: Language _Heuristics_
-  title: |
-    Don't **Boss Us Around**
 - title:  More **Cascade Control**
 - title: Fewer **Specificity Hacks**
-- title: Less **❗️mportance**
+- title: Less **❗️importance**
 
 - pre: Like _Origins_,
   title: |
-    ❗️mportant Layers **Reverse**
+    ❗️important Layers **Reverse**
 
 - md: |
     1. Resets
@@ -911,9 +1156,9 @@ slides:
     1. Resets
     2. Themes
     3. Components
-    4. ==**❗mportant** Components==
-    5. ==**❗mportant** Themes==
-    6. ==**❗mportant** Resets==
+    4. ==**❗important** Components==
+    5. ==**❗important** Themes==
+    6. ==**❗important** Resets==
 
 - img: layers/balance-force.jpg
   alt: |
@@ -936,163 +1181,249 @@ slides:
     _Prioritize_ `->` **Layers** \
     _Protect_ `->` **Importance**
 
-# Recommendations
-
-- pre: Layers are great for…
-  title: |
-    Managing **Architecture**
-  sub: |
-    (We'll cover this in detail later)
-
-- pre: Layers are great for…
-  title: |
-    Managing **Dependencies**
-  sub: |
-    Including inter-org dependencies
-
-- pre: Clearly define…
-  title: Each **Tool's Priority**
-
-- pre: Clearly define…
-  title: Tool-Specific **Overrides**
-
-- css: |
-    @import url(bootstrap.css) layer(bootstrap.vendor);
-
-    @layer bootstrap.overrides {
-      /* anything here will override bootstrap */
-    }
-
-- pre: Layers are great for…
-  title: >
-    **Overlapping** Concerns
-
-- pen: layers-btn
-
-- pre: Also for
-  title: Design **Systems**
-- pre: Also for
-  title: WordPress **Themes**
-
-- pre: Use _layers_
-  title: To **Provide Clarity**
-- pre: Use _layers_
-  title: To **Convey Architecture**
-- pre: Use _layers_
-  title: To Describe **Intent**
-
 - pre: Not Just…
   title: |
-    'This is **!mportant**'
-
-- pre: |
-    (layers _lower importance_ by default)
+    'This is **!important**'
+  sub: (layers _lower importance_ by default)
 
 - pre: |
     X Overrides Y \
     **Because** \
     _'Components'_ Override _'Defaults'_
 
-- pre: As long as
-  title: The **Intent is Clear**
+# Selectors v2
 
-- pre: There's
-  title: |
-    **No Harm** Layering
+- pre: Free us to…
+  title: Use **Expressive Selectors**
 
-- pre: Not an
-  title: |
-    **All-Or-Nothing** Grenade
+- css: |
+    .form-action--submit { /* … */ }
+    form button[type=submit] { /* … */ }
 
-- pre: Encourages
-  title: |
-    **Nuanced** & **Explicit** Priorities
+- pre: Style with
+  title: >
+    [Stateful, Semantic Selectors](https://benmyers.dev/blog/semantic-selectors/)
+  caption: Article by **Ben Myers**
 
-- pre: Also _Not_
-  title: The **Only Tool**
-
-- pre: Learn to
-  title: Use **More Selectors**
+- pre: Some Selectors
+  title: Help **Manage Specificity**
 
 - css: |
     [id="example"] {
       /* ID selector, class specificity */
     }
+
+- pre: >
+    `:is()` and `:where()`
+  title: Take **Entire Selectors**
+  css: |
+    a:is(body.home #logo) { /* … */ }
+    a:where(body.home #logo) { /* … */ }
+- pre: >
+    `:is()` and `:where()`
+  title: Select **The Same Elements**
+  sub: The union of both _inside_ & _outside_ selectors
 - css: |
-    :where(#example) {
-      /* ID selector, zero specificity */
+    /* (a) AND ALSO (nav .active) */
+    a:where(nav .active) { color: black; }
+    a:is(nav .active) { color: black; }
+- css: |
+    /* (h1 a) AND ALSO (main > *) */
+    h1 a:where(main > *) { color: black; }
+    h1 a:is(main > *) { color: black; }
+
+- pre: >
+    `:is()` and `:where()`
+  title: Also **Group Selectors**
+- css: |
+    h1 a:hover, h1 a:focus,
+    h2 a:hover, h2 a:focus,
+    h3 a:hover, h3 a:focus,
+    h4 a:hover, h4 a:focus,
+    h5 a:hover, h5 a:focus {
+      text-decoration: underline;
+    }
+- title: Commas for **OR**
+  css: |
+    /* (h1 OR h2 OR …) AND (a:hover OR a:focus) */
+    :is(h1, h2, h3, h4, h5) a:where(:hover, :focus) {
+      text-decoration: underline;
     }
 
-- pre: Re-learn
-  title: |
-    **❗️mportant** As Intended
-
-- title: |
-    👎🏼 **Override** Styles \
-    In **Previous Code**
-  sub: (often in _lower_ layers)
-
-- title: |
-    👍🏼 **Protect** Styles \
-    From **Future Code**
-  sub: (often in _higher_ layers)
-
-- pre: For _flexibility…_
-  title: Layer **Everything**
-
-- pre: But _not_
-  title: Every **Individual** Thing
-
-- img: css-next/layers-scope.webp
-  alt: |
-    A grid of overlapping
-    'scope' columns (buttons, cards, logins)
-    and 'layer' rows
-    (default, theme, component).
-    Each scope crosses all layers,
-    and each layer crosses all scopes.
-  fit: contain
-  background: white
-
-- pre: Use _unlayered_ for
-  title: |
-    **Prototyping** & **DeBugging**
-
-- pre: Remember…
-  title: Unlayered Styles **Win**
-  sub: This can be surprising
-- pre: Bad for
-  title: >
-    **Progressive** Enhancement
+- title: Example From **User Agent**
+  css: |
+    table[rules=cols i] > tfoot > tr > td,
+    table[rules=cols i] > tfoot > tr > th,
+    table[rules=all i] > tfoot > tr > td,
+    table[rules=all i] > tfoot > tr > th {
+      /* … */
+    }
 - css: |
-    .old-code-no-layers {
+    table:where(
+      [rules=cols i], [rules=cols i]
+    ) > tfoot > tr > :is(th, td) { /* … */ }
+
+- pre: >
+    `:is()` and `:where()`
+  title: Have **Different Specificity**
+
+- pre: Use `:where()`
+  title: To **Remove** Specificity
+  css: |
+    a { color: blue; }
+    a:hover { color: rebeccapurple; }
+    nav a.active { color: black; }
+
+- css: |
+    /* nav a.active { 0,1,2 } */
+    nav a:where(.active) { /* 0,0,2 */ }
+    a:where(nav .active) { /* 0,0,1 */ }
+
+- pre: Use `:where()`
+  title: For **Default Variations**
+
+- pre: But `is()` takes specificity
+  title: From **Highest Internal Selector**
+  css: |
+    :is(a, .b, #c .d) { /* 1,1,0 */ }
+    a:is(.b, #c .d) { /* 1,1,1 */ }
+
+- title: Comparing **Specificity**
+  css: |
+    a:where(#logo, .sponsor .logo) {
+      /* specificity: 0,0,1 */
+    }
+
+    a:is(#logo, .sponsor .logo) {
+      /* specificity: 1,0,1 */
+    }
+- pre: It doesn't matter
+  title: Which Item **Matches**!
+  md: |
+    ```css
+      a:is(#logo, .sponsor .logo) { /* … */ }
+    ```
+    ```html
+      <a class="sponsor logo">Still 1,0,1</a>
+    ```
+- pre: Use `:not()`
+  title: For **Excluding Elements**
+  sub: (inside matches are removed from outside matches)
+  css: |
+    /* (p) UNLESS (.warning)  */
+    p:not(.warning) { /* … */ }
+
+- title: New **`:has()`** Selector
+  css: |
+    form:has(:focus) { /* form:focus-within */ }
+    button:has(svg) { /* icon button */ }
+    .card:has(> figure:first-child) { /* image card */ }
+    .card:not(:has(img)) { /* card without image */ }
+    input:has(+ .error) { /* input followed by error */ }
+
+- pen: Card has image
+  id: abqPdQv
+  user: una
+  caption: Una Kravets
+
+- pen: Has light/dark selection
+  id: wvXvxmv
+
+- caniuse: css-nesting
+
+- pre: >
+    `:is()` & `:not()` & `:has()`
+  title: Use **Same Specificity**
+
+- title: Which one wins?
+  css: |
+    article:has(h1, .title) a {
       color: red;
     }
 
-    @layer new-code {
-      .progressive-enhancement {
-        color: green;
+    article h1 a {
+      color: green;
+    }
+
+- title: CSS **Nesting**
+  sub: Also relies on `:is()` selector
+
+- caniuse: css-nesting
+
+- css: |
+    button, .btn {
+      background: rebeccapurple;
+      color: white;
+    }
+
+- css: |
+    button, .btn {
+      background: rebeccapurple;
+      color: white;
+
+      &:focus,
+      &:hover,
+      &:active {
+        background: teal;
       }
     }
-  caption: Not Great ❌
-- pre: Required for
-  title: >
-    **Imported** Styles
-- css: |
-    /* no way to remove the layers */
-    @import 'reset-using-layers.css';
 
-    p {
-      color: red;
+- css: |
+    button, .btn { /* … */ }
+
+    :is(button, .btn):focus,
+    :is(button, .btn):hover,
+    :is(button, .btn):active { /* … */ }
+
+- css: |
+    ol, ul {
+      > p { /* :is(ol, ul) > p */ }
+      .sidebar & { /* .sidebar :is(ol, ul) */ }
     }
-  caption: Would have been worse ❌
+
+- css: |
+    .card {
+      @layer defaults {
+        display: flex;
+      }
+
+      @layer variations {
+        @media (min-width: 30em) {
+          display: grid;
+         }
+      }
+    }
+
+- pre: For now…
+  title: |
+    Nested Selectors **Must** \
+    Start With a **Symbol**
+
+- title: Not Valid (**Yet**)
+  css: |
+    ol, ul {
+      li { /* … */ }
+      nav & { /* … */ }
+    }
+
+- title: Solutions (**For Now**)
+  css: |
+    ol, ul {
+      & li { /* … */ }
+      :is(nav) & { /* … */ }
+    }
+
+- pre: Similar to…
+  title: Sass **Syntax**
+- pre: Different from…
+  title: Sass **Behavior** & **Specificity**
 
 # Scope ----------------
 
-- title: Also **Coming Soon**…
-
 - title: |
     **Scoped** Styles
+
+- demo: cascade-funnel
 
 - pre: 1. Avoid
   title: |
@@ -1212,6 +1543,13 @@ slides:
     ✅ This works
 
 - pre: Different from
+  title: CSS (Descendant) **Nesting**
+
+- title: Lower **Specificity**
+- title: Clearer **Relationships**
+- title: Lower **Boundaries**
+
+- pre: Different from
   title: Shadow-DOM **Encapsulation**
 
 - img: csswg/widget.jpg
@@ -1254,22 +1592,23 @@ slides:
 - pre: Finally…
   title: Order of **Appearance**
   sub: (last style wins)
+
+- css: |
+    .resilient {
+      color: green;
+      color: color(display-p3 0 1 0);
+    }
   caption: We'll talk about this more soon…
 
-- title: Don't **Fear The Cascade**
-
 - pre: The Cascade is
-  title: Our **Most Powerful Tool**
-
-- demo: cascade-funnel
-
-- title: Core To **CHSS**
-- title: |
-    **CSS**❗️
+  title: Our **Most Powerful Feature**
 
 - pre: The _cascade_ is
   title: |
     Getting **Major Upgrades**
+
+- pre: Fundamental To…
+  title: A **World Wide Web**
 
 - pre: The _cascade_
   title: |
@@ -1279,14 +1618,12 @@ slides:
   title: |
     Based on **Intent**
 
+- pre: Describing…
+  title: Entire **Design Systems**
+
 - pre: The _cascade_
   title: |
     Facilitates **Collaboration**
-
-- img: css-next/smashsf/sidesaddle-box.jpg
-  alt: |
-    Printed novel-in-a-box,
-    Riding SideSaddle
 
 - img: layers/not-alone-et.jpg
   alt: |
@@ -1296,12 +1633,6 @@ slides:
     carrying a laptop,
     and ET
 
-- img: layers/vader.jpg
-  alt: |
-    Darth Vader
-    choking a rebel soldier
-    as storm troopers watch
-
 - quote: |
     A Jedi uses the [Cascade]
     for _knowledge and defense_,
@@ -1310,8 +1641,5 @@ slides:
   face: layers/yoda.jpg
   alt: Yoda leans on a walking stick among leaves
 
-- pre: |
-    _Complete Guide_ to
-  title: CSS **Cascade Layers**
-  sub: https://css-tricks.com/css-cascade-layers/
+- pen: abPmNLB
 ---

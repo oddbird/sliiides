@@ -1,0 +1,12 @@
+---
+demo: viewport-sizes
+title: Viewport Sizes
+---
+
+<ul class="viewports">
+{% for view in viewports %}
+  <li class="view" style="--w: {{ view.width }}; --h: {{ view.height }}; --c: {{ view.count }};">
+    <span>{{ view.count }}: {{ view.width }} x {{ view.height }}</span>
+  </li>
+{% endfor %}
+</ul>

@@ -157,13 +157,16 @@
 {% endmacro %}
 
 {% macro caniuse(slide, page) %}
-  {%- set links -%}[[{{ slide.caniuse }} on caniuse](https://caniuse.com/#feat={{ slide.caniuse }})]{%- endset -%}
+  {%- set href -%}https://caniuse.com/#feat={{ slide.caniuse }}{%- endset -%}
+  {%- set links -%}[[{{ slide.caniuse }} on caniuse]({{ href }})]{%- endset -%}
   {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
   {%- set slide = slide | merge({'caption': caption}) -%}
   {% call slides.base(slide, 'img caniuse', page) %}
-    {{ embed.caniuse(
-      feature=slide.caniuse,
-      periods=slide.periods
-    ) }}
+    <a href="{{ href }}">
+      {{- embed.caniuse(
+        feature=slide.caniuse,
+        periods=slide.periods
+      ) -}}
+    </a>
   {% endcall %}
 {% endmacro %}
