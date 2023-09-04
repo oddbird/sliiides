@@ -760,6 +760,7 @@ slides:
     ```
 
 - caniuse: mdn-css_at-rules_property
+  title: \@property
 
 - title: Current **JavaScript**
   md: |
@@ -799,4 +800,8 @@ slides:
 - title: |
     `@supports (` **`--css: vars`** `)`
   sub: Any valid **definition** will work...
+
+- pen: CSS Custom Properties Demo
+  id: RwEWydE/1008a21094e0f91b97bccfd6671b6003
+  user: stacy
 ---

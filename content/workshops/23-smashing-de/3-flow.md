@@ -10,11 +10,6 @@ slides:
   title: |
     **Unknown Content** \
     On An **Unknown Canvas**
-- img: space/tng.jpg
-  alt: |
-    USS Enterprise,
-    from Star Trek The Next Generation
-    opening credits
 - title: CSS is **Contextual**
 - title: CSS is **Content-ual**
 
@@ -22,20 +17,59 @@ slides:
   title: Real **Layout Tools**
   sub: Not just *Grid* or *Flexbox*, but an entire system...
 
-- pre: Starts with…
-  title: >
-    **Normal** Flow
-  sub: |
-    aka "_Block Formatting Context_" \
-    aka "_Block Layout_"
+# box model --------------
 
-- demo: normal-flow
-  caption: AKA "Block Layout"
+- section: (Fixing) The **Box Model**
 
 - img: cqs/nested.png
   alt: >
     A series of nested boxes -
     one is solid-lined and labeled 'box'
+
+- demo: box-model
+
+- pre: Default _Sizing_…
+  title: |
+    **Content**-Box
+
+- img: layouts/content-box.jpg
+  caption: |
+    **Content**-Box: `value + padding + borders == box`
+  fit: contain
+
+- pre: Useful for…
+  title: Defining **Content Size**
+  sub: Like a page wrapper with a max width, plus padding
+
+- pre: More _Often_…
+  title: |
+    **Border**-Box Sizing
+
+- img: layouts/border-box.jpg
+  caption: |
+    **Border**-Box: `value == box`
+  fit: contain
+
+- pre: Reset
+  title: Global **Box-Sizing**
+  css: |
+    *, *::before, *::after { box-sizing: border-box; }
+
+- pre: Box Properties
+  title: 👎 Shouldn't **Inherit**
+  css: |
+    html { box-sizing: border-box; }
+    * { box-sizing: inherit; }
+
+# intrinsic/extrinsic flow --------------
+
+- section: >
+    **Normal** Flow
+
+- demo: normal-flow
+  caption: >
+    aka "_Block Formatting Context_"
+    or "_Block Layout_"
 
 - img: cqs/intrinsic.png
   alt: >
@@ -64,8 +98,19 @@ slides:
     - `width` or `height`
       set in `px`, `%`, `em`, etc
 
-- demo: normal-flow
-  caption: AKA "Block Layout"
+- img: cqs/flowing.png
+  alt: >
+    Two circles labeled context and content,
+    with arrows going both ways
+
+- title: >
+    Trust **The Flow**
+  sub: >
+    Use `absolute`/`fixed` position with caution
+
+- pen: Positioning & Flow
+  id: rNoMdvp
+  caption: Positioning _non-flow_ elements
 
 - title: 😎 **F**ing Cool Feature
 
@@ -74,124 +119,90 @@ slides:
   sub: >
     💥 Size » Query » Change » Resize 💥
 
-- pre: Since *2010*
-  title: |
-    **Responsive** Web Design**™**
-  caption: |
-    Original List Apart
-    [Responsive Web Design](https://alistapart.com/article/responsive-web-design/)
-    article by **Ethan Marcotte**
-- md: |
-    1. Fluid **`%`** Images
-    2. Fluid **`%`** Columns
-    3. **`@media`** Queries
-- img: advanced-css/wire-narrow.jpg
-  alt: A small-screen wireframe
-  fit: contain
-  caption: >
-    mobile first?
-- img: advanced-css/wire-content.jpg
-  alt: A wide-screen wireframe with different sizes
-  fit: contain
-  caption: >
-    `@media (min-width: 45em) { /* … */ }`
-- img: advanced-css/wire-wide.jpg
-  alt: A wide-screen wireframe
-  fit: contain
-  caption: >
-    `@media (min-width: 60em) { /* … */ }`
-
-- pre: A _holdover_
-  title: From Print **Page Description**
-
-- demo: viewport-sizes
-  caption: Data from viewports.fyi
-- pre: The _`%` hack_
-  title: Not **Actually Fluid**
-  sub: (relative to parent, but ignores siblings)
-
-# intrinsic --------------
-
-- face: jensimmons.jpg
-  pre: |
-    @jensimmons
-  title: |
-    **Jen** Simmons
-  md: |
-    [Everything You Know About Web Design Just Changed](https://youtu.be/jBwBACbRuGY)
-
-- title: |
-    **Intrinsic** Web Design
-  sub: |
-    The _responsive web_ keeps evolving…
-  caption: |
-    [Jen Simmons](https://twitter.com/jensimmons/status/980980521848127488)
-
-- md: |
-    1. **Fluid** & **Fixed**
-    2. Stages of **Squishiness**
-    3. Truly **Two-Dimensional** Layouts
-    4. **Nested** Contexts
-    5. **Expand** & **Contract** Content
-    6. Media Queries, **As Needed**
-
 # intrinsic sizes --------------
 
+- section: >
+    **Intrinsic** Sizing
+
 - title: |
-    **Intrinsic** Sizes
+    Intrinsic Size **Keywords**
   sub: |
     **`max-content`** | **`min-content`** | **`fit-content`**
   caption: |
     [See MDN Support](https://developer.mozilla.org/en-US/docs/Web/CSS/width#Browser_compatibility)
 
+- img: cqs/nested.png
+  alt: >
+    A series of nested boxes -
+    one is solid-lined and labeled 'box'
+
+- img: cqs/intrinsic.png
+  alt: >
+    Boxes inside labeled 'content',
+    provide 'implicit' sizing
+    to the box
+
+- title: >
+    **Intrinsic** Sizing
+  md: |
+    - `auto`
+    - `min-content`
+    - `max-content`
+    - `fit-content`
+
+- pre: Grid only _function_
+  title: |
+    **fit-content(**`<max>`**)**
+  sub: >
+    `min(max-content, max(min-content, `_`<max>`_`))`
+
+- title: >
+    `fit-content` **Keyword**
+  sub: >
+    `fit-content(`_`stretch`_`)`
+
+- img: cqs/extrinsic.png
+  alt: >
+    Parent box labeled 'context',
+    and styles from the box itself
+    provide 'explicit' sizing
+    to the box
+
+- title: >
+    **Extrinsic** Sizing
+  md: |
+    - Context sizes (available space)
+    - `width` or `height`
+      set in `px`, `%`, `em`, etc
+
 - pen: Intrinsic Sizing
   id: JVagQW
 
-- pre: Grid only
-  title: |
-    **fit-content(**`<max>`**)**
-  sub: (we'll come back to it)
+# aspect ratios --------------
 
-- pre: Intrinsic *Aspect Ratios*
-  title: Using Image **Width**/**Height**
-  sub: to avoid layout **jank**
+- section: >
+    **Aspect** Ratios
 
+- title: Use Image **Width**/**Height**
+  sub: >
+    to avoid _jumpy layout_ while loading
 
-# box model --------------
+- title: >
+    **Extrinsic** Aspect-Ratio
+  sub: |
+    _`aspect-ratio`_`: `_`<ratio>`_`;`
+- title: >
+    **Mixed** Aspect-Ratio
+  sub: |
+    _`aspect-ratio`_`: <ratio>` _`auto`_`;`
 
-- pre: But First...
-  title: Control the **Box Model**
-
-- pre: Default...
-  title: |
-    **Content**-Box
-
-- img: layouts/content-box.jpg
-  caption: |
-    **Content**-Box: `total = width/height` **`+`** `borders` **`+`** `padding`
-  fit: contain
-
-- pre: Often...
-  title: |
-    **Border**-Box
-
-- img: layouts/border-box.jpg
-  caption: |
-    **Border**-Box: `total = width/height`
-  fit: contain
-
-- pre: Reset
-  title: Global **Box-Sizing**
-  css: |
-    *, *::before, *::after { box-sizing: border-box; }
-
-- pre: Box Properties
-  title: 👎 Shouldn't **Inherit**
-  css: |
-    html { box-sizing: border-box; }
-    * { box-sizing: inherit; }
+- pen: Image ratio css, html hints, and natural sizes
+  id: ZEVprwW
 
 # multi-value display --------------
+
+- section: >
+    **Display** Complexities
 
 - pre: Re-Introducing
   title: The **Display** Property
@@ -260,6 +271,7 @@ slides:
   sub: Context for **child layout**
 
 - caniuse: mdn-css_properties_display_multi-keyword_values
+  title: Multi-Value Display
 
 - pre: Get *Explicit*
   title: |
@@ -285,7 +297,85 @@ slides:
 - pre: Fine to
   title: Keep Using **Single-Values**
 
+# overflow --------------
+
+- section: >
+    **Overflow** & **Scroll**
+
+- pen: css-rad
+
+- pre: First…
+  title: Do **No Harm**
+
+- title: >
+    **Text**-Overflow
+  sub: >
+    `clip` | `ellipsis`
+  caption: >
+    What to do with extra text
+
+- title: Not a **Content Strategy**
+  sub: Makes dangerous ass… (umptions)
+
+- title: >
+    Overflow-**Wrap**
+  sub: >
+    `break-word` | `anywhere`
+
+- pen: Overflow-Wrap
+  id: GRKoxXY
+
+- title: Box **Overflow**
+  sub: >
+    `overflow-x`/`-y` | `overflow-inline`/`-block`
+
+- title: Default **Visible**
+  sub: Acts like `auto` when single-axis
+
+- title: >
+    Overflow **Hidden**
+  md: |
+    - no scroll bar
+    - clipped at `padding-box` edge
+    - programmatic scrolling _is allowed_
+
+- title: >
+    Overflow **Clip**
+  md: |
+    - no scroll bar
+    - clipped at `padding-box` _`+ overflow-clip-margin`_ edge
+    - programmatic scrolling _not allowed_
+
+- img: deep-dive/polypane-clip.png
+  alt: |
+    Polypane website hero area,
+    with a 3d browser window
+    popping out of the content area,
+    but clipped at the page edge
+  caption: >
+    From [Polypane](https://polypane.app/)
+
+- caniuse: mdn-css_types_overflow_clip
+  title: Overflow Clip
+
+- title: >
+    Overflow **Scroll** / **Auto**
+  sub: (usually _auto_…)
+
+- pen: css-rad
+
+- title: Scroll **Snapping**
+
+- pen: Scroll Snap Gallery
+  id: bXRebo
+
+- pen: Scroll Snap Demo & Notes
+  id: vomNBg
+
 # writing-modes --------------
+
+- section: >
+    Writing **Modes** & **Orientation**
 
 - title: Writing **Modes**
   sub: |
@@ -293,6 +383,7 @@ slides:
 
 - caniuse: css-writing-mode
 - caniuse: mdn-css_properties_writing-mode_sideways_values
+  title: Sideways Writing Modes
 
 - title: Text-**Orientation**
   sub: |
@@ -303,8 +394,6 @@ slides:
 
 - pen: Writing Modes & Orientation
   id: YMOoYz
-
-# logical properties --------------
 
 - pre: Understand
   title: |
@@ -335,239 +424,13 @@ slides:
 
 - demo: logical-props
 
-- pen: |
+- pen: >
     Logical properties demo: inline form
   id: abbpKzK
   user: hus_hmd
 
-# flex --------------
+- pre: MDN has
+  title: >
+    Complete [Logical Listing](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)
 
-- pre: Flex *Container*...
-  title: |
-    display: **flex**
-
-- pre: Content-Out
-  title: Sharing **Space**
-  sub: use grid for **layout-in**
-
-- css: |
-    .default-values {
-      flex-direction: row; /* column[-reverse] */
-      flex-wrap: nowrap; /* wrap | wrap-reverse */
-    }
-
-- pen: Flex-flow
-  id: dLZpqX
-  user: stacy
-
-- pre: Flex *Items*...
-  title: |
-    **flex-grow**: 1
-  sub: Distribution of **Available** Space
-
-- pre: Flex *Items*...
-  title: |
-    **flex-shrink**: 1
-  sub: Distribution of **Unavailable** Space
-
-- pre: Flex *Items*...
-  title: |
-    **flex-basis**: auto
-  sub: The ideal **starting width**, before flexing
-
-- pre: Four Flex
-  title: |
-    **Shorthand** Values
-  sub: |
-     **`initial`** | **`auto`** | **`none`** | **`<grow>`**
-  caption: |
-    The spec is written so that
-    [four flex shorthand values](https://www.w3.org/TR/css-flexbox-1/#flex-common)
-    are meant to handle the majority of use-cases.
-
-- pre: Initial
-  title: |
-    **Shrink**, If Necessary
-  sub: Same as **`0 1 auto`**
-- pre: Auto
-  title: |
-    **Shrink** or **Grow**
-  sub: Same as **`1 1 auto`**
-- pre: None
-  title: |
-    **Don't Flex**
-  sub: Same as **`0 0 auto`**
-- pre: |
-    <grow>
-  title: |
-    Share Space **Equally**
-  sub: Same as **`<grow> 1 0`**
-
-- demo: box-align
-
-# box alignment --------------
-
-- title: Box **Alignment**
-  sub: |
-    currently in flexbox & grid...
-  caption: |
-    [Box Alignment Cheatsheet](https://rachelandrew.co.uk/css/cheatsheets/box-alignment)
-    by **Rachel Andrew**
-
-- title: 🤯 On **Both Axis**
-
-- demo: box-align
-
-- pre: Inline Axis
-  title: |
-    **justify-***
-  sub: |
-    `justify`**`-content`** | `justify-`**`items`** | `justify-`**`self`**
-
-- pre: Block Axis
-  title: |
-    **align-***
-  sub: |
-    `align`**`-content`** | `align-`**`items`** | `align-`**`self`**
-
-- pre: Shorthand
-  title: |
-    **place-*** <align> <justify>
-  sub: |
-     `place`**`-content`** | `place-`**`items`** | `place-`**`self`**
-
-- title: |
-    **Positional** Values
-  sub: |
-    **`start`** | **`end`** | **`center`** ...
-
-- title: |
-    **Baseline** Values
-  sub: |
-    **`baseline`** | **`first`** `baseline` | **`last`** `baseline`
-
-- title: |
-    **Distributed** Values
-  sub: |
-    **`stretch`** | **`space-between`** | **`space-around`**  | **`space-evenly`**
-
-- title: |
-    **Overflow** Keywords
-  sub: |
-    **`safe`** | **`unsafe`**
-
-- title: Real **Gutters**\*
-  sub: |
-    **`row-gap`** | **`column-gap`** | **`gap`**
-  caption: |
-    **\***[Best browser support](https://developer.mozilla.org/en-US/docs/Web/CSS/gap#Browser_compatibility)
-    in grid layouts with `grid-*` prefix
-
-# order -------------------
-
-- title: |
-    **order**: 3
-  sub: In flex or grid layout...
-
-- pen: Flex-Order
-  id: YMJKbg
-
-- pre: |
-    !important
-  title: |
-    **Accessibility** Issues
-  sub: |
-    **`*-reverse`** | **`order`**
-  caption: |
-    [Read the MDN article »](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility)
-
-- quote: |
-    Authors must use order and the grid-placement properties
-    **only for visual, not logical, reordering** of content.
-  cite: |
-    [Grid Specification](https://drafts.csswg.org/css-grid/#order-accessibility)
-
-- pre: Use ordering
-  title: To **Improve Readability**
-  sub: Always check your tab-order...
-
-- md: |
-   1. Start with **structured** & **accessible** HTML
-   2. Create a responsive & **responsible layout**
-   3. If you re-order, **consider updating the DOM**
-
-# viewport units --------------
-
-- title: |
-    **Viewport** Relative Units
-  sub: |
-    `vw` | `vh` | `vmin` | `vmax`
-
-- title: |
-    **Full**-Height…
-  sub: |
-    `height:` **`100vh`**
-
-- title: |
-    **Sticky**-Footer…
-  sub: |
-    `min-height:` **`100vh`**
-
-- title: |
-    Responsive **Type**
-  sub: |
-    `font-size:` **`calc(1em + 2vw)`**
-
-- title: |
-    **Breaking** Out
-  sub: |
-    `margin-inline:` **`calc(50% - 50vw)`**
-
-- demo: viewport-units
-
-- pre: Watch out for...
-  title: 100vh **Phone Jank**
-
-# object-* --------------
-
-- pre: |
-    *Replaced* Elements...
-  title: |
-    **object-fit** & **object-position**
-  caption: |
-    [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) |
-    [caniuse](https://caniuse.com/#feat=object-fit)
-
-- pre: |
-    *object*-position
-  title: |
-    ~= **background**-position
-  sub: Same values, but for placing an object
-
-- title: |
-    **object-fit**: fill
-  sub: |
-    **`contain`** | **`cover`** | **`scale-down`**
-
-- demo: object-fit
-- demo: box-align
-
-# multicol --------------
-
-- pre: Multicolumn
-  title: |
-    **columns**: 5 10em;
-  sub: |
-    **`column-count`** | **`column-width`**
-
-- pen: Multicolumn
-  id: vMWKRq
-  user: stacy
-
-# out ---------------------
-
-- pre: |
-    @TerribleMia
-  title: |
-    **#ResilientWebSystems**
 ---

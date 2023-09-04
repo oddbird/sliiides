@@ -158,15 +158,26 @@
 
 {% macro caniuse(slide, page) %}
   {%- set href -%}https://caniuse.com/#feat={{ slide.caniuse }}{%- endset -%}
-  {%- set links -%}[[{{ slide.caniuse }} on caniuse]({{ href }})]{%- endset -%}
-  {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
-  {%- set slide = slide | merge({'caption': caption}) -%}
-  {% call slides.base(slide, 'img caniuse', page) %}
-    <a href="{{ href }}">
-      {{- embed.caniuse(
-        feature=slide.caniuse,
-        periods=slide.periods
-      ) -}}
-    </a>
-  {% endcall %}
+  {%- if slide.title -%}
+    {%- set title -%}[**{{ slide.title }}**]({{ href }})?{%- endset -%}
+    {%- set slide = slide | merge({
+      'pre': 'Can I use…',
+      'title': title
+    }) -%}
+    {% call slides.base(slide, 'caniuse', page) %}
+      {{ slides.title(slide) }}
+    {% endcall %}
+  {%- else -%}
+    {%- set links -%}[[{{ slide.caniuse }} on caniuse]({{ href }})]{%- endset -%}
+    {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
+    {%- set slide = slide | merge({'caption': caption}) -%}
+    {% call slides.base(slide, 'img caniuse', page) %}
+      <a href="{{ href }}">
+        {{- embed.caniuse(
+          feature=slide.caniuse,
+          periods=slide.periods
+        ) -}}
+      </a>
+    {% endcall %}
+  {%- endif -%}
 {% endmacro %}

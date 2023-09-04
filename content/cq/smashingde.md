@@ -8,6 +8,13 @@ proposal: &proposal
 slides:
 
 # cold open
+- img: cqs/smashde/topple.jpg
+  alt: >
+    Smashing Conf banner
+    for Freiburg, The Web -
+    with Topple cat replaced by badly photoshopped
+    medieval cat drawing.
+
 - img: cqs/containers.jpg
   alt: |
     A shipping yard from above,
@@ -465,7 +472,11 @@ slides:
     Glitchy context circles and arrows
     covering the whole page
 
-- title: 😱🙅🏻‍♀️
+- img: cqs/smashde/no.jpg
+  fit: contain
+  background: black
+  alt: >
+    No, slide from Amy Hupe
 
 - title: >
     **Inline-Only** Containment **?!?**
