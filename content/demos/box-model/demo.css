@@ -1,0 +1,20 @@
+.box {
+  border: thick dashed mediumvioletred;
+  background: powderblue;
+  background-clip: content-box;
+  max-width: 60ch;
+  padding: 2em;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: orange;
+  }
+}
+
+p {
+  margin: 0;
+}

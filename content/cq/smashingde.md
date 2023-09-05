@@ -46,11 +46,14 @@ slides:
     with a scribbled thought bubble asking:
     do containers know stuff?
   caption: Photo by [Avery Evans](https://unsplash.com/@averye457?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash
-- pre: 2009
-  title: |
-    **`@media`** Queries
+
+- img: cqs/smashde/mqs.jpg
+  alt: >
+    Timeline with media queries around 2010
   caption: |
-    Partial support in [Safari 3](https://caniuse.com/css-mediaqueries), 2008
+    **`@media`** Queries, 2009
+    (Slide by Christine Vallaure)
+
 - pen: media-v-container
   print: media-v-container-break
 
@@ -72,6 +75,13 @@ slides:
   background: white
   caption: |
     Containers can be nested
+
+- img: cqs/smashde/what.jpg
+  alt: >
+    What about container queries?
+  caption: |
+    (Original slide by Christine Vallaure)
+
 - img: cqs/selector-queries.jpg
   alt: |
     Github page for an Initial demo commit
@@ -232,14 +242,6 @@ slides:
 - svg: svg/content/more-more
   alt: Animation of twitter-like posts appearing
 
-- quote: |
-    We're designing _dynamic content_
-    with _unknown collaborators_
-    on an _infinite and unknowable canvas_,
-    across _operating systems_, _interfaces_,
-    _writing-modes_, & _languages_...
-  cite: me
-
 - title: >
     **Normal** Flow
   sub: |
@@ -260,7 +262,6 @@ slides:
 - title: >
     **Intrinsic** Sizing
   md: |
-    -
     - `auto`
     - `min-content`
     - `max-content`
@@ -387,6 +388,12 @@ slides:
     suggesting the current half-written autoc,
     autocorrect, and autocomplete
 
+- img: cqs/smashde/cqs.jpg
+  alt: >
+    Timeline with container queries around 2022
+  caption: |
+    (Slide by Christine Vallaure)
+
 - img: cqs/john-snow.jpg
   alt: >
     Image of John Snow
@@ -476,7 +483,8 @@ slides:
   fit: contain
   background: black
   alt: >
-    No, slide from Amy Hupe
+    No
+  caption: Slide from Amy Hupe
 
 - title: >
     **Inline-Only** Containment **?!?**
@@ -653,7 +661,7 @@ slides:
   id: QWZYOrM
 
 - title: Grid **Tracks** & **Flex** Sizing?
-  sub: No element to measure...
+  sub: No _element_ to measure...
 
 - img: queries-units/mudturtles.jpg
   alt: |
@@ -666,6 +674,12 @@ slides:
   id: abqPdQv
   user: una
   caption: Una Kravets
+
+- img: cqs/smashde/web-components.jpg
+  alt: >
+    Web Components
+  caption: |
+    (Slide by Zach Leatherman)
 
 - pen: cq-books
 
