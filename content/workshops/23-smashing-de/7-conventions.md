@@ -1396,5 +1396,4 @@ slides:
   cite: Rachel Andrew
   caption: |
     [The Way We Talk About CSS](https://rachelandrew.co.uk/archives/2018/10/04/the-way-we-talk-about-css/)
-
 ---
