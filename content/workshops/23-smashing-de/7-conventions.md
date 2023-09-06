@@ -1128,6 +1128,145 @@ slides:
 - title: Work In **Layers**
   sub: (roughly ITCSS)
 
+- title: Getting **Started**
+  sub: my _recommendations_, your milage may vary
+
+- pre: Establish
+  title: A **Layer Order**
+
+- css: |
+    /* first & easy to find */
+    @layer defaults, components, utilities;
+  caption: |
+    Start simple, and append as needed…
+
+- html: |
+    <style>/* keep this before linked styles */
+    @layer defaults, components, utilities;
+    </style>
+    <link rel="stylesheet" href="…">
+  caption: |
+    Can live in the HTML, if that keeps it central
+
+- pre: Then
+  title: |
+    Layer **Dependencies**
+  sub: |
+    resets, design systems, frameworks, libraries...
+
+- pre: Clearly define…
+  title: Each **Tool's Priority**
+
+- pre: Clearly define…
+  title: Tool-Specific **Overrides**
+
+- css: |
+    @import url(bootstrap.css) layer(bootstrap.vendor);
+
+    @layer bootstrap.overrides {
+      /* anything here will override bootstrap */
+    }
+
+- pre: As you go
+  title: Update **Layer Order**
+
+- pre: Then _Layer_
+  title: Overall **Architecture**
+
+- pre: For _flexibility_
+  title: Layer **Everything**
+  sub: |
+    Once we use un-layered styles,
+    that's as high as we can go
+
+- pre: Working from
+  title: |
+    **Lowest** to **Highest**
+
+- from: itcss
+  use: graph
+- img: layers/chart-part-1.jpg
+  fit: contain
+  background: white
+- img: layers/chart-part-2.jpg
+  fit: contain
+  background: white
+- img: layers/chart-part-3.jpg
+  fit: contain
+  background: white
+- img: layers/chart-layers.jpg
+  fit: contain
+  background: white
+
+- title: |
+    Single File **Components**?
+
+- html: |
+    /* Vue example */
+    <template>…</template>
+    <script>…</script>
+
+    <style>
+    @layer components {
+      /* all our component styles */
+    }
+    </style>
+
+- title: |
+    CSS-**in-JS**?
+
+- title: |
+    ¯\\\_(**ツ**)_/¯
+  sub: It depends on the tool
+
+- pre: |
+    Good Tools
+  title: |
+    Let Us **Use CSS Features**
+  sub: |
+    (otherwise '_tools_' become _obstacle_)
+
+- title: |
+    ¯\\\_(**ツ**)_/¯
+  sub: You do you (no gate-keeping)
+
+- pre: As useful,
+  title: Layer **Inside Components**
+
+- title: |
+    **Nested** Sub-Layers
+
+- pre: Use _layers_
+  title: To **Provide Clarity**
+- pre: Use _layers_
+  title: To Describe **Intent**
+
+- pen: layers-btn
+
+- title: Convey **Architecture**
+- title: Design **Systems**
+- title: Tools & **Frameworks**
+- title: WordPress **Themes**
+- title: Rapid **Prototypes**
+
+- pre: Not Just…
+  title: |
+    'This is **!mportant**'
+
+- pre: |
+    (layers _lower importance_ by default)
+
+- pre: Not an
+  title: |
+    **All-Or-Nothing** Grenade
+
+- pre: Encourages
+  title: |
+    **Nuanced** & **Explicit** Priorities
+
+- title: >
+    [Miriam.codes](https://miriam.codes/2022/09/06/layers/)
+
 - pre: More *layers*
   title: Using **Custom Properties**
   sub: (with layered fallbacks)

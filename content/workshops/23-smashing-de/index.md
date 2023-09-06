@@ -40,3 +40,9 @@ _the cascade of styles_.
 - [Layout Challenge](https://codepen.io/stacy/pen/eYpMKKb?editors=1100)
   - [Version 1](/assets/images/deep-dive/layout-challenge-1.png)
   - [Version 2](/assets/images/deep-dive/layout-challenge-2.png)
+
+## Resources
+
+- [Cascade & Layers](/layers/resources/)
+- [CSS Custom Properties](/variables/resources/)
+- [CSS Conventions](/conventions/resources/)
