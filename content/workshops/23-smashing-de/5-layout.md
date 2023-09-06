@@ -201,6 +201,17 @@ slides:
   title: |
     **minmax**(`20%`, `200px`)
 
+- pre: Minmax is
+  title: >
+    Not a **Math** Function
+
+- title: |
+    **minmax**(min-content, 20%)
+
+- pre: Fluid *Until* Fixed
+  title: |
+    **minmax**(`20%`, `200px`)
+
 - pre: |
     & *Intrinsic*
   title: |
@@ -216,7 +227,8 @@ slides:
     & *Flexible*
   title: 20ch **1fr** 200px
 
-- title: Flexible **`>`** Fluid
+- title: >
+    **Flexible** **`>`** Fluid
 
 - md: |
     - **`%`** ➡ relative to **parent width**
@@ -380,13 +392,11 @@ slides:
     **`[full-start nav-start]`** `20em` **`[nav-end]`** `1fr` **`[full-end]`**
 
 - title: grid-**template**
-  md: |
-    ```css
-                   'header          header         header' auto
-                   'nav             main           aside' 1fr
-                   'nav             footer         aside' auto
+  css: |
+    'header          header         header' auto
+    'nav             main           aside' 1fr
+    'nav             footer         aside' auto
     / [full-start] fit-content(20%) minmax(0, 1fr) 20em [full-end]
-    ```
 
 - pen: Overlapping Named Lines
   id: XQxpPx
@@ -423,10 +433,6 @@ slides:
 - pen: Auto-Fit Grid
   id: xjRyda
   user: stacy
-
-- title: miriamsuzanne.com
-  sub: |
-    **list view** & **contact form**
 
 - pre: Matches
   title: |
@@ -498,4 +504,7 @@ slides:
   md: |
     youtube.com/layoutland & labs.jensimmons.com
 
+- pre: Let's revisit…
+  title: >
+    [Container Queries](/cq/smashingde/)
 ---

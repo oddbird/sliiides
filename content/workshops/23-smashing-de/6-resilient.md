@@ -294,22 +294,11 @@ slides:
 
 - demo: media-prefers
 
-- title: CSS (**Motion**) Remedy
-  md: |
-    ```css
-    @media (prefers-reduced-motion: reduce) {
-      *, ::before, ::after {
-        animation-delay: -1s !important;
-        animation-duration: 1s !important;
-        animation-iteration-count: 1 !important;
-        background-attachment: initial !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0s !important;
-      }
-    }
-    ```
-  caption: |
-    [CSS Remedy](https://github.com/jensimmons/cssremedy/blob/master/css/reminders.css#L31)
+- title: Reduced **Motion**
+  sub: Not _reduced animation_
+
+- pen: Reduced Motion
+  id: qBLqjxY
 
 - section: |
     Media **Features**
@@ -369,7 +358,5 @@ slides:
 
 - pre: Care *More*
   title: By **Caring Less**
-
----
 
 ---

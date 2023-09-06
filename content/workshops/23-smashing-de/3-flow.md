@@ -199,6 +199,31 @@ slides:
 - pen: Image ratio css, html hints, and natural sizes
   id: ZEVprwW
 
+- section: >
+    **Object** Position
+
+- pre: |
+    *Replaced* Elements...
+  title: |
+    **object-fit** & **object-position**
+  caption: |
+    [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) |
+    [caniuse](https://caniuse.com/#feat=object-fit)
+
+- pre: |
+    *object*-position
+  title: |
+    ~= **background**-position
+  sub: Same values, but for placing an object
+
+- title: |
+    **object-fit**: fill
+  sub: |
+    **`contain`** | **`cover`** | **`scale-down`**
+
+- demo: object-fit
+- demo: box-align
+
 # multi-value display --------------
 
 - section: >
@@ -433,4 +458,6 @@ slides:
   title: >
     Complete [Logical Listing](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)
 
+- pen: Scroll Snap, Aspect Ratios, Writing Modes
+  id: ExGNvxR
 ---

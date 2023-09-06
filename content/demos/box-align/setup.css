@@ -1,8 +1,10 @@
 body {
-  min-height: 100vh;
+  min-height: 100%;
+  max-width: none;
 }
 
 img {
   border: medium solid rebeccapurple;
   border-radius: 0.125em;
+  min-width: 0;
 }

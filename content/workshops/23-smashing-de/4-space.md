@@ -78,6 +78,9 @@ slides:
 
 # flex --------------
 
+- section: >
+    **Flexbox** & **Alignment**
+
 - pre: Flex *Container*...
   title: |
     display: **flex**
@@ -230,20 +233,13 @@ slides:
 
 # viewport units --------------
 
+- section: >
+    **Viewport** Units
+
 - title: |
     **Viewport** Relative Units
   sub: |
-    `vw` | `vh` | `vmin` | `vmax`
-
-- title: |
-    **Full**-Height…
-  sub: |
-    `height:` **`100vh`**
-
-- title: |
-    **Sticky**-Footer…
-  sub: |
-    `min-height:` **`100vh`**
+    `vw`/`vi` | `vh`/`vb` | `vmin` | `vmax`
 
 - title: |
     Responsive **Type**
@@ -268,31 +264,85 @@ slides:
 - pre: Watch out for...
   title: 100vh **Phone Jank**
 
-# object-* --------------
-
-- pre: |
-    *Replaced* Elements...
-  title: |
-    **object-fit** & **object-position**
+- img: cqs/bramus-viewports.png
+  alt: |
+    On an example phone,
+    the large viewport fills the full screen
+    with all browser chrome hidden -
+    the small viewport fills the remaining space
+    when top and bottom browser chrome are visible
+  fit: contain
   caption: |
-    [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) |
-    [caniuse](https://caniuse.com/#feat=object-fit)
-
-- pre: |
-    *object*-position
-  title: |
-    ~= **background**-position
-  sub: Same values, but for placing an object
+    [The Large, Small, and Dynamic Viewports](https://www.bram.us/2021/07/08/the-large-small-and-dynamic-viewports/)
+    by **Bramus Van Damme**
 
 - title: |
-    **object-fit**: fill
+    **Small Viewport** Units
   sub: |
-    **`contain`** | **`cover`** | **`scale-down`**
+    `svw`/`svi` | `svh`/`svb` | `svmin` | `svmax`
 
-- demo: object-fit
-- demo: box-align
+- pre: Great for…
+  title: >
+    **Full(ish)-height** sections
+
+- title: |
+    **Large Viewport** Units
+  sub: |
+    `lvw`/`lvi` | `lvh`/`lvb` | `lvmin` | `lvmax`
+
+- title: |
+    **Dynamic Viewport** Units
+  sub: |
+    `dvw`/`dvi` | `dvh`/`dvb` | `dvmin` | `dvmax`
+
+# comparisons -----------
+
+- section: >
+    **Comparison** Functions
+
+- title: >
+    **Comparison** Functions
+  sub: >
+    `min()`, `max()`, and `clamp()`
+
+- pre: >
+    _Min_ and _Max_
+  title: >
+    Multiple **Calculations**
+  css: |
+    min(1em + 1vw, 2em, 15%) /* use smallest */
+    max(10 * (1vw + 1vh) / 2, 1em) /* use largest */
+
+- title: >
+    **Nested** Calculations
+  css: |
+    max(1.5em, min(1em + 1vw, 3em))
+
+- pre: Clamp()
+  title: >
+    Dynamic **Between** Min & Max
+
+- title: >
+    `clamp(`_`<min>`_`, `_`<dynamic>`_`, `_`<max>`_`)`
+  caption: >
+    `max(`_`<min>`_`, min(`_`<dynamic>`_`, `_`<max>`_`))`
+  css: |
+    clamp(1em, 1em + 2vw, 5em)
+
+- pre: These are
+  title: >
+    **Math** Functions
+
+- title: 🙅🏻‍♀️ Not Allowed
+  caption: >
+    `min-content` and `auto` are not _numbers_
+  css: |
+    min(min-content, auto)
 
 # multicol --------------
+
+- section: >
+    **Multi**Column
 
 - pre: Multicolumn
   title: |

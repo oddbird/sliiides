@@ -7,6 +7,9 @@ proposal: &proposal
     [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 slides:
 
+- pre: Hello, Freiburg
+  title: slides.oddbird.net/workshops/23-smashing-de/
+
 - title: The **Cascade**
 
 - title: The '**C**' in...

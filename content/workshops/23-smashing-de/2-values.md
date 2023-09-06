@@ -2,27 +2,103 @@
 talk: Value Resolution & Custom Properties
 date: 2023-09-06
 slides:
-# intro ---------------------
+
+# intro to vars
+- pre: I heard
+  title: You Like **Variables**
+- pre: I heard
+  title: You Like **Variables**
+  sub: In _CSS_
+
+- title: |
+    Sass \
+    Less \
+    PostCSS \
+    CSS-in-JS...
+
+- pre: Take
+  title: Common **Values**
+
+- title: |
+    **Global** Design Tokens
+  sub: brand colors, sizes, fonts, etc...
+  caption: Term coined by [Jina](https://twitter.com/jina)
+
+- title: |
+    `hsl(322, 92%, 24%)`
+  mode: dark
+  background: hsl(322, 92%, 24%)
+  caption: The best color (tastes like rhubarb)
+
+- pre: Provide
+  title: Meaningful **Names**
+
+- title: |
+    `$`**`deep-raspberry`**
+  caption: |
+    What it _looks like_
+
+- title: |
+    `$`**`best-color`**
+  caption: |
+    Why we _chose it_
+
+- title: |
+    `$`**`action`**
+  caption: |
+    What it _signifies_
+
+- title: |
+    `$`**`link`** \
+    `$`**`button`**
+  caption: |
+    Where to _use it_
+
+- scss: |
+    // origin
+    $best-color: hsl(322, 92%, 24%);
+
+    // meaning
+    $action: $best-color;
+
+    // usage
+    $link: $action;
+    $button: $action;
+  caption: |
+    ¿Por qué no los _tres_?
+
+- img: advanced-css/patch.jpg
+  alt: Physical patch bay with wires
+  caption: Patch bays are great
+
+- title: Don't **Do Anything**
+  sub: Until we _apply them_
+  caption: A way of storing & organizing information for later
+
+- scss: |
+    button {
+      background-color: $button;
+    }
+  caption: Connecting the final _patch cord_ to _output_
+
+- title: 😎 _cooool_
+
+- pre: 2014...
+  title: CSS **Variables**
+
+- caniuse: css-variables
+
+- title: |
+    ~~`$name: value;`~~ \
+    **`--`**`name: `*`value`*`;`
 
 - pre: |
-    *Variables*
-  title: In **CSS**
-
-- title: |
-    **current**Color
-  sub: Firefox **2006**... Safari **2009**... IE9 **2011**...
-
-- title: Borrowed from **SVG 1**
-  sub: Added to **CSS 3**
-
-- title: Custom **Properties**
-  sub: Firefox **2014**... Chrome/Safari **2016**... Edge **2017**
-
-- title: |
-    **`--aka`**`: 'css variables';`
-
-- title: |
-    `-<empty>-`**`browser-prefix`**
+    `-`~~`webkit`~~`-property` \
+    `-`~~`moz`~~`-property`
+  title: |
+    **`--property`**
+  caption: |
+    All prefix, no browser: _`-<empty>-property`_
 
 - title: |
     **`--very`**`: few restrictions;`
@@ -32,142 +108,24 @@ slides:
   id: WqwjLm
   tabs: css
 
-- title: |
-    `var(` **`--name`** `)`
+- pre: Define
+  title: On **Elements**
+  caption: (like other _properties_)
 
-- title: |
-    `var(` **`--name`** `, fallback)`
+- scss: |
+    // global
+    $best-color: hsl(322, 92%, 24%);
+    $action: $best-color;
+    $button: $action;
 
-- title: Only **One Fallback**
-  md: |
-    `var(--my-font,` *`Baskerville, Georgia, serif`*`)`
-
-- title: |
-    **Nested** Fallbacks
-  md: |
-    `var(--my-color,` *`var(--other-color, pink)`*`)`
-
-# Sass ---------------------
-
-- pre: Some *Overlap*
-  title: With **Sass Variables**
-
-- md: |
-    ```scss
-    $my-color: rebeccapurple;
-    --my-color: rebeccapurple;
-    ```
-
-- pre: Store *Data*
-  title: For **Later Use**
-
-- pre: Establish
-  title: |
-    **Global** Patterns
-
-- title: |
-    Keep Code **DRY**
-  sub: |
-    "*Don't Repeat Yourself*"
-
-- pre: |
-    With a *Single*
-  title: |
-    Source of **Truth**
-
-- md: |
-    ```css
+- css: |
     html {
-      --gutter: 1.5rem;
-      --shim: calc(var(--gutter) / 2);
+      --best-color: hsl(322, 92%, 24%);
+      --action: var(--best-color);
+      --button: var(--action);
     }
-    ```
-
-- md: |
-    ```css
-    html {
-      --brand-color: hsl(330, 100%, 45%);
-      --action: var(--brand-color);
-    }
-    ```
-
-- pre: But there are
-  title: Important **Differences**
-
-- pre: Sass Variables *Scope*
-  title: Without **DOM Awareness**
-
-- md: |
-    ```scss
-    .example {
-      $columns: 2;
-    }
-    .nested-class {
-      /* $columns == undefined */
-    }
-    ```
-
-- pre: Properties *Inherit*
-  title: With **DOM Awareness!**
-
-- md: |
-    ```css
-    .example {
-      --columns: 2;
-    }
-    .nested-class {
-      /* var(--columns) == 2 */
-    }
-    ```
-
-- title: Media-Query **Changes**
-  md: |
-    ```scss
-    @media (min-width: 30em) {
-      html {
-        $columns: 6; /* scope only */
-        --columns: 6; /* 30em+ in browsers! */
-      }
-    }
-    ```
-
-- pre: Custom *Properties*
-  title: Not Just **Variables**
-
-- title: Use **Both**
-
-- pre: Will It *Change*
-  title: In The **Browser**?
-
-- pre: Will It *Change*
-  title: Depending on **Context**?
-
-- pre: Keep *NSYNC*...
-  title: Properties From **Variables**
-
-- md: |
-    ```scss
-    $gutter: 1rem;
-    html { --gutter: #{$gutter}; }
-    ```
-
-- md: |
-    ```scss
-    $brand-colors: (
-      'brand-blue': hsl(195, 52%, 31%),
-      'brand-orange': hsl(24, 100%, 62%),
-      'brand-pink': hsl(330, 100%, 45%),
-    );
-    ```
-
-- md: |
-    ```scss
-    html {
-      @for $name, $value in $brand-colors {
-        --#{$name}: #{$value};
-      }
-    }
-    ```
+  caption: |
+    `:root` is fine, but why?
 
 # root ---------------------
 
@@ -189,290 +147,299 @@ slides:
 - demo: root-solo
 - demo: root-embed
 
-- pre: Pseudo-*class* Has
-  title: Higher **Specificity**
+# inherit -------------------
 
-# inheritance ---------------------
+- pre: Inherit
+  title: By **Default**
+  caption: (like other _properties_)
 
-- pre: Custom *Properties*
-  title: Inherit By **Default**
+- pre: Apply
+  title: On Any **Descendants**
+
+- title: |
+    `var(` **`--property`** `)`
+
+- css: |
+    button { color: var(--button); }
+
+- pre: Keep Sass/CSS
+  title: |
+    **Global Values** NSYNC
+
+- scss: |
+    $best-color: hsl(329.8 67.7% 57.5%);
+
+    html {
+      --action: #{$best-color};
+    }
+  caption: |
+    The `#{interpolation}` syntax is required
+    for parsing Sass inside CSS variables
+
+- scss: |
+    $colors: (
+      'brand-blue': hsl(195, 52%, 31%),
+      'brand-orange': hsl(24, 100%, 62%),
+      'brand-pink': hsl(322, 92%, 24%),
+    );
+
+    html {
+      @for $name, $value in $colors {
+        --#{$name}: #{$value};
+      }
+    }
+
+- pre: If you
+  title: Only Use **Global Values**
+- pre: Then
+  title: |
+    You're **Missing Out**
+
+# Compiled vs Dynamic
+- pre: Preprocessor are…
+  title: |
+    **Compiled** (**Server-Side**)
+
+- scss: |
+    button {
+      background-color: $action;
+    }
+
+- title: Preprocessor ✨ **Magic** ✨
+
+- css: |
+    button {
+      background-color: hsl(322, 92%, 24%);
+    }
+
+- pre: Sass Variables are
+  title: Static at **Compilation**
+
+- pre: That's a
+  title: Huge **Limitation**
+
+# think different
+- pre: CSS is…
+  title: |
+    **Responsive** (**Client-Side**)
+
+- title: Responds to **Devices**
+  caption: Different sizes, capabilities, interfaces, etc.
+- title: Responds to **Browsers**
+  caption: Different sizes, feature support, etc.
+- title: Responds to **User Preferences**
+  caption: Font sizes, forced colors, reduced motion, etc.
+- title: Responds to **Interactions**
+  caption: States like hover, focus, checked, etc.
+- title: Responds to **HTML Context**
+  caption: Different pages, layouts, components, etc.
+
+- pre: CSS Variables
+  title: Are **Responsive**
+
+- pre: CSS Variables
+  title: Are **Always Dynamic**
+
+# intro custom props
+
+- pre: CSS _Variables_
+  title: |
+    Need a New **Mental Model**
+
+- title: |
+    "CSS **Custom Properties**…
+  sub: …for _Cascading Variables_ Module Level 1"
+  caption: |
+    The [custom properties spec](https://www.w3.org/TR/css-variables-1/)
+
+- title: Cascade **Like Properties**
+- title: Inherit **Like (some) Properties**
+- title: Custom **Properties**
+  sub: Properties _that we define_
+
+- pre: The _Cascade_
+  title: Filters **Targeted Values**
+  sub: when there are _conflicts_
+
+- css: |
+    p { color: black; }
+    p.error { color: red; }
+
+- pre: Change values
+  title: Based on **State**, **Class**, &c
+
+- pre: Then _Inheritance_
+  title: Fills in **Missing Values**
+  sub: based on _nearest target ancestor_
+
+- css: |
+    html { color: green; }
+    p { /* color inherits */ }
+
+- pre: Change values
+  title: Based on **DOM Context**
+
+- pre: Custom properties
+  title: |
+    **Capture** a Value
+  sub: Somewhere in the cascade
+
+- css: |
+    html { --action: red; }
+    main { --action: green; }
+    aside { --action: blue; }
+
+- pre: And then…
+  title: |
+    That Value **Inherits**
+  sub: Through the DOM
+
+- css: |
+    button { background: var(--action); }
+  caption: |
+    `red` by default, `green` inside `<main>`, `blue` in any `<aside>`
+
+- pen: 'Custom Properties Demo: Buttons'
+  id: RwoEWvE
+
+- title: Reduce **Nesting**
+
+- css: |
+    button {
+      background: blue
+    }
+
+    .my-context button {
+      background: rebeccapurple;
+    }
+
+- css: |
+    button {
+      background: var(--btn-color, blue);
+    }
+
+    .my-context {
+      --btn-color: red;
+    }
+
+- pre: Inheritance
+  title: Rewards **Proximity**
+  sub: Like "scoped styles"
 
 - pre: Reset *Inheritance*
   title: With **Explicit** Selectors
 
 - title: Declare **Locally**
-  md: |
-    ```css
+  css: |
     [data-button='go'] {
       --btn-color: green;
     }
-    ```
 
 - title: Declare **Universally**
-  md: |
-    ```css
+  css: |
     * {
       --grid-area: main;
     }
-    ```
 
 - title: Combine **Both**
-  md: |
-    ```css
-    [data-grid] * {
+  css: |
+    [data-grid] > * {
       --grid-area: main;
     }
-    ```
 
-- title: Declare **Nowhere** First
-  md: |
-    ```css
-    [data-grid] * {
-      grid-area: var(--grid-area, main);
-    }
-    ```
-  caption: |
-    Like JS **`undefined`**
-
-# use cases ---------------------
-
-- title: Lots  of **Use Cases**
-
-- pre: Use (& *Manage*)
-  title: The **Cascade**!
-
-- pre: Changes...
-  title: Based on **Context** / **Theme**
-
-- md: |
-    ```css
-    button {
-      background: blue
-    }
-
-    [data-theme='rebecca'] button {
-      background: rebeccapurple;
-    }
-    ```
-
-- md: |
-    ```css
-    button {
-      background: var(--btn-color, blue);
-    }
-
-    [data-theme='rebecca'] {
-      --btn-color: red;
-    }
-    ```
-
-- pre: Inheritance
-  title: Rewards **Proximity**
-  sub: Like "scroped styles"
-
-- pre: Component *Parameters*
-  title: Set By **Inheritance**
-
-- md: |
-    ```css
-    .component {
-      color: var(--color, black);
-    }
-
-    .context {
-      --color: rebeccapurple;
-    }
-    ```
-
-- pre: Changes...
-  title: Based on **State** / **Type**
-
-- md: |
-    ```css
-    [data-button] {
-      background: var(--btn-color, blue);
-    }
-
-    [data-button]:disabled {
-      --btn-color: gray;
-    }
-
-    [data-button='go'] {
-      --btn-color: green;
-    }
-    ```
-
-- pre: Avoids *Nesting*
-  title: For Lower **Specificity**
-
-- pre: Component *Parameters*
-  title: As Safe **Inline Styles**
-
-- md: |
-    ```html
-    <button style="--color: blue;">
-    ```
-
-- pre: Optionally
-  title: |
-    **Use** The Variable...
-  md: |
-    ```css
-    button {
-      background: var(--color, red);
-    }
-    ```
-
-- title: ...Or **Ignore** It
-  md: |
-    ```css
-    button.green {
-      background: green;
-    }
-    ```
-
-- title: Missing **Longhand**
-  sub: (& Defaults)
-
-- md: |
-    ```css
-    .box {
-      box-shadow: var(--shadow-x, 0)
-                  var(--shadow-y, 1px)
-                  var(--shadow-blur, 0)
-                  var(--shadow-color, currentColor);
-    }
-
-    .usage { --shadow-y: -1px; }
-    ```
-
-- demo: vars-basic
-
-# Colors ----------------------
-
-- title: Color **Themes**
-
-- demo: vars-themes
-
-- md: |
-    ```css
-    [data-theme] {
-      background: var(--background);
-      color: var(--text);
-    }
-
-    [data-theme='light'] {
-      --background: #ddf;
-      --text: #226;
-    }
-    ```
-
-- title: Think in **Layers**
-  sub: Brand **➡** Theme **➡** Purpose **➡**
-
-- md: |
-    ```css
-    html {
-      --brand-light: #ddf;
-      --brand-dark: #226;
-    }
-    ```
-
-- pre: |
-    "Soft *Patch*"
-  title: Between **Layers**
-
-- md: |
-    ```css
-    [data-theme='light'] {
-      --background: var(--brand-light);
-      --text: var(--brand-dark);
-    }
-    ```
-
-- demo: vars-themes
-
-- title: Individual **Color Channels**
-
-- md: |
-    ```css
-    html {
-      --h: 330;
-      --s: 100%;
-      --l: 34%;
-      --color: hsl(var(--h), var(--s), var(--l));
-    }
-    ```
-
-- title: Hue is **Radial**
-  md: |
-    ```css
-    * {
-      --complement: calc(var(--h) - 180);
-      background: hsl(var(--complement), var(--s), var(--l));
-    }
-    ```
-
-- title: Lightness is "**Clamped**"
-  md: |
-    ```css
-    * {
-      --threshold: 55;
-      --contrast: calc((var(--l) - var(--threshold)) * -100%);
-      color: hsl(var(--h), var(--s), var(--contrast));
-    }
-    ```
-
-- demo: https://talks.oddbird.net/demos/hslTheme
-  caption: |
-    Inspired by [Facundo Corradini](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
+- title: Define **Nowhere**
+- title: |
+    Initial **Guaranteed Invalid**
+  pre: like JS `Undefined`
 
 - title: |
-    [Cascading Colors](https://cascading-colors.netlify.com/)
-  sub: Could improve with `oklch()`??
+    `var(` **`--undefined`** `, fallback)`
 
-# Custom Cascades -----------------------
+- code: |
+    button {
+      background: var(--btn-color, teal);
+    }
 
-- title: Custom **Cascades**
+- title: |
+    `var( --undefined,` **`fallback`** `)`
+  caption: Only *one fallback*
 
-- pen: layers-btn
+- title: Allows **List Values**
+  sub: |
+    `var(--my-font,` *`Baskerville, Georgia, serif`*`)`
+
+- title: |
+    **Nested** Fallbacks
+  code: |
+    button {
+      background: var(--btn-color, var(--action, teal));
+    }
+
+- title: Font **Stacks**
+  sub: |
+    `font-family: `*`Consolas`*`, `*`Menlo`*`, `*`'Courier New'`*`, `*`monospace`*`;`
+
+- pre: Warning
+  title: Not for **Legacy Support**
+
+- title: |
+    ❌ **Browser** Fallbacks
+  code: |
+    button {
+      background: teal; /* old browser */
+      /* empty variables */
+      background: var(--btn-color, var(--action, teal));
+    }
+  caption: |
+    [Invalid at Computed-Value Time](https://twitter.com/TerribleMia/status/1369055587837771776)
+
+- title: |
+    **Browser** Fallbacks
+  code: |
+    html { background: red; }
+
+    @supports (--css: variables) {
+      html { background: green; }
+    }
+
+# use cases -----------
+
+- pre: CSS Variables
+  title: Manage **Dynamic Changes**
+
+- title: User **Preferences**
+
+- pen: Custom Property Light/Dark
+  id: KKNbLpZ
+
+- title: Attribute **Patterns**
 
 - md: |
-    ```css
-    html {
-      @media (prefers-color-scheme: dark) {
-        --os-mode: -1;
-      }
+    - `[attr]` ➡ **Presence** (even if empty)
+    - `[attr`**`=`**`"..."]` ➡ **Exact** match
+    - `[attr`**`*`**`="..."]` ➡ **Any** match
+    - `[attr`**`~`**`="..."]` ➡ **Space**-delimited (like classes)
+    - `[attr`**`|`**`="..."]` ➡ **Hyphen**-delimited
+    - `[attr`**`^`**`="..."]` ➡ **Starts** with...
+    - `[attr`**`$`**`="..."]` ➡ **Ends** with...
+    - `[attr="..."` **`i`**`|`**`s`**`]` ➡ **Case** sensativity
+  caption: |
+    More [details on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 
-      @media (prefers-color-scheme: light) {
-        --os-mode: 1;
-      }
-    }
-    ```
+- pen: Custom Property Themes
+  id: ExNGJre
 
-- md: |
-    ```css
-    [data-colors='light'] {
-      --html-mode: 1;
-    }
+- title: Media **Queries**
 
-    [data-colors='dark'] {
-      --html-mode: -1;
-    }
-    ```
+- pen: Variables & Media Queries
+  id: XWNowZQ
 
-- md: |
-    ```css
-    [data-colors] {
-      --mode: var(
-        --user-mode, var(
-          --html-mode, var(
-            --os-mode, 1
-          )
-        )
-      );
-    }
-    ```
+- title: Variations on a **Default**
+
+- pen: Variables Grid Areas
+  id: vYyvwom
+
+- title: Safe **Inline Styles**
 
 # Layouts --------------------------------
 
@@ -480,6 +447,8 @@ slides:
 
 - title: |
     [cssSusy](https://talks.oddbird.net/demos/cssSusy)
+  sub: >
+    🙅🏻‍♀️ Please _don't use this_ 🙅🏻‍♀️
   caption: |
     [AG Grid Nesting Test](http://oocss.org/grids_docs.html)
     from OOCSS
@@ -506,26 +475,256 @@ slides:
     ">
     ```
 
-- title: |
-    [Charts & Data](https://talks.oddbird.net/demos/cssChart)
+- pen: Dynamic CSS Layouts
+  id: xxKVqzz
+
+- title: Color **Schemes**
+
+- demo: vars-themes
+
+- title: Individual **Color Channels**
+
+- css: |
+    html {
+      --h: 330;
+      --s: 100%;
+      --l: 34%;
+      --color: hsl(var(--h), var(--s), var(--l));
+    }
+
+- title: Hue is **Radial**
+  css: |
+    * {
+      --complement: calc(var(--h) - 180);
+      background: hsl(var(--complement), var(--s), var(--l));
+    }
+
+- title: Lightness is "**Clamped**"
+  css: |
+    * {
+      --threshold: 55;
+      --contrast: calc((var(--l) - var(--threshold)) * -100%);
+      color: hsl(var(--h), var(--s), var(--contrast));
+    }
+
+- demo: https://talks.oddbird.net/demos/hslTheme
+  caption: |
+    Inspired by [Facundo Corradini](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
+
+- title: Interaction **States**
+
+- pen: Layering State & Type
+  id: MWeaeGR
+
+- title: Custom **Cascades**
+
+- title: Defined **Properties**
+  sub: For _Changing State_/_Type_
+
+- title: Open **Arguments**
+  sub: For _Inheriting Context_
+
+- title: Custom **Longhand**
+
+- pen: Custom **Longhand**
+  id: gOLqoGN
+
+- title: CSS **Functions** & **Mixins**
+
+- pen: Variables » Functions » Mixins
+  id: pozyeaN
+
+# Value resolution
+
+- pre: Custom properties
+  title: >
+    Resolve **Before Inheriting**
+
+- title: CSS **Value Resolution**
+  sub: >
+    [css-cascade-5](https://www.w3.org/TR/css-cascade-5/#value-stages)
+  caption: >
+    [Day 82: value processing](https://www.matuzo.at/blog/2023/100daysof-day82/)
+
+- css: |
+    color: hotpink;
+    color: oklch(0.45 0.20 352);
+    color: not-real;
+
+- title: >
+    **Parse** Time
+  md: |
+    - `color: hotpink;`
+    - `color: oklch(0.45 0.20 352);`
+    - ~~`color: not-real;`~~
+
+- title: >
+    **Declared** Values
+  css: |
+    h1, h2, h3 {
+      color: aqua;
+    }
+
+    #page-title {
+      color: currentColor;
+    }
+
+- title: >
+    **Cascaded** Value
+  css: |
+    #page-title {
+      color: currentColor;
+    }
+
+- pre: If no _cascaded value_
+  title: >
+    [Defaulting](https://www.w3.org/TR/css-cascade-5/#defaulting)
+
+- title: >
+    **Specified** Value
+  sub: Cascaded or _Defaulted_
+  md: |
+    - `color: currentColor;` - _cascaded_
+    - `display: block` - _cascaded_ (from UA)
+    - `font-family` - _inherited_ (from parent)
+    - `background-color: transparent` - _initial_ (from spec)
+
+- title: Global **keywords**…
+  sub: |
+    `inherit`, `initial`, `unset`, `revert`, `revert-layer`
+
+- title: Inherit
+  sub: Use value _from parent_
+- title: Initial
+  sub: Use _specified_ value
+- title: Unset
+  sub: Use _defaulted_ value (`inherit` or `initial`)
+- title: Revert
+  sub: Use _previous origin_ value (e.g. UA defaults)
+- title: Revert-Layer
+  sub: Use _previous layer_ value (including origins as layers)
+
+- pre: Global *keywords*…
+  title: Resolve on **Custom Properties**
+- css: |
+    html {
+      --color: green;
+      --color: initial;
+      background: initial;
+      background: var(--color, red); /* ??? */
+    }
+  caption: >
+    [Codepen demo](https://codepen.io/miriamsuzanne/pen/MWZbvMz)
+
+- title: >
+    **Computed** Value
+  sub: Relative values and variables are replaced
+  md: |
+    - `color: currentColor` » `rgb(0, 0, 0)`
+    - `padding: 2em` » (<font-size> * 2) » `48px` (for example)
+
+- pre: In most cases…
+  title: Computed Values **Inherit**
+  sub: Global keywords are an exception
+
+- pre: >
+    `currentColor`
+  title: Inherits as *Keyword*
+  sub: It should **re-calculate** when the color changes!
+
+- pen: currentColor in SVG fill
+  id: ExaNbjw
+
+- title: >
+    **Used** Value
+  sub: Final resolutions, based on layout etc
+  md: |
+    - `width: 80%` » `1223px` (for example)
+    - `color-scheme: dark light` » `dark` (for example)
+    - `flex: 1` » (nothing on non-flex items)
+
+- title: >
+    **Actual** Value
+  sub: What is displayed on the screen
+  md: |
+    - `font-size: 14.2px` » `14px`
+
+- pre: Custom properties…
+  title: Inherit **Computed Values**
+
+- pre: Custom properties…
+  title: Invalid **At Computed Value Time**
+
+- pen: Invalid, Unsupported, or Undefined
+  id: OYoVLX
+
+# more mixins ---------------
+
+- pen: CSS gradient-art decorations
+  id: eYdJvWE
+
+- pen: Angled Background CSS-Only Mixin
+  id: BEvjbm
+
+- title: Component **Arguments**
+
+- pen: Media Object
+  id: ZEObOVg
+
+- title: Data **Visualizations**
+
+- pen: Bar Charts with Scale
+  id: BdQVOa
   caption: |
     Article on [CSS Tricks](https://css-tricks.com/css-charts-grid-custom-properties/)
 
-- img: layouts/invade.jpg
+- demo: vars-temps
+
+- title: Check For **A11y**
+  sub: When manipulating data tables
   caption: |
-    [Levitated Toy Factory](http://levitated.guru/work/)
-    at **Beyond Tellerand**
+    https://css-tricks.com/accessible-simple-responsive-tables/
 
-- img: dynamic-css/jsconfus18/learning.jpg
-  alt: |
-    List of code dourses, all titled Learn X Language,
-    except the JavaScript course titled
-    Intro To JS
-  caption: One does not simply "learn" JavaScript
-  fit: contain
+- title: JavaScript **Interactions**
 
-- title: |
-    [Vue Invaders](https://talks.oddbird.net/demos/vueInvaders)
+- pen: Custom Property Color Palettes
+  id: xoyrgX
+  caption: |
+    [Cascading Colors](https://www.oddbird.net/cascading-colors/)
+
+- code: |
+    html {
+      @media (prefers-color-scheme: dark) {
+        --os-mode: -1;
+      }
+
+      @media (prefers-color-scheme: light) {
+        --os-mode: 1;
+      }
+    }
+
+- code: |
+    [data-colors='light'] {
+      --html-mode: 1;
+    }
+
+    [data-colors='dark'] {
+      --html-mode: -1;
+    }
+
+- code: |
+    [data-colors] {
+      --mode: var(
+        --html-mode, var(
+          --user-mode, var(
+            --os-mode, 1
+          )
+        )
+      );
+    }
+
+- pen: Vue Invaders!
+  id: LmrEmb
 
 # Sprite Animations ---------------------------
 
@@ -600,127 +799,6 @@ slides:
     Animated sprites from
     [Monster Slayer](https://github.com/krystalcampioni/monster-slayer)
     by [Krystal Campioni](https://twitter.com/krystalcampioni)
-
-# functions ----------------------------
-
-- title: Custom **Functions** & **Mixins**
-  caption: |
-    Article on
-    [Smashing Magazine](https://www.smashingmagazine.com/2019/07/css-custom-properties-cascade/)
-
-- demo: vars-stripes
-
-- pre: Custom properties
-  title: >
-    Resolve **Before Inheriting**
-
-# Value resolution
-
-- title: CSS **Value Resolution**
-  sub: >
-    [css-cascade-5](https://www.w3.org/TR/css-cascade-5/#value-stages)
-  caption: >
-    [Day 82: value processing](https://www.matuzo.at/blog/2023/100daysof-day82/)
-
-- css: |
-    color: hotpink;
-    color: oklch(0.45 0.20 352);
-    color: not-real;
-
-- title: >
-    **Parse** Time
-  md: |
-    - `color: hotpink;`
-    - `color: oklch(0.45 0.20 352);`
-    - ~~`color: not-real;`~~
-
-- title: >
-    **Declared** Values
-  css: |
-    h1, h2, h3 {
-      color: aqua;
-    }
-
-    #page-title {
-      color: currentColor;
-    }
-
-- title: >
-    **Cascaded** Value
-  css: |
-    #page-title {
-      color: currentColor;
-    }
-
-- pre: If no _cascaded value_
-  title: >
-    [Defaulting](https://www.w3.org/TR/css-cascade-5/#defaulting)
-
-- title: >
-    **Specified** Value
-  sub: Cascaded or _Defaulted_
-  md: |
-    - `color: currentColor;` - _cascaded_
-    - `display: block` - _cascaded_ (from UA)
-    - `font-family` - _inherited_ (from parent)
-    - `background-color: transparent` - _initial_ (from spec)
-
-- title: Global *keywords*…
-  sub: |
-    `inherit`, `initial`, `unset`, `revert`, `revert-layer`
-
-- title: Inherit
-  sub: Use value _from parent_
-- title: Initial
-  sub: Use _specified_ value
-- title: Unset
-  sub: Use _defaulted_ value (`inherit` or `initial`)
-- title: Revert
-  sub: Use _previous origin_ value (e.g. UA defaults)
-- title: Revert-Layer
-  sub: Use _previous layer_ value (including origins as layers)
-
-- title: >
-    **Computed** Value
-  sub: Relative values and variables are replaced
-  md: |
-    - `color: currentColor` » `rgb(0, 0, 0)`
-    - `padding: 2em` » (<font-size> * 2) » `48px` (for example)
-
-- pre: In most cases…
-  title: Computed Values **Inherit**
-  sub: Global keywords are an exception
-
-- pre: >
-    `currentColor`
-  title: Inherits as *Keyword*
-  sub: It should **re-calculate** when the color changes!
-
-- pen: currentColor in SVG fill
-  id: ExaNbjw
-
-- title: >
-    **Used** Value
-  sub: Final resolutions, based on layout etc
-  md: |
-    - `width: 80%` » `1223px` (for example)
-    - `color-scheme: dark light` » `dark` (for example)
-    - `flex: 1` » (nothing on non-flex items)
-
-- title: >
-    **Actual** Value
-  sub: What is displayed on the screen
-  md: |
-    - `font-size: 14.2px` » `14px`
-
-- pre: Custom properties…
-  title: Inherit **Computed Values**
-
-- pre: Custom properties…
-  title: Invalid **At Computed Value Time**
-
-- pen: Invalid, Unsupported, or Undefined
-  id: OYoVLX
 
 # Issues ---------------------------
 
@@ -801,7 +879,44 @@ slides:
     `@supports (` **`--css: vars`** `)`
   sub: Any valid **definition** will work...
 
+# outro --------------------
+
+- pre: Custom *Properties*
+  title: Are **Not Just** Variables
+  sub: (as we've known them)
+
+- pre: Sass Variables...
+  title: Development **Shortcuts**
+
+- md: |
+    - Global Tokens
+    - Reusable Mixins
+    - Pre-Compiled Functions
+
+- pre: Custom Properties
+  title: |
+    **Dynamic** & **Responsive** Styling
+
+- pre: Capture values
+  title: Where **Defined**
+
+- pre: Change values
+  title: Based on **State** or **Class**
+
+- pre: Inherit Values
+  title: Based on **Context**
+
+- md: |
+    - Contextual tokens
+    - Dynamic Visualizations
+    - Component Settings
+    - User Interactions
+
+- pre: For defining
+  title: |
+    **Systems** & **Components**
+
 - pen: CSS Custom Properties Demo
-  id: RwEWydE/1008a21094e0f91b97bccfd6671b6003
+  id: RwEWydE
   user: stacy
 ---
