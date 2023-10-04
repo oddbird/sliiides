@@ -65,8 +65,6 @@ slides:
   caption: >
     **Time & Strike** (counts the hour / half hour)
 
-- img: clocks/front.jpg
-
 - img: clocks/wire.jpg
   fit: contain
   alt: >
@@ -197,6 +195,11 @@ slides:
 - title: Controlled **Release**
   sub: pendulum _interrupts the movement_
 
+- img: clocks/deadbeat-escape.gif
+  fit: contain
+  caption: >
+    Pendulum directly attached
+
 - title: Adjustable **Crutch**
   sub: Loose interface with pendulum
 
@@ -245,6 +248,10 @@ slides:
     - **30hr** Clock -> Daily Wind
     - **8 Day** Clock -> Weekly Wind
     - **400 Day** Clock -> Yearly Wind
+
+- pen: Pendulum Math
+  id: QWzVaEY
+  caption: Can't make a slower pendulum
 
 - section: >
     **Gear** Train
@@ -301,9 +308,9 @@ slides:
 - pre: Call that…
   title: The "**Center Wheel**"
 
-- img: clocks/center-wheel.jpg
+- img: clocks/four-wheel.jpg
 
-- title: That's our **API**
+- title: Center Wheel is **The API**
 
 - img: clocks/motion.jpg
 
@@ -311,7 +318,7 @@ slides:
     **Dial** Indicator
 
 - pre: >
-    _Server side_ logic
+    _Front end_ logic
   title: >
     Called "**Motion Works**"
 
