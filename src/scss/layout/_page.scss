@@ -44,3 +44,11 @@
     font-size: var(--small);
   }
 }
+
+.event-talk {
+  font-weight: bold;
+
+  &::before {
+    content: ' | ';
+  }
+}

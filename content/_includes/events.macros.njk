@@ -1,6 +1,6 @@
 {% import "utility.macros.njk" as utility %}
 
-{% macro talks(pages) %}
+{% macro talks(pages, talk_titles) %}
 {% if pages | length > 0 %}
   <section data-events='talks'>
   {% for event in pages | sortPages %}
@@ -9,6 +9,11 @@
         <time>
           {{ event.date | getDate('short') }}
         </time>
+        {% if talk_titles %}
+          <span class="event-talk">
+            {{ event.data.talk | mdInline | safe }}
+          </span>
+        {% endif %}
       </p>
       <h2>
         {{ utility.link_if(

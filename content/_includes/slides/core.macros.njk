@@ -83,10 +83,10 @@
     {{ embed.person(slide, page) }}
   {% elif slide.md %}
     {{ md(slide, page) }}
-  {% elif slide.title or slide.pre %}
-    {{ title(slide, page) }}
   {% elif slide.toc or slide.section %}
     {{ toc.section(slide, page) }}
+  {% elif slide.title or slide.pre %}
+    {{ title(slide, page) }}
   {% elif slide.todo %}
     {{ todo(slide, page) }}
   {% else %}

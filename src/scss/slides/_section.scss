@@ -1,12 +1,11 @@
-[data-slide='section'] {
-  li {
+.toc {
+  li:has(~ [aria-current]) {
     text-decoration: line-through;
     text-decoration-color: var(--strikeout);
     text-decoration-thickness: 0.125em;
   }
 
-  .current-section,
-  .current-section ~ * {
-    text-decoration: none;
+  h2 {
+    margin-block: 0;
   }
 }

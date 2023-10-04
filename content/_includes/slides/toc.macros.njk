@@ -3,11 +3,12 @@
 
 {% macro section(slide, page) %}
   {% call slides.base(slide, 'section', page) %}
+    {{ slides.title(slide) }}
     <ol class="toc">
       {% for item in page.data.slides %}
         {% if item.section %}
           {% set current = item.section == slide.section %}
-          <li {% if current %}class="current-section"{% endif %}>
+          <li {% if current %}aria-current="step"{% endif %}>
             {% if current %}
               <h2>{{ slide.section | mdInline | safe }}</h2>
             {% else %}

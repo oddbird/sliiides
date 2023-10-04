@@ -18,7 +18,7 @@ layout: base
   {{ content | md | safe }}
 
   {% if talk_list %}
-    {{ events.talks(talkData.decks | getVisible) }}
+    {{ events.talks(talkData.decks | getVisible, talk_titles) }}
   {% endif %}
 
   {% if ws_list %}
