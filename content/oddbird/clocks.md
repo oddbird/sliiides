@@ -101,11 +101,15 @@ slides:
     **Oscillating** Resistor
 
 - img: clocks/balance.jpg
-  caption: Watch **Balance Spring**
+  caption: Watch **Hair Spring** & **Balance Wheel**
 
 - img: clocks/period.png
   fit: contain
   caption: Clock **Pendulum**
+
+- pre: Reliable
+  title: >
+    **Harmonic** Oscillation
 
 - pre: Oscillating _period_
   title: Determined by **Length**
@@ -143,14 +147,17 @@ slides:
     Use _compensating_ materials
     to counter temperature changes…
 
-- title: No, This is **Engineering**
-- title: Get **Close Enough**
+- title: No, Do **Less Math**
+
+- pre: We (_roughly_) know
+  title: Both **Pi** & **Gravity**
 
 - demo: pendulum-rough
   caption: >
     Metric _approximations_
 
-- title: Make Everything **Adjustable**
+- pre: Close enough, now…
+  title: Make Everything **Adjustable**
 
 - img: clocks/pend-adjust.jpg
   fit: contain
@@ -160,6 +167,9 @@ slides:
 
 - section: >
     **Escapement**
+
+- pre: Convert…
+  title: Oscillations to **Rotation**
 
 - img: clocks/escape.gif
   fit: contain
@@ -184,6 +194,12 @@ slides:
   caption: >
     Lever (used in watches)
 
+- title: Controlled **Release**
+  sub: pendulum _interrupts the movement_
+
+- title: Adjustable **Crutch**
+  sub: Loose interface with pendulum
+
 - img: clocks/back.jpg
   fit: contain
 - img: clocks/top.jpg
@@ -203,9 +219,6 @@ slides:
   fit: contain
   caption: >
     Deadbeat provides angled _impulse_ faces
-
-- pre: Our _escape wheel_
-  title: Needs **Torque**
 
 - section: >
     **Power** Source
