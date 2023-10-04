@@ -257,12 +257,9 @@ slides:
   fit: contain
 
 - img: clocks/arbor.jpg
-
-- pre: Paired
-  title: >
-    **Wheels** & **Pinions**
-  sub: >
-    Attached to an _arbor_
+  caption: >
+    Paired **wheels** & **pinions**
+    attached to an _arbor_
 
 - pre: Teeth need
   title: Equal **Size** & **Spacing**
@@ -275,6 +272,8 @@ slides:
   fit: contain
 - img: clocks/spiral-train.jpg
   fit: contain
+  caption: >
+    Always sorted _from largest to smallest_
 
 - img: clocks/side.jpg
 
@@ -338,11 +337,19 @@ slides:
     **Laser Cut** & **3d Print**
 - title: >
     ✨ **Physical** Code ✨
+
+- title: Not Just For **Time**…
+  md: |
+    - Mechanical Pedometer
+    - Typewriter
+    - Etc…
 - title: Resources…
   md: |
     - My [Rack and Snail Strike](https://www.youtube.com/watch?v=ntNzVlqbwPM&)
       Video
     - [Repair Shop](https://www.youtube.com/@TheRepairShop)
+    - [Clayton Boyer](https://lisaboyer.com/Claytonsite/Claytonsite1.htm)
+      Wooden Clocks & Kinetic Sculptures
     - [Clickspring](https://www.youtube.com/@Clickspring)
     - [Wristwatch Revival](https://www.youtube.com/@WristwatchRevival)
     - [NAWCC Video Series](https://www.youtube.com/watch?v=lDZHlcjQnOo)
