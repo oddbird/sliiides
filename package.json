@@ -59,7 +59,7 @@
     "core-js": "^3.6.5",
     "cssremedy": "^0.1.0-beta.2",
     "doxray": "^0.10.0",
-    "eleventy-plugin-local-respimg": "^0.3.1",
+    "eleventy-plugin-local-respimg": "^0.4.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-node": "^0.3.3",
