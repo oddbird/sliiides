@@ -76,14 +76,14 @@ slides:
 - title: SubGrid **is Cool**!
 - title: SubGrid **Support**?
 
-- img: resilient/yesno-2.jpg
+- img: resilient/yesno.jpg
   alt: >
     Hand written note says
     I like you, do you like me?
 
 - caniuse: css-subgrid
 
-- img: resilient/yesno-answer-2.jpg
+- img: resilient/yesno-answer.jpg
   alt: >
     X's, checks, and question marks
     scribbled all over the note
