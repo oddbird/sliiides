@@ -55,7 +55,6 @@ params:
 </div>
 {% endmacro %}
 
-
 {# @docs
 label: figure
 category: Patterns
@@ -297,6 +296,20 @@ params:
 {%- endif -%}
 {%- endmacro %}
 
+{% macro screenshot(url, alt) %}
+  {%- set src = [
+    'https://v1.screenshot.11ty.dev/',
+    url | urlencode,
+    '/',
+    size or 'large',
+    '/'
+  ] | join('') -%}
+  {{ img(
+    src=src,
+    alt=alt or 'screenshot'
+  ) }}
+{% endmacro %}
+
 {% macro face(path, alt, name) %}
   {% set fullpath = path if ('/' in path) else ('_people/' + path) %}
   {{ img(
@@ -475,6 +488,10 @@ params:
   preview=none,
   attrs=none
 ) %}
+{%- set urlParts = id | replace('https://','') | split('/') if id.includes('https://') else [] -%}
+{%- set id = urlParts[3] or id -%}
+{%- set user = user or urlParts[1] -%}
+
 {%- set base_attrs = {
   'class': 'codepen',
   'data-editable': edit,
@@ -487,6 +504,7 @@ params:
   "data-preview": preview
 } -%}
 {%- set attrs = base_attrs | merge(attrs) if attrs else base_attrs -%}
+
 <p {{ utility.show_attrs(attrs) }}>See the Pen {{ utility.link_if(
   content=title,
   url=('http://codepen.io/' + user + '/pen/' + id)

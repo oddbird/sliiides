@@ -57,7 +57,7 @@
     {{ embed.demo(slide, page, collections) }}
   {% elif slide.video %}
     {{ embed.video(slide, page) }}
-  {% elif slide.img %}
+  {% elif slide.img or slide.url %}
     {{ embed.img(slide, page) }}
   {% elif slide.svg %}
     {{ embed.svg(slide, page) }}

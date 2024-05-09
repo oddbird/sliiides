@@ -66,6 +66,7 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addFilter('min', (array) => Math.min(...array));
   eleventyConfig.addFilter('max', (array) => Math.max(...array));
+  eleventyConfig.addFilter('split', (str, sub) => str.split(sub));
 
   eleventyConfig.addFilter('typeCheck', utils.typeCheck);
   eleventyConfig.addFilter('styles', utils.styles);

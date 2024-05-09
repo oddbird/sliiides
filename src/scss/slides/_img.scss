@@ -13,7 +13,7 @@
   svg {
     overflow: hidden;
     object-fit: var(--img-fit, cover);
-    object-position: var(--img-position, center);
+    object-position: var(--img-position, top);
     width: 100%;
 
     @supports (object-fit: cover) {

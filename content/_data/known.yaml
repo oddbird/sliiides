@@ -1,0 +1,518 @@
+_img-contain-white: &img-contain-white
+  fit: contain
+  background: white
+
+# ..######...#######..########..########.########..########.##....##
+# .##....##.##.....##.##.....##.##.......##.....##.##.......###...##
+# .##.......##.....##.##.....##.##.......##.....##.##.......####..##
+# .##.......##.....##.##.....##.######...########..######...##.##.##
+# .##.......##.....##.##.....##.##.......##........##.......##..####
+# .##....##.##.....##.##.....##.##.......##........##.......##...###
+# ..######...#######..########..########.##........########.##....##
+
+css-rad:
+  id: https://codepen.io/miriamsuzanne/pen/BaWrzqd
+  pen: CSS is Rad
+
+resilient-html:
+  id: https://codepen.io/miriamsuzanne/pen/JjzKYga
+  pen: Resilient HTML
+
+# cascade
+cascade-funnel:
+  id: https://codepen.io/miriamsuzanne/pen/MWxmLYK
+  pen: The Cascade (as a funnel)
+
+cascade-inspect:
+  id: https://codepen.io/miriamsuzanne/pen/KKEWGGv
+  pen: Inspecting Cascade & Inheritance
+
+cascade-ua-important:
+  id: https://codepen.io/miriamsuzanne/pen/zYbdeJN
+  pen: UA Important Styles
+
+weighted-styles:
+  id: https://codepen.io/miriamsuzanne/pen/eYObOLK
+  pen: Weighted Styles
+
+cascade-context:
+  id: https://codepen.io/miriamsuzanne/pen/RwjRrEE
+  pen: Important Shadow Context
+
+# layers
+layers-support:
+  pen: OMG, Layers
+  id: poweapY
+
+layers-btn:
+  pen: Button layers
+  id: rNwmMrK
+
+# scope
+scope-proximity-demo:
+  pen: Scope proximity demo
+  id: https://codepen.io/miriamsuzanne/pen/wvyBNXP
+
+scope-diagram:
+  pen: Visualizing scope
+  id: https://codepen.io/miriamsuzanne/pen/XWZwvWj
+
+scope-boundary-demo:
+  pen: Scope boundary demo
+  id: https://codepen.io/miriamsuzanne/pen/ZErXZVY
+
+# has selector
+has-card-image:
+  id: https://codepen.io/una/pen/abqPdQv
+  pen: Card has image
+  caption: Una Kravets
+
+has-option-select:
+  pen: Has light/dark selection
+  id: https://codepen.io/miriamsuzanne/pen/wvXvxmv
+
+# container queries
+media-v-container:
+  pen: Media vs Container
+  id: xxqYjeL
+  live: wvQvjZV
+
+media-v-container-live:
+  pen: Media vs Container (Live Demo)
+  id: wvQvjZV
+
+cq-flex:
+  pen: Flexbox cards, with Container Queries
+  id: mdRVMbp
+
+cq-quotes:
+  pen: Container Query Blockquotes (David Herron)
+  id: YzpywrZ
+  user: dvdherron
+
+cq-books:
+  pen: Container Query Bookstore
+  id: XWMrMOp
+  user: mxbck
+
+cq-icons:
+  pen: Responsive Icon Demo (Una Kravets)
+  id: RwQmmrw
+  user: una
+
+cq-style:
+  pen: Style query demos/explainers (Una Kravets)
+  id: abqKvXW
+  user: una
+
+cq-water:
+  pen: Container Holds Water
+  id: RwpeOKv
+
+cq-blinds:
+  pen: Container Query Blinds v2
+  id: qBrEMEe
+  user: jh3y
+
+cq-units-basic:
+  pen: Basic Container Units
+  id: MWopXRW
+
+cq-units-nike:
+  pen: Container Units (Scott Kellum)
+  id: https://codepen.io/scottkellum/pen/jOwmOZE?editors=1100
+  user: scottkellum
+
+# .##.....##.####..######..########..#######..########..##....##
+# .##.....##..##..##....##....##....##.....##.##.....##..##..##.
+# .##.....##..##..##..........##....##.....##.##.....##...####..
+# .#########..##...######.....##....##.....##.########.....##...
+# .##.....##..##........##....##....##.....##.##...##......##...
+# .##.....##..##..##....##....##....##.....##.##....##.....##...
+# .##.....##.####..######.....##.....#######..##.....##....##...
+
+_chss: &chss >
+  Håkon Lie,
+  [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
+
+_html:
+  www: &www >
+    [World Wide Web Project](https://info.cern.ch/hypertext/WWW/TheProject.html)
+  html: &html >
+    WWW Project,
+    [HTML](https://info.cern.ch/hypertext/WWW/MarkUp/MarkUp.html)
+  constraints: &constraints >
+    WWW Project,
+    [HTML constraints](https://info.cern.ch/hypertext/WWW/MarkUp/HTMLConstraints.html)
+
+url-history-chss:
+  url: https://www.w3.org/People/howcome/p/cascade.html
+  alt: >
+    Cascading HTML style sheets -- a proposal,
+    Håkon W Lie, 10 Oct 1994
+  caption: *chss
+
+quote-chss-non-visual:
+  quote: >
+    The scheme supports
+    **visual as well as non-visual**
+    media.
+  cite: *chss
+
+url-history-html:
+  url: https://info.cern.ch/hypertext/WWW/TheProject.html
+  alt: World Wide Web
+  caption: *www
+
+quote-html-all-platforms:
+  quote: >
+    It is required that HTML be
+    **a common language between all platforms**...
+  cite: *constraints
+
+quote-html-no-control:
+  quote: >
+    ...This implies
+    **no** device-specific markup,
+    or anything which requires
+    **control over fonts or colors**.
+  cite: *constraints
+
+url-history-styles:
+  url: https://w3.org/Style/History/
+  alt: Historical Style Sheet proposals
+  caption: >
+    [Historical Style Sheet proposals](https://w3.org/Style/History/)
+
+img-history-www:
+  img: no-harm/www-browser.jpg
+  alt: >
+    The first world wide website
+    in the WWW Hypermedia Browser/Editor,
+    on the neXt desktop --
+    an exercise in global availability
+
+url-www-emulator:
+  img: no-harm/emulator.jpg
+  alt: >
+    11ty symposium site and
+    oddbird CSS workshop pages
+    displayed as black and white text
+    on the WWW browser emulator
+  caption: >
+    [worldwideweb30.com](https://worldwideweb30.com/browser#https://www.oddbird.net/workshops/cascading-styles-deep/)
+    c/o [Remy Sharp](https://remysharp.com)
+
+img-history-line-mode:
+  img: no-harm/line-mode.jpg
+  alt: >
+    The second browser,
+    a text-only terminal
+    with numbered links
+    for keyboard control
+  position: top
+  caption: >
+    [Line Mode Browser](https://line-mode.cern.ch/www/hypertext/WWW/TheProject.html),
+    developed by **Nicola Pellow**
+
+quote-w3c-mission:
+  quote: >
+    Web **for all**. Web **on everything**.
+  cite: >
+    W3C
+    [Mission Statement](https://w3.org/Consortium/mission.html#principles)
+
+img-everything-ibm:
+  img: no-harm/ibm-pc.jpg
+  alt: >
+    Old IBM desktop with a
+    text-only green on black display
+
+img-everything-devices:
+  img: resilient/devices.jpg
+  alt: A zillion different devices of all sizes
+
+img-everything-speakers:
+  img: resilient/smart-home.png
+  alt: Various home 'smart' speakers
+
+quote-dao-control:
+  quote: >
+    The fact we can **control** a paper page
+    is really **a limitation of that medium**.
+  cite: >
+    John Allsopp,
+    [A Dao of Web Design](https://alistapart.com/article/dao)
+
+# ..######.....###.....######...######.....###....########..########
+# .##....##...##.##...##....##.##....##...##.##...##.....##.##......
+# .##........##...##..##.......##........##...##..##.....##.##......
+# .##.......##.....##..######..##.......##.....##.##.....##.######..
+# .##.......#########.......##.##.......#########.##.....##.##......
+# .##....##.##.....##.##....##.##....##.##.....##.##.....##.##......
+# ..######..##.....##..######...######..##.....##.########..########
+
+img-cascade-yoda:
+  img: cascade/yoda.jpg
+  alt: >
+    Yoda reaching out to control the force,
+    surrounded by jungle swamp
+
+img-cascade-vader:
+  img: cascade/vader.jpg
+  alt: |
+    Darth Vader
+    choking a rebel soldier
+    as storm troopers watch
+
+img-cascade-balance:
+  img: cascade/balance-force.jpg
+  alt: |
+    Kylo Ren and Rey
+    standing in front of an entire star war
+    with spaceships and lasers
+    and AT-AT walkers
+
+img-not-alone-et:
+  img: no-harm/not-alone-et.jpg
+  alt: >
+    We're Not Alone,
+    with browser logos,
+    a guy in construction clothes
+    carrying a laptop,
+    and ET
+
+img-user-preferences:
+  img: no-harm/user-preferences.jpg
+  fit: contain
+  alt: >
+    Language and appearance preferences in Firefox
+    include light/dark mode,
+    colors, fonts, and zoom level
+
+link-user-preferences:
+  md: |
+    - **Safari**/WebKit: \
+      `Settings / Advanced / Style sheet…`
+    - **Firefox**/Gecko: \
+      <clip-board>`about:preferences`</clip-board>
+    - **Chrome**/Blink: \
+      <clip-board>`chrome://settings/appearance`</clip-board>
+
+link-user-agent:
+  md: |
+    - [**Firefox**/Gecko](https://dxr.mozilla.org/mozilla-central/source/layout/style/res/html.css) \
+      <clip-board>`resource://gre-resources/`</clip-board>
+    - [**Safari**/WebKit](https://github.com/WebKit/WebKit/blob/main/Source/WebCore/css/html.css)
+    - [**Chrome**/Blink](https://github.com/chromium/chromium/blob/main/third_party/blink/renderer/core/html/resources/html.css)
+  caption: |
+    Collected by
+    [Jens Oliver Meiert](https://meiert.com/en/blog/user-agent-style-sheets/)
+
+img-layers-scope:
+  img: cascade/layers-scope.webp
+  alt: |
+    A grid of overlapping
+    'scope' columns (buttons, cards, logins)
+    and 'layer' rows
+    (default, theme, component).
+    Each scope crosses all layers,
+    and each layer crosses all scopes.
+  <<: *img-contain-white
+
+# .########...#######..##.....##.########..######.
+# .##.....##.##.....##..##...##..##.......##....##
+# .##.....##.##.....##...##.##...##.......##......
+# .########..##.....##....###....######....######.
+# .##.....##.##.....##...##.##...##.............##
+# .##.....##.##.....##..##...##..##.......##....##
+# .########...#######..##.....##.########..######.
+
+img-content-box:
+  img: flow/content-box.jpg
+  alt: >
+    Diagram of an element box,
+    with content, padding, border, and margin --
+    width and height labels
+    are applied to the content only
+  fit: contain
+  position: center
+  background: white
+
+img-border-box:
+  img: flow/border-box.jpg
+  alt: >
+    Diagram of an element box,
+    with content, padding, border, and margin --
+    width and height labels
+    are applied to everything
+    except the margin
+  fit: contain
+  position: center
+  background: white
+
+img-context-content:
+  img: no-harm/context-content.png
+  alt: |
+    A pink box labeled
+    context (defines available space),
+    and blue text overflowing the box
+    in the style of the awesome meme says
+    this content (takes up space)
+  fit: contain
+  position: center
+  background: white
+
+img-box-area:
+  img: flow/box-model.png
+  fit: contain
+  position: top
+  background: white
+  alt: >
+    Diagram of the CSS box model,
+    an inner content area
+    surrounded by padding,
+    a border, and margin –
+    each area is labeled with arrows
+    showing the space covered
+  caption: Box Model **Areas**
+
+img-box-edge:
+  img: flow/box-edge.png
+  fit: contain
+  position: top
+  background: white
+  alt: >
+    Diagram of the CSS box model,
+    with arrows to each box-edge:
+    from an inner content-box edge
+    around the content area,
+    then (working out) a padding-box edge
+    around the padding area,
+    a border-box edge, and a margin-box edge
+  caption: Box Model **Edges**
+
+img-intrinsic-extrinsic:
+  img: flow/intrinsic-extrinsic.png
+  alt: |
+    The pink box is now labeled
+    extrinsic size (imposed from outside),
+    and the oveflowing blue text
+    now has a dashed box and says
+    intrinsic size (from the content)
+  fit: contain
+  position: center
+  background: white
+
+# ..######...########..####.########...######.
+# .##....##..##.....##..##..##.....##.##....##
+# .##........##.....##..##..##.....##.##......
+# .##...####.########...##..##.....##..######.
+# .##....##..##...##....##..##.....##.......##
+# .##....##..##....##...##..##.....##.##....##
+# ..######...##.....##.####.########...######.
+
+img-wire-narrow:
+  img: grids/wire-narrow.jpg
+  alt: |
+    Site wireframe drawn over a
+    narrow 4-column 'grid'
+  fit: contain
+
+img-wire-mid:
+  img: grids/wire-mid.jpg
+  alt: |
+    Site wireframe drawn over a
+    mid-width 8-column 'grid'
+  fit: contain
+
+img-wire-wide:
+  img: grids/wire-wide.jpg
+  alt: |
+    Site wireframe drawn over a
+    wide 12-column 'grid'
+  fit: contain
+
+# .####.########..######...######...######.
+# ..##.....##....##....##.##....##.##....##
+# ..##.....##....##.......##.......##......
+# ..##.....##....##........######...######.
+# ..##.....##....##.............##.......##
+# ..##.....##....##....##.##....##.##....##
+# .####....##.....######...######...######.
+
+_itcss-caption: &itcss-caption
+  caption: |
+    [**Inverted Triangle** CSS](http://technotif.com/manage-large-css-projects-with-itcss/)
+    by [**Harry Roberts**](https://twitter.com/csswizardry)
+
+itcss-main:
+  img: itcss/itcss-metrics.png
+  alt: |
+    Inverted triangle with
+    range across the top,
+    and specificity/explicitness
+    down the sides
+  <<: *img-contain-white
+  <<: *itcss-caption
+
+itcss-layers:
+  img: itcss/itcss-layers.png
+  alt: |
+    Inverted triangle with layers,
+    wide top to narrow bottom:
+    settings, tools, generics, elements,
+    objects, components, overrides
+  <<: *img-contain-white
+  <<: *itcss-caption
+
+itcss-layers-note:
+  img: itcss/itcss-layers-note.png
+  alt: |
+    Inverted triangle with layers,
+    wide to narrow -
+    the top layers are sass-only, no output,
+    then global css layers,
+    and finally scoped components
+  <<: *img-contain-white
+  <<: *itcss-caption
+
+itcss-graph:
+  img: itcss/chart-itcss.jpg
+  alt: |
+    A graph
+    with specificity on the vertical axis,
+    and code line numbers horizontal,
+    divided into layers,
+    and a line showing that
+    specificity should only increase
+    throughout the code base
+  <<: *img-contain-white
+  <<: *itcss-caption
+
+itcss-layers-1:
+  img: itcss/chart-part-1.jpg
+  <<: *img-contain-white
+itcss-layers-2:
+  img: itcss/chart-part-2.jpg
+  <<: *img-contain-white
+itcss-layers-3:
+  img: itcss/chart-part-3.jpg
+  <<: *img-contain-white
+itcss-layers-4:
+  img: itcss/chart-layers.jpg
+  <<: *img-contain-white
+
+# .########..########..#######..########..##.......########
+# .##.....##.##.......##.....##.##.....##.##.......##......
+# .##.....##.##.......##.....##.##.....##.##.......##......
+# .########..######...##.....##.########..##.......######..
+# .##........##.......##.....##.##........##.......##......
+# .##........##.......##.....##.##........##.......##......
+# .##........########..#######..##........########.########
+
+jen-simmons:
+  img: _people/jensimmons.jpg
+  alt: Headshot of Jen Simmons, smiling
+  fit: cover
+

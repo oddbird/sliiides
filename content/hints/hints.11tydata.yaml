@@ -1,0 +1,14 @@
+layout: slides
+title: Hints & Suggestions
+talk: Hints & Suggestions
+home: /hints/
+description: |
+  The web is fundamentally different from other platforms,
+  built around a radically political vision
+  for resilience and user-control.
+  CSS takes that to another level,
+  attempting the almost absurd task of
+  collaborative styling across devices and interfaces and languages.
+tags:
+  - hints
+  - talk

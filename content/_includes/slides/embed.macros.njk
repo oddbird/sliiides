@@ -6,12 +6,21 @@
     '--img-position': slide.position,
     '--img-fit': slide.fit
   } %}
-  {% set placeholder = ['https://source.unsplash.com/random/800x450?', slide.img or 'any'] | join %}
+
+  {% set content %}
+    {% if slide.url %}
+      {{ embed.screenshot(slide.url, slide.alt) }}
+    {% else %}
+      {% set placeholder = ['https://source.unsplash.com/random/800x450?', slide.img or 'any'] | join %}
+      {{ embed.img(
+        src=slide.img if ('.' in slide.img) else placeholder,
+        alt=slide.alt
+      ) }}
+    {% endif %}
+  {% endset %}
+
   {% call slides.base(slide, 'img', page, styles) %}
-    {{ embed.img(
-      src=slide.img if ('.' in slide.img) else placeholder,
-      alt=slide.alt
-    ) }}
+    {{ content | safe }}
   {% endcall %}
 {% endmacro %}
 
