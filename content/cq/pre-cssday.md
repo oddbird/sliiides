@@ -675,6 +675,9 @@ slides:
 - pen: Queries on pseudo-classes
   id: vYjMjGd
 
+- pen: List outdent with style queries
+  id: LYrOgwM
+
 - pen: Style queries test
   id: ExOabRz
 
