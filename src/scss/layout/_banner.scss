@@ -22,7 +22,7 @@
     content: ' | ';
   }
 
-  @include tools.below('wide-page') {
+  @include tools.below('wide-break') {
     display: none;
   }
 }

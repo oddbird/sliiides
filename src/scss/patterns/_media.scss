@@ -22,7 +22,7 @@
     --reverse-y: 'content' 'image';
   }
 
-  @include tools.above('wide-page') {
+  @include tools.above('wide-break') {
     grid-template-areas: var(--reverse-x, 'image content');
     grid-template-columns: fit-content(25%) minmax(
         min-content,
