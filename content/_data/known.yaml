@@ -11,32 +11,32 @@ _img-contain-white: &img-contain-white
 # ..######...#######..########..########.##........########.##....##
 
 css-rad:
-  id: https://codepen.io/miriamsuzanne/pen/BaWrzqd
+  id: BaWrzqd
   pen: CSS is Rad
 
 resilient-html:
-  id: https://codepen.io/miriamsuzanne/pen/JjzKYga
+  id: JjzKYga
   pen: Resilient HTML
 
 # cascade
 cascade-funnel:
-  id: https://codepen.io/miriamsuzanne/pen/MWxmLYK
+  id: MWxmLYK
   pen: The Cascade (as a funnel)
 
 cascade-inspect:
-  id: https://codepen.io/miriamsuzanne/pen/KKEWGGv
+  id: KKEWGGv
   pen: Inspecting Cascade & Inheritance
 
 cascade-ua-important:
-  id: https://codepen.io/miriamsuzanne/pen/zYbdeJN
+  id: zYbdeJN
   pen: UA Important Styles
 
 weighted-styles:
-  id: https://codepen.io/miriamsuzanne/pen/eYObOLK
+  id: eYObOLK
   pen: Weighted Styles
 
 cascade-context:
-  id: https://codepen.io/miriamsuzanne/pen/RwjRrEE
+  id: RwjRrEE
   pen: Important Shadow Context
 
 # layers
@@ -51,25 +51,26 @@ layers-btn:
 # scope
 scope-proximity-demo:
   pen: Scope proximity demo
-  id: https://codepen.io/miriamsuzanne/pen/wvyBNXP
+  id: wvyBNXP
 
 scope-diagram:
   pen: Visualizing scope
-  id: https://codepen.io/miriamsuzanne/pen/XWZwvWj
+  id: XWZwvWj
 
 scope-boundary-demo:
   pen: Scope boundary demo
-  id: https://codepen.io/miriamsuzanne/pen/ZErXZVY
+  id: ZErXZVY
 
 # has selector
 has-card-image:
-  id: https://codepen.io/una/pen/abqPdQv
+  id: abqPdQv
+  user: una
   pen: Card has image
   caption: Una Kravets
 
 has-option-select:
   pen: Has light/dark selection
-  id: https://codepen.io/miriamsuzanne/pen/wvXvxmv
+  id: wvXvxmv
 
 # container queries
 media-v-container:
@@ -120,7 +121,7 @@ cq-units-basic:
 
 cq-units-nike:
   pen: Container Units (Scott Kellum)
-  id: https://codepen.io/scottkellum/pen/jOwmOZE?editors=1100
+  id: jOwmOZE
   user: scottkellum
 
 # .##.....##.####..######..########..#######..########..##....##
