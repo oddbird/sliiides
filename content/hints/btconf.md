@@ -13,39 +13,6 @@ quote:
 
 slides:
 
-- title: C**H**SS
-
-- known: url-history-chss
-
-- img: no-harm/btconf/american.jpg
-  alt: >
-    Screenshot from youtube of
-    David Bowie singing
-    I'm Afraid of Americans
-  fit: contain
-
-- pre: Same talk..
-  title: New **Subtitle**
-  script: |
-    - The talk hasn't changed since Wednesday
-    - But it does have a new subtitle,
-    - Just to make sure there's no questions
-    - About my thesis
-
-- pre: Hints and Suggestions...
-  title: |
-    CSS is **Queer** & **Anti**-Fascist
-  mode: light
-  background: >
-    linear-gradient(
-      to bottom right,
-      powderblue,
-      pink,
-      white,
-      pink,
-      powderblue
-    );
-
 - img: no-harm/btconf/fuck-it.jpg
   alt: >
     Craig in front of a slide that says
@@ -61,6 +28,10 @@ slides:
 # ..##..##...###....##....##....##..##.....##
 # .####.##....##....##....##.....##..#######.
 # -->
+
+- title: C**H**SS
+
+- known: url-history-chss
 
 - known: url-history-chss
   script: |
