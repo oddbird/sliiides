@@ -22,7 +22,7 @@
     </h1>
     <p class="subtitle">
       {% set url = (page.data.site.domain + page.url) | url %}
-      <a href="{{ url }}">{{ url }}</a>
+      <a href="https://{{ url }}">{{ url }}</a>
     </p>
 
     {% call embed.media_block(
