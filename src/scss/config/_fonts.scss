@@ -65,7 +65,6 @@ $_variants: (
     font-weight: normal,
     --mono: 0,
     --casl: 0,
-    --wght: 400,
     --slnt: 0,
     --ital: 0.5,
   ),
@@ -73,7 +72,6 @@ $_variants: (
     --mono: 1,
   ),
   italic: (
-    font-style: italic,
     --slnt: -15,
   ),
   fun: (
@@ -81,26 +79,22 @@ $_variants: (
   ),
   normal: (
     font-weight: normal,
-    --wght: 400,
   ),
   light: (
     font-weight: 200,
-    --wght: 200,
   ),
   bold: (
-    font-weight: bold,
-    --wght: 600,
+    font-weight: 600,
   ),
   extra: (
-    font-weight: bold,
-    --wght: 1000,
+    font-weight: 1000,
   ),
 );
 
 @mixin var($name, $settings: true) {
   @if ($settings) {
     font-variation-settings: 'MONO' var(--mono), 'CASL' var(--casl),
-      'wght' var(--wght), 'slnt' var(--slnt), 'ital' var(--ital);
+      'slnt' var(--slnt), 'ital' var(--ital);
   }
 
   $name: if($name, $name, ('body'));
