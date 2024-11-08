@@ -20,6 +20,10 @@
         <em>{{ page.data.sub | mdInline | safe }}</em>
       {% endif %}
     </h1>
+    <p class="subtitle">
+      {% set url = (page.data.site.domain + page.url) | url %}
+      <a href="{{ url }}">{{ url }}</a>
+    </p>
 
     {% call embed.media_block(
       media=embed.svg('logos/oddbird'),
