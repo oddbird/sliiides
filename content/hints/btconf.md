@@ -887,8 +887,7 @@ slides:
   script: |
     - You can't render text without styling it somehow!
 
-- url: https://www.w3.org/People/howcome/p/cascade.html
-  title: CHSS Proposal
+- known: url-history-chss
   script: |
     - This email archive doesn't add any document styles,
     - But the browser is providing some!
