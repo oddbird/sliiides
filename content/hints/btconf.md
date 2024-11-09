@@ -32,8 +32,6 @@ slides:
 - title: C**H**SS
 
 - known: url-history-chss
-
-- known: url-history-chss
   script: |
     - Håkon Lie, 1994
     - email, still archived online
