@@ -1580,7 +1580,6 @@ slides:
   caption: Sophie Koonin
 
 - title: Design For **Change**
-    - To design for _change_
 
 - known: quote-dao-control
   script: |
