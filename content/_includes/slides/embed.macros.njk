@@ -144,7 +144,7 @@
 
   {%- set printStyle = {'--print': ['url("', print, '")'] | join('') } -%}
 
-  {%- set pres %}<a href="https://codepen.io/{{ user }}/pres/{{ slide.id }}?editors=1100" target="_blank">present</a>{% endset -%}
+  {%- set pres %}<a href="https://codepen.io/{{ user }}/pres/{{ slide.id }}?editors=1100&layout=left" target="_blank">present</a>{% endset -%}
   {%- set raw %}<a href="https://codepen.io/{{ user }}/debug/{{ slide.id }}" target="_blank">debug</a>{% endset -%}
   {%- set links -%}[{{ [pres, raw] | join(' | ') | safe }}]{%- endset -%}
   {% call slides.base(

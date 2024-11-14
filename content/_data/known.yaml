@@ -192,6 +192,8 @@ img-history-www:
     in the WWW Hypermedia Browser/Editor,
     on the neXt desktop --
     an exercise in global availability
+  caption: >
+    [worldwideweb30.com](https://worldwideweb30.com/)
 
 url-www-emulator:
   img: no-harm/emulator.jpg

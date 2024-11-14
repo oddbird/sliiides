@@ -155,7 +155,7 @@ slides:
 
 - known: quote-html-no-control
 
-- img: no-harm/btconf/tim-quote.jpg
+- img: no-harm/tim-quote.jpg
   alt: >
     Sir Tim at a computer
     showing a badly photoshopped image
