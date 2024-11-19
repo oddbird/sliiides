@@ -52,10 +52,10 @@ slides:
     );
   script: |
     - not technical, but philosophical
-    - political, like all decisions we make
+    - political, like all decisions
     - designing a platform or interface
-    - the work we do is driven by political choices
-    - and it has political consequences
+    - our work is driven by choices
+    - that have political consequences
 
 - known: img-history-www
   script: |
@@ -98,11 +98,8 @@ slides:
   alt: Braille keyboard and headphones
   script: |
     - or screen readers
-    - which first render to a screen, and then
-    - _read that screen_ (a combination)
-    - Where things are on the page can still be essential information
-    - (this slide also shows someone using a braille keyboard)
-    - (a different way of interacting)
+    - which render then read a screen
+    - (this also shows a braille keyboard)
 
 # <!--
 # .##.......####.##.....##.####.########..######.
@@ -159,9 +156,7 @@ slides:
 
 - known: quote-html-all-platforms
   script: |
-    - Which creates a big problem for _design_ specifically
-    - What if you ask for a font my computer doesn't have?
-    - Or a color my screen can't render?
+    - A problem for _design_ specifically
     - In order for HTML to be a _common language_…
 
 - known: quote-html-no-control
@@ -200,9 +195,9 @@ slides:
 - known: img-history-line-mode
   script: |
     - Even the text-only browser
-    - uppercase headings, space between paragraphs, etc
-    - But these styles come from the browser
-    - And apply the same to every page on the web
+    - (headings, paragraphs, etc)
+    - Styles from the browser
+    - Apply the same to every page
     - All websites look the same
 
 - pre: >
@@ -212,11 +207,10 @@ slides:
   caption: >
     The source code for PDFs
   script: |
-    - But PostScript around almost a decade
-    - giving authors much more control
-    - Allowing us to create fully designed documents
-    - Describing every aspect of the page in detail
-    - and then packaging up the results
+    - PostScript almost a decade old
+    - Gives authors complete control
+    - Describe the page in detail
+    - then package up the results
 
 - img: no-harm/indesign-gotl.jpg
   alt: InDesign book-cover layout
@@ -268,8 +262,7 @@ slides:
     - even static sites aren't _static_
     - what we ship is not always
       what our audience sees
-    - _styles must adapt to situations…_
-    - the web is responsive to context
+    - _styles must adapt…_
 
 - pre: >
     `@media`
@@ -346,15 +339,15 @@ slides:
     carrying a laptop
   script: |
     - Also the people who interact with our sites
-    - (super cute in their handy tool belts)
     - On their chosen devices
     - (with varying capabilities)
-    - _And we're also collaborating with…_
+    - _We're also collaborating with…_
 
 - known: img-not-alone-et
   script: |
     - aliens 👽
     - Maybe, who knows?
+    - We should help them out
 
 - img: no-harm/et-bike.jpg
   alt: >
@@ -382,7 +375,7 @@ slides:
     and writing modes**...
   cite: me
   script: |
-    - So we're here, supposed to do…
+    - So we're trying to do…
     - (slide)
     - It's absurd
 
@@ -468,11 +461,9 @@ slides:
     (Viola.org)
   script: |
     - Pei Wei's Viola browser
-    - Was the first to allow custom style sheets for a page
-    - About a year before CSS was proposed
-    - It has familiar selectors, nesting, property-value pairs,
-    - And even _inheritance_
-    - They all have inheritance, or something like it…
+    - First to allow page styles
+    - A year before CSS was proposed
+    - Selectors, nesting, property-value pairs, even _inheritance_
 
 - title: |
     "*an easily parsable format*"
@@ -480,7 +471,6 @@ slides:
     ```
     @DEFAULT fo(fa=ti,sp=pr,si=14,we=me,sl=ro,fo=in,bo=in,li=no,nu=1,fn='')
     ju(st=le,hy=0,ke=0) co(nu=1,wi=80) br(lo=af,ob=it)
-    li(lo=in,ma=no,li=un,nu=1,be=no,af=no,hi=0)
 
     @UL in(le=5)
     @LI ma(pr=ro,be=4) in(le=10,ri=10)
@@ -489,12 +479,9 @@ slides:
     *Robert Raisch*,
     [June 1993](https://www.w3.org/Style/History/www.eit.com/www.lists/www-talk.1993q2/0445.html)
   script: |
-    - Several months before Viola,
-    - Robert Raisch proposed this 'easily parsable format'
-    - I assume he means _parsable by machines_?
-    - Because I can't parse it, I had to memorize the first few lines.
-    - You can see the default selector there,
-    - We're setting our default fonts in the `fo` function
+    - Several months before Viola
+    - You can see the default selector,
+    - Set fonts in the `fo` function
     - Family=times, spacing is proportional, size 14,
     - and then _'we' is 'me', which…_
 
@@ -529,10 +516,9 @@ slides:
     `times` (serif), `helvetica` (sans-serif),
     `system` (from the OS), and `typewriter` (monospace)
   script: |
-    - But Robert is clear that these styles are only suggestions!
+    - Robert is clear: these styles are suggestions!
     - Even the `times` font-family
-    - doesn't mean we get the 'times' font _specifically_,
-    - it just means we want something _like times_,
+    - not 'times' _specifically_, something _like times_,
     - a serif font!
     - _And he repeats this phrasing…_
 
@@ -614,10 +600,9 @@ slides:
 
 - known: css-rad
   script: |
-    - The default `overflow` is `visible`
-    - if we get so cocky
-    - that we try to shove large text in a small box
-    - The browser will try to bail us out
+    - Default `overflow` is `visible`
+    - if we try to shove large text in a small box
+    - The browser will bail us out
     - Not because it's the best-looking solution
     - but because the web is unpredictable
     - and browsers prioritize content over style
@@ -677,16 +662,20 @@ slides:
     to make **all documents appear more similar**.
   cite: *proposal
   script: |
-    - Authors want to show their creativity and branding,
-    - with a distinct look and feel,
-    - make their document visually interesting.
+    - Authors want creativity and branding,
+    - a distinct look and feel,
+    - make the document visually interesting.
     - But users will have _preferences_,
     - styles that they like better (or even require)
-    - like larger text or _dark mode_,
-    - and sites can respect those preferences!
+    - like large text or _dark mode_,
 
 - title: Give People **Agency**
   sub: control over their own experience
+  script: |
+    - sites can respect those preferences!
+    - Give our users _agency_
+    - Over their own browsing experience
+    - A political value that I think is essential
 
 - quote: >
     The proposed scheme is balanced
