@@ -1,8 +1,17 @@
 [data-slide~='caniuse'] {
   --padding: inherit;
   --img-fit: contain;
+  --justify: stretch;
 
   a::after {
     display: none;
+  }
+
+  browser-support {
+    box-shadow: 0 0 100cqi var(--status-color);
+
+    > * {
+      margin: unset;
+    }
   }
 }

@@ -12,6 +12,6 @@ yarn
 # build to `_site/`
 yarn build
 
-# serve to `localhost:8080`
+# serve to `localhost:6010`
 yarn serve
 ```

@@ -13,12 +13,6 @@
   <title>{{ meta_title or title or 'OddBird Slides' }}</title>
 
   {% for style in (styles or site.styles) %}
-    {% if style == 'screen' %}
-      {% for file in assets.preload_fonts %}
-        <link rel="preload" as="font" type="font/woff2" href="{{ [assets.fonts, file] | join() }}" crossorigin>
-      {% endfor %}
-    {% endif %}
-
     {% set style = style if ('.css' in style) else [assets.css, style, '.css'] | join %}
     <link rel="stylesheet" href="{{ style }}">
   {% endfor %}

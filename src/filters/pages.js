@@ -207,7 +207,8 @@ params:
 const findPage = (collection, keys, value) =>
   collection.find((page) => hasData(page, keys, value));
 
-const sortPages = (collection) => collection.sort((a, b) => a.date - b.date);
+const sortPages = (collection, reverse) =>
+  collection.sort((a, b) => (reverse ? b.date - a.date : a.date - b.date));
 
 module.exports = {
   isPublic,

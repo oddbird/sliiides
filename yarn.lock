@@ -1440,6 +1440,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@oddbird/browser-support@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@oddbird/browser-support@npm:0.1.0"
+  checksum: 2/6d66c41c2b00553faa8ae54b3e3320dd69a20b447afc5de108d982c066efef0909ee6a1a64608dd03486662ae816566457c90721dbeeb40c239d42d53bedaad8
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-commonjs@npm:^11.1.0":
   version: 11.1.0
   resolution: "@rollup/plugin-commonjs@npm:11.1.0"
@@ -13379,6 +13386,7 @@ fsevents@~2.1.2:
     "@babel/preset-env": ^7.9.5
     "@gerhobbelt/markdown-it-attrs": ^4.1.0-24
     "@gerhobbelt/markdown-it-responsive": ^0.1.1-3
+    "@oddbird/browser-support": ^0.1.0
     "@rollup/plugin-commonjs": ^11.1.0
     "@rollup/plugin-node-resolve": ^7.1.3
     "@yarnpkg/pnpify": ^2.0.0-rc.21

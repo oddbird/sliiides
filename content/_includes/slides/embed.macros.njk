@@ -51,9 +51,10 @@
   {%- set demoPage = false if demoUrl else collections.all | findPage('data.demo', slide.demo) -%}
   {%- set demoUrl = demoPage.url if demoPage else demoUrl -%}
   {%- set demoTitle = demoPage.data.title if demoPage else slide.title -%}
-  {%- set pres %}[[permalink]({{ demoUrl }})]{% endset -%}
-  {%- set caption = [slide.caption or demoTitle, pres] | join(' ') -%}
-  {%- set slide = slide | merge({'caption': caption}) -%}
+  {%- set slide = slide | merge({
+    'caption': caption,
+    'demoLinks': pres
+  }) -%}
   {% set styles = {
     '--frame-zoom': slide.zoom
   } %}
@@ -146,9 +147,13 @@
 
   {%- set pres %}<a href="https://codepen.io/{{ user }}/pres/{{ slide.id }}?editors=1100&layout=left" target="_blank">present</a>{% endset -%}
   {%- set raw %}<a href="https://codepen.io/{{ user }}/debug/{{ slide.id }}" target="_blank">debug</a>{% endset -%}
-  {%- set links -%}[{{ [pres, raw] | join(' | ') | safe }}]{%- endset -%}
+  {%- set links -%}[{{ [pres, raw] | join(', ') | safe }}]{%- endset -%}
+
   {% call slides.base(
-    slide=slide | set('demoLinks', links),
+    slide=slide | merge({
+      'caption': (slide.caption or title),
+      'demoLinks': links
+    }),
     name='iframe codepen',
     page=page,
     styles=printStyle
@@ -166,17 +171,17 @@
 {% endmacro %}
 
 {% macro caniuse(slide, page) %}
-  {%- set href -%}https://caniuse.com/#feat={{ slide.caniuse }}{%- endset -%}
   {%- if slide.title -%}
-    {%- set title -%}[**{{ slide.title }}**]({{ href }})?{%- endset -%}
-    {%- set slide = slide | merge({
-      'pre': 'Can I use…',
-      'title': title
-    }) -%}
     {% call slides.base(slide, 'caniuse', page) %}
-      {{ slides.title(slide) }}
+      <browser-support data-feature="{{ slide.caniuse }}">
+        <h2 slot="title">{{ slide.title }}</h2>
+        <a href="https://web-platform-dx.github.io/web-features-explorer/features/{{ slide.caniuse }}">
+          See support data on the Web Features Explorer
+        </a>
+      </browser-support>
     {% endcall %}
   {%- else -%}
+    {%- set href -%}https://caniuse.com/#feat={{ slide.caniuse }}{%- endset -%}
     {%- set links -%}[[{{ slide.caniuse }} on caniuse]({{ href }})]{%- endset -%}
     {%- set caption = [slide.caption, links] | join(' ') if slide.caption else links -%}
     {%- set slide = slide | merge({'caption': caption}) -%}

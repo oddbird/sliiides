@@ -3,7 +3,7 @@
 {% macro talks(pages, talk_titles) %}
 {% if pages | length > 0 %}
   <section data-events='talks'>
-  {% for event in pages | sortPages %}
+  {% for event in pages | sortPages('reverse') %}
     <article class="event">
       <p>
         <time>

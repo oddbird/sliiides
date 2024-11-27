@@ -14,15 +14,18 @@ const utils = require('./src/filters/utils');
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.setUseGitIgnore(false);
-  eleventyConfig.addPlugin(syntaxHighlight);
-
   eleventyConfig.addWatchTarget('./src/media/');
+
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   // pass-through
   eleventyConfig.addPassthroughCopy({ _built: 'assets' });
   eleventyConfig.addPassthroughCopy({ 'src/fonts': 'assets/fonts' });
   eleventyConfig.addPassthroughCopy({ 'src/remedy': 'assets/css' });
   eleventyConfig.addPassthroughCopy({ 'src/rad': 'assets/css' });
+  eleventyConfig.addPassthroughCopy({
+    'src/js/browser-support.js': 'assets/js/browser-support.js',
+  });
 
   if (config.env === 'dev') {
     eleventyConfig.addPassthroughCopy({

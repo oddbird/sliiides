@@ -41,6 +41,7 @@ rules:
   property-no-vendor-prefix: true
   selector-max-empty-lines: 0
   selector-no-vendor-prefix: true
+  selector-type-no-unknown: null
   shorthand-property-no-redundant-values: true
   value-no-vendor-prefix: true
 

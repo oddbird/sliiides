@@ -32,6 +32,11 @@ nav ul {
   list-style: none;
 }
 
+[role=list] {
+  list-style: none;
+  padding-inline-start: unset;
+}
+
 /* @docs
 label: List Voiceover
 

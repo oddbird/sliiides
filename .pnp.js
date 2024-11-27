@@ -58,6 +58,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:0.1.1-3"
       ],
       [
+        "@oddbird/browser-support",
+        "npm:0.1.0"
+      ],
+      [
         "@rollup/plugin-commonjs",
         "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:11.1.0"
       ],
@@ -264,6 +268,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.9.6"],
             ["@gerhobbelt/markdown-it-attrs", "npm:4.1.0-24"],
             ["@gerhobbelt/markdown-it-responsive", "npm:0.1.1-3"],
+            ["@oddbird/browser-support", "npm:0.1.0"],
             ["@rollup/plugin-commonjs", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:11.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.1.3"],
             ["@yarnpkg/pnpify", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:2.0.0-rc.22"],
@@ -1956,6 +1961,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nodelib/fs.walk", "npm:1.2.4"],
             ["@nodelib/fs.scandir", "npm:2.1.3"],
             ["fastq", "npm:1.7.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@oddbird/browser-support", [
+        ["npm:0.1.0", {
+          "packageLocation": "./.yarn/cache/@oddbird-browser-support-npm-0.1.0-aae6a81660-2.zip/node_modules/@oddbird/browser-support/",
+          "packageDependencies": [
+            ["@oddbird/browser-support", "npm:0.1.0"]
           ],
           "linkType": "HARD",
         }]
@@ -14976,6 +14990,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.9.6"],
             ["@gerhobbelt/markdown-it-attrs", "npm:4.1.0-24"],
             ["@gerhobbelt/markdown-it-responsive", "npm:0.1.1-3"],
+            ["@oddbird/browser-support", "npm:0.1.0"],
             ["@rollup/plugin-commonjs", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:11.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:7.1.3"],
             ["@yarnpkg/pnpify", "virtual:6546ad7dad693d7cc8ed3fe38b0289c810e94de10a2c3eb480e3634fb59a155ee1fab4caeaa0f026dfe0ee672c8ca3225b2518e6eb644295b7918f8860464fd2#npm:2.0.0-rc.22"],

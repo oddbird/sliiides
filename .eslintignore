@@ -11,3 +11,4 @@ htmlcov/
 jscache/
 node_modules/
 src/docs/
+src/js/

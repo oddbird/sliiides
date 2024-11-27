@@ -1,14 +1,15 @@
 {% import "utility.macros.njk" as utility %}
 
 {% macro controls() %}
-  <details class="slide-controls">
-    <summary class="dropdown-summary">View Options</summary>
-    <ul data-dropdown="pad top right list">
+  <button data-btn="small" control-toggle>View Options</button>
+  <dialog id="control-panel" data-ccs-colors>
+    <form method="dialog"><button data-btn="small">close</button></form>
+    <ul role="list">
       <li>
         <button data-btn="small" data-toggle="presenting" aria-pressed="false">
-          Present
+          Remote control
         </button>
-        using arrow keys
+        and arrow key navigation
       </li>
 
       <li>
@@ -32,7 +33,7 @@
         or <a href="#ccs-menu">adjust manually</a>
       </li>
     </ul>
-  </details>
+  </dialog>
 {% endmacro %}
 
 {% macro title(
@@ -114,7 +115,9 @@
 
       <footer class="slide-footer">
         {% if slide.controls %}
-          {{ controls() }}
+          <div class="slide-caption">
+            {{ controls() }}
+          </div>
         {% elif slide.caption or slide.demoLinks %}
           <div class="slide-caption">
             {{ slide.caption | mdInline | safe }}

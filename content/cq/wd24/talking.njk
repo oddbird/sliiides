@@ -1,0 +1,161 @@
+---
+layout: demo
+demo: wd24-talking
+title: What is Miriam talking about?
+override:styles: []
+---
+
+<fake-form>
+  <label for="ama">✨ Ask SparkleBot (really a bot, I promise) ✨</label>
+  <input id="ama" type="text">
+  <button aria-pressed="false" data-for="wrong">
+    Fake Intelligence
+  </button>
+</fake-form>
+
+<style>
+@layer reset, props, base;
+
+@layer base {
+  html {
+    font-family: var(--serif);
+    color-scheme: light dark;
+  }
+
+  body {
+    font-size: var(--text-normal);
+    padding: var(--gap);
+  }
+
+  [demo-style] {
+    border-block: thin dashed;
+    display: block;
+    font-family: monospace;
+    margin-block: 0.5lh;
+    overflow: auto;
+    padding-block: 0.5lh;
+    white-space: pre;
+  }
+
+  code:not(pre *) {
+    background: linear-gradient(
+      -80deg,
+      transparent 0.5ch,
+      var(--pink-bg) 0.5ch calc(100% - 0.5ch),
+      transparent calc(100% - 0.5ch)
+    ) no-repeat 0 1ex;
+    text-shadow: 2px 2px 0 Canvas;
+  }
+}
+
+@layer props {
+  html {
+    --pink-dark-: #B6236C;
+    --pink-light-: #FE84B4;
+    --blue-dark-: #205769;
+    --blue-light-: #8EC6DA;
+
+    --pink: light-dark(var(--pink-dark-), var(--pink-light-));
+    --pink-bg: color-mix(in oklab,
+      light-dark(var(--pink-light-), var(--pink-dark-)),
+      Canvas
+    );
+
+    --blue: light-dark(var(--blue-dark-), var(--blue-light-));
+    --blue-bg: color-mix(in oklab,
+      light-dark(var(--blue-light-), var(--blue-dark-)),
+      Canvas
+    );
+
+    @supports not (fill: color-mix(in hsl, light-dark(red, red), red)) {
+      --pink: var(--pink-dark-);
+      --blue: var(--blue-dark-);
+      --pink-bg: var(--pink-light-);
+      --blue-bg: var(--blue-light-);
+
+      @media (prefers-color-scheme: dark) {
+        --pink: var(--pink-light-);
+        --blue: var(--blue-light-);
+        --pink-bg: var(--pink-dark-);
+        --blue-bg: var(--blue-dark-);
+      }
+    }
+
+    /* from https://modernfontstacks.com/ */
+    /* old style, industrial, slab */
+    --serif: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+    --sans: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+    --slab: Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif;
+  }
+
+  body {
+    --text-small: clamp(0.938rem, 0.824rem + 0.568cqi, 1.25rem);
+    --text-normal: clamp(1.25rem, 1.023rem + 1.136cqi, 1.875rem);
+    --text-large: clamp(1.35rem, 0.818rem + 2.659cqi, 2.813rem);
+    --text-xlarge: clamp(1.7rem, 0.784rem + 4.58cqi, 4.219rem);
+    --gap: clamp(2cqi, 0.5lh, 5cqi);
+  }
+}
+
+@layer reset {
+  * { box-sizing: border-box; }
+  html { block-size: 100%; }
+  body { margin: unset; }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+
+  p, li {
+    text-wrap: pretty;
+  }
+
+  picture { display: contents; }
+  img { display: block; }
+
+  img,
+  svg {
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+</style>
+
+<dialog id="wrong">
+  <p>
+    Miriam Suzanne is talking about
+    the danger of tech hype cycles,
+    that ignore the real-world harms
+    caused by our fancy new toys.
+  </p>
+
+  <button aria-pressed="false" data-for="right">
+    No, the other thing.
+  </button>
+
+  <dialog id="right">
+    Miriam <strong>should be talking about</strong>
+    CSS Container Queries,
+    which shipped across browsers in 2023.
+  </dialog>
+</dialog>
+
+<script>
+const dialogs = document.querySelectorAll('dialog');
+const toggles = document.querySelectorAll('button[data-for]');
+
+console.log(dialogs || 'nah');
+console.log(toggles);
+
+toggles.forEach((btn) => btn.addEventListener('click', (e) => {
+  const targetDialog = [...dialogs].find((dialog) => dialog.id === btn.dataset.for);
+  targetDialog.show();
+}));
+</script>

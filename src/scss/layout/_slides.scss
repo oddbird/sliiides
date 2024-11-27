@@ -2,6 +2,33 @@
 @use '../config/fonts';
 @use 'sass:math';
 
+[control-toggle] {
+  @media print {
+    visibility: hidden;
+  }
+}
+
+#control-panel[open] {
+  display: grid;
+}
+
+#control-panel {
+  padding: 0;
+  gap: var(--shim);
+
+  form {
+    background: var(--callout);
+    padding: var(--shim);
+    text-align: right;
+  }
+
+  ul {
+    display: grid;
+    gap: var(--shim);
+    padding: var(--gutter);
+  }
+}
+
 [data-body='slides'] {
   scroll-snap-align: start;
 }
@@ -31,7 +58,7 @@
     grid-template: 'slide' auto 'script' 1fr / 100%;
     scroll-margin-top: var(--double-gutter);
 
-    &:target {
+    &:target [data-slide] {
       @include tools.z-index('active');
       outline: thick dotted var(--accent);
       outline-offset: var(--shim);
@@ -114,22 +141,9 @@
   }
 }
 
-.slide-caption,
-.slide-controls {
-  flex: 1;
-}
-
-.slide-controls {
-  position: relative;
-  margin: 0 var(--shim);
-
-  @media print {
-    visibility: hidden;
-  }
-}
-
 .slide-caption {
   --newline: 0;
+  flex: 1;
   padding: var(--half-shim) var(--gutter);
 }
 

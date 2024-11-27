@@ -2,6 +2,41 @@ export default function () {
   const root = document.querySelector('html');
   const pres = document.querySelector('[data-body=slides]');
   const slides = document.querySelector('[data-slides]');
+
+  const controlToggles = document.querySelectorAll('button[control-toggle]');
+  const controlPanel = document.getElementById('control-panel');
+
+  const updateToggleState = () => {
+    controlToggles.forEach((btn) => {
+      btn.setAttribute('aria-pressed', controlPanel.open);
+    });
+  };
+
+  const toggleControls = () => {
+    controlPanel.open ? controlPanel.close() : controlPanel.showModal();
+    updateToggleState();
+  };
+
+  controlToggles.forEach((btn) => {
+    btn.setAttribute('aria-pressed', 'false');
+    btn.addEventListener('click', () => toggleControls());
+  });
+
+  controlPanel.addEventListener('close', () => updateToggleState());
+
+  const cmdOrCtrl = (event) => event.ctrlKey || event.metaKey;
+
+  root.addEventListener('keydown', (event) => {
+    if (event.key === 'k' && cmdOrCtrl(event)) {
+      event.preventDefault();
+      toggleControls();
+    } else if (event.key === 'Escape' && controlPanel.open) {
+      event.preventDefault();
+      event.target.blur();
+      controlPanel.close();
+    }
+  });
+
   const presToggle = document.querySelector('[data-toggle=presenting]');
   const gridToggle = document.querySelector('[data-toggle=grid]');
   const followToggle = document.querySelector('[data-toggle=follow]');

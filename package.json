@@ -23,7 +23,7 @@
     "lint:js": "run-s prettier:js eslint",
     "lint:sass": "stylelint \"**/*.scss\" --fix",
     "eleventy": "eleventy",
-    "eleventy:serve": "ELEVENTY_ENV=dev eleventy --serve",
+    "eleventy:serve": "ELEVENTY_ENV=dev eleventy --serve --port=6010",
     "watch:sass:compile": "chokidar \"src/scss/**/*.scss\" \"./.sassdocrc\" -c \"yarn run-p sass sassdoc\"",
     "watch:sass:lint": "chokidar \"**/.stylelintrc.yml\" -c \"yarn lint:sass\"",
     "watch:sass": "run-p watch:sass:compile watch:sass:lint",
@@ -113,5 +113,8 @@
     "*.{json,yml}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "@oddbird/browser-support": "^0.1.0"
   }
 }

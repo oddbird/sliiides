@@ -6,5 +6,3 @@ sizes:
   gallery: 50vw
   person: 30vw
   quote: 5em
-preload_fonts:
-  - Recursive_VF_1.043--subset_range_english_basic.woff2
