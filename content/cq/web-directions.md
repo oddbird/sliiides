@@ -1088,6 +1088,29 @@ slides:
     [Chrome Explainer](https://lilles.github.io/explainers/state_container_queries.html)
 
 # <!--
+# .####.##.....##....###.....######...########..######....
+# ..##..###...###...##.##...##....##..##.......##....##...
+# ..##..####.####..##...##..##........##.......##.........
+# ..##..##.###.##.##.....##.##...####.######....######....
+# ..##..##.....##.#########.##....##..##.............##...
+# ..##..##.....##.##.....##.##....##..##.......##....##...
+# .####.##.....##.##.....##..######...########..######....
+# -->
+
+- img: cqs/wd24/sizes.jpg
+  alt: >
+    Mandy Michael in front of a slide
+    about responsive images
+    and the 'sizes' attribute
+- title: Sizes `auto`
+  caption: >
+    Chromium only [for now](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes#browser_compatibility)
+- img: cqs/wd24/image.jpg
+  alt: >
+    Mandy Michael in front of a slide
+    about lazy loading images
+
+# <!--
 # ..#######..##.....##.########
 # .##.....##.##.....##....##...
 # .##.....##.##.....##....##...
