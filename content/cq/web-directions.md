@@ -17,7 +17,7 @@ slides:
     <button onclick="this.closest('article').style.setProperty('filter', 'grayscale(100%)')" data-btn>✨ match my outfit</button>
 
 - img: cqs/containers.jpg
-  alt: |
+  alt: >
     A shipping yard from above,
     with rows of colorful stacked shipping containers
   caption: >
@@ -26,7 +26,7 @@ slides:
     Containers…
 
 - img: cqs/box.jpg
-  alt: |
+  alt: >
     A handmade wooden box with a missing latch
   caption: >
     Photo by [OWN FILTERS](https://unsplash.com/@ownfilters?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash
@@ -34,7 +34,7 @@ slides:
     Do they know things?
 
 - img: cqs/cat-box.jpg
-  alt: |
+  alt: >
     A grey and white cat
     in a cardboard box,
     looking directly at us,
@@ -44,7 +44,7 @@ slides:
     What are they hiding in there?
 
 - img: cqs/wd24/cat-box-split.jpg
-  alt: |
+  alt: >
     The cat image is split and duplicated
     so that it will line up across two screens,
     a scribbled note asks you to ignore the gap
@@ -61,7 +61,7 @@ slides:
 # -->
 
 - img: cqs/thinker.jpg
-  alt: |
+  alt: >
     Statue of The Thinker
     with a scribbled thought bubble asking:
     do containers know stuff?
@@ -73,7 +73,7 @@ slides:
     Do they know stuff?
 
 - img: css-next/rwd.jpg
-  alt: |
+  alt: >
     A List Apart:
     Responsive Web Design
     by Ethan Marcotte (May 25, 2010)
@@ -97,7 +97,7 @@ slides:
     in more complex ways.
 
 - img: cqs/selector-queries.jpg
-  alt: |
+  alt: >
     Github page for an Initial demo commit
     to the ahume/selector-queries repo
     on July 14, 2011 -
@@ -127,7 +127,7 @@ slides:
     using a variety of names…
 
 - img: cqs/state-of-css-2019.jpg
-  alt: |
+  alt: >
     State of CSS 2019 survey results
     for missing features,
     with container queries at the top (3%),
@@ -151,12 +151,13 @@ slides:
 # -->
 
 - img: cqs/thinker-browsers.jpg
-  alt: |
+  alt: >
     same statue of The Thinker
     with a scribbled thought bubble,
     but there's browser logos listening in
     from behind the shrubbery
-  caption: Photo by [Avery Evans](https://unsplash.com/@averye457?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash
+  caption: >
+    Photo by [Avery Evans](https://unsplash.com/@averye457?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash
   script: |
     The browsers heard us asking,
     and all responded in unison!
@@ -175,7 +176,7 @@ slides:
     The Browsers
 
 - img: cqs/please-dont.jpg
-  alt: |
+  alt: >
     Please don't feed the animals
     hand-painted sign,
     scribbled over to say:
@@ -190,7 +191,7 @@ slides:
   cite: The Browsers
 
 - img: cqs/2001-past.jpg
-  alt: |
+  alt: >
     Ape from the opening of 2001
     standing over an animal skeleton,
     and waving a bone
@@ -198,7 +199,7 @@ slides:
     But that was the past!
 
 - img: cqs/smashing/enterprise-d.jpg
-  alt: |
+  alt: >
     Spaceship in space -
     USS Enterprise, NCC 1701-D -
     from Star Trek, The Next Generation
@@ -207,7 +208,7 @@ slides:
     Sorry, not this future.
 
 - img: cqs/authoritarian.jpg
-  alt: |
+  alt: >
     Screenshot of Stanford SFI article
   caption: >
     [Understanding the Global Rise of Authoritarianism](https://fsi.stanford.edu/news/understanding-global-rise-authoritarianism)
@@ -218,7 +219,7 @@ slides:
     but... I don't know.
 
 - img: cqs/smashing/tng-data.jpg
-  alt: |
+  alt: >
     Data,
     the android from Star Trek TNG,
     sitting at the console
@@ -250,7 +251,7 @@ slides:
     Large language models don't know anything,
 
 - img: cqs/container-hello.jpg
-  alt: |
+  alt: >
     Yellow shipping container
     with a red hand-written speech bubble:
     actually, I know stuff
@@ -328,7 +329,7 @@ slides:
 # -->
 
 - img: cqs/thinker-how.jpg
-  alt: |
+  alt: >
     The thinker
     with a red scribbled thought bubble:
     how?!
@@ -346,7 +347,7 @@ slides:
   title: Why They **Shouldn't** Work
 
 - img: layers/back-to-the-future.jpg
-  alt: |
+  alt: >
     Back to the future
     flaming tire tracks between
     Doc and Marty's legs,
@@ -387,7 +388,7 @@ slides:
   alt: Braille interface and headphones
 
 - img: css-next/spider-man-web.jpg
-  alt: |
+  alt: >
     Spider man crawling towards you
     with webs everywhere
 
@@ -546,7 +547,7 @@ slides:
     Onto any screen (or lack of screen) that shows up.
 
 - img: cqs/in-out.png
-  alt: |
+  alt: >
     A box with context pushing in,
     and content pushing out
   fit: contain
@@ -558,7 +559,7 @@ slides:
     and context pushing in
 
 - img: cqs/intrinsic-extrinsic.png
-  alt: |
+  alt: >
     An outer box is labeled
     extrinsic size (imposed from outside),
     and the overflowing text inside says
@@ -646,7 +647,7 @@ slides:
     2. ## **Expand** & **Contract** Content _???_
 
 - img: queries-units/cq-nested-containers.jpg
-  alt: |
+  alt: >
     An outline of nested containers,
     each with a big red question mark.
     Sidebar next to larger main area,
@@ -655,7 +656,7 @@ slides:
   background: white
 
 - img: cqs/in-out.png
-  alt: |
+  alt: >
     A box with context pushing in,
     and content pushing out
   fit: contain
@@ -663,7 +664,7 @@ slides:
   background: white
 
 - img: cqs/in-out-issue.png
-  alt: |
+  alt: >
     Same content/context diagram,
     with scribbled circles and arrows
     representing the loop of information
@@ -687,7 +688,7 @@ slides:
     **Size**-Related Queries…
 
 - img: cqs/in-out-no-content.png
-  alt: |
+  alt: >
     Original content/context diagram,
     with 'content' scribbled out.
   fit: contain
@@ -907,7 +908,7 @@ slides:
     #121212
 
 - img: queries-units/mudturtles.jpg
-  alt: |
+  alt: >
     Three mud turtles
     on a small log
     surrounded by water.
@@ -958,7 +959,7 @@ slides:
   title: The **Small Viewport**
 
 - img: cqs/bramus-viewports.png
-  alt: |
+  alt: >
     On an example phone,
     the large viewport fills the full screen
     with all browser chrome hidden -
@@ -979,13 +980,13 @@ slides:
 
 - img: cqs/wd24/cat-box-query-split.jpg
   position: top
-  alt: |
+  alt: >
     cat and speach bubble
     are again split and duplicated
     to center the image across two screens
 
 - img: cqs/wd24/container-more-split.jpg
-  alt: |
+  alt: >
     Yellow shipping container
     with a red hand-written speech bubble:
     I know other stuff too
@@ -1121,7 +1122,7 @@ slides:
 # -->
 
 - img: cqs/thinker.jpg
-  alt: |
+  alt: >
     Statue of The Thinker
     with a scribbled thought bubble asking:
     do containers know stuff?
@@ -1132,7 +1133,7 @@ slides:
 
 - img: cqs/container-yeah.jpg
   position: top
-  alt: |
+  alt: >
     Yellow shipping container
     with a red hand-written speech bubble:
     I'm contained, AMA
@@ -1147,7 +1148,7 @@ slides:
 
 - img: cqs/please-do.jpg
   fit: contain
-  alt: |
+  alt: >
     Please do query the containers
     now actually, thanks!
 ---
