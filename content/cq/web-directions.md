@@ -984,7 +984,7 @@ slides:
     are again split and duplicated
     to center the image across two screens
 
-- img: cqs/container-more-split.jpg
+- img: cqs/wd24/container-more-split.jpg
   alt: |
     Yellow shipping container
     with a red hand-written speech bubble:
@@ -1005,7 +1005,7 @@ slides:
 - title: |
     **Style** Queries
   css: |
-    @container style(--colors: invert) { … }
+    @container style(--colors: invert) { … }
 
 - pre: Style Queries...
   title: Only **Custom Properties**
@@ -1078,9 +1078,9 @@ slides:
 - title: >
     **???**
   css: |
-    @container scroll-state(stuck) { … }
-    @container scroll-state(snapped) { … }
-    @container scroll-state(overflowing) { … }
+    @container scroll-state(stuck) { … }
+    @container scroll-state(snapped) { … }
+    @container scroll-state(overflowing) { … }
 
 - pen: Sticky Header State Query!
   id: GRPZeKV
