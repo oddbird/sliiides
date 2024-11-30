@@ -79,6 +79,8 @@
     {{ embed.codepen(slide, page) }}
   {% elif slide.caniuse %}
     {{ embed.caniuse(slide, page) }}
+  {% elif slide.support %}
+    {{ embed.support(slide, page) }}
   {% elif slide.face %}
     {{ embed.person(slide, page) }}
   {% elif slide.md %}
