@@ -293,7 +293,7 @@ slides:
     forms a single image across two screens.
   caption: WTF?
 
-- caniuse: container-queries
+- support: container-queries
   title: Container Queries
   script: |
     Container Queries!
@@ -1020,7 +1020,7 @@ slides:
     \* for now _\*\*_ \
     \*\* but maybe forever?
 
-- caniuse: container-style-queries
+- support: container-style-queries
   title: Container Style Queries
 
 - title: No **Containment** Required
