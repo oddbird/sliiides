@@ -35,8 +35,8 @@ export default (eleventyConfig) => {
 
   // pass-through
   eleventyConfig.addPassthroughCopy({
-    _built: 'assets',
     'content/favicon.ico': 'favicon.ico',
+    'content/_js': 'assets/js',
     'src/fonts': 'assets/fonts',
     'src/remedy': 'assets/css',
     'src/rad': 'assets/css',

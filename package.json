@@ -10,8 +10,8 @@
   },
   "private": true,
   "scripts": {
-    "watch:sass": "sass --pkg-importer=node --watch _src/sass:_site/css",
-    "build:sass": "sass --pkg-importer=node src/scss:_site/css",
+    "watch:sass": "sass --pkg-importer=node --watch _src/sass:_site/assets/css",
+    "build:sass": "sass --pkg-importer=node src/scss:_site/assets/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
     "serve": "npm-run-all build:sass --parallel watch:*",
