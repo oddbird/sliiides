@@ -1,8 +1,7 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
-@use '~sassdoc-theme-herman/scss/utilities' as herman;
-@use '~accoutrement/sass/tools';
+@use 'pkg:accoutrement/sass/tools';
 
 /// # Font Configuration
 /// @group config-fonts
@@ -101,7 +100,7 @@ $_variants: (
   $map: ();
 
   @each $var in $name {
-    $var: tools.get-token($_variants, $var);
+    $var: tools.get($_variants, $var);
     $map: map.merge($map, $var);
   }
 

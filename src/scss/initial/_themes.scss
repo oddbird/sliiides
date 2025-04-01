@@ -1,5 +1,5 @@
 @use '../config/color' as config;
-@use '~cascading-color-systems' as ccs;
+@use 'pkg:cascading-color-systems' as ccs;
 
 /// # Preset Color Themes
 /// We define several custom color themes to choose from.

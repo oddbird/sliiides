@@ -2,12 +2,14 @@
 
 {% macro block(slide, page) %}
   {% set lang = slide.lang or 'scss' %}
+  {% set code %}```{{ lang }}
+{{ slide.code | safe }}
+```{% endset %}
+
   {% call slides.base(slide, 'code', page) %}
     {{ slides.title(slide) }}
     <div class="code">
-      {% highlight lang -%}
-      {{- slide.code | safe -}}
-      {%- endhighlight %}
+      {{ code | md | safe }}
     </div>
   {% endcall %}
 {% endmacro %}

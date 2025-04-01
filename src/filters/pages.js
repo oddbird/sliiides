@@ -1,8 +1,4 @@
-'use strict';
-
-const _ = require('lodash');
-
-const { now } = require('./time');
+import { includes, get, hasIn, flatMap, filter, find } from 'lodash-es';
 
 /* @docs
 label: Page Filters
@@ -37,7 +33,7 @@ params:
   page:
     type: 11ty page object
 */
-const isCurrent = (page) => page.date <= now();
+const isCurrent = (page) => page.date <= new Date();
 
 /* @docs
 label: getPublic
@@ -88,7 +84,7 @@ params:
     note: Only approve pages where the desired attributes have a given value
 */
 const hasData = (obj, keys, value) =>
-  value ? _.includes(_.get(obj, keys), value) : _.hasIn(obj, keys);
+  value ? includes(get(obj, keys), value) : hasIn(obj, keys);
 
 /* @docs
 label: withData
@@ -135,9 +131,9 @@ params:
 */
 const getData = (collection, keys, test) => {
   const data = keys
-    ? _.flatMap(_.filter(collection, keys), (page) => _.get(page, keys))
+    ? flatMap(filter(collection, keys), (page) => get(page, keys))
     : collection;
-  return test ? _.filter(data, test) : data;
+  return test ? filter(data, test) : data;
 };
 
 /* @docs
@@ -182,9 +178,9 @@ params:
     note: filter the resulting collection
 */
 const getPage = (collection, url, keys, test) => {
-  const page = _.find(collection, { url });
-  const data = keys ? _.get(page, keys) : page;
-  return test ? _.filter(data, test) : data;
+  const page = find(collection, { url });
+  const data = keys ? get(page, keys) : page;
+  return test ? filter(data, test) : data;
 };
 
 /* @docs
@@ -210,18 +206,18 @@ const findPage = (collection, keys, value) =>
 const sortPages = (collection, reverse) =>
   collection.sort((a, b) => (reverse ? b.date - a.date : a.date - b.date));
 
-module.exports = {
-  isPublic,
-  isVisible,
-  isCurrent,
-  getPublic,
-  getVisible,
-  getCurrent,
-  getPage,
-  findPage,
-  hasData,
-  getData,
-  findData,
-  withData,
-  sortPages,
+export default async function(eleventyConfig) {
+  eleventyConfig.addFilter('isPublic', isPublic);
+  eleventyConfig.addFilter('getPublic', getPublic);
+  eleventyConfig.addFilter('isVisible', isVisible);
+  eleventyConfig.addFilter('getVisible', getVisible);
+  eleventyConfig.addFilter('isCurrent', isCurrent);
+  eleventyConfig.addFilter('getCurrent', isCurrent);
+  eleventyConfig.addFilter('getPage', getPage);
+  eleventyConfig.addFilter('findPage', findPage);
+  eleventyConfig.addFilter('hasData', hasData);
+  eleventyConfig.addFilter('getData', getData);
+  eleventyConfig.addFilter('findData', findData);
+  eleventyConfig.addFilter('withData', withData);
+  eleventyConfig.addFilter('sortPages', sortPages);
 };

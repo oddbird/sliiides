@@ -1,31 +1,20 @@
-'use strict';
+import { readFileSync } from 'fs';
+import yaml from "js-yaml";
 
-const fs = require('fs');
-
-const yaml = require('js-yaml');
-
-const site = yaml.safeLoad(
+const site = yaml.load(
   // eslint-disable-next-line no-sync
-  fs.readFileSync('./content/_data/site.yaml', 'utf8'),
+  readFileSync('./content/_data/site.yaml', 'utf8'),
 );
 
-const assets = yaml.safeLoad(
+const assets = yaml.load(
   // eslint-disable-next-line no-sync
-  fs.readFileSync('./content/_data/assets.yaml', 'utf8'),
+  readFileSync('./content/_data/assets.yaml', 'utf8'),
 );
 
-const images = yaml.safeLoad(
-  // eslint-disable-next-line no-sync
-  fs.readFileSync('./content/_data/images.yaml', 'utf8'),
-);
-
-const data = { assets, site, images };
+const data = { assets, site };
 
 const meta = (type) => data[type];
 
-module.exports = {
-  assets,
-  site,
-  images,
-  meta,
+export default async function(eleventyConfig) {
+  eleventyConfig.addFilter('meta', meta);
 };

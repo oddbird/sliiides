@@ -1,6 +1,6 @@
 @use '../config/patterns';
 @use '../config/fonts';
-@use '~accoutrement/sass/tools';
+@use 'pkg:accoutrement/sass/tools';
 
 strong,
 em {
@@ -23,11 +23,12 @@ blockquote {
   max-width: 46ch;
 
   @include tools.before('"') {
-    @include patterns.fancy-text;
     @include fonts.var('extra');
     margin-right: var(--shim);
     position: absolute;
     right: 100%;
+
+    @include patterns.fancy-text;
   }
 
   strong {
@@ -44,10 +45,11 @@ blockquote {
   }
 
   .cite {
-    @include patterns.fancy-text;
     @include fonts.var('body');
     font-size: var(--small);
     padding-right: 0.2ch;
+
+    @include patterns.fancy-text;
   }
 }
 

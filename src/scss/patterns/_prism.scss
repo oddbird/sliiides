@@ -1,6 +1,6 @@
 $_code-color-fade: var(--text-light);
 
-@use '~accoutrement/sass/tools';
+@use 'pkg:accoutrement/sass/tools';
 @use '../vendor/prism' with (
   // generic stuff
   $code-font-family: tools.font-family('recursive-mono'),

@@ -1,4 +1,4 @@
-@use '~accoutrement/sass/tools';
+@use 'pkg:accoutrement/sass/tools';
 
 /// # Media Blocks & Ratios
 /// @group media
@@ -112,6 +112,6 @@
 /// through absolute positioning.
 /// @group media
 [data-ratio='child'] {
-  @include tools.position(0);
   @include tools.square(100%);
+  inset: 0;
 }

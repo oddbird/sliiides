@@ -9,7 +9,7 @@
 
   {% set content %}
     {% if slide.url %}
-      {{ embed.screenshot(slide.url, slide.alt) }}
+      {{ embed.screenshot(slide.url, slide.alt, slide.type) }}
     {% else %}
       {% set placeholder = ['https://source.unsplash.com/random/800x450?', slide.img or 'any'] | join %}
       {{ embed.img(
@@ -18,6 +18,11 @@
       ) }}
     {% endif %}
   {% endset %}
+
+  {%- set slide = slide | merge({
+    'caption': slide.caption or slide.title,
+    'demoLinks': '[[permalink](%s)]' | replace('%s', slide.url)
+  }) if slide.url else slide -%}
 
   {% call slides.base(slide, 'img', page, styles) %}
     {{ content | safe }}
@@ -52,8 +57,8 @@
   {%- set demoUrl = demoPage.url if demoPage else demoUrl -%}
   {%- set demoTitle = demoPage.data.title if demoPage else slide.title -%}
   {%- set slide = slide | merge({
-    'caption': caption,
-    'demoLinks': pres
+    'caption': slide.caption or title or demoTitle,
+    'demoLinks': '[[permalink](%s)]' | replace('%s', demoUrl)
   }) -%}
   {% set styles = {
     '--frame-zoom': slide.zoom

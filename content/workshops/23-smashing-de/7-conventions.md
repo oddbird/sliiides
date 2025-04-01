@@ -198,8 +198,7 @@ slides:
 
 - title: An **Organizing** Convention
 
-- lang: css 4-7
-  code: |
+- css: |
     .button {
       background: darkgreen;
     }

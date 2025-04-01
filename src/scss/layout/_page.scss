@@ -8,8 +8,9 @@
 
   h1,
   h2 {
-    @include patterns.fancy-text;
     margin-bottom: var(--newline);
+
+    @include patterns.fancy-text;
   }
 
   h2 {

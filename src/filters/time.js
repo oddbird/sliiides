@@ -1,5 +1,3 @@
-'use strict';
-
 /* @docs
 label: Date & Time Filters
 category: File
@@ -39,14 +37,16 @@ const days = [
 ];
 
 const formatDate = (date, format) => {
-  const m0 = date.getUTCMonth();
+  const theDate = date || new Date();
+
+  const m0 = theDate.getUTCMonth();
   const mm = `${m0 + 1}`.padStart(2, '0');
   const MM = months[m0];
   const M = MM.slice(0, 3);
-  const d = date.getUTCDate();
+  const d = theDate.getUTCDate();
   const dd = `${d}`.padStart(2, '0');
-  const D = days[date.getUTCDay()];
-  const yyyy = date.getUTCFullYear();
+  const D = days[theDate.getUTCDay()];
+  const yyyy = theDate.getUTCFullYear();
   const md = `${M} ${d}`;
   const iso = `${yyyy}-${mm}-${dd}`;
   const range = `${MM} ${yyyy}`;
@@ -74,7 +74,7 @@ const formatDate = (date, format) => {
     long: `${MM} ${d}, ${yyyy}`,
   };
 
-  return formats[format] || date.toUTCString();
+  return formats[format] || theDate.toUTCString();
 };
 
 /* @docs
@@ -97,4 +97,11 @@ const getDate = (date, format) => {
   return format ? formatDate(dateObj, format) : dateObj.toUTCString();
 };
 
-module.exports = { now, getDate };
+export default async function(eleventyConfig) {
+  eleventyConfig.addFilter('getDate', getDate);
+
+  eleventyConfig.addShortcode(
+    'getDate',
+    (format) => `${getDate(now(), format)}`,
+  );
+};
