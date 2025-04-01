@@ -1,5 +1,5 @@
 @use '../config/actions';
-@use '~accoutrement/sass/tools';
+@use 'pkg:accoutrement/sass/tools';
 
 .dropdown-summary {
   margin-right: auto;
@@ -12,8 +12,9 @@
 
     &::before {
       @include tools.z-index('backdrop');
-      @include tools.position(0 0 0 0 fixed);
       content: var(--auto-close, initial);
+      inset: 0;
+      position: fixed;
     }
   }
 }

@@ -1,6 +1,6 @@
 @use '../config/color' as config;
-@use '~accoutrement/sass/tools';
-@use '~cascading-color-systems' as ccs with (
+@use 'pkg:accoutrement/sass/tools';
+@use 'pkg:cascading-color-systems' as ccs with (
   $hues: config.ccs('hues'),
   $saturation: config.ccs('saturation'),
   $contrast: config.ccs('contrast'),

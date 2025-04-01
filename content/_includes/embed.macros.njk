@@ -196,32 +196,6 @@ params:
 </div>
 {% endmacro %}
 
-
-{# @docs
-label: srcset
-category: Embed
-note: Generate a `srcset` attribute for responsive images
-params:
-  src:
-    type: url
-  width:
-    type: number
-    default: none
-#}
-{% macro srcset(
-  src,
-  width=none
-) -%}
-  {%- set config = 'img' | fromTaxonomy -%}
-  {%- set width = width or config.srcset | max -%}
-  {%- for size in config.srcset -%}
-    {%- if size <= width -%}
-      {%- if not loop.first %}, {% endif -%}
-      {{- src | imgSuffix(size) }} {{ size + 'w' -}}
-    {%- endif -%}
-  {%- endfor -%}
-{%- endmacro %}
-
 {% macro blockquote(
   quote,
   cite=none,
@@ -309,7 +283,7 @@ params:
   {% set fullpath = path if ('/' in path) else ('_people/' + path) %}
   {{ img(
     src=fullpath,
-    alt=alt or ['Headshot of', name | removeMd ] | join(' ') ,
+    alt=alt or ['Headshot of', name ] | join(' ') ,
     sizes='quote',
     attrs={'class': 'u-photo'}
   ) }}

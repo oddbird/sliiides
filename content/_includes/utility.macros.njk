@@ -32,7 +32,9 @@ params:
   attr,
   value=none
 ) %}
-  {%- if (value and (value | string | lower == 'true')) or (value == '') -%}
+  {%- if attr == 'alt' -%}
+    alt="{{ value }}"
+  {%- elif (value and (value | string | lower == 'true')) or (value == '') -%}
     {{ attr }}
   {%- elif value -%}
     {{ attr }}="{{ value }}"

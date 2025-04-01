@@ -1,5 +1,5 @@
-@use '~accoutrement/sass/tools';
-@use '~sassdoc-theme-herman/scss/utilities' as herman;
+@use "sass:map";
+@use 'pkg:accoutrement/sass/tools';
 
 /// # Spacing & Size Config
 /// Accoutrement maps for storing global spacing and size tokens.
@@ -36,12 +36,6 @@ $font-sizes: (
 );
 
 @include tools.add-sizes($font-sizes);
-@include herman.herman-add(
-  'sizes',
-  'font-sizes',
-  $font-sizes,
-  get-function('size', $module: 'tools')
-);
 
 // Spacing Sizes
 // -------------
@@ -61,12 +55,6 @@ $spacing-sizes: (
 );
 
 @include tools.add-sizes($spacing-sizes);
-@include herman.herman-add(
-  'sizes',
-  'spacing-sizes',
-  $spacing-sizes,
-  get-function('size', $module: 'tools')
-);
 
 // Theme Sizes
 // -----------
@@ -80,12 +68,6 @@ $theme-sizes: (
 );
 
 @include tools.add-sizes($theme-sizes);
-@include herman.herman-add(
-  'sizes',
-  'theme-sizes',
-  $theme-sizes,
-  get-function('size', $module: 'tools')
-);
 
 // Page Sizes
 // ----------
@@ -100,22 +82,14 @@ $page-sizes: (
 );
 
 @include tools.add-sizes($page-sizes);
-@include herman.herman-add(
-  'sizes',
-  'page-sizes',
-  $page-sizes,
-  get-function('size', $module: 'tools')
-);
 
 // Breakpoints
 // -----------
 
 @each $name, $size in $page-sizes {
   $size: tools.convert-units($size, 'em');
-  tools.$breakpoints: map-merge(
+  tools.$breakpoints: map.merge(
     tools.$breakpoints,
-    (
-      $name: $size,
-    )
+    ($name: $size)
   );
 }

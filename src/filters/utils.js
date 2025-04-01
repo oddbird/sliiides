@@ -1,6 +1,4 @@
-'use strict';
-
-const _ = require('lodash');
+import _, { concat as _concat } from 'lodash-es';
 
 /* @docs
 label: Utility Filters
@@ -8,7 +6,7 @@ category: File
 */
 
 const concat = (array, ...args) =>
-  _.concat(
+  _concat(
     array,
     args.filter((arg) => arg),
   );
@@ -71,4 +69,9 @@ const joinPath = (base, append) => {
 
 const joinPaths = (paths) => paths.reduce(joinPath);
 
-module.exports = { concat, typeCheck, styles, joinPaths };
+export default async function(eleventyConfig) {
+  eleventyConfig.addFilter('typeCheck', typeCheck);
+  eleventyConfig.addFilter('styles', styles);
+  eleventyConfig.addFilter('concat', concat);
+  eleventyConfig.addFilter('joinPaths', joinPaths);
+};

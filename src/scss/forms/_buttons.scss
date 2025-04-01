@@ -1,4 +1,4 @@
-@use '~accoutrement/sass/tools';
+@use 'pkg:accoutrement/sass/tools';
 
 /// # Button Pattern
 /// @group buttons
@@ -39,9 +39,9 @@
 
   &[aria-pressed='true'] {
     &::before {
-      @include tools.position(null null null 0);
       content: '✔';
       color: var(--accent);
+      left: 0;
       text-shadow: 1px 1px 0 var(--btn-text);
       transform: translateX(-0.5em);
     }

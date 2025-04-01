@@ -1,7 +1,9 @@
+@use "sass:map";
+@use "sass:math";
+
 @use 'sass:meta';
 @use 'sass:color';
-@use '~accoutrement/sass/tools';
-@use '~sassdoc-theme-herman/scss/utilities' as herman;
+@use 'pkg:accoutrement/sass/tools';
 
 /// # Color Config
 /// Accoutrement maps for storing global color tokens,
@@ -28,12 +30,6 @@ $brand-colors: (
 );
 
 @include tools.add-colors($brand-colors);
-@include herman.herman-add(
-  'colors',
-  'brand-colors',
-  $brand-colors,
-  meta.get-function('color', $module: 'tools')
-);
 
 // Background Colors
 // -----------------
@@ -73,13 +69,13 @@ $content-colors: (
   'text-light': var(--ccs-neutral--fg3),
   'accent': var(--ccs-accent--fg1),
   'feature': var(--ccs-prime--fg4),
+  'feature-special': var(--ccs-special--fg4),
   'highlight': var(--ccs-accent--fg3),
   'highlight-prime': var(--ccs-accent--fg3),
   'highlight-special': var(--ccs-special--fg3),
   'border': var(--ccs-neutral),
   'border-fade': var(--ccs-neutral--fade),
-  'shadow':
-    hsla(var(--ccs-h--neutral), var(--ccs-s--fg6), var(--ccs-l--fg6), 0.25),
+  'shadow': hsl(var(--ccs-h--neutral), var(--ccs-s--fg6), var(--ccs-l--fg6), 0.25),
   'action': var(--ccs-prime--fg3),
   'active': '#feature',
   'icons': '#feature-special',
@@ -106,9 +102,9 @@ $ccs-colors: (
 /// @access private
 /// @group config-color
 $_hues: (
-  'prime': color.hue(tools.color('brand-blue')) / 1deg,
-  'accent': color.hue(tools.color('brand-pink')) / 1deg,
-  'special': color.hue(tools.color('brand-orange')) / 1deg,
+  'prime': math.div(color.channel(tools.color('brand-blue'), 'hue', $space: hsl), 1deg),
+  'accent': math.div(color.channel(tools.color('brand-pink'), 'hue', $space: hsl), 1deg),
+  'special': math.div(color.channel(tools.color('brand-orange'), 'hue', $space: hsl), 1deg),
   'neutral': null,
 );
 
@@ -144,5 +140,5 @@ $_ccs: (
 ///   Value from `$ccs` map, based on given key
 /// @group config-color
 @function ccs($token) {
-  @return map-get($_ccs, $token);
+  @return map.get($_ccs, $token);
 }
