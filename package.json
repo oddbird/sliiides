@@ -10,7 +10,7 @@
   },
   "private": true,
   "scripts": {
-    "watch:sass": "sass --pkg-importer=node --watch _src/sass:_site/assets/css",
+    "watch:sass": "sass --pkg-importer=node --watch _src/scss:_site/assets/css",
     "build:sass": "sass --pkg-importer=node src/scss:_site/assets/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
@@ -38,6 +38,7 @@
   "dependencies": {
     "@oddbird/browser-support": "^0.1.0",
     "@oddbird/slide-deck": "^0.2.0-rc.1",
+    "lean-qr": "^2.5.0",
     "lite-youtube-embed": "^0.3.0",
     "lodash-es": "^4.17.21"
   }

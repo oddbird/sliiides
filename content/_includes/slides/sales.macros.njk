@@ -1,0 +1,21 @@
+{% import "slides.macros.njk" as slides %}
+{% import "embed.macros.njk" as embed %}
+
+{% macro feature(slide, page) %}
+  {% call slides.base(slide, 'feature', page) %}
+    <header>
+      <lean-qr value="{{ slide.feature }}"></lean-qr>
+      {{ slides.title(slide) }}
+    </header>
+    <a href="{{ slide.feature }}">{{ slide.feature | split('://') | last }}</a>
+    <footer>
+      {{ embed.svg('logos/oddbird') }}
+      <p>
+        {% set email = [slide.bird, 'oddbird.dev'] | join('@') %}
+        <a href="mailto:{{ email }}">{{ email }}</a>
+        |
+        <a href="https://oddbird.dev">oddbird.dev</a>
+      </p>
+    </footer>
+  {% endcall %}
+{% endmacro %}

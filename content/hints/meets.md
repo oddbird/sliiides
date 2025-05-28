@@ -591,7 +591,7 @@ slides:
 
 - quote:
     Provide **hints** that _the browser may or may not use_.
-  cite: *proposal
+  cite: Håkon Lie
   script: |
     - Hints that the browser may or may not use
 
@@ -1535,7 +1535,7 @@ slides:
 
 - quote:
     Provide **hints** that _the browser may or may not use_.
-  cite: *proposal
+  cite: Håkon Lie
   script: |
     - While expressing ourselves _clearly_
     - Providing _hints_ and _suggestions_

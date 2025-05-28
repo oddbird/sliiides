@@ -111,6 +111,9 @@
         class="slide-content"
         {{ utility.attr_if('data-resize', slide.resize) }}>
         {{ caller() }}
+        {% if slide.qr or slide.url %}
+          <lean-qr value="{{ slide.qr or slide.url }}" data-position="{{ slide['qr-position'] or 'bottom right'}}"></lean-qr>
+        {% endif %}
       </div>
 
       <footer class="slide-footer">

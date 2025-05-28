@@ -2,6 +2,7 @@
 {% import "slides/toc.macros.njk" as toc %}
 {% import "slides/code.macros.njk" as code %}
 {% import "slides/embed.macros.njk" as embed %}
+{% import "slides/sales.macros.njk" as sales %}
 
 {% macro default(slide, page) %}
   {% call slides.base(slide, 'default', page) %}
@@ -83,6 +84,8 @@
     {{ embed.support(slide, page) }}
   {% elif slide.face %}
     {{ embed.person(slide, page) }}
+  {% elif slide.feature %}
+    {{ sales.feature(slide, page) }}
   {% elif slide.md %}
     {{ md(slide, page) }}
   {% elif slide.toc or slide.section %}

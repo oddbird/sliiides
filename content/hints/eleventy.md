@@ -517,7 +517,7 @@ slides:
 
 - quote:
     Provide **hints** that _the browser may or may not use_.
-  cite: *proposal
+  cite: Håkon Lie
 
 - quote: >
     A set of **HINTS** or **SUGGESTIONS**

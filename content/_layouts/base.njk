@@ -28,7 +28,7 @@
 
   <script type="text/javascript" src="{{ assets.js }}scripts.js"></script>
   {% for script in scripts %}
-    <script type="text/javascript" src="{{ assets.js }}{{ script }}"></script>
+    <script type="module" src="{{ assets.js }}{{ script }}"></script>
   {% endfor %}
 {% endblock %}
 </body>

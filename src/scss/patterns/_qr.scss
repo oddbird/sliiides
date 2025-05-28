@@ -1,0 +1,14 @@
+lean-qr:defined {
+  background-color: white;
+  block-size: var(--qr-size, 3lh);
+
+  &[data-position] {
+    box-shadow: 0 0 var(--shim) black;
+  }
+}
+
+[inline-qr] {
+  --qr-size: 1.5lh;
+  display: inline-block;
+  vertical-align: middle;
+}

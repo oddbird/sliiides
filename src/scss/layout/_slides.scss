@@ -114,6 +114,7 @@
   max-width: 100%;
   overflow: auto;
   padding: var(--padding, var(--gutter));
+  position: relative;
   resize: var(--resize, none);
 
   img,
@@ -125,15 +126,22 @@
   hr {
     margin-block: var(--gutter);
   }
+
+  [data-position] { position: absolute; }
+  [data-position~=top] { top: var(--shim); }
+  [data-position~=right] { right: var(--shim); }
+  [data-position~=bottom] { bottom: var(--shim); }
+  [data-position~=left] { left: var(--shim); }
 }
 
 .slide-footer {
   @include tools.z-index('bump');
   align-items: center;
   background: var(--callout);
-  display: flex;
+  display: grid;
   font-size: var(--xsmall);
   grid-area: footer;
+  grid-template: 'caption nav' auto / minmax(0,1fr) auto;
   justify-content: space-between;
 
   [data-view='grid'] & {
@@ -143,13 +151,14 @@
 
 .slide-caption {
   --newline: 0;
-  flex: 1;
+  grid-area: caption;
   padding: var(--half-shim) var(--gutter);
+  overflow-wrap: break-word;
 }
 
 .slide-nav {
   @include fonts.var('code');
-  flex: none;
+  grid-area: nav;
   padding: var(--half-shim) var(--gutter);
   white-space: nowrap;
 

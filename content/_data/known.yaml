@@ -137,14 +137,18 @@ _chss: &chss >
   [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
 
 _html:
-  www: &www >
-    [World Wide Web Project](https://info.cern.ch/hypertext/WWW/TheProject.html)
+  www: &www
+    caption: >
+      [World Wide Web Project](https://info.cern.ch/hypertext/WWW/TheProject.html)
+    qr: https://info.cern.ch/hypertext/WWW/TheProject.html
   html: &html >
     WWW Project,
     [HTML](https://info.cern.ch/hypertext/WWW/MarkUp/MarkUp.html)
-  constraints: &constraints >
-    WWW Project,
-    [HTML constraints](https://info.cern.ch/hypertext/WWW/MarkUp/HTMLConstraints.html)
+  constraints: &constraints
+    cite: >
+      WWW Project,
+      [HTML constraints](https://info.cern.ch/hypertext/WWW/MarkUp/HTMLConstraints.html)
+    qr: https://info.cern.ch/hypertext/WWW/MarkUp/HTMLConstraints.html
 
 url-history-chss:
   url: https://www.w3.org/People/howcome/p/cascade.html
@@ -163,13 +167,13 @@ quote-chss-non-visual:
 url-history-html:
   url: https://info.cern.ch/hypertext/WWW/TheProject.html
   alt: World Wide Web
-  caption: *www
+  <<: *www
 
 quote-html-all-platforms:
   quote: >
     It is required that HTML be
     **a common language between all platforms**...
-  cite: *constraints
+  <<: *constraints
 
 quote-html-no-control:
   quote: >
@@ -177,7 +181,7 @@ quote-html-no-control:
     **no** device-specific markup,
     or anything which requires
     **control over fonts or colors**.
-  cite: *constraints
+  <<: *constraints
 
 url-history-styles:
   url: https://w3.org/Style/History/
@@ -193,7 +197,7 @@ img-history-www:
     on the neXt desktop --
     an exercise in global availability
   caption: >
-    [worldwideweb30.com](https://worldwideweb30.com/)
+    WWW Hypermedia Browser/Editor
 
 url-www-emulator:
   img: no-harm/emulator.jpg
@@ -224,6 +228,7 @@ quote-w3c-mission:
   cite: >
     W3C
     [Mission Statement](https://w3.org/Consortium/mission.html#principles)
+  qr: https://w3.org/Consortium/mission.html#principles
 
 img-everything-ibm:
   img: no-harm/ibm-pc.jpg
@@ -246,6 +251,7 @@ quote-dao-control:
   cite: >
     John Allsopp,
     [A Dao of Web Design](https://alistapart.com/article/dao)
+  qr: https://alistapart.com/article/dao
 
 # ..######.....###.....######...######.....###....########..########
 # .##....##...##.##...##....##.##....##...##.##...##.....##.##......
@@ -477,6 +483,22 @@ itcss-layers-note:
     the top layers are sass-only, no output,
     then global css layers,
     and finally scoped components
+  <<: *img-contain-white
+  <<: *itcss-caption
+
+itcss-selectors:
+  img: itcss/itcss-selectors.png
+  alt: |
+    Inverted triangle with layers,
+    wide to narrow -
+    the top layers are labeled for pre-processor
+    then highlighted layers
+    with the star selector for global styles,
+    type selector for generics,
+    class selector for patterns,
+    and id selector for components.
+    Finally the overrides layer is marked
+    as !important.
   <<: *img-contain-white
   <<: *itcss-caption
 

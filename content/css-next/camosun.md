@@ -197,7 +197,7 @@ slides:
 
 - quote:
     Provide **hints** that _the browser may or may not use_.
-  <<: *proposal
+  cite: Håkon Lie
 
 - title: CSS **Declarations**
   css: |

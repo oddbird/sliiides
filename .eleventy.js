@@ -41,7 +41,9 @@ export default (eleventyConfig) => {
     'src/remedy': 'assets/css',
     'src/rad': 'assets/css',
     'src/js/browser-support.js': 'assets/js/browser-support.js',
+    'node_modules/lean-qr/webcomponent.mjs': 'assets/js/lean-qr.js',
   });
+  eleventyConfig.addPassthroughCopy("./content/demos/**/*.css");
 
   eleventyConfig.addCollection('talks', (collectionApi) => {
     const groups = collectionApi
