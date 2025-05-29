@@ -1,0 +1,45 @@
+[data-slide~='feature'] .slide-content {
+  background: url('/assets/img/oddbird-footer.png') no-repeat bottom right;
+  background-size: auto 4lh;
+  gap: var(--gutter);
+  grid-template-rows: 3fr 1fr auto;
+
+  header {
+    display: grid;
+    gap: var(--gutter);
+    grid-template: 'title qr' 6lh / 1fr 6lh;
+    display: grid;
+    align-content: center;
+  }
+
+  [feature-title] {
+    align-self: center;
+  }
+
+  .subtitle {
+    font-style: italic;
+  }
+
+  lean-qr {
+    block-size: 100%;
+    grid-area: qr;
+    place-self: stretch;
+  }
+
+  [feature-link] {
+    place-self: start;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  [feature-bird] {
+    font-size: var(--small);
+  }
+
+  [data-logo] {
+    block-size: 1.5lh;
+  }
+}

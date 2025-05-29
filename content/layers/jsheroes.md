@@ -727,9 +727,15 @@ slides:
     Let HTML do the work for you
 
 - pre: Bonus…
-  title: No More **Naming Things**
+  title: Less **Naming Things**
+  css: |
+    .form–-submit__invalid { /* ❌ */ }
+    form:has(:invalid) button[type=submit] { /* ✅ */ }
 - pre: Bonus…
   title: Encourage **Proper HTML**
+  css: |
+    .form–-submit__invalid { /* ❌ */ }
+    form:has(:invalid) button[type=submit] { /* ✅ */ }
 
 - pre: Don't _Fear Specificity_
   title: >

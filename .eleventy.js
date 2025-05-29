@@ -40,6 +40,7 @@ export default (eleventyConfig) => {
     'src/fonts': 'assets/fonts',
     'src/remedy': 'assets/css',
     'src/rad': 'assets/css',
+    'content/images/_oddbird/footer.png': 'assets/img/oddbird-footer.png',
     'src/js/browser-support.js': 'assets/js/browser-support.js',
     'node_modules/lean-qr/webcomponent.mjs': 'assets/js/lean-qr.js',
   });

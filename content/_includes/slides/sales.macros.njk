@@ -4,18 +4,20 @@
 {% macro feature(slide, page) %}
   {% call slides.base(slide, 'feature', page) %}
     <header>
+      <div feature-title>
+        {{ slides.title(slide) }}
+      </div>
       <lean-qr value="{{ slide.feature }}"></lean-qr>
-      {{ slides.title(slide) }}
     </header>
-    <a href="{{ slide.feature }}">{{ slide.feature | split('://') | last }}</a>
+    <a href="https://{{ slide.feature }}" feature-link>{{ slide.feature | split('://') | last }}</a>
     <footer>
-      {{ embed.svg('logos/oddbird') }}
-      <p>
+      <p feature-bird>
         {% set email = [slide.bird, 'oddbird.dev'] | join('@') %}
         <a href="mailto:{{ email }}">{{ email }}</a>
         |
         <a href="https://oddbird.dev">oddbird.dev</a>
       </p>
+      {{ embed.svg('logos/oddbird') }}
     </footer>
   {% endcall %}
 {% endmacro %}
