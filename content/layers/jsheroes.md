@@ -151,7 +151,7 @@ slides:
     include light/dark mode,
     colors, fonts, and zoom level
 
-- img: cascade/jsheroes/agent.jpg
+- img: cascade/jsheroes/agent.png
   alt: >
     Designer: I want the focus outline to be 1px light gray
     User: Actually, I want to see where I am,
