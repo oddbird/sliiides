@@ -21,7 +21,7 @@ slides:
     subtitled 'Use the Cascade'
   position: top
   caption: |
-    Slide from Natalie Downe's 2008
+    Original slide from Natalie Downe's 2008
     [**CSS Systems**](http://www.slideshare.net/nataliedowne/css-systems-presentation)
     talk
 
@@ -45,6 +45,21 @@ slides:
   alt: Google Home, Amazon Echo, and Apple HomePod
 
 - known: quote-html-all-platforms
+
+- img: cascade/jsheroes/platforms.jpg
+  alt: >
+    Sketch notes for
+    Sandrina's talk
+    Full Stack Forms -
+    most of the image is faded out,
+    with a scribbled circle around
+    different platforms,
+    different UI challenges
+  fit: contain
+  caption: >
+    Sketch Notes by **Oana Zaulet**
+    for **Sandrina Pereira's** talk
+
 - known: quote-html-no-control
 
 - img: no-harm/tim-quote.jpg
@@ -56,9 +71,21 @@ slides:
 - pre: Web _Design_
   title: Will **Never Happen**
 
+- title: Technology Is **Political**
+  mode: light
+  background: >
+    linear-gradient(
+      to bottom right,
+      powderblue 0 20%,
+      pink 20% 40%,
+      white 40% 60%,
+      pink 60% 80%,
+      powderblue 80% 100%
+    );
+
 - pre: The problem is
   title: |
-    Author **Control**
+    Authors Having **Control**
 
 - img: layers/not-alone.jpg
   alt: >
@@ -123,6 +150,8 @@ slides:
     Language and appearance preferences in Firefox
     include light/dark mode,
     colors, fonts, and zoom level
+  caption: >
+    The agent of the user!
 
 - pre: Early web…
   title: All Styles are **Universal**
@@ -170,12 +199,8 @@ slides:
     … provide publishers with **stylistic influence**…
   <<: *proposal
 
-- quote:
-    Provide _hints_ that the **browser may or may not use**.
-  cite: Håkon Lie
-
 - quote: |
-    … if conflicts arise the **user** should have _the last word_…
+    … **user** should have _the last word_…
   <<: *proposal
 
 # <!--
@@ -253,7 +278,7 @@ slides:
     subtitled 'Use the Cascade'
   position: top
   caption: |
-    Slide from Natalie Downe's 2008
+    Original slide from Natalie Downe's 2008
     [**CSS Systems**](http://www.slideshare.net/nataliedowne/css-systems-presentation)
     talk
 
@@ -445,6 +470,16 @@ slides:
 - known: itcss-layers
 - known: itcss-selectors
 
+- img: cascade/jsheroes/markov.jpg
+  alt: >
+    Slide graphing markov chain weights
+    edited to be about specificity maybe?
+    With the different nodes labeled
+    #id, .class, and type
+  fit: contain
+  caption: >
+    Original slide from **Chelsea Troy**
+
 - title: One **Flexible** Category
   md: |
     1. *Universal* `*`
@@ -465,7 +500,17 @@ slides:
 
 - known: itcss-graph
 
-- title: ❗**important**
+- img: cascade/jsheroes/no.jpg
+  alt: >
+    Drawing of someone watching a dragon breath fire
+    on burning skeletons,
+    the guy labeled 'you' is saying
+    'my cascade!' -
+    the dragon is labeled 'framework'
+    and the flame is !important
+  fit: contain
+  caption: >
+    Original slide from **Filip Sodic**
 
 - title: 😩🤬😩
 
@@ -485,14 +530,28 @@ slides:
 - pre: We need
   title: Explicit **Tools**
 
-- title: |
-    Cascade **Layers**
-  qr: https://www.w3.org/TR/css-cascade/
-  caption: |
-    [Cascading & Inheritance Level 5](https://www.w3.org/TR/css-cascade/)
+- img: cascade/systems-layers.jpg
+  alt: >
+    Product label for Cascade,
+    with sheeting action for virtually spotless dishes -
+    subtitled 'Use the Cascade'.
+    Sheeting action is covered by a scribble that says
+    layers!
+  position: top
+
+- img: cascade/jsheroes/what.jpg
+  alt: >
+    Slide with inadvertent and reckless quadrant
+    asking what's layering?
+    Edited to ask about cascade layering
+  fit: contain
+  caption: >
+    Original slide from **Emilia Muresan**
 
 - support: cascade-layers
   title: Cascade Layers
+  caption: |
+    [Cascading & Inheritance Level 5](https://www.w3.org/TR/css-cascade/)
 
 - pre: |
     **`@layer`**` { … }`
@@ -501,6 +560,15 @@ slides:
     `@layer `**`<name>`**` { … }`
   caption: >
     Optional, but _almost always better_
+
+- img: cascade/jsheroes/prevent.jpg
+  alt: >
+    Prevent Leaks slide,
+    edited to say
+    prevent specificity leaks
+  fit: contain
+  caption: >
+    Original slide from **Atila Fassina**
 
 - title: Specificity is **Contained**
   sub: Higher layers win, _with any selector_
@@ -524,6 +592,7 @@ slides:
     - duplicate layer
     - add layer list
     - add nested layer
+    - inspect with dev tools
 
 - pre: |
     `@import url(…) `_`layer(<name>)`_`;`
@@ -609,12 +678,6 @@ slides:
 - pre: As you go
   title: Update **Layer Order**
 
-- pre: For _flexibility_
-  title: Layer **Everything**
-  sub: |
-    Once we use un-layered styles,
-    that's as high as we can go
-
 - pre: Work from
   title: |
     **Lowest** to **Highest**
@@ -633,6 +696,26 @@ slides:
 - img: layers/chart-layers.jpg
   fit: contain
   background: white
+
+- pre: As useful,
+  title: Sub-Layer **Inside Components**
+
+- pen: layers-btn
+
+- img: cascade/jsheroes/finish.jpg
+  alt: >
+    Slide originally said
+    Don't leave things unfinished,
+    changed to say un-layered
+  fit: contain
+  caption: >
+    Original slide from **Sophie Koonin**
+
+- pre: For _flexibility_
+  title: Layer **Everything**
+  sub: |
+    Once we use un-layered styles,
+    that's as high as we can go
 
 - pre: Only allow un-layered
   title: |
@@ -667,11 +750,6 @@ slides:
     Let Us **Use CSS Features**
   sub: |
     (otherwise '_tools_' become _obstacle_)
-
-- pre: As useful,
-  title: Layer **Inside Components**
-
-- pen: layers-btn
 
 # <!--
 # .##.....##.########....###....##....##.####.##....##..######..
@@ -737,6 +815,14 @@ slides:
     .form–-submit__invalid { /* ❌ */ }
     form:has(:invalid) button[type=submit] { /* ✅ */ }
 
+- img: cascade/jsheroes/code.jpg
+  alt: >
+    Thumbs-up write conventions,
+    Rock-n-roll code semantics
+  fit: contain
+  caption: >
+    Original slide from **Andrei Pfeiffer**
+
 - pre: Don't _Fear Specificity_
   title: >
     **Contain** It
@@ -794,14 +880,6 @@ slides:
     _Prioritize_ `->` **Layers** \
     _Protect_ `->` **Importance**
 
-- quote: |
-    A Jedi uses the [Cascade]
-    for _knowledge and defense_,
-    **never for attack**.
-  cite: Yoda (almost)
-  face: layers/yoda.jpg
-  alt: Yoda leans on a walking stick among leaves
-
 # <!--
 # ..#######..##.....##.########.########...#######.
 # .##.....##.##.....##....##....##.....##.##.....##
@@ -814,8 +892,17 @@ slides:
 
 - pre: The Cascade is
   title: Our **Most Powerful Tool**
-- pre: The Cascade is
-  title: Our **Most Misunderstood Tool**
+
+- img: cascade/jsheroes/friend.jpg
+  alt: >
+    A boy riding a dragon
+    as it flies past an orange sunset,
+    in a drawing.
+    Caption has been altered to say
+    The [cascade] is our friend.
+  fit: contain
+  caption: >
+    Original slide from **Filip Sodic**
 
 - pre: It exists…
   title: To Balance **Priorities**
@@ -825,7 +912,15 @@ slides:
   title: |
     Getting **Major Upgrades**
 
-- feature: oddbird.dev/learn/courses/video/advanced-css/
+- quote: |
+    A Jedi uses the [Cascade]
+    for _knowledge and defense_,
+    **never for attack**.
+  cite: Yoda (almost)
+  face: layers/yoda.jpg
+  alt: Yoda leans on a walking stick among leaves
+
+- feature: oddbird.dev/learn/courses/design-with-code/
   title: Designing With Code
   sub: Writing resilient and maintainable CSS
   bird: miriam
