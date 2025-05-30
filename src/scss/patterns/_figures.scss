@@ -40,7 +40,7 @@ img {
 
 [data-figure='content'] {
   display: grid;
-  grid-gap: var(--shim);
+  gap: var(--shim);
   grid-template-columns: [full-start] repeat(auto-fit, minmax(40%, 1fr)) [full-end];
 
   img,

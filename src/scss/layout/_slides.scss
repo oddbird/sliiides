@@ -34,13 +34,16 @@
 }
 
 [data-slides] {
-  display: grid;
   grid-area: banner / main / main;
-  grid-auto-rows: minmax(100vh, auto);
-  grid-template-columns: minmax(min-content, 1fr);
+
+  @media (orientation: landscape) {
+    display: grid;
+    grid-auto-rows: 100svh;
+  }
 
   [data-view='grid'] & {
-    grid-gap: var(--double-gutter);
+    display: grid;
+    gap: var(--double-gutter);
     grid-auto-rows: auto;
     grid-template-columns: repeat(auto-fit, minmax(var(--min-page), 1fr));
     padding: var(--spacer) var(--gutter);
@@ -49,10 +52,15 @@
 }
 
 [id^='slide'] {
+  aspect-ratio: 16/9;
   container: slide / inline-size;
   display: grid;
   grid-template: 'slide' 1fr 'script' auto / 100%;
   scroll-snap-align: start;
+
+  @media (orientation: landscape) {
+    aspect-ratio: initial;
+  }
 
   [data-view='grid'] & {
     grid-template: 'slide' auto 'script' 1fr / 100%;
