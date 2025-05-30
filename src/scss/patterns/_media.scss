@@ -14,7 +14,7 @@
   --list-padding--default: 1em;
   align-items: var(--align, start);
   display: grid;
-  grid-gap: var(--media-gap, var(--gutter));
+  gap: var(--media-gap, var(--gutter));
   grid-template-areas: var(--reverse-y, 'image' 'content');
   margin: var(--newline) 0;
 
