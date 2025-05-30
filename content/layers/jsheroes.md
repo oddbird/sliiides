@@ -150,8 +150,17 @@ slides:
     Language and appearance preferences in Firefox
     include light/dark mode,
     colors, fonts, and zoom level
+
+- img: cascade/jsheroes/agent.jpg
+  alt: >
+    Designer: I want the focus outline to be 1px light gray
+    User: Actually, I want to see where I am,
+    let me see a focus outline.
+    User Agent (the user's agent):
+    Ok, I'll make it 10px black.
+  fit: contain
   caption: >
-    The agent of the user!
+    Original slide from **Hidde de Vries**
 
 - pre: Early web…
   title: All Styles are **Universal**
