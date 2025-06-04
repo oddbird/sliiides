@@ -85,7 +85,7 @@
       {{ embed.img(
         src=img.src if ('.' in img.src) else placeholder,
         alt=img.alt,
-        attrs={'style': imgStyle}
+        attrs={'style': imgStyle | styles}
       ) }}
     {% endfor %}
   {% endcall %}

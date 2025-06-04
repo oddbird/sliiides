@@ -24,26 +24,29 @@
 
 [data-slide~='twoup'] {
   .slide-content {
-    flex-direction: row;
-    gap: var(--shim);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--double-gutter) minmax(0, 1fr);
   }
 
   img {
+    block-size: 100%;
     clip-path: polygon(
       var(--tl, 0 0),
       var(--tr, 100% 0),
       var(--br, 100% 100%),
       var(--bl, 0 100%)
     );
+    grid-row: 1;
+    grid-column: var(--col, 1) / span 2;
+    inline-size: 100%;
   }
 
-  img:not(:first-child) {
-    margin-inline-start: calc(var(--gutter) * -1);
+  picture:not(:first-child) {
     --tl: var(--double-gutter) 0;
+    --col: 2;
   }
 
-  img:not(:last-child) {
-    margin-inline-end: calc(var(--gutter) * -1);
+  picture:not(:last-child) {
     --br: calc(100% - var(--double-gutter)) 100%;
   }
 }

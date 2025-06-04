@@ -1,0 +1,13 @@
+layout: slides
+title: CSS Functions & Mixins
+talk: CSS **Functions** & **Mixins**
+sub: Is Sass Dead Yet?
+home: /mixins/
+description: |
+  what can we do with CSS functions and mixins,
+  how will they be different from the Sass tools that inspired them,
+  how can you help in the spec process,
+  and what other features might this open up in the future?
+tags:
+  - mixins-functions
+  - talk

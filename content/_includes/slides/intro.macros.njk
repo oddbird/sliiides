@@ -16,13 +16,9 @@
 {% endmacro %}
 
 {% macro oss(slide, page) %}
-  {%- set caption -%}
-    <strong>Core Contributor</strong> / <strong>Invited Expert</strong>
-  {%- endset -%}
-  {%- set slide = slide | merge({'caption': caption}) -%}
   {% call slides.base(slide, 'intro-oss', page) %}
     <ul class="oss-logos">
-      {% for name, link in page.data.oss %}
+      {% for name, link in (slide.oss or page.data.oss) %}
         <li>
           <a href="{{ link }}">
             {{ embed.svg('logos/' + name, alt=name) }}
