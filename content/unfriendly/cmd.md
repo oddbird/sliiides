@@ -728,11 +728,10 @@ slides:
   cite: |
     [Jakob Nielsen](https://www.nngroup.com/people/jakob-nielsen/)
 
-- img: unfriendly/unique.jpg
+- img: unfriendly/cmd/whitespace.jpg
   alt: |
-    Wireframe with top logo and navigation,
-    a hero image that says `we're unique`,
-    and three columns featuring large icons.
+    Nils presenting one of the two websites
+    with a centered wrapper and white space on both sides
   caption: |
     "All Websites Look The Same"
     from [NoVolume](http://www.novolume.co.uk/blog/all-websites-look-the-same/)
