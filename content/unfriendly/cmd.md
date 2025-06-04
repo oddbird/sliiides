@@ -27,16 +27,22 @@ slides:
     screaming in colorful expressionist twisted style -
     behind him a couple walking, and boats in the distance.
 
-- url: https://www.404media.co/ai-slop-is-a-brute-force-attack-on-the-algorithms-that-control-reality/
-  position: center
-  title: AI Slop Is a Brute Force Attack on the Algorithms That Control Reality
+- qr: https://www.404media.co/ai-slop-is-a-brute-force-attack-on-the-algorithms-that-control-reality/
+  img: unfriendly/cmd/slop.jpg
+  alt: >
+    AI Slop Is a Brute Force Attack on the Algorithms That Control Reality
+    from 404 Media
 
-- url: https://restofworld.org/2025/big-tech-ai-labor-supply-chain-african-workers/
-  title: How Big Tech hides its outsourced African workforce
+- qr: https://restofworld.org/2025/big-tech-ai-labor-supply-chain-african-workers/
+  img: unfriendly/cmd/labor.jpg
+  alt: >
+    How Big Tech hides its outsourced African workforce
 
-- url: https://www.404media.co/ice-taps-into-nationwide-ai-enabled-camera-network-data-shows/
-  position: center
-  title: ICE Taps into Nationwide AI-Enabled Camera Network, Data Shows
+- qr: https://www.404media.co/ice-taps-into-nationwide-ai-enabled-camera-network-data-shows/
+  img: unfriendly/cmd/ice.jpg
+  alt: >
+    ICE Taps into Nationwide AI-Enabled Camera Network, Data Shows
+    from 404 Media
 
 - img: cqs/authoritarian.jpg
   alt: >
@@ -92,6 +98,9 @@ slides:
     a torn-edge tissue box cover in progress,
     and three large bowls behind two torn-edge platters
     all drying on a table.
+
+- url: https://www.dair-institute.org
+  title: Distributed AI Research Institute
 
 # <!--
 # ..######.....###.....######...######.....###....########..########
@@ -802,10 +811,19 @@ slides:
   alt: Woman adjusting a car seat
   position: bottom
 
-- pre: Please
+- pre: Please Just
   title: Let Me **Think**
+
+- pre: Keep _making_
+  title: Web **Art**
 
 - url: https://bengrosser.com/projects/
   title: Projects, by Ben Grosser
+
+- url: https://vasilis.nl/clocks/
+  title: Clocks made by Vasilis
+
+- url: https://webart.mia.wtf
+  title: Miriam's Digital Art(ifacts)
 
 ---
