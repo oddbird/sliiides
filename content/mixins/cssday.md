@@ -67,7 +67,6 @@ slides:
     No **Variables** \
     No **Build Steps**…
 
-
 - known: img-history-line-mode
   caption: No CSS, if we go far enough back!
 
@@ -126,6 +125,15 @@ slides:
     **Relationships** are hidden. \
     **Reasons** are unclear.
 
+- img: mixins/dao.jpg
+  alt: >
+    2012 slide -
+    The control which designers know in the print medium, and often desire in the web medium, is simply a function of the limitation of the printed page... We must "accept the ebb and flow of things.
+    -John Allsopp, April 2000
+  position: center
+  caption: >
+    Meaningful CSS, **2012** (my first talk)
+
 - img: mixins/vars.jpg
   alt: >
     2012 slide -
@@ -145,7 +153,9 @@ slides:
 
 - scss: |
     /* originally +grid-col(3) */
-    article { @include span(3); }
+    article {
+      @include span(3);
+    }
   caption: >
     **Susy**, 2009
 
@@ -173,6 +183,15 @@ slides:
   title: Don't Use My Grid System (2017-2019)
   position: center
 
+- pre: Complexity
+  title: Is a **Moving Target**
+
+- pre: Complexity
+  title: Is **Something to Manage**
+
+- pre: Abstractions
+  title: Make it **Better** & **Worse**
+
 # <!--
 # .##....##.########.##......##
 # .###...##.##.......##..##..##
@@ -189,10 +208,33 @@ slides:
 - url: https://www.w3.org/TR/css-mixins-1/
   title: CSS Functions & Mixins Module, Level 1
 
+- support: function
+  title: CSS @Function Rule
+  caption: >
+    Chrome with _Experimental Web Platform Features_ Flag
+
+- support: mixin
+  title: CSS @Mixin Rule
+  caption: >
+    Chrome with _CSSMixins_
+    [Command Line Flag](https://www.chromium.org/developers/how-tos/run-chromium-with-flags/)
+
+- title: Need **Feedback**
+  sub: >
+    [github.com/w3c/csswg-drafts/issues](https://github.com/w3c/csswg-drafts/issues)
+  qr: https://github.com/w3c/csswg-drafts/issues
+
+- pen: Simple Function
+  id: QwbKjwY
+
+- pen: Negative Function
+  id: ogXjqVv
+
 - css: |
     @function --my-function(--optional, --parameters) {
-      --any-logic: using custom property syntax;
       result: 4; /* returned value */
+      --any-logic: using custom property syntax;
+      --declarative: like any other CSS context;
     }
   caption: |
     CSS **Function** with `@function`
@@ -209,16 +251,32 @@ slides:
   caption: >
     Where _`var()`_ is allowed
 
-- pen: Simple Function
-  id: QwbKjwY
+- pre: A declarative
+  title: Bucket of **Unordered Properties**
 
-- todo: combine results from queries
-- todo: functions are declarative
+- pre: External Variables
+  title: Are **Available Inside**
 
-- support: function
-  title: CSS @Function Rule
+- pre: Parameters &
+  title: Internal Variables are **Private**
+
+- pre: Only The
+  title: >
+    **Result** Value Is Returned
+
+- pre: Can Contain
+  title: Media & Other **Conditions**
   caption: >
-    Chrome with _Experimental Web Platform Features_
+    @media, @container, @supports, etc
+
+- pen: Color Scheme Functions
+  id: QwbdvBq
+
+- pen: Gallery Mixin
+  id: zxGKvbz
+
+- pen: Gradient Mixin Text
+  id: azONKwv
 
 - css: |
     @mixin --my-mixin(--optional, --parameters) {
@@ -228,6 +286,8 @@ slides:
     }
   caption: |
     CSS **Mixin**
+
+- title: Nothing is **Private**
 
 - pre: >
     CSS _Mixins_
@@ -240,11 +300,15 @@ slides:
   caption: >
     Where _style rules_ are allowed
 
-- pen: Gallery Mixin
-  id: zxGKvbz
+- pre: Styles _expand_
+  title: Where **Applied**
 
-- support: mixin
-  title: CSS @Mixin Rule
+- title: Very **Limited Prototype**
+  sub: These things will eventually work…
+  md: |
+    - Directly nested styles
+    - Parameters
+    - Moving definitions later
 
 - pre: Inline _conditions_
   title: With the **if()** Function
@@ -452,16 +516,56 @@ slides:
 - title: Value **Resolution**
   md: |
     1. Filtering
-    2. **Cascading**
+    2. **Cascading** (resolving _conflicts_)
     3. Defaulting
     4. Resolving
+  caption: Result is _zero or one_ 'cascaded' value
 
 - pre: Cascade…
-  title: Removes **Conflicting** Declarations
-  caption: Result is _zero or one_ 'cascaded' value
+  title: Resolves **Conflicting Values**
+  sub: When we have _multiple declarations_
+
+- pre: Like _other properties_…
+  title: Variables **Cascade**
+
+- css: |
+    html {
+      --color: white !important;
+      --color: black;
+    }
+  caption: >
+    🤔 _importance_  is part of the cascade
 
 - pen: Importance in Custom Properties
   id: OPVXrEX
+
+- title: >
+    **Functions Don't** Cascade
+
+- pre: Variables _inside_
+  title: >
+    **Functions Don't** Cascade
+  caption: >
+    Only _order of appearance_ is used
+
+- pre: Importance
+  title: Not Allowed **In Functions**
+
+- pre: Mixins…
+  title: Contribute **Cascading Styles**
+
+- pen: Easing Mixin & Function
+  id: VYLPQXo
+
+- title: Cascade **Still Includes**
+  md: |
+    1. **Origins**
+    1. **Context** (Shadow vs Light DOM)
+    1. Element **Attachment** (Inline vs Selectors)
+    1. **Layers**
+    1. **Specificity**
+    1. **Scope**
+    1. Order of **Appearance**
 
 # <!--
 # .####.##....##.##.....##.########.########..####.########
@@ -477,17 +581,12 @@ slides:
   md: |
     1. Filtering
     2. Cascading
-    3. **Defaulting**
+    3. **Defaulting** (filling in _empty values_)
     4. Resolving
   caption: Result is _exactly one_ 'specified' value
 
-- pre: Defaulting _process_
-  title: Depends on the **Property**
-
-- pre: Some
-  title: |
-    Properties **Inherit**
-  sub: value from _direct parent_
+- pre: Defaulting…
+  title: Fills in **Missing Values**
 
 - img: vars/boxes-unstyled.png
   position: center
@@ -504,7 +603,7 @@ slides:
     but some of the borders are now solid,
     and some have become pink
   caption: >
-    **Cascaded** values from _selector mapping_
+    Cascade applies _written styles_
 
 - img: vars/boxes-inherit.png
   position: center
@@ -514,7 +613,15 @@ slides:
     but the boxes that weren't styled before
     now match the color of their parent box
   caption: >
-    **Inherited** values from _parent context_
+    Defaulting handles _whatever's left_
+
+- pre: Defaulting _process_
+  title: Depends on the **Property**
+
+- pre: Some
+  title: |
+    Properties **Inherit**
+  caption: Value from _direct parent_
 
 - pre: >
     _Custom_ properties
@@ -523,6 +630,47 @@ slides:
 
 - pre: Inheritance
   title: Requires **Lineage**
+
+- css: |
+    html { color: red; }
+    body { color: blue; }
+    body > main { /* inherits… ? */ }
+  caption: >
+    Each element from it's _direct parent_
+
+- css: |
+    html { color: red; }
+
+    body > main { /* inherits… ? */ }
+  caption: >
+    Still inherits _from the body_
+
+- css: |
+    html { color: red; }
+    /* body inherits red from html */
+    /* body > main inherits red from body */ }
+  caption: >
+    Unbroken _lineage_
+
+- qr: oddbird.dev/learn/courses/design-with-code/
+  img: mixins/build-wealth.jpg
+  alt: >
+    How to build generational wealth
+    for your family,
+    text overlaid on a multi-generation
+    family photo all smiling at the camera
+
+- img: no-harm/oligarchs.jpg
+  alt: >
+    A line of tech oligarchs
+    at the inauguration of Donald Trump,
+    including
+    Elon Musk of Tesla,
+    Mark Zuckerberg of Meta,
+    Jeff Bezos of Amazon,
+    and Sunar Pichai of Google
+  position: bottom
+  caption: Become Your Own Oligarch!
 
 - pre: Custom properties
   title: Can Carry **Hidden Context**
@@ -534,15 +682,57 @@ slides:
 - pen: End-Run Inheritance
   id: poYGQbY
 
+# <!--
+# .####.##....##.####.########.####....###....##......
+# ..##..###...##..##.....##.....##....##.##...##......
+# ..##..####..##..##.....##.....##...##...##..##......
+# ..##..##.##.##..##.....##.....##..##.....##.##......
+# ..##..##..####..##.....##.....##..#########.##......
+# ..##..##...###..##.....##.....##..##.....##.##......
+# .####.##....##.####....##....####.##.....##.########
+# -->
+
 - pre: Most _properties_
   title: >
     **Don't** Inherit
 
-- pre: No inheritance?
+- id: eYXbPJP
+  pen: Inheritance intuition
+
+- pre: Generally…
+  title: |
+    Un-styled **Inline Boxes** `(spans)` \
+    Should **Blend In**
+
+- pre: And so…
+  title: Text Styles **Inherit**
+  caption: (colors, fonts, etc)
+
+- pre: While layouts and other…
+  title: Box Styles **Do Not** Inherit
+  caption: (margins, borders, padding, background)
+
+- pre: No _inheritance_?
   title: >
-    Use **Initial Value**
+    Default to **Initial Value**
   caption: >
     [Initial Value Spec](https://www.w3.org/TR/css-cascade-5/#initial-values)
+
+- quote: |
+    Each property has an **initial value**,
+    defined in **the property’s definition table**.
+  cite: >
+    Cascade & Inheritance,
+    § 7.1.
+    [Initial Values](https://www.w3.org/TR/css-cascade-5/#initial-values)
+  script: |
+    - pick a property (display?)
+    - Look it up on [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
+    - Check 'formal definition'
+    - Link to spec
+
+- pre: Custom properties…
+  title: Have No **Definition Table**?!
 
 - pre: Default _initial value_…
   title: >
@@ -552,14 +742,14 @@ slides:
 - pen: Invalid, Unsupported, or Undefined
   id: OYoVLX
 
-- caption: >
-    **Register** Custom Properties
-  css: |
+- css: |
     @property --border-size {
       syntax: "<length>";
       initial-value: 1px;
       inherits: false;
     }
+  caption: >
+    Options for [syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax)
 
 - pre: >
     _Typed_ properties
@@ -595,6 +785,32 @@ slides:
 - pen: Defaulting keywords apply to custom properties
   id: myJrgEv
 
+- pre: Functions _should_
+  title: Pass Through **Keywords**
+  sub: (not implemented yet)
+
+- pre: Initial value
+  title: Useful in **Parameters**
+
+- pen: Flag functions
+  id: GgJZmBd
+
+- pen: Context in Functions
+  id: pvJeEZJ
+
+- pen: Mixin Privacy
+  id: OPVNEYa
+
+# <!--
+# .########..########..######...#######..##.......##.....##.########
+# .##.....##.##.......##....##.##.....##.##.......##.....##.##......
+# .##.....##.##.......##.......##.....##.##.......##.....##.##......
+# .########..######....######..##.....##.##.......##.....##.######..
+# .##...##...##.............##.##.....##.##........##...##..##......
+# .##....##..##.......##....##.##.....##.##.........##.##...##......
+# .##.....##.########..######...#######..########....###....########
+# -->
+
 - title: Value **Resolution**
   md: |
     1. Filtering
@@ -611,13 +827,10 @@ slides:
     (except _`currentColor`_!)
 
 - pre: Move through DOM tree
-  title: Resolve **Parent**, then Default **Children**
-
-  md: |
-    1. Filtering
-    2. Cascading
-    3. **Defaulting**
-    4. **Resolving**
+  title: |
+    Resolve **Parent**, \
+    then Default **Children**
+  caption: Alternate **defaulting** & **resolving**
 
 - pre: Unregistered Properties
   title: Can't **Resolve**
@@ -625,11 +838,52 @@ slides:
 - pen: Variables substitute, but don't resolve (until used)
   id: LEVRRyg
 
-- todo: creating var functions
-- todo: Functions resolve
+- pen: Comparing Values with Types
+  id: LEVWNdq
   caption: >
     [Functional Capturing](https://blog.kizu.dev/functional-capturing/),
     by **Roman Komarov**
+
+# <!--
+# .########..########.##.....##..#######...######.
+# .##.....##.##.......###...###.##.....##.##....##
+# .##.....##.##.......####.####.##.....##.##......
+# .##.....##.######...##.###.##.##.....##..######.
+# .##.....##.##.......##.....##.##.....##.......##
+# .##.....##.##.......##.....##.##.....##.##....##
+# .########..########.##.....##..#######...######.
+# -->
+
+- pen: Custom Unit
+  id: EajKwQK
+
+- pen: Conditional Border Radius
+  id: QwbKxBx
+  caption: Requested by Adam
+
+- pen: Function Color Palettes
+  id: dPyzLEJ
+
+- pen: CSS Physics
+  id: ByNLrJv
+
+- pen: miaGPT
+  id: yyNarwz
+
+- pre: You might notice…
+  title: I'm Low on **Mixins**
+  sub: >
+    [github.com/w3c/csswg-drafts/issues](https://github.com/w3c/csswg-drafts/issues)
+  qr: https://github.com/w3c/csswg-drafts/issues
+
+- id: qEdZydP
+  pen: Theme mixins for Brad
+
+- id: ZYGWXeg
+  pen: Scrollbar colors for Adam
+
+- id: raVxNEZ
+  pen: Scrollbar styles for Adam
 
 # <!--
 # .########.####.##....##....###....##......
