@@ -882,9 +882,6 @@ slides:
 - id: ZYGWXeg
   pen: Scrollbar colors for Adam
 
-- id: emNZGWO
-  pen: Scrollbar styles for Adam
-
 # <!--
 # .########.####.##....##....###....##......
 # .##........##..###...##...##.##...##......
