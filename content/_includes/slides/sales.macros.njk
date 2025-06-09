@@ -7,7 +7,7 @@
       <div feature-title>
         {{ slides.title(slide) }}
       </div>
-      <lean-qr value="{{ slide.feature }}"></lean-qr>
+      <lean-qr value="https://{{ slide.feature }}"></lean-qr>
     </header>
     <a href="https://{{ slide.feature }}" feature-link>{{ slide.feature | split('://') | last }}</a>
     <footer>
