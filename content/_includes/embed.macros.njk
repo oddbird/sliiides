@@ -270,7 +270,7 @@ params:
 {%- endif -%}
 {%- endmacro %}
 
-{% macro screenshot(url, alt, type=none) %}
+{% macro screenshot(url, alt, size='large', type=none) %}
   {% set base = 'https://v1.opengraph.11ty.dev' if type == 'og' else 'https://v1.screenshot.11ty.dev' %}
   {%- set src = [base, url | urlencode, size or 'large', ''] | join('/') -%}
   {{ img(

@@ -9,7 +9,7 @@
 
   {% set content %}
     {% if slide.url %}
-      {{ embed.screenshot(slide.url, slide.alt, slide.type) }}
+      {{ embed.screenshot(slide.url, slide.alt, slide.size, slide.type) }}
     {% else %}
       {% set placeholder = ['https://source.unsplash.com/random/800x450?', slide.img or 'any'] | join %}
       {{ embed.img(
@@ -204,7 +204,7 @@
 {% macro support(slide, page) %}
   {% call slides.base(slide, 'caniuse', page) %}
     <browser-support data-feature="{{ slide.support }}">
-      <h2 slot="title">{{ slide.title }}</h2>
+      <h2 slot="title">{{ slide.title | mdInline | safe }}</h2>
       <a href="https://web-platform-dx.github.io/web-features-explorer/features/{{ slide.support }}">
         See support data on the Web Features Explorer
       </a>

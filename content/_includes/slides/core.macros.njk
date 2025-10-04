@@ -72,6 +72,8 @@
     {{ code.css(slide, page) }}
   {% elif slide.scss %}
     {{ code.scss(slide, page) }}
+  {% elif slide.js %}
+    {{ code.js(slide, page) }}
   {% elif slide.exact %}
     {{ exact(slide, page) }}
   {% elif slide.quote %}

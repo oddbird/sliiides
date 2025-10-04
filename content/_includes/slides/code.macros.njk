@@ -29,3 +29,8 @@
   {{ block(slide, page) }}
 {% endmacro %}
 
+{% macro js(slide, page) %}
+  {% set slide = slide | merge({lang: 'js', code: slide.js}) %}
+  {{ block(slide, page) }}
+{% endmacro %}
+
