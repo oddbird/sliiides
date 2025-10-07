@@ -1034,7 +1034,7 @@ slides:
 - pre: Go ahead…
   title: Make The Web **Your Own**
   caption: that's the whole point
-  script: >
+  script: |
     - I used to worry as a dev
     - "but I'll see something different than the user"
     - _That's the point! People might see something different!_

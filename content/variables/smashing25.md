@@ -4,13 +4,24 @@ title: When Variables Cascade
 talk: When **Variables Cascade**
 date: 2025-10-07
 
-proposal: &proposal
-  cite: Håkon Lie
-  caption: |
-    [Cascading HTML style sheets -- a proposal](https://www.w3.org/People/howcome/p/cascade.html)
-  qr: https://www.w3.org/People/howcome/p/cascade.html
-
 slides:
+
+- img: vars/smashing25/invalid.png
+  alt: >
+    Nick Desbarats on stage
+    in front of a slide that said
+    What the $&#! is a dashboard anyway -
+    but dashboard has been scribbled out
+    and replaced with hand-written
+    guaranteed invalid value
+  fit: contain
+
+- pre: Have you used…
+  title: >
+    **Variables** in **CSS**?
+
+- support: custom-properties
+  title: Custom properties (aka "variables")
 
 - pre: Have you used…
   title: >
@@ -101,48 +112,66 @@ slides:
     & One **`Margin-Inline-End`** \
     & ...
 
+- pre: on _each HTML element_
+  title: For **Each Property**…
+  md: |
+    1. Find the _relevant_/_valid_ declarations
+    2. Remove _duplicate/conflicting_ properties
+    3. Fill in any _missing_ properties
+    4. Resolve any _relationships_
+
 - pre: Need to…
-  title: remove **Conflicting Values**
+  title: Discard **Invalid Values**
   css: |
-    button {
+    this-slide {
       background-color: red;
       background-color: yellow;
       background-color: green;
       background-color: powderBlue;
+      /* background-color: smashingConf; */
     }
-  caption: This is _the cascade_!
+
+- pre: Need to…
+  title: Remove **Conflicting Values**
+  css: |
+    this-slide {
+      /* background-color: red; */
+      /* background-color: yellow; */
+      /* background-color: green; */
+      background-color: powderBlue;
+      /* background-color: smashingConf; */
+    }
 
 - pre: Need to…
   title: Fill in **Missing Values**
   css: |
-    button {
-      background-color: yellow;
-      /* we need a text color too! */
+    this-slide {
+      /* no text `color` was declared, */
+      /* but we can inherit one! */
     }
-  caption: This can be _inheritance_!
 
-- pre: Browser steps…
-  title: For **Each HTML Element**
-  md: |
-    1. Find the _relevant_ declarations
-    2. Remove _duplicate/conflicting_ properties
-    3. Fill in any _missing_ properties
-    4. Resolve any _relationships_
+- pre: Finally…
+  title: Resolve **Computed Values**
+  css: |
+    this-slide {
+      background-color: rgb(176, 224, 230); /* powderBlue */
+      color: rgb(0, 0, 0); /* canvasText maybe */
+    }
 
 - title: Value **Resolution** Process
   md: |
     1. Filtering
     2. Cascading
     3. Defaulting (includes _inheritance_)
-    4. Resolving
+    4. Resolving (based on _type_)
 
 - url: https://www.w3.org/TR/css-variables-1/
   title: CSS **Custom Properties** for _Cascading_ Variables
 
 - pre: >
-    CSS variables…
+    CSS _variables_…
   title: >
-    **Cascade** and **Inherit**
+    Are **Just Properties**
 
 - caption: What's the _`background-color`_ in **CSS**???
   css: |
@@ -168,6 +197,8 @@ slides:
     3. Defaulting (includes _inheritance_)
     4. Resolving
 
+- title: (skip _filtering_ for now…)
+
 - caption: Cascade to _remove duplicates_
   css: |
     this-slide {
@@ -187,9 +218,10 @@ slides:
   css: |
     this-slide {
       background-color: powderBlue;
+      --my-color: powderBlue;
     }
 
-- caption: Order doesn't matter _across properties_
+- caption: Order doesn't matter _between properties_
   css: |
     this-slide {
       background-color: var(--my-color);
@@ -271,14 +303,12 @@ slides:
     3. Defaulting (includes _inheritance_)
     4. Resolving
 
-- img: vars/ai.jpg
+- img: vars/smashing25/understanding.png
   alt: >
-    Ai generated circuit-board inspired illustration
-    stolen off linkedin that
-    used to say ai is no longer optional,
-    but all mentions of ai have been crossed off,
-    and it now says understanding is no longer optional
-  position: bottom
+    Christine Vallaure on stage
+    in front of a (photo-shopped) slide
+    that says understanding of.
+  fit: contain
 
 # <!--
 # .####....###.....######..##.....##.########
@@ -348,11 +378,17 @@ slides:
 
 - css: |
     html {
-      color: teal; /* no conflict! */
+      color: teal;
+      color: 3em;
+    }
+
+- css: |
+    html {
+      color: teal;
       /* color: 3em; */
     }
   caption: >
-    _Invalid declarations_ can be ignored
+    Invalid declarations can be _filtered_
 
 - title: Value **Resolution**
   md: |
@@ -364,9 +400,35 @@ slides:
 - title: Useful **Progressive Enhancement**
   css: |
     html {
-      color: teal; /* applied! */
+      color: teal;
       color: oklch(55% 0.09 195); /* discarded?? */
     }
+
+- title: >
+    **Some** Browsers…
+  css: |
+    html {
+      color: teal;
+      /* color: oklch(55% 0.09 195); */
+    }
+
+- title: >
+    **Other** Browsers…
+  css: |
+    html {
+      color: teal;
+      color: oklch(55% 0.09 195);
+    }
+  caption: Let them both _cascade_!
+
+- title: >
+    **Other** Browsers…
+  css: |
+    html {
+      /* color: teal; */
+      color: oklch(55% 0.09 195);
+    }
+  caption: Let them both _cascade_!
 
 - quote: |
     **You can use it and not use it at the same time**,
@@ -377,15 +439,26 @@ slides:
     Jen Simmons,
     [Intro to Resilient CSS](https://www.youtube.com/watch?v=u00FY9vADfQ)
 
+- caption: What's the _`background-color`_ in **CSS**???
+  css: |
+    this-slide {
+      background-color: var(--my-color);
+
+      --my-color: powderBlue;
+      --my-color: smashingConf; /* 👀👀👀 */
+    }
+
 - pre: But _custom_ properties
   title: Have **No Defined Type**
 
-- quote: |
-    `.ಠ_ಠ { ` \
-    &nbsp;&nbsp;`--（╯°□°）╯: `**`︵┻━┻`**`;` \
-    `}`
-    is valid CSS.
-  cite: Tab Atkins
+- title: >
+    ✅ Valid **Syntax**
+  css: |
+    .ಠ_ಠ {
+      --（╯°□°）╯: ︵┻━┻;
+    }
+  caption: >
+    credit: Tab Atkins
 
 - title: >
     ✅ Valid **Syntax**
@@ -402,13 +475,6 @@ slides:
   css: |
     html { color: var(--my-property); }
 
-- title: Value **Resolution**
-  md: |
-    1. Filtering ("**parse time** validation")
-    2. Cascading
-    3. Defaulting
-    4. **Resolving** 👀👀👀👀
-
 - title: >
     ✅ Still **Valid Syntax**
   css: |
@@ -417,7 +483,28 @@ slides:
       color: var(--my-property);
     }
   caption: >
-    But _will fail_ later…
+    _Might_ fail later…
+
+- title: >
+    ✅ Still **Valid Syntax**
+  css: |
+    html {
+      --my-property: 3em;
+      color: var(--my-property);
+    }
+
+    html {
+      --my-property: deepPink;
+    }
+  caption: >
+    `deepPink` is the best color in CSS, fight me
+
+- title: Value **Resolution**
+  md: |
+    1. Filtering ("**parse time** validation")
+    2. Cascading
+    3. Defaulting
+    4. **Resolving** 👀👀👀👀
 
 - pre: Declarations containing
   title: The **`var()` function**
@@ -445,34 +532,10 @@ slides:
 - id: XWGOdVQ
   pen: Invalid At Computed Value Time
 
-- pre: What about…
-  title: Setting **Types** with `@property`?
-  css: |
-    @property --my-property {
-      syntax: "<color>";
-      initial-value: teal;
-      inherits: true;
-    }
-
-- css: |
-    @property --my-property {
-      syntax: "<color>";
-      initial-value: teal;
-      inherits: true;
-    }
-
-    @property --my-property {
-      syntax: "<length>";
-      initial-value: 3em;
-      inherits: true;
-    }
-  caption: >
-    Registration is still _unreliable at parse time_
-
 - title: >
     ✅ Still Valid **Syntax**
   css: |
-    html {
+    body {
       --my-property: 3em;
       color: var(--my-property);
     }
@@ -483,7 +546,7 @@ slides:
       inherits: true;
     }
   caption: >
-    Registration applies _at computed value time_
+    Not _invalid_ until _computed value time_!
 
 # <!--
 # ..######.....###.....######...######.....###....########..########
@@ -498,17 +561,13 @@ slides:
 - title: Value **Resolution**
   md: |
     1. Filtering
-    2. **Cascading** (resolving _conflicts_)
+    2. **Cascading**
     3. Defaulting
     4. Resolving
   caption: Result is _zero or one_ 'cascaded' value
 
 - pre: Cascade handles…
-  title: Remaining **Conflicts**
-  css: |
-    #submit { background: green; }
-    .warning { background: red; }
-    button { background: blue; }
+  title: Declaration **Conflicts**
 
 - img: no-harm/thunderdome-words.jpg
   alt: >
@@ -520,29 +579,31 @@ slides:
   caption: >
     Put **Tina Turner** in the browser, you cowards
 
-- pre: Like _other properties_…
-  title: Variables **Cascade**
-
 - demo: cascade-funnel
   caption: Starts with importance
 
+- pre: We _know_…
+  title: Variables **Cascade**
+
 - css: |
-    html {
+    this-slide {
       background: maroon !important;
 
-      --background: white !important;
-      --background: black;
+      --my-color: deepPink !important;
+      --my-color: powderBlue;
 
-      background: var(--background);
+      background: var(--my-color);
     }
+  caption: What color is the _background_?
+
 - css: |
-    html {
+    this-slide {
       background: maroon !important;
 
-      --background: white !important;
-      /* --background: black; */
+      --my-color: deepPink !important;
+      /* --my-color: powderBlue; */
 
-      /* background: var(--background); */
+      /* background: var(--my-color); */
     }
   caption: Cascade applies to _each property_
   background: maroon
@@ -552,7 +613,9 @@ slides:
   title: Applies to **Custom Properties**
   sub: (not passed along as part of the _variable value_)
 
-- todo: More cascade in workshop?
+- url: https://smashingconf.com/ny-2025/workshops/miriam-suzanne-modern-css-architecture
+  title: >
+    Workshop: Modern CSS Architecture
 
 # <!--
 # .####.##....##.##.....##.########.########..####.########
@@ -572,8 +635,92 @@ slides:
     4. Resolving
   caption: Result is _exactly one_ 'specified' value
 
-- pre: Defaulting…
-  title: Fills in **Missing Values**
+- pre: Some
+  title: |
+    Properties **Inherit**
+
+- pre: Most _properties_
+  title: >
+    **Don't** Inherit
+
+- id: eYXbPJP
+  pen: Inheritance intuition
+
+- pre: Inheritance
+  title: From **Parent**
+
+- css: |
+    html { color: red; }
+
+    body > main { /* inherits… ? */ }
+  caption: >
+    Each element from it's _direct parent_
+
+- css: |
+    html { color: red; }
+    /* body inherits from `html` */
+    body > main { /* inherits from `body` */ }
+  caption: >
+    Each element from it's _direct parent_
+
+- pre: Inheritance
+  title: Requires **Lineage**
+
+- css: |
+    html { color: red; }
+    body { color: blue; }
+    body > main { /* inherits from `body` */ }
+  caption: >
+    Each element from it's _direct parent_
+
+- qr: oddbird.dev/learn/courses/design-with-code/
+  img: mixins/build-wealth.jpg
+  alt: >
+    How to build generational wealth
+    for your family,
+    text overlaid on a multi-generation
+    family photo all smiling at the camera
+
+- img: no-harm/oligarchs.jpg
+  alt: >
+    A line of tech oligarchs
+    at the inauguration of Donald Trump,
+    including
+    Elon Musk of Tesla,
+    Mark Zuckerberg of Meta,
+    Jeff Bezos of Amazon,
+    and Sunar Pichai of Google
+  position: bottom
+  caption: Become an **Evil Tech Oligarch**!
+
+- pre: >
+    _Custom_ properties
+  title: >
+    **Inherit** By Default
+
+- css: |
+    html { --brand-color: deepPink; }
+
+    form button[type=submit] {
+      background: var(--brand-color);
+    }
+
+- pre: Custom properties
+  title: Are **Invisible Until Used**
+
+- pre: Custom properties can
+  title: Smuggle **Hidden Context**
+
+- pre: Allowing us to
+  title: |
+    ~~Avoid **Inheritance Taxes**~~ \
+    Inherit **Across Generations**
+
+- pen: End-Run Inheritance
+  id: poYGQbY
+
+- pre: Inheritance…
+  title: Is **Only a Fallback**!
 
 - img: vars/boxes-unstyled.png
   position: center
@@ -602,87 +749,11 @@ slides:
   caption: >
     Defaulting handles _whatever's left_
 
-- pre: Some
-  title: |
-    Properties **Inherit**
-  caption: Value from _direct parent_
-
-- pre: >
-    _Custom_ properties
-  title: >
-    **Inherit** By Default
-
-- css: |
-    html { --brand-color: deepPink; }
-
-    form button[type=submit] {
-      background: var(--brand-color);
-    }
-  caption: The _best named color_ in CSS!
-
-- pre: Inheritance
-  title: Requires **Lineage**
-
-- css: |
-    html { color: red; }
-    body { color: blue; }
-    body > main { /* inherits… ? */ }
-  caption: >
-    Each element from it's _direct parent_
-
-- css: |
-    html { color: red; }
-
-    body > main { /* inherits… ? */ }
-  caption: >
-    Still inherits _from the body_
-
-- css: |
-    html { color: red; }
-    /* body inherits red from html */
-    /* body > main inherits red from body */ }
-  caption: >
-    Unbroken _lineage_
-
-- qr: oddbird.dev/learn/courses/design-with-code/
-  img: mixins/build-wealth.jpg
-  alt: >
-    How to build generational wealth
-    for your family,
-    text overlaid on a multi-generation
-    family photo all smiling at the camera
-
-- img: no-harm/oligarchs.jpg
-  alt: >
-    A line of tech oligarchs
-    at the inauguration of Donald Trump,
-    including
-    Elon Musk of Tesla,
-    Mark Zuckerberg of Meta,
-    Jeff Bezos of Amazon,
-    and Sunar Pichai of Google
-  position: bottom
-  caption: Become an **Evil Tech Oligarch**!
-
-- pre: Custom properties can
-  title: Smuggle **Hidden Context**
-
-- pre: Allowing us to
-  title: |
-    ~~Avoid **Inheritance Taxes**~~ \
-    Inherit **Across Generations**
-
-- pen: End-Run Inheritance
-  id: poYGQbY
-
-- pre: Since…
-  title: Cascade **Happens First**
-
 - pre: We could say…
   title: Cascade **Has Priority**
 
-- pen: Cascading vs Inheritance
-  id: zYbeMpr
+- pen: Importance doesn't inherit
+  id: RNrpKpX
 
 - pre: Defaulting _process_
   title: Depends on the **Property**
@@ -696,13 +767,6 @@ slides:
 # ..##..##...###..##.....##.....##..##.....##.##......
 # .####.##....##.####....##....####.##.....##.########
 # -->
-
-- pre: Most _properties_
-  title: >
-    **Don't** Inherit
-
-- id: eYXbPJP
-  pen: Inheritance intuition
 
 - pre: No _inheritance_?
   title: >
@@ -720,6 +784,42 @@ slides:
   caption: >
     Spec or [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color#formal_definition)
     'formal definition'
+
+- css: |
+    /* ultimate reset! */
+    * { all: initial !important; }
+  caption: |
+    Try it [on any website](https://smashingconf.com/ny-2025)!
+
+- css: |
+    /* initial values */
+    display: inline;
+    background: transparent;
+    color: CanvasText;
+    font-style: normal;
+    flex-basis: auto;
+    /* etc. */
+
+- css: |
+    body { display: initial; } /* inline */
+    section { display: initial; } /* inline */
+    div { display: initial; } /* inline */
+    span { display: initial; } /* inline */
+    head { display: initial; } /* inline */
+    title { display: initial; } /* inline */
+
+- css: |
+    html, body, p, div, article, aside, header,
+    hgroup, footer, main, nav, section /* etc */ {
+      display: block;
+    }
+
+    base, basefont, datalist, head, link, meta,
+    script, style, template, title /* etc */ {
+      display: none;
+    }
+  caption: |
+    Browser defaults _are essential_!
 
 - pre: Custom properties…
   title: Have No **Definition Table**?!
@@ -741,7 +841,11 @@ slides:
 - pen: Fallbacks must be guaranteed
   id: ZYQWZQp
 
-- css: |
+- pre: >
+    _Typed_ variables
+  title: >
+    Require an **`Initial-Value`**
+  css: |
     @property --border-size {
       syntax: "<length>";
       initial-value: 1px;
@@ -749,11 +853,6 @@ slides:
     }
   caption: >
     Options for [syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax)
-
-- pre: >
-    _Typed_ variables
-  title: >
-    Require an **`Initial-Value`**
 
 - pre: >
     _Typed_ variables
@@ -823,17 +922,37 @@ slides:
   caption: >
     (except _`currentColor`_!)
 
+- pre: >
+    _Defaulting_ has to happen
+  title: Before **Resolution**
+  sub: (gives us computed value)
+- pre: But _Resolution_ has to happen
+  title: Before **Inheritance**
+  sub: (at least on the parent)
+
 - pre: Move through DOM tree
   title: |
-    Resolve **Parent**, \
-    then Default **Children**
-  caption: Alternate **defaulting** & **resolving**
+    **Parent** Resolves, \
+    then **Children** Inherit
 
-- pre: Un-typed Properties
-  title: Can't **Resolve** Before Inheriting
+- pen: Computed Values
+  id: dPopMJM
 
-- pre: Un-typed Properties
-  title: Can **Substitute** Before Inheriting
+- pre: Resolution
+  title: Depends on **Property Type**
+
+- title: |
+    `<color>` » `rgb()` \
+    `<length>` » `px` \
+    `<angle>` » `deg` \
+    etc…
+
+- pre: Un-typed _custom properties_
+  title: >
+    **Can't Resolve** Until Used
+
+- pre: Un-typed _custom properties_
+  title: Only **Substitute** Before Inheriting
 
 - pen: CSS types, resolution, and inheritance
   id: WbrxMKZ
@@ -889,19 +1008,10 @@ slides:
 - pre: It _still isn't_…
   title: (But With **More Features**)
 
-- img: vars/ai.jpg
-  alt: >
-    Ai generated circuit-board inspired illustration
-    stolen off linkedin that
-    used to say ai is no longer optional,
-    but all mentions of ai have been crossed off,
-    and it now says understanding is no longer optional
-  position: bottom
-
 - pre: If you just want…
   title: To **Code Some Styles** Good
 
-- feature: oddbird.dev/learn/courses/design-with-code/
+- feature: oddbird.dev/courses/design-with-code/
   title: Designing With Code
   sub: Writing resilient and maintainable CSS
   bird: miriam
