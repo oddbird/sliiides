@@ -40,6 +40,6 @@
     "@oddbird/slide-deck": "^0.2.0-rc.1",
     "lean-qr": "^2.5.0",
     "lite-youtube-embed": "^0.3.0",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.23"
   }
 }
